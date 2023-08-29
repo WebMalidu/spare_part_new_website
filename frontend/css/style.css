@@ -17,12 +17,13 @@
 }
 
 @media (max-width: 576px) {
+  /* Why Choose Us section */
+  .WCU-s1-sBox {
+    height: 180px;
+  }
   .WCU-s1-image {
     height: 90px;
     width: 90px;
-  }
-  .WCU-s1-sBox {
-    height: 180px;
   }
   .WCU-s1-box-para{
     font-size: 15px;
@@ -30,18 +31,21 @@
 }
 
 @media (max-width: 426px) {
+  /* Why Choose Us section */
+  .WCU-s1-sBox {
+    height: 150px;
+  }
   .WCU-s1-image {
     height: 60px;
     width: 60px;
-  }
-  .WCU-s1-sBox {
-    height: 150px;
   }
   .WCU-s1-box-para{
     font-size: 12px;
   }
 }
 @media (max-width: 320px) {
+
+  /* Why Choose Us section */
   .WCU-s1-image {
     height: 40px;
     width: 40px;
