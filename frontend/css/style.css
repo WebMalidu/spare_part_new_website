@@ -1,0 +1,56 @@
+/* Why Choose Us section css */
+/* WCU section-1 */
+.WCU-s1-sBox {
+  width: 200px;
+  height: 230px;
+  background-color: white;
+}
+.WCU-s1-box-para{
+  font-size: 20px;
+}
+.WCU-s1-image {
+  height: 120px;
+  width: 120px;
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 576px) {
+  .WCU-s1-image {
+    height: 90px;
+    width: 90px;
+  }
+  .WCU-s1-sBox {
+    height: 180px;
+  }
+  .WCU-s1-box-para{
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 426px) {
+  .WCU-s1-image {
+    height: 60px;
+    width: 60px;
+  }
+  .WCU-s1-sBox {
+    height: 150px;
+  }
+  .WCU-s1-box-para{
+    font-size: 12px;
+  }
+}
+@media (max-width: 320px) {
+  .WCU-s1-image {
+    height: 40px;
+    width: 40px;
+  }
+  .WCU-s1-sBox {
+    height: 115px;
+  }
+  .WCU-s1-box-para{
+    font-size: 11px;
+  }
+}
+
