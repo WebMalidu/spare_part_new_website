@@ -10,16 +10,20 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
 
     <!-- js -->
     <script defer src="js/bootstrap.bundle.js"></script>
     <script defer src="js/script.js"></script>
 
+
 </head>
 
 <body>
     <section class=" WCU-s1 w-100">
-        <div class="container">
+        <div class="container ">
             <div class="w-100 text-light fw-bold fs-4 d-flex justify-content-center">
                 <p>Why Choose Us</p>
             </div>
@@ -42,10 +46,67 @@
                     </div>
                     <div class="w-100 WCU-s1-box-para text-primary fw-bold">Accuracy</div>
                 </div>
-        
+
             </div>
         </div>
     </section>
+
+
+
+    <!-- Review section -->
+    <section class="review-section">
+        <div class="container review-section-container">
+            <div class="review-header text-light fs-4 fw-bold">Review</div>
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="review-box p-5 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                            <div class="w-100 p-5 bg-light">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+                            <div class="w-100 bg-light text-center p-2">malindu</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review-box p-5 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                            <div class="w-100 p-5 bg-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
+                            <div class="w-100 bg-light text-center p-2">Daham</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review-box p-5 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                            <div class="w-100 p-5 bg-light">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+                            <div class="w-100 bg-light text-center p-2">madusha</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review-box p-5 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                            <div class="w-100 p-5 bg-light">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+                            <div class="w-100 bg-light text-center p-2">nirmal</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review-box p-5 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                            <div class="w-100 p-5 bg-light">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+                            <div class="w-100 bg-light text-center p-2">janith</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review-box p-5 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                            <div class="w-100 p-5 bg-light">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+                            <div class="w-100 bg-light text-center p-2">kavindu</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next  text-light"></div>
+                <div class="swiper-button-prev text-light"></div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
 </body>
 
 </html>
