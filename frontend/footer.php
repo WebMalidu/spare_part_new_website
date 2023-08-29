@@ -6,30 +6,35 @@
     <title>Image Slider</title>
     <!-- CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.0.9/dist/css/splide.min.css">
+
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #ccc;
-            margin: 0 5px;
-            cursor: pointer;
-        }
-        .active {
-            background-color: #00447B;
-
-        }
+        
         h5{
             color: white;
         }
         .item1{
             color: white;
+        }
+        .splide__pagination {
+            position: absolute;
+            bottom: -10px; /* Adjust this value as needed */
+            width: 100%;
+            text-align: center;
+        }
+        .splide__pagination__page {
+            width: 8px; /* Set the width of each dot */
+            height: 8px; /* Set the height of each dot */
+            background-color: #ccc; /* Change the background color of the dots */
+            display: inline-block; /* Display dots in a row */
+            margin: 0px 5px; /* Add spacing between dots */
+            cursor: pointer; /* Add pointer cursor */
+            border-radius: 50%; /* Make dots circular */
+            margin-top: 50px;
+        }
+        .splide__pagination__page.is-active {
+            background-color: #00447B; /* Change the color of the active dot */
         }
         
     </style>
@@ -37,37 +42,68 @@
 <body>
     <div class="container pb-3">
         <h1 class="py-2" style="color: #00447B;">Brand We Trust</h1>
-        <div class="brand-slider">
-            <div class="slider-frame">
-                <div class="image-pair">
-                    <img src="resources/image/10a8568 2.png" alt="Brand 1" style="width: 15%;" class="p-3">
-                    <img src="resources/image/logo_brand.png" alt="Brand 2" style="width: 15%;" class="p-3">
-                    <img src="resources/image/10a8568 2.png" alt="Brand 1" style="width: 15%;" class="p-3">
-                    <img src="resources/image/logo_brand.png" alt="Brand 2" style="width: 15%;" class="p-3">
-                    <img src="resources/image/10a8568 2.png" alt="Brand 1" style="width: 15%;" class="p-3">
-                    <img src="resources/image/logo_brand.png" alt="Brand 2" style="width: 15%;"class="p-3">
+        <div class="container">
+                <div class="splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <!-- Slide 1 -->
+                            <li class="splide__slide">
+                                <img src="resources/image/10a8568 2.png" alt="Brand 1" class="img-fluid p-3">
+                            </li>
+                            <!-- Slide 2 -->
+                            <li class="splide__slide">
+                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                            </li>
+                        </li>
+                        <li class="splide__slide">
+                            <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                        </li>
+                            <!-- Add more slides as needed -->
+                        </ul>
+                    </div>
                 </div>
-                <div class="image-pair">
-                    <img src="resources/image/logo_brand.png" alt="Brand 3" style="width: 15%;" class="p-3">
-                    <img src="resources/image/10a8568 2.png" alt="Brand 4" style="width: 15%;" class="p-3">
-                    <img src="resources/image/logo_brand.png" alt="Brand 1" style="width: 15%;" class="p-3">
-                    <img src="resources/image/10a8568 2.png" alt="Brand 2" style="width: 15%;" class="p-3">
-                    <img src="resources/image/logo_brand.png" alt="Brand 1" style="width: 15%;" class="p-3">
-                    <img src="resources/image/10a8568 2.png" alt="Brand 2" style="width: 15%;" class="p-3">
-                </div>
-                <div class="image-pair">
-                    <img src="resources/image/10a8568 2.png" alt="Brand 3" style="width: 15%;" class="p-3">
-                    <img src="resources/image/10a8568 2.png" alt="Brand 4" style="width: 15%;" class="p-3">
-                    <img src="resources/image/logo_brand.png" alt="Brand 1" style="width: 15%;" class="p-3">
-                    <img src="resources/image/10a8568 2.png" alt="Brand 2" style="width: 15%;" class="p-3">
-                    <img src="resources/image/logo_brand.png" alt="Brand 1" style="width: 15%;" class="p-3">
-                    <img src="resources/image/10a8568 2.png" alt="Brand 2" style="width: 15%;" class="p-3">
-                    
-                </div>
-                <!-- Add more image-pair divs as needed -->
             </div>
-            <div class="dots"></div>
-        </div>
+        
+    </div>
     </div>
     <footer style="background-color: #002848;">
         <div class="container">
@@ -113,46 +149,31 @@
 
     <!-- JavaScript -->
     <script src="js/bootstrap.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.0.9/dist/js/splide.min.js"></script>
     <script>
-        const sliderFrame = document.querySelector(".slider-frame");
-        const imagePairs = sliderFrame.querySelectorAll(".image-pair");
-        const dotsContainer = document.querySelector(".dots");
-        let currentFrameIndex = 0;
+        document.addEventListener('DOMContentLoaded', function() {
+            var splide = new Splide('.splide', {
+            type: 'loop',
+            perPage: 6, // Adjust this value as needed
+            perMove: 1,
+            autoplay: true, // Enable autoplay
+            pauseOnHover: false, // Keep autoplay running even when hovering
+            arrows: false, // Hide arrow icons
+            breakpoints: {
+                    768: {
+                        perPage: 2, // Show 2 images per page on screens with width 768px or more
+                    },
+                    992: {
+                        perPage: 3, // Show 3 images per page on screens with width 992px or more
+                    },
+                    1200: {
+                        perPage: 4, // Show 4 images per page on screens with width 1200px or more
+                    },
+                },
+        });
 
-        function showImagePair(index) {
-            for (let i = 0; i < imagePairs.length; i++) {
-                imagePairs[i].style.display = "none";
-            }
-            imagePairs[index].style.display = "block";
-
-            // Update active dot
-            const dots = dotsContainer.querySelectorAll(".dot");
-            dots.forEach((dot, i) => {
-                dot.classList.remove("active");
-                if (i === index) {
-                    dot.classList.add("active");
-                }
-            });
-        }
-
-        function nextImagePair() {
-            currentFrameIndex = (currentFrameIndex + 1) % imagePairs.length;
-            showImagePair(currentFrameIndex);
-        }
-
-        // Create dots based on the number of image pairs
-        for (let i = 0; i < imagePairs.length; i++) {
-            const dot = document.createElement("div");
-            dot.classList.add("dot");
-            dot.addEventListener("click", () => showImagePair(i));
-            dotsContainer.appendChild(dot);
-        }
-
-        // Auto slide every 3 seconds
-        setInterval(nextImagePair, 3000);
-
-        // Initial setup
-        showImagePair(currentFrameIndex);
-    </script>
+            splide.mount();
+        });
+    </script>   
 </body>
 </html>
