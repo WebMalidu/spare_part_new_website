@@ -98,7 +98,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-button-next  text-light"></div>
+                <div class="swiper-button-next text-light"></div>
                 <div class="swiper-button-prev text-light"></div>
             </div>
         </div>
