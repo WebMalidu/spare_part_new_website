@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <section class=" WCU-s1 bg-primary w-100">
+    <section class=" WCU-s1 w-100">
         <div class="container">
             <div class="w-100 text-light fw-bold fs-4 d-flex justify-content-center">
                 <p>Why Choose Us</p>

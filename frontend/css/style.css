@@ -1,5 +1,8 @@
 /* Why Choose Us section css */
 /* WCU section-1 */
+.WCU-s1{
+  background-color: rgba(0, 68, 123, 1);
+}
 .WCU-s1-sBox {
   width: 200px;
   height: 230px;
