@@ -23,11 +23,19 @@
         }
         .active {
             background-color: #00447B;
+
         }
+        h5{
+            color: white;
+        }
+        .item1{
+            color: white;
+        }
+        
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container pb-3">
         <h1 class="py-2" style="color: #00447B;">Brand We Trust</h1>
         <div class="brand-slider">
             <div class="slider-frame">
@@ -61,6 +69,47 @@
             <div class="dots"></div>
         </div>
     </div>
+    <footer style="background-color: #002848;">
+        <div class="container">
+        <div class="row">
+    <div class="col-sm ">
+     <img src="resources/image/logo.png" alt="" srcset="" class="my-5 w-75">
+    </div>
+    <div class="col-sm pt-3">
+      <h5 style="color: white;">About</h5>
+      <div class="footer-list-container py-4">
+        <div class="item1 py-2"> About us</div>
+        <div class="item1   py-2">Contact Us</div>
+        <div class="item1   py-2">Careers</div>
+        <div class="item1   py-2">FAQ</div>
+
+      </div>
+    </div>
+    <div class="col-sm pt-3">
+      <h5>policy</h5>
+      <div class="footer-list-container py-4">
+        <div class="item1 py-2"> About us</div>
+        <div class="item1   py-2">Contact Us</div>
+        <div class="item1   py-2">Careers</div>
+        <div class="item1   py-2">FAQ</div>
+
+      </div>
+    </div>
+    <div class="col-sm pt-3">
+      <h5>Usefull links</h5>
+      <div class="footer-list-container py-4">
+        <div class="item1 py-2"> About us</div>
+        <div class="item1   py-2">Contact Us</div>
+        <div class="item1   py-2">Careers</div>
+        <div class="item1   py-2">FAQ</div>
+        <div class="item1   py-2">Careers</div>
+        <div class="item1   py-2">FAQ</div>
+
+      </div>
+    </div>
+  </div>
+        </div>
+    </footer>
 
     <!-- JavaScript -->
     <script src="js/bootstrap.bundle.js"></script>
