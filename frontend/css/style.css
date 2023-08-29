@@ -16,13 +16,18 @@
   width: 120px;
 }
 
-@media (max-width: 768px) {
-}
+/* @media (max-width: 768px) {
+  .WCU-s1-sBox {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+  }
+} */
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   /* Why Choose Us section */
   .WCU-s1-sBox {
-    height: 180px;
+    height: 200px;
   }
   .WCU-s1-image {
     height: 90px;
@@ -33,7 +38,7 @@
   }
 }
 
-@media (max-width: 426px) {
+@media (max-width: 490px) {
   /* Why Choose Us section */
   .WCU-s1-sBox {
     height: 150px;
@@ -46,7 +51,7 @@
     font-size: 12px;
   }
 }
-@media (max-width: 320px) {
+@media (max-width: 400px) {
 
   /* Why Choose Us section */
   .WCU-s1-image {
