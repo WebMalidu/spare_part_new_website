@@ -58,6 +58,9 @@
   height: 45px;
   background-color: rgba(1, 208, 126, 1);
 }
+.searchSection-button:active{
+  transform: translateY(4px);
+}
 
 
 /* Brand we trust section  */
