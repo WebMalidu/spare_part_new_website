@@ -32,7 +32,7 @@
 
     <section class="w-100 searchSection">
         <div class="container searchSection-mainContainer ">
-            <div class="searchSection-header text-center fs-2 text-light fw-bold">Search by Vehical</div>
+            <div class="searchSection-header text-center fs-2 text-light fw-bold">Search by Vehicle</div>
             <div class="searchSection-selectorBox d-flex gap-2 p-3 justify-content-center">
                 <div>
                     <select class="searchSection-selector form-select form-select-sm" aria-label="Small select example">
