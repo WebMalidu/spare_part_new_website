@@ -1,0 +1,40 @@
+* {
+     margin: 0px;
+     padding: 0px;
+     box-sizing: border-box;
+     height: 100%; 
+}
+
+:root {
+     /* color */
+     --primary: #00447B;
+     --secondary: ;
+     --light: #F7F7F7;
+     --dark: ;
+     --gradient: ;
+
+     /* font */
+     --font-h1-lg: 24px;
+     --font-h1-md: 20px;
+     --font-h1: 16px;
+}
+
+/*class of colors */
+.batta-bg-primery {
+     background-color: var(--primary);
+}
+
+.batta-bg-gradient {
+     background-image: var(--gradient);
+}
+
+.batta-font-lite {
+     color: var(--light);
+}
+
+.batta-font-primery {
+     color: var(--primary);
+}
+.batta-bg-lite{
+    background-color:var( --light) ;
+}
