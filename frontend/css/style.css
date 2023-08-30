@@ -72,7 +72,7 @@
     font-size: 15px;
   }
   /* search Section  */
-  .searchSection-mainContainer{
+  .searchSection-selectorBox{
     flex-direction: column;
   }
 }
