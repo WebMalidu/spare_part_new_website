@@ -2,6 +2,10 @@
 .alg-bg-category{
     background-color:#00447B;
 }
+
+.alg-text-blue{
+    color: #0261AE;
+}
 .alg-category-img{
     width:112px;
     height:88px;
@@ -9,6 +13,10 @@
 
 /* offer section */
 
+.alg-slider-img{
+    width: 30px;
+    height:30px;
+}
 .swiper {
     width: 100%;
     height: 100%;

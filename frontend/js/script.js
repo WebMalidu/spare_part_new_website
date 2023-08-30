@@ -22,13 +22,14 @@ function increaseCategory(id) {
 
 // offersection
 
-var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 2,
-    spaceBetween: 80,
-    pagination: {
-        // el: ".swiper-pagination",
-        clickable: true,
-    },
+var swiper = new Swiper(".mySwiperk", {
+    type: 'loop',
+        perPage: 6, 
+        perMove: 1,
+        autoplay: true,  
+        pauseOnHover: false, 
+        arrows: false, 
+       
 });
 // Review section js
 var swiper = new Swiper(".mySwiper", {

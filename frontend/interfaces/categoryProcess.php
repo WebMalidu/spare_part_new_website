@@ -6,9 +6,7 @@ $y = $_GET["x"];
 
 if ($id > 5) {
 
-    // $x = $x + 1;
     $newRow = $id - 5 * $y;
-
 
     if ($newRow > 5) {
 

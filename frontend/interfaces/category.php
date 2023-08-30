@@ -1,9 +1,8 @@
 <section>
-    <h3 class="mx-5">Search By Category</h3>
+    <h3 class="mx-5 alg-text-blue mt-3 mb-4">Search By Category</h3>
     <div class="row d-flex justify-content-center">
-        <div class="col-10 d-flex justify-content-center align-content-center flex-wrap gap-5 gap-lg-4" id="category">
+        <div class="col-8 d-flex justi align-content-cente flex-wrap gap-5 gap-lg-4" id="category">
 
-            <!-- <div class="row d-flex justify-content-around align-items-center gap-md-4 gap-lg-2" > -->
             <?php
             $num_row = 12;
 
@@ -34,7 +33,7 @@
             }
 
             ?>
-            <!-- </div> -->
+        
         </div>
 
         <div class="d-flex justify-content-center mt-5">
