@@ -20,7 +20,7 @@
 
 <body>
     <section class="w-100 searchSection">
-        <div class="container d-flex gap-2 p-3 justify-content-center">
+        <div class="container searchSection-mainContainer d-flex gap-2 p-3 justify-content-center">
             <div>
                 <select class="searchSection-selector form-select form-select-sm" aria-label="Small select example">
                     <option selected>Select Car Maker</option>
@@ -78,15 +78,7 @@
                 </select>
             </div>
             <div>
-                <select class="searchSection-selector form-select form-select-sm" aria-label="Small select example">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
-            </div>
-            <div>
-                <button class="rounded-2 border-0 text-light searchSection-button">SEARCH PARTS</button>
+                <button class="rounded-2 border-0 fw-bold text-light searchSection-button">SEARCH PARTS</button>
             </div>
         </div>
     </section>

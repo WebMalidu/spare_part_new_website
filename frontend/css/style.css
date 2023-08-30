@@ -1,6 +1,6 @@
 /* Why Choose Us section css */
 /* WCU section-1 */
-.WCU-s1{
+.WCU-s1 {
   background-color: rgba(0, 68, 123, 1);
 }
 .WCU-s1-sBox {
@@ -8,7 +8,7 @@
   height: 230px;
   background-color: white;
 }
-.WCU-s1-box-para{
+.WCU-s1-box-para {
   font-size: 20px;
 }
 .WCU-s1-image {
@@ -16,12 +16,11 @@
   width: 120px;
 }
 
-
 /* Review section css */
-.review-section{
+.review-section {
   background-color: rgba(0, 68, 123, 1);
 }
-.review-section-container{
+.review-section-container {
   height: 400px;
 }
 /* slider css */
@@ -37,7 +36,7 @@
   justify-content: center;
   align-items: center;
 }
-.review-box{
+.review-box {
   background-color: rgba(0, 68, 123, 1);
 }
 .swiper-slide img {
@@ -48,15 +47,16 @@
 }
 
 /* Search Section css */
-.searchSection{
+.searchSection {
   background-color: rgba(0, 68, 123, 1);
 }
-.searchSection-selector{
+.searchSection-selector {
   height: 45px;
 }
-.searchSection-button{
+.searchSection-button {
+  font-size: 15px;
   height: 45px;
-  background-color: rgb(75, 166, 236);
+  background-color: rgba(1, 208, 126, 1);
 }
 
 @media (max-width: 768px) {
@@ -68,8 +68,12 @@
     height: 90px;
     width: 90px;
   }
-  .WCU-s1-box-para{
+  .WCU-s1-box-para {
     font-size: 15px;
+  }
+  /* search Section  */
+  .searchSection-mainContainer{
+    flex-direction: column;
   }
 }
 
@@ -82,12 +86,11 @@
     height: 60px;
     width: 60px;
   }
-  .WCU-s1-box-para{
+  .WCU-s1-box-para {
     font-size: 12px;
   }
 }
 @media (max-width: 400px) {
-
   /* Why Choose Us section */
   .WCU-s1-image {
     height: 40px;
@@ -96,8 +99,7 @@
   .WCU-s1-sBox {
     height: 115px;
   }
-  .WCU-s1-box-para{
+  .WCU-s1-box-para {
     font-size: 11px;
   }
 }
-
