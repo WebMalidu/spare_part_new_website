@@ -59,6 +59,75 @@
   background-color: rgba(1, 208, 126, 1);
 }
 
+
+/* Brand we trust section  */
+h5 {
+  color: white;
+}
+
+.item1 {
+  color: white;
+}
+
+.splide__pagination {
+  position: absolute;
+  bottom: -10px;
+  /* Adjust this value as needed */
+  width: 100%;
+  text-align: center;
+}
+
+.splide__pagination__page {
+  width: 8px;
+  /* Set the width of each dot */
+  height: 8px;
+  /* Set the height of each dot */
+  background-color: #ccc;
+  /* Change the background color of the dots */
+  display: inline-block;
+  /* Display dots in a row */
+  margin: 0px 5px;
+  /* Add spacing between dots */
+  cursor: pointer;
+  /* Add pointer cursor */
+  border-radius: 50%;
+  /* Make dots circular */
+  margin-top: 50px;
+}
+
+.splide__pagination__page.is-active {
+  background-color: #00447B;
+  /* Change the color of the active dot */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 768px) {
   /* Why Choose Us section */
   .WCU-s1-sBox {
