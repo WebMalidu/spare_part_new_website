@@ -1,3 +1,7 @@
+/* header */
+.header-link{
+  cursor:pointer;
+}
 /* category */
 .alg-bg-category{
     background-color:#00447B;
@@ -141,31 +145,6 @@ h5 {
   background-color: #00447B;
   /* Change the color of the active dot */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

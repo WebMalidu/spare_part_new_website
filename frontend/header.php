@@ -33,21 +33,21 @@
                          <!-- navigation -->
                          <div class="d-lg-flex d-none gap-4 batta-font-lite">
                               <div class="p-1 fs-5 d-flex  gap-5 ps-2 pe-2">
-                                   <div>
+                                   <div class="header-link">
                                         <a>Home</a>
                                    </div>
-                                   <div>
+                                   <div class="header-link">
                                         <a>Category</a>
                                    </div>
-                                   <div>
+                                   <div class="header-link">
                                         <a>Contact Us</a>
                                    </div>
-                                   <div>
+                                   <div class="header-link">
                                         <a>My Garage</a>
                                    </div>
 
                               </div>
-                              <div class="fs-5 d-flex justify-content-between gap-4 p-1 ps-4 pe-5">
+                              <div class="header-link fs-5 d-flex justify-content-between gap-4 p-1 ps-4 pe-5">
                                    <i class="bi bi-heart-fill"></i>
                                    <i class="bi bi-cart-fill"></i>
                                    <i class="bi bi-person-circle"></i>
