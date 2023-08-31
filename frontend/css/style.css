@@ -389,7 +389,18 @@ h5 {
   /* Change the color of the active dot */
 }
 
-
+.item1:hover {
+  color: white; /* Text color on hover */
+  border-bottom: 2px solid white; /* White underline on hover */
+  width: 80px;
+}
+.item1{
+  cursor: pointer;
+}
+.item1 {
+ 
+  transition: color 0.3s, border-bottom 0.3s; /* Smooth transition for color and border */
+}
 
 
 @media (max-width: 768px) {}
