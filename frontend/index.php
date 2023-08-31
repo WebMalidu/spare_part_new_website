@@ -25,7 +25,11 @@
 </head>
 
 <body>
+    <!-- header section-->
 
+    <?php include("header.php") ?>
+    
+    <!--catergory section  -->
     <?php include("interfaces/category.php") ?>
 
 

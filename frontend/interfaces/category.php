@@ -1,4 +1,4 @@
-<section>
+<section class="py-5">
     <div class="container">
         <h3 class="mx-5 alg-text-blue mt-3 mb-4 fs-2 fw-bold">Search By Category</h3>
         <div class="row d-flex justify-content-center">
