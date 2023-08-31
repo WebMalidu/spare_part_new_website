@@ -53,12 +53,12 @@
 
                          <div class="col-12 col-lg-6  ld-s1-main2  order-1  order-lg-0 ">
                               <!-- slider -->
-                              <div class="swiper mySwiperld">
-                                   <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
+                              <div class="ld-swiper mySwiperld">
+                                   <div class="ld-swiper-wrapper">
+                                        <div class="ld-swiper-slide">
                                              <img src="./resources/image/home/engineImage.png" />
                                         </div>
-                                        <div class="swiper-slide">Slide 2</div>
+                                        <div class="ld-swiper-slide">Slide 2</div>
                                    </div>
                                    <!-- <div class="swiper-pagination"></div> -->
                               </div>
