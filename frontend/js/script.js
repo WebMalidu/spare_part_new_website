@@ -1,4 +1,4 @@
-// swiper animation
+// swiper animation for ld-main slider
 var swiper = new Swiper(".mySwiperld", {
      direction: "vertical",
      pagination: {
@@ -6,6 +6,8 @@ var swiper = new Swiper(".mySwiperld", {
        clickable: true,
      },
    });
+
+
 // category
 
 var newRow = 0;
