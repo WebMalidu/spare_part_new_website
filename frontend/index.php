@@ -95,7 +95,7 @@
                     </select>
                 </div>
                 <div>
-                    <button class="rounded-2 border-0 fw-bold text-light searchSection-button">SEARCH PARTS</button>
+                    <button class="rounded-2 border-0 fw-bold text-light searchSection-button p-2">SEARCH PARTS</button>
                 </div>
             </div>
         </div>
