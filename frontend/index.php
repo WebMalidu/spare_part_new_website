@@ -28,6 +28,9 @@
     <!-- header section-->
 
     <?php include("header.php") ?>
+
+    <!-- hero section slider -->
+    <?php include("heroSection.php")?>
     
     <!--catergory section  -->
     <?php include("interfaces/category.php") ?>

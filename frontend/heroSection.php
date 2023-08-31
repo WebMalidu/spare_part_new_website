@@ -25,19 +25,19 @@
 
 <body>
      <!-- content -->
-     <section class=" batta-bg-primery" style="height: 70vh;">
+     <section class="batta-bg-primery" sty>
           <div class="container">
                <div class="col-12 m-0">
                     <div class="row p-0">
-                         <div class="col-12 ld-s1-main1 col-lg-6 order-2 order-lg-0 batta-font-lite">
-                              <div class="col-12 hr-bd-search ">
+                         <div class="col-12 col-lg-6 order-2 order-lg-0 batta-font-lite">
+                              <div class="col-12  hr-bd-search  ">
                                    <input type="text" class="ld-s1-search-input  batta-bg-lite" />
                               </div>
-                              <div class="col-12 hr-bd-parahmain ">
+                              <div class="col-12 hr-bd-parahmain " style="color:#F7F7F7;">
                                    <div class="col-12">
                                         <p>our hope is find you to get bsest soloution no matter what you want every commpoment have in our hand</p>
                                    </div>
-                                  <!-- btn section -->
+                                   <!-- btn section -->
                                    <div class="col-12 hr-bd-parah m-0">
                                         <div class="row pb-md-3 pb-lg-0  p-0 gap-2 gap-md-0 gap-lg-0 pt-3 pt-md-0 pt-lg-0">
                                              <div class="col-12 col-md-6 col-lg-6 d-grid hr-bd-btn">
@@ -51,14 +51,14 @@
                               </div>
                          </div>
 
-                         <div class="col-12 col-lg-6  ld-s1-main2  order-1  order-lg-0 ">
+                         <div class="col-12 col-lg-6   ld-s1-main2  order-1  order-lg-0 ">
                               <!-- slider -->
-                              <div class="swiper mySwiperld">
+                              <div class="swiper ld-hero mySwiperld">
                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
+                                        <div class="swiper-slide ld-hero">
                                              <img src="./resources/image/home/engineImage.png" />
                                         </div>
-                                        <div class="swiper-slide">Slide 2</div>
+                                        <div class="swiper-slide ld-hero">Slide 2</div>
                                    </div>
                                    <!-- <div class="swiper-pagination"></div> -->
                               </div>

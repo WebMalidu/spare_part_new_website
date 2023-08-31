@@ -17,45 +17,43 @@
 
 <body>
      <header class="fixed-top">
-          <nav class="batta-bg-primery">
-               <div class="container">
-                    <div class="d-flex justify-content-between p-2  ">
-                         <!-- Button trigger modal -->
-                         <div class="mobile-toggler d-lg-none fs-2 ps-4 ">
-                              <a href="#" data-bs-toggle="modal" data-bs-target="#navbModal" class="batta-font-lite">
-                                   <i class="bi bi-border-width"></i>
-                              </a>
-                         </div>
-                         <!-- logo -->
-                         <div class="p-1 ps-2  ps-lg-5 pe-5 pe-lg-0">
-                              <img src="./resources/image/battaLogoWhite.png" alt="logo" style="width:180px ;height: 20px;">
-                         </div>
-                         <!-- navigation -->
-                         <div class="d-lg-flex d-none gap-4 batta-font-lite">
-                              <div class="p-1 fs-5 d-flex  gap-5 ps-2 pe-2">
-                                   <div class="header-link">
-                                        <a>Home</a>
-                                   </div>
-                                   <div class="header-link">
-                                        <a>Category</a>
-                                   </div>
-                                   <div class="header-link">
-                                        <a>Contact Us</a>
-                                   </div>
-                                   <div class="header-link">
-                                        <a>My Garage</a>
-                                   </div>
+          <nav>
+               <div class="d-flex justify-content-between p-2 batta-bg-primery ">
+                    <!-- Button trigger modal -->
+                    <div class="mobile-toggler d-lg-none fs-2 ps-4 ">
+                         <a href="#" data-bs-toggle="modal" data-bs-target="#navbModal" class="batta-font-lite">
+                              <i class="bi bi-border-width"></i>
+                         </a>
+                    </div>
+                    <!-- logo -->
+                    <div class="p-1 ps-2  ps-lg-5 pe-5 pe-lg-0">
+                         <img src="./resources/image/battaLogoWhite.png" alt="logo" style="width:180px ;height: 20px;">
+                    </div>
+                    <!-- navigation -->
+                    <div class="d-lg-flex d-none gap-4 batta-font-lite">
+                         <div class="p-1 fs-5 d-flex  gap-5 ps-2 pe-2">
+                              <div>
+                                   <a>Home</a>
+                              </div>
+                              <div>
+                                   <a>Category</a>
+                              </div>
+                              <div>
+                                   <a>Contact Us</a>
+                              </div>
+                              <div>
+                                   <a>My Garage</a>
+                              </div>
 
-                              </div>
-                              <div class="header-link fs-5 d-flex justify-content-between gap-4 p-1 ps-4 pe-5">
-                                   <i class="bi bi-heart-fill"></i>
-                                   <i class="bi bi-cart-fill"></i>
-                                   <i class="bi bi-person-circle"></i>
-                              </div>
+                         </div>
+                         <div class="fs-5 d-flex justify-content-between gap-4 p-1 ps-4 pe-5">
+                              <i class="bi bi-heart-fill"></i>
+                              <i class="bi bi-cart-fill"></i>
+                              <i class="bi bi-person-circle"></i>
                          </div>
                     </div>
-
                </div>
+
 
           </nav>
 
