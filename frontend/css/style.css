@@ -164,14 +164,14 @@
     height: 50%;
   }
 
-  .swiper-slide img {
+  .ld-hero.swiper-slide img {
     display: block;
     width: 80%;
     height: 80%;
     object-fit: cover;
   }
 
-  .swiper {
+  .ld-hero.swiper {
     height: 70vh;
   }
 
@@ -211,14 +211,14 @@
     height: 50%;
   }
 
-  .swiper-slide img {
+  .ld-hero.swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .swiper {
+  .ld-hero.swiper {
     height: 50vh;
   }
 
