@@ -201,44 +201,8 @@
 
 
 
-    <footer style="background-color: #002848;">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm ">
-                    <img src="resources/image/logo.png" alt="" srcset="" class="my-5 w-75">
-                </div>
-                <div class="col-sm pt-3">
-                    <h5 style="color: white;">About</h5>
-                    <div class="footer-list-container py-4">
-                        <div class="item1 py-2"> About us</div>
-                        <div class="item1   py-2">Contact Us</div>
-                        <div class="item1   py-2">Careers</div>
-                        <div class="item1   py-2">FAQ</div>
-
-                    </div>
-                </div>
-                <div class="col-sm pt-3">
-                    <h5>policy</h5>
-                    <div class="footer-list-container py-4">
-                        <div class="item1 py-2"> About us</div>
-                        <div class="item1   py-2">Contact Us</div>
-                        <div class="item1   py-2">Careers</div>
-                        <div class="item1   py-2">FAQ</div>
-
-                    </div>
-                </div>
-                <div class="col-sm pt-3">
-                    <h5>Usefull links</h5>
-                    <div class="footer-list-container py-4">
-                        <div class="item1 py-2"> About us</div>
-                        <div class="item1   py-2">Contact Us</div>
-                        <div class="item1   py-2">Careers</div>
-                        <div class="item1   py-2">FAQ</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- footer -->
+    <?php include("footer.php") ?>
 
 
 
