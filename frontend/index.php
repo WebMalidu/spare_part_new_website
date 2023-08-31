@@ -26,7 +26,7 @@
 
 <body>
 
-
+    <?php include("interfaces/category.php") ?>
 
 
     <!-- search section -->
@@ -96,6 +96,13 @@
             </div>
         </div>
     </section>
+
+
+
+    <?php include("interfaces/offerSection.php") ?>
+
+
+
 
     <!-- Why Choose Us secction -->
     <section class=" WCU-s1 w-100">
@@ -191,54 +198,54 @@
                         <ul class="splide__list">
                             <!-- Slide 1 -->
                             <li class="splide__slide">
-                                <img src="resources/image/10a8568 2.png" alt="Brand 1" class="img-fluid p-3">
+                                <img src="resources/image/brand1.jpg" alt="Brand 1" class="img-fluid p-3">
                             </li>
                             <!-- Slide 2 -->
                             <li class="splide__slide">
-                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                                <img src="resources/image/brand2.jpg" alt="Brand 2" class="img-fluid p-3">
                             </li>
                             <li class="splide__slide">
-                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                                <img src="resources/image/brand1.jpg" alt="Brand 2" class="img-fluid p-3">
                             </li>
                             <li class="splide__slide">
-                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                                <img src="resources/image/brand2.jpg" alt="Brand 2" class="img-fluid p-3">
                             </li>
                             <li class="splide__slide">
-                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                                <img src="resources/image/brand1.jpg" alt="Brand 2" class="img-fluid p-3">
                             </li>
                             <li class="splide__slide">
-                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                                <img src="resources/image/brand2.jpg" alt="Brand 2" class="img-fluid p-3">
                             </li>
                             <li class="splide__slide">
-                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                                <img src="resources/image/brand1.jpg" alt="Brand 2" class="img-fluid p-3">
                             </li>
                             <li class="splide__slide">
-                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                                <img src="resources/image/brand2.jpg" alt="Brand 2" class="img-fluid p-3">
                             </li>
                             <li class="splide__slide">
-                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                                <img src="resources/image/brand1.jpg" alt="Brand 2" class="img-fluid p-3">
                             </li>
                             </li>
                             <li class="splide__slide">
-                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                                <img src="resources/image/brand2.jpg" alt="Brand 2" class="img-fluid p-3">
                             </li>
                             <li class="splide__slide">
-                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                                <img src="resources/image/brand1.jpg" alt="Brand 2" class="img-fluid p-3">
                             </li>
                             <li class="splide__slide">
-                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                                <img src="resources/image/brand2.jpg" alt="Brand 2" class="img-fluid p-3">
                             </li>
                             <li class="splide__slide">
-                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                                <img src="resources/image/brand1.jpg" alt="Brand 2" class="img-fluid p-3">
                             </li>
                             <li class="splide__slide">
-                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                                <img src="resources/image/brand2.jpg" alt="Brand 2" class="img-fluid p-3">
                             </li>
                             <li class="splide__slide">
-                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                                <img src="resources/image/brand1.jpg" alt="Brand 2" class="img-fluid p-3">
                             </li>
                             <li class="splide__slide">
-                                <img src="resources/image/10a8568 2.png" alt="Brand 2" class="img-fluid p-3">
+                                <img src="resources/image/brand2.jpg" alt="Brand 2" class="img-fluid p-3">
                             </li>
                             <!-- Add more slides as needed -->
                         </ul>
