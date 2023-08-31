@@ -61,9 +61,7 @@
 .review-section {
   background-color: rgba(0, 68, 123, 1);
 }
-.review-section-container {
-  height: 400px;
-}
+
 /* slider css */
 .review-section-box.swiper {
   width: 100%;
