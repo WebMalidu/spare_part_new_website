@@ -2,7 +2,7 @@
      margin: 0px;
      padding: 0px;
      box-sizing: border-box;
-
+    
 }
 
 :root {
@@ -35,7 +35,6 @@
 .batta-font-primery {
      color: var(--primary);
 }
-
-.batta-bg-lite {
-     background-color: var(--light);
+.batta-bg-lite{
+    background-color:var( --light) ;
 }
