@@ -108,6 +108,7 @@
 /* category */
 .alg-bg-category {
   background-color: #00447B;
+  box-shadow: 10px 10px 5px rgb(166, 216, 233);
 }
 
 .alg-text-blue {
