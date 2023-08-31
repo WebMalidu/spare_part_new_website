@@ -59,39 +59,39 @@
         <div class="container review-section-container">
             <div class="review-header text-light fs-4 fw-bold">Review</div>
             <!-- Swiper -->
-            <div class="swiper mySwiper">
+            <div class="review-section-box swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <div class="review-section-box swiper-slide">
                         <div class="review-box p-5 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
                             <div class="w-100 p-5 bg-light">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
                             <div class="w-100 bg-light text-center p-2">malindu</div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="review-section-box swiper-slide">
                         <div class="review-box p-5 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
                             <div class="w-100 p-5 bg-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
                             <div class="w-100 bg-light text-center p-2">Daham</div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="review-section-box swiper-slide">
                         <div class="review-box p-5 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
                             <div class="w-100 p-5 bg-light">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
                             <div class="w-100 bg-light text-center p-2">madusha</div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="review-section-box swiper-slide">
                         <div class="review-box p-5 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
                             <div class="w-100 p-5 bg-light">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
                             <div class="w-100 bg-light text-center p-2">nirmal</div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="review-section-box swiper-slide">
                         <div class="review-box p-5 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
                             <div class="w-100 p-5 bg-light">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
                             <div class="w-100 bg-light text-center p-2">janith</div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="review-section-box swiper-slide">
                         <div class="review-box p-5 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
                             <div class="w-100 p-5 bg-light">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
                             <div class="w-100 bg-light text-center p-2">kavindu</div>

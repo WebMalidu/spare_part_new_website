@@ -65,11 +65,11 @@
   height: 400px;
 }
 /* slider css */
-.swiper {
+.review-section-box.swiper {
   width: 100%;
   height: 250px;
 }
-.swiper-slide {
+.review-section-box.swiper-slide {
   text-align: center;
   font-size: 18px;
   background: #fff;
@@ -80,7 +80,7 @@
 .review-box {
   background-color: rgba(0, 68, 123, 1);
 }
-.swiper-slide img {
+.review-section-box.swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
