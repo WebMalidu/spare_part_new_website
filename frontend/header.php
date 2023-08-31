@@ -17,8 +17,9 @@
 
 <body>
      <header class="fixed-top">
-          <nav>
-               <div class="d-flex justify-content-between p-2 batta-bg-primery ">
+          <nav class="batta-bg-primery">
+               <div class="container">
+               <div class="d-flex justify-content-between p-2  ">
                     <!-- Button trigger modal -->
                     <div class="mobile-toggler d-lg-none fs-2 ps-4 ">
                          <a href="#" data-bs-toggle="modal" data-bs-target="#navbModal" class="batta-font-lite">
@@ -54,7 +55,7 @@
                     </div>
                </div>
 
-
+</div>
           </nav>
 
      </header>
