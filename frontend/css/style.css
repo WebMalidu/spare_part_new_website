@@ -43,44 +43,6 @@
   color: #333;
 }
 
-@media screen and (max-width: 768px) {
-  .nav-menu {
-    display: none;
-  }
-
-  .nav-toggle {
-    display: block;
-  }
-
-  .nav-toggle.active span:nth-of-type(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  .nav-toggle.active span:nth-of-type(2) {
-    opacity: 0;
-  }
-
-  .nav-toggle.active span:nth-of-type(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
-
-  .nav-menu {
-    display: block;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    padding: 10px 20px;
-    text-align: center;
-  }
-
-  .nav-menu li {
-    display: block;
-    margin-bottom: 10px;
-  }
-}
-
 /* hero slider section style */
 .hero-body-container {
   min-width: max-content;
@@ -137,98 +99,6 @@
   outline: none;
   translate: 0 70px;
 }
-
-
-
-@media (max-width: 768px) {
-
-  /* landing page */
-  /* section 1 */
-  .ld-s1-search-input {
-    translate: 0;
-    min-height: 6vh;
-
-  }
-
-  .hr-bd-search {
-    height: 30%;
-    padding-bottom: 50px;
-    padding-top: 0px;
-  }
-
-  .hr-bd-parahmain {
-    height: 20%;
-  }
-
-  .ld-s1-main2 {
-    height: 50%;
-  }
-
-  .swiper-slide img {
-    display: block;
-    width: 80%;
-    height: 80%;
-    object-fit: cover;
-  }
-
-  .swiper {
-    height: 70vh;
-  }
-
-
-}
-
-@media (max-width: 576px) {
-
-  /* landing page */
-  /* section 1 */
-  .ld-s1-main-image {
-    width: 300px;
-  }
-
-  .hr-bd-search {
-    height: 20%;
-    padding-bottom: 50px;
-    padding-top: 0px;
-  }
-
-  .hr-bd-parahmain {
-    height: 30%;
-  }
-
-  .hr-bd-search {
-    height: 20%;
-    padding-top: 20px;
-  }
-
-  .ld-s1-search-input {
-    width: 100%;
-    translate: 0;
-    height: 50%;
-  }
-
-  .ld-s1-main2 {
-    height: 50%;
-  }
-
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .swiper {
-    height: 50vh;
-  }
-
-}
-
-
-
-
-
-
 
 /* header */
 .header-link {
@@ -339,7 +209,7 @@
 }
 
 .searchSection-button {
-  font-size: 15px;
+  font-size: 13px;
   height: 45px;
   background-color: rgba(1, 208, 126, 1);
 }
@@ -392,7 +262,82 @@ h5 {
 
 
 
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+  .searchSection-button {
+    font-size: 11px;
+  }
+
+ /* landing page */
+  /* section 1 */
+  .ld-s1-search-input {
+    translate: 0;
+    min-height: 6vh;
+
+  }
+
+  .hr-bd-search {
+    height: 30%;
+    padding-bottom: 50px;
+    padding-top: 0px;
+  }
+
+  .hr-bd-parahmain {
+    height: 20%;
+  }
+
+  .ld-s1-main2 {
+    height: 50%;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+  }
+
+  .swiper {
+    height: 70vh;
+  }
+
+
+
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-toggle.active span:nth-of-type(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .nav-toggle.active span:nth-of-type(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.active span:nth-of-type(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  .nav-menu {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 10px 20px;
+    text-align: center;
+  }
+
+  .nav-menu li {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
 
 @media (max-width: 576px) {
 
@@ -413,6 +358,57 @@ h5 {
   /* search Section  */
   .searchSection-selectorBox {
     flex-direction: column;
+  }
+
+  
+  /* landing page */
+  /* section 1 */
+  .ld-s1-main-image {
+    width: 300px;
+  }
+
+  .hr-bd-search {
+    height: 20%;
+    padding-bottom: 50px;
+    padding-top: 0px;
+  }
+
+  .hr-bd-parahmain {
+    height: 30%;
+  }
+
+  .hr-bd-search {
+    height: 20%;
+    padding-top: 20px;
+  }
+
+  .ld-s1-search-input {
+    width: 100%;
+    translate: 0;
+    height: 50%;
+  }
+
+  .ld-s1-main2 {
+    height: 50%;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .swiper {
+    height: 50vh;
+  }
+  /* footer */
+  .footer-mainBox{
+    text-align: center;
+  }
+  .footer-logo{
+    width: 180px;
+    height: 25px;
   }
 }
 

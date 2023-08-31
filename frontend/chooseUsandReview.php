@@ -25,7 +25,7 @@
 <body>
     <section class=" WCU-s1 w-100">
         <div class="container ">
-            <div class="w-100 text-light fw-bold fs-4 d-flex justify-content-center">
+            <div class="w-100 text-light fw-bold fs-2 d-flex justify-content-center">
                 <p>Why Choose Us</p>
             </div>
             <div class="w-100 d-flex justify-content-center p-3 gap-5">
@@ -57,7 +57,7 @@
     <!-- Review section -->
     <section class="review-section">
         <div class="container review-section-container">
-            <div class="review-header text-light fs-4 fw-bold">Review</div>
+            <div class="review-header text-light fs-2 fw-bold">Review</div>
             <!-- Swiper -->
             <div class="review-section-box swiper mySwiper">
                 <div class="swiper-wrapper">

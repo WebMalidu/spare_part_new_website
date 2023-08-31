@@ -120,9 +120,9 @@
     </div>
     <footer style="background-color: #002848;">
         <div class="container">
-            <div class="row">
+            <div class="row footer-mainBox">
                 <div class="col-sm ">
-                    <img src="resources/image/logo.jpg" alt="" srcset="" class="my-5 w-75">
+                    <img src="resources/image/logo.jpg" alt="" srcset="" class="footer-logo my-5 ">
                 </div>
                 <div class="col-sm pt-3">
                     <h5 style="color: white;">About</h5>
