@@ -1,4 +1,4 @@
-<section class="w-100 searchSection">
+<section class="w-100 searchSection py-4">
         <div class="container searchSection-mainContainer ">
             <div class="searchSection-header  fs-2 text-light fw-bold">Search by Vechicle</div>
             <div class="searchSection-selectorBox d-flex gap-2 p-3 ">

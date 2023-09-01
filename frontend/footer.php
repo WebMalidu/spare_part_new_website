@@ -54,7 +54,7 @@
 </head>
 
 <body>
-    <div class="container pb-3">
+    <div class="container pb-3 py-4">
         <h1 class="py-2 fw-bold fs-2" style="color: #00447B;">Brand We Trust</h1>
         <div class="container">
             <div class="splide">
