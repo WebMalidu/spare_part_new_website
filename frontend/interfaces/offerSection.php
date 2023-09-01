@@ -8,8 +8,6 @@
                         <div>
                             <img src="resources/image/offer.png" class="alg-slider-img" alt="">
                         </div>
-                    </div>
-                    <div class="swiper-slide">
                         <div>
                             <img src="resources/image/offer.png" class="alg-slider-img" alt="">
                         </div>
@@ -18,8 +16,15 @@
                         <div>
                             <img src="resources/image/offer.png" class="alg-slider-img" alt="">
                         </div>
+                        <div>
+                            <img src="resources/image/offer.png" class="alg-slider-img" alt="">
+                        </div>
+
                     </div>
                     <div class="swiper-slide">
+                        <div>
+                            <img src="resources/image/offer.png" class="alg-slider-img" alt="">
+                        </div>
                         <div>
                             <img src="resources/image/offer.png" class="alg-slider-img" alt="">
                         </div>
@@ -28,8 +33,22 @@
                         <div>
                             <img src="resources/image/offer.png" class="alg-slider-img" alt="">
                         </div>
+                        <div>
+                            <img src="resources/image/offer.png" class="alg-slider-img" alt="">
+                        </div>
                     </div>
                     <div class="swiper-slide">
+                        <div>
+                            <img src="resources/image/offer.png" class="alg-slider-img" alt="">
+                        </div>
+                        <div>
+                            <img src="resources/image/offer.png" class="alg-slider-img" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div>
+                            <img src="resources/image/offer.png" class="alg-slider-img" alt="">
+                        </div>
                         <div>
                             <img src="resources/image/offer.png" class="alg-slider-img" alt="">
                         </div>
