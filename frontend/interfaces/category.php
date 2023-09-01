@@ -38,7 +38,7 @@
             </div>
 
             <div class="d-flex justify-content-center mt-5 p-3">
-                <button class="btn btn-outline-primary fw-semibold" onclick='increaseCategory(<?php echo $num_row ?>)'>Learn More</button>
+                <button class="btn btn-outline-primary fw-semibold" onclick='increaseCategory(<?php echo $num_row ?>)'>Load More</button>
             </div>
 
         </div>
