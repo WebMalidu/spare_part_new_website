@@ -2,7 +2,7 @@
      margin: 0px;
      padding: 0px;
      box-sizing: border-box;
-    
+     font-family: 'Rubik', sans-serif;
 }
 
 :root {
@@ -17,6 +17,8 @@
      --font-h1-lg: 24px;
      --font-h1-md: 20px;
      --font-h1: 16px;
+     /* font family */
+
 }
 
 /*class of colors */

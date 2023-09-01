@@ -34,7 +34,7 @@
                          </div>
                          <div class="col-12 hr-bd-parahmain  " style="color:#F7F7F7;">
                               <div class="col-12  pt-5 pt-lg-0">
-                                   <p>our hope is find you to get bsest soloution no matter what you want every commpoment have in our hand</p>
+                                   <p>our hope is find you to get best solution no matter what you want every commpoment have in our hand</p>
                               </div>
                               <!-- btn section -->
                               <div class="col-12 hr-bd-parah m-0">
