@@ -25,47 +25,43 @@
 
 <body>
      <!-- content -->
-     <section class="batta-bg-primery" sty>
+     <section class="batta-bg-primery ld-hero-section1">
           <div class="container">
-               <div class="col-12 m-0">
-                    <div class="row p-0">
-                         <div class="col-12 col-lg-6 order-2 order-lg-0 batta-font-lite">
-                              <div class="col-12  hr-bd-search  ">
-                                   <input type="text" class="ld-s1-search-input  batta-bg-lite" />
-                              </div>
-                              <div class="col-12 hr-bd-parahmain " style="color:#F7F7F7;">
-                                   <div class="col-12">
-                                        <p>our hope is find you to get bsest soloution no matter what you want every commpoment have in our hand</p>
-                                   </div>
-                                   <!-- btn section -->
-                                   <div class="col-12 hr-bd-parah m-0">
-                                        <div class="row pb-md-3 pb-lg-0  p-0 gap-2 gap-md-0 gap-lg-0 pt-3 pt-md-0 pt-lg-0">
-                                             <div class="col-12 col-md-6 col-lg-6 d-grid hr-bd-btn">
-                                                  <button class="btn btn-success">Add car</button>
-                                             </div>
-                                             <div class="col-12 col-md-6  col-lg-6 d-grid hr-bd-btn">
-                                                  <button class="btn btn-outline-success">Learn More</button>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
+               <div class="row">
+                    <div class="col-12 col-lg-6 m-0  pt-0 pt-lg-4 order-2 order-lg-0 ld-hero-subcolumn">
+                         <div class="col-12  hr-bd-search  ">
+                              <input type="text" class="ld-s1-search-input  batta-bg-lite" />
                          </div>
-
-                         <div class="col-12 col-lg-6   ld-s1-main2  order-1  order-lg-0 ">
-                              <!-- slider -->
-                              <div class="swiper ld-hero mySwiperld">
-                                   <div class="swiper-wrapper">
-                                        <div class="swiper-slide ld-hero">
-                                             <img src="./resources/image/home/engineImage.png" />
+                         <div class="col-12 hr-bd-parahmain  " style="color:#F7F7F7;">
+                              <div class="col-12  pt-5 pt-lg-0">
+                                   <p>our hope is find you to get bsest soloution no matter what you want every commpoment have in our hand</p>
+                              </div>
+                              <!-- btn section -->
+                              <div class="col-12 hr-bd-parah m-0">
+                                   <div class="row pb-md-3 pb-lg-0  p-0 gap-2 gap-md-0 gap-lg-0 pt-3 pt-md-0 pt-lg-0">
+                                        <div class="col-12 col-md-6 col-lg-6 d-grid hr-bd-btn">
+                                             <button class="btn btn-success">Add car</button>
                                         </div>
-                                        <div class="swiper-slide ld-hero">Slide 2</div>
+                                        <div class="col-12 col-md-6  col-lg-6 d-grid hr-bd-btn">
+                                             <button class="btn btn-outline-success">Learn More</button>
+                                        </div>
                                    </div>
-                                   <!-- <div class="swiper-pagination"></div> -->
                               </div>
                          </div>
                     </div>
-               </div>
+                    <div class="col-12 col-lg-6  order-1  order-lg-0 ">
+                         <!-- slider -->
+                         <div class="swiper ld-hero mySwiperld" style="height: 478px; width: 100%;">
+                              <div class="swiper-wrapper">
+                                   <div class="swiper-slide ld-hero">
+                                        <img src="./resources/image/home/engineImage.png" />
+                                   </div>
+                                   <div class="swiper-slide ld-hero">Slide 2</div>
+                              </div>
+                         </div>
 
+                    </div>
+               </div>
           </div>
 
      </section>
