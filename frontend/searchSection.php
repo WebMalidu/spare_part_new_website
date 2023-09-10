@@ -1,8 +1,8 @@
-<section class="w-100 searchSection py-4">
+<section class="w-100 searchSection py-4 mt-4">
         <div class="container searchSection-mainContainer ">
             <div class="searchSection-header  fs-2 text-light fw-bold">Search by Vechicle</div>
             <div class="searchSection-selectorBox d-flex gap-2 p-3 ">
-                <div class="px-4">
+                <div class="w-100">
                     <select class="searchSection-selector form-select form-select-sm  " aria-label="Small select example">
                         <option selected>Select Car Maker</option>
                         <option class="fw-bold" value="1" disabled>popular car makers</option>
@@ -17,7 +17,7 @@
                         <option value="2">TATA</option>
                     </select>
                 </div>
-                <div class="px-4">
+                <div class="w-100">
                     <select class="searchSection-selector  form-select form-select-sm" aria-label="Small select example">
                         <option selected>Select Model Line</option>
                         <option value="1">One</option>
@@ -25,7 +25,7 @@
                         <option value="3">Three</option>
                     </select>
                 </div>
-                <div class="px-4">
+                <div class="w-100">
                     <select class="searchSection-selector form-select form-select-sm" aria-label="Small select example">
                         <option selected>Select Car Year</option>
                         <option value="1">2000</option>
@@ -50,7 +50,7 @@
                         <option value="3">2020</option>
                     </select>
                 </div>
-                <div class="px-4 ">
+                <div class=" w-100">
                     <select class="searchSection-selector form-select form-select-sm" aria-label="Small select example">
                         <option selected>Select Modification</option>
                         <option value="1">One</option>
@@ -58,7 +58,7 @@
                         <option value="3">Three</option>
                     </select>
                 </div>
-                <div class="px-4">
+                <div class="w-100">
                     <button class="rounded-2 border-0 fw-bold text-light searchSection-button p-2">SEARCH PARTS</button>
                 </div>
             </div>

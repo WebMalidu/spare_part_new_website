@@ -10,7 +10,7 @@
                 if ($num_row >= 5) {
                     for ($x = 0; $x < 4; $x++) {
                 ?>
-                        <div class="col-5 col-md-3 col-lg-2 alg-bg-category mb-3 rounded mt-3 mx-4">
+                        <div class="col-5 col-md-3 col-lg-2 alg-bg-category mb-3 rounded mt-3 mx-4" style="height: 250px;">
 
                             <div class="d-flex flex-column align-items-center">
                                 <img src="resources/image/car.jpg" alt="" class="alg-category-img mt-4 mb-3">
