@@ -54,8 +54,8 @@
 </head>
 
 <body>
-    <div class="container pb-3">
-        <h1 class="py-2 fw-bold fs-2" style="color: #00447B;">Brand We Trust</h1>
+    <div class="container pb-3 py-4">
+        <h1 class="py-4 fw-bold fs-2" style="color: #00447B;">Brand We Trust</h1>
         <div class="container">
             <div class="splide">
                 <div class="splide__track">
@@ -119,7 +119,7 @@
         </div>
 
     </div>
-    <footer style="background-color: #002848;">
+    <footer style="background-color: #002848; margin-top: 50px;" class="py-4">
         <div class="container">
             <div class="row footer-mainBox">
                 <div class="col-sm ">

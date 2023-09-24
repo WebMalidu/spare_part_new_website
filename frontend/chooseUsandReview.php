@@ -25,11 +25,12 @@
 <body>
     <section class=" WCU-s1 w-100">
         <div class="container ">
-            <div class="w-100 text-light fw-bold fs-2 d-flex justify-content-center">
+            <div class="w-100 text-light fw-bold fs-2 pt-4">
                 <p>Why Choose Us</p>
             </div>
-            <div class="w-100 d-flex justify-content-center p-3 gap-5">
-                <div class="WCU-s1-sBox d-flex flex-column justify-content-center align-items-center rounded-2 gap-4 text-center">
+            <div class="w-100 d-flex justify-content-center p-3 gap-5 ">
+                <div class="WCU-s1-sBox d-flex flex-column justify-content-center align-items-center rounded-2 gap-4 text-center"  
+>
                     <div class="w-100 ">
                         <img src="resources/image/home/test.jpeg" alt="" class="WCU-s1-image">
                     </div>
@@ -55,7 +56,7 @@
 
 
     <!-- Review section -->
-    <section class="review-section">
+    <section class="review-section py-4">
         <div class="container review-section-container">
             <div class="review-header text-light fs-2 fw-bold">Review</div>
             <!-- Swiper -->
