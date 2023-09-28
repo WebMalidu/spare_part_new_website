@@ -30,7 +30,9 @@
 </head>
 
 <body>
+        <!-- header section-->
 
+        <?php include("header.php") ?>
 
 
     <!-- section1 (cu-s1) -->
@@ -73,7 +75,7 @@
     </div>
 
     <!-- section 3 (cu-s3) -->
-    <div class="h-100 cu-s3 alg-bg-dark-blue p-3">
+    <div class="h-100 cu-s3 alg-bg-dark-blue p-4">
         <div class="container cu-s3-container d-flex">
             <div class="cu-s3-map-box alg-bg-light-blue alg-rounded-small">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31677.316838070776!2d79.98286832877496!3d7.04864094065603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2f93b7af51f61%3A0x8c99f4119aa9df59!2s14%20Junction!5e0!3m2!1sen!2slk!4v1695915368766!5m2!1sen!2slk" class="cu-s3-map alg-rounded-small"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

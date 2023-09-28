@@ -293,8 +293,9 @@ h5 {
 /* contact us page css */
 /* section 1 (cu-s1) */
 .cu-s1{
+  margin-top: 50px;
   min-width: 100%;
-  height: 200px;
+  height: 150px;
 }
 /* section 2 (cu-s2) */
 .cu-s2-box{
