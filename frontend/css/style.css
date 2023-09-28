@@ -289,6 +289,33 @@ h5 {
 }
 
 
+
+/* contact us page css */
+/* section 1 (cu-s1) */
+.cu-s1{
+  height: 200px;
+}
+/* section 2 (cu-s2) */
+.cu-s2-box{
+  width: 400px;
+}
+.cu-s2-button{
+  width: 200px;
+  height: 40px;
+}
+/* section 3 (cu-s3) */
+.cu-s3{
+  height: 300px;
+}
+.cu-s3-container{
+  gap: 100px;
+}
+.cu-s3-field-box{
+  width: 250px;
+  
+}
+
+
 @media (max-width: 768px) {
   .searchSection-button {
     font-size: 11px;
