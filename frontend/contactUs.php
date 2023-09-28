@@ -30,12 +30,11 @@
 </head>
 
 <body>
-    <!-- header section-->
-    <?php include("header.php") ?>
+
 
 
     <!-- section1 (cu-s1) -->
-    <div class="cu-s1 alg-bg-dark-blue  ">
+    <div class="cu-s1 alg-bg-dark-blue">
         <div class="h-100 container d-flex justify-content-center align-items-center">
             <div class="cu-s1-heading alg-text-light alg-text-h1 alg-bolder">
                 Help & Support
@@ -74,33 +73,33 @@
     </div>
 
     <!-- section 3 (cu-s3) -->
-    <div class="cu-s3 alg-bg-dark-blue d-flex align-items-center">
-        <div class="container cu-s3-container d-flex flex-row justify-content-center">
+    <div class="h-100 cu-s3 alg-bg-dark-blue p-3">
+        <div class="container cu-s3-container d-flex">
             <div class="cu-s3-map-box alg-bg-light-blue alg-rounded-small">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31677.316838070776!2d79.98286832877496!3d7.04864094065603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2f93b7af51f61%3A0x8c99f4119aa9df59!2s14%20Junction!5e0!3m2!1sen!2slk!4v1695915368766!5m2!1sen!2slk" class="alg-rounded-small" width="350" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31677.316838070776!2d79.98286832877496!3d7.04864094065603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2f93b7af51f61%3A0x8c99f4119aa9df59!2s14%20Junction!5e0!3m2!1sen!2slk!4v1695915368766!5m2!1sen!2slk" class="cu-s3-map alg-rounded-small"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            <div class="h-100 d-flex flex-column gap-5">
+            <div class="cu-s3-right-box h-100 d-flex flex-column ">
                 <div class="h-100 cu-s3-field-box alg-bg-light-blue d-flex flex-row p-1 alg-rounded-small">
                     <div><i class="fa-solid fa-square-phone fa-lg" style="color: #000000;"></i></div>
-                    <div class="d-flex justify-content-center w-100">
-                        <span>
+                    <div class="d-flex justify-content-center align-items-center w-100">
+                        <span class="alg-text-h3">
                             +94764556788
                         </span>
                     </div>
                 </div>
                 <div class="h-100cu-s3-field-box alg-bg-light-blue d-flex flex-row p-1 alg-rounded-small ">
                     <div><i class="fa-solid fa-envelope fa-lg" style="color: #000000;"></i></div>
-                    <div class="d-flex justify-content-center w-100">
-                        <span>
+                    <div class="d-flex justify-content-center align-items-center w-100">
+                        <span class="alg-text-h3">
                             abcdef@gmail.com
                         </span>
                     </div>
                 </div>
-                 <div class="h-100cu-s3-field-box alg-bg-light-blue d-flex flex-row p-1 alg-rounded-small">
+                <div class="h-100cu-s3-field-box alg-bg-light-blue d-flex flex-row p-1 alg-rounded-small">
                     <div class=""><i class="fa-solid fa-location-dot fa-lg" style="color: #0d0d0d;"></i></div>
-                    <div class="d-flex justify-content-center w-100">
-                        <span>
-                        No: 23 Colombo 07
+                    <div class="d-flex justify-content-center  w-100">
+                        <span class="alg-text-h3">
+                            No: 23 Colombo 07
                         </span>
                     </div>
                 </div>
@@ -109,7 +108,7 @@
         </div>
     </div>
 
- <!-- footer and brand we trust section -->
+    <!-- footer and brand we trust section -->
 
 
 
