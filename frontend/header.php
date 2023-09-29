@@ -20,7 +20,7 @@
 </head>
 
 <body>
-     <header class="fixed-to">
+     <header class="fixed-top">
           <nav class="batta-bg-prim header-bg py-2">
                <div class="container">
                     <div class="d-flex justify-content-between p-2">
@@ -38,16 +38,16 @@
                          <div class="d-lg-flex d-none gap-4 batta-font-lite">
                               <div class="p-1 fs-5 d-flex  gap-5 ps-2 pe-2 text-white">
                                    <div class="header-link">
-                                        <a>Home</a>
+                                        <a class="nav-link" href="index.php">Home</a>
                                    </div>
                                    <div class="header-link">
-                                        <a>Category</a>
+                                        <a class="nav-link">Category</a>
                                    </div>
                                    <div class="header-link">
-                                        <a>Contact Us</a>
+                                        <a class="nav-link" href="contactUs.php">Contact Us</a>
                                    </div>
                                    <div class="header-link">
-                                        <a>My Garage</a>
+                                        <a class="nav-link">My Garage</a>
                                    </div>
 
                               </div>

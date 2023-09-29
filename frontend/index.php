@@ -53,8 +53,10 @@
     <!--catergory section  -->
     <?php include("chooseUsandReview.php") ?>
 
+    <!-- brands -->
+    <?php include("brands.php") ?>
 
-    <!-- footer and brand we trust section -->
+    <!-- footer -->
     <?php include("footer.php") ?>
 
 

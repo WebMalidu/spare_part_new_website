@@ -28,13 +28,13 @@
      <section class="batta-bg-primery ld-hero-section1">
           <div class="container">
                <div class="row">
-                    <div class="col-12 col-lg-6 m-0  pt-0 pt-lg-4 order-2 order-lg-0 ld-hero-subcolumn">
+                    <div class="col-12 col-lg-6 m-0  pt-0 pt-lg-4 order-2 order-lg-0">
                          <div class="col-12  hr-bd-search  ">
                               <input type="text" class="ld-s1-search-input  batta-bg-lite" />
                          </div>
-                         <div class="col-12 hr-bd-parahmain  " style="color:#F7F7F7;">
+                         <div class="col-12 hr-bd-parahmain  ">
                               <div class="col-12  pt-5 pt-lg-0">
-                                   <p>our hope is find you to get best solution no matter what you want every component have in our hand</p>
+                                   <p class="alg-text-blue">our hope is find you to get best solution no matter what you want every component have in our hand</p>
                               </div>
                               <!-- btn section -->
                               <div class="col-12 hr-bd-parah m-0">
