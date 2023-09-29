@@ -1,17 +1,17 @@
 // swiper animation
 var swiper = new Swiper(".mySwiperld", {
-     direction: "vertical",
-     pagination: {
-       el: ".swiper-pagination",
-       clickable: true,
-     },
-   });
+    direction: "vertical",
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});
 // category
 
 var newRow = 0;
 var x = 0;
 function increaseCategory(id) {
-    x = x+1;
+    x = x + 1;
     var category = document.getElementById("category");
 
     var request = new XMLHttpRequest();
@@ -20,10 +20,10 @@ function increaseCategory(id) {
             var text = request.responseText;
             category.innerHTML = text;
             // alert(text);
-            
+
         }
     }
-    request.open("GET", "interfaces/categoryProcess.php?id=" + id + "&x="+x, true);
+    request.open("GET", "interfaces/categoryProcess.php?id=" + id + "&x=" + x, true);
     request.send();
 
 }
@@ -32,12 +32,12 @@ function increaseCategory(id) {
 
 var swiper = new Swiper(".mySwiperk", {
     type: 'loop',
-        perPage: 6, 
-        perMove: 1,
-        autoplay: true,  
-        pauseOnHover: false, 
-        arrows: false, 
-       
+    perPage: 6,
+    perMove: 1,
+    autoplay: true,
+    pauseOnHover: false,
+    arrows: false,
+
 });
 // Review section js
 var swiper = new Swiper(".mySwiper", {
@@ -50,7 +50,7 @@ var swiper = new Swiper(".mySwiper", {
 
 // Brand we trust section
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     var splide = new Splide('.splide', {
         type: 'loop',
         perPage: 6, // Adjust this value as needed
@@ -73,3 +73,46 @@ document.addEventListener('DOMContentLoaded', function() {
 
     splide.mount();
 });
+
+
+// profile section toggle
+
+function viewChange(id) {
+
+    var profile = document.getElementById("profile_view");
+    var purachse = document.getElementById("purchasing_view");
+
+    if(id==1){
+        purachse.classList.add('d-none');
+        profile.classList.remove('d-none');
+    }else{
+        profile.classList.add('d-none');
+        purachse.classList.remove('d-none');
+    }
+
+}
+
+
+// cart open
+let cartModel;
+function openCartModel() {
+    alert("efer")
+  cartModel = new bootstrap.Modal("#cartModel");
+  cartModel.show();
+}
+
+// watchlist open
+let watchlistModel;
+function openWatchlistModel() {
+  watchlistModel = new bootstrap.Modal("#watchlistModel");
+  watchlistModel.show();
+}
+
+// password change open
+let passwordModel;
+function openPasswordModel() {
+    alert("egfg")
+  passwordModel = new bootstrap.Modal("#passwordModel");
+  passwordModel.show();
+}
+

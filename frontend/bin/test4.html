@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Toggle Buttons</title>
+
+    <style>
+        /* Add your styles for the buttons here */
+        .toggle-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #ccc;
+            border: none;
+            margin: 5px;
+        }
+
+        .active {
+            background-color: #007bff;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="button-container">
+        <button class="toggle-button" id="button1">Button 1</button>
+        <button class="toggle-button" id="button2">Button 2</button>
+        <button class="toggle-button" id="button3">Button 3</button>
+        <button class="toggle-button" id="button4">Button 4</button>
+    </div>
+    <script>
+        // Get references to the buttons
+        const button1 = document.getElementById('button1');
+        const button2 = document.getElementById('button2');
+        const button3 = document.getElementById('button3');
+        const button4 = document.getElementById('button4');
+
+        // Add event listeners to each button
+        button1.addEventListener('click', toggleButton);
+        button2.addEventListener('click', toggleButton);
+        button3.addEventListener('click', toggleButton);
+        button4.addEventListener('click', toggleButton);
+
+        // Function to toggle the button's active state
+        function toggleButton(event) {
+            const button = event.target;
+            button.classList.toggle('active');
+        }
+
+    </script>
+</body>
+
+</html>
