@@ -57,7 +57,7 @@
 
 
      /* shadows */
-     --shadow:rgba(0, 0, 0, 0.2) 0px 0px 30px;
+     --shadow:rgba(0, 0, 0, 0.2) 120px 120px 300px;
    }
    
    
@@ -92,8 +92,15 @@
     }
    
    /* text-color */
-   .alg-text-blue {
+   /* .alg-text-blue {
      color: var(--dark-blue);
+   } */
+
+   .alg-text-dark-blue{
+    color:var(--dark-blue);
+   }
+   .alg-text-blue{
+    color:var(--blue);
    } 
    .alg-text-green {
      color: var(--dark-green);
@@ -102,9 +109,13 @@
    .alg-text-light {
      color: var(--light);
    }
-   .alg-text-yellow{
+.alg-text-yellow{
     color: var(--yellow);
    }
+   /* font color */
+
+  
+   
    
    /* shadow */
    .alg-shadow {
@@ -130,7 +141,13 @@
      cursor: pointer;
    }
    
-   
+   /* input field */
+
+   .alg-input{
+    border:none;
+    outline:none;
+    border-radius:3px;
+   }
    
    .alg-cursor {
      cursor: pointer;
