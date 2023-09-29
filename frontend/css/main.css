@@ -40,14 +40,14 @@
      --font-p-xsm: 12px;
    
      /* radius */
-     --rounded-large: 50px;
-     --rounded-mid: 25px;
-     --rounded-small: 15px;
+     --rounded-large: 30px;
+     --rounded-mid: 15px;
+     --rounded-small: 7px;
 
      /* font-weight */
-    --bolder:900px;
-    --bold:700px;
-    --medium:500px;
+    --bolder:900;
+    --bold:700;
+    --medium:500;
 
      /* border */
 
@@ -79,7 +79,7 @@
    
    
    .alg-bg-dark-green {
-     background-color: var(--darker-green);
+     background-color: var(--dark-green);
     }
     
     .alg-bg-green {
@@ -217,7 +217,17 @@
    .alg-text-p {
      font-size: var(--font-p-lg);
    }
-   
+
+   /* font weight */
+   .alg-bolder{
+    font-weight: var(--bolder);
+   }
+   .alg-bold{
+    font-weight: var(--bold);
+   }.alg-bold-medium{
+      font-weight: var(--medium);
+   }
+
    @media screen and (min-width: 1070px) {
      /* font size */
      .alg-text-p {
