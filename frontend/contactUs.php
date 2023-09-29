@@ -110,7 +110,8 @@
         </div>
     </div>
 
-    <!-- footer and brand we trust section -->
+        <!-- footer -->
+        <?php include("footer.php") ?>
 
 
 

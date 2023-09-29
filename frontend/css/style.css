@@ -327,6 +327,7 @@ h5 {
 /* section 1 (spv-s1) */
 /* image sector (left)*/
 .spv-s1{
+  margin-top: 80px;
   display: flex;
   flex-direction: row;
   justify-content: center;

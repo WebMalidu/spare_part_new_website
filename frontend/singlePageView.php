@@ -30,10 +30,12 @@
 
 <body>
 
+    <!-- header section-->
+    <?php include("header.php") ?>
 
     <div class="container ">
         <!-- section 1 (spv-s1) -->
-        <section class="spv-s1  gap-5">
+        <section class="spv-s1  gap-5 p-5">
             <!-- images sector -->
             <div class="">
                 <div class="spv-s1-img-box alg-bg-light-blue d-flex justify-content-center align-items-center ">
@@ -299,6 +301,8 @@
             </div>
     </section>
 
+        <!-- footer -->
+        <?php include("footer.php") ?>
 
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
