@@ -325,8 +325,116 @@ h5 {
   
 }
 
+/* Single view page */
+/* section 1 (spv-s1) */
+/* image sector (left)*/
+.spv-s1{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.spv-s1-img-box{
+  width: 420px;
+  height: 350px;
+  border-radius: var(--rounded-small);
+} 
+.spv-s1-img{
+  width: 300px;
+  height: 250px;
+  background-image: url(../resources/image/home/engineImage.png);
+  background-size: cover;
+}
+.spv-s1-img-sbox{
+  width: 93px;
+  height: 95px;
+  background-color: var(--light-blue);
+  border-radius: var(--rounded-small);
 
+}
+.spv-s1-simg{
+  width: 60px;
+  height: 50px;
+  background-image: url(../resources/image/home/engineImage.png);
+  background-size: cover;
+}
+/* details sector (right) */
+.spv-s1-right{
+  /* min-width: 600px; */
+}
+.spv-s1-right-logo{
+  width: 60px;
+  height: 60px;
+  background-image: url(../resources/image/singleViewPage/nissan.png);
+  background-size: cover;
+}
+.spv-s1-review-img{
+  width: 120px;
+  height: 20px;
+  background-image: url(../resources/image/singleViewPage/star.png);
+  background-size: cover;
+}
+.spv-s1-right-vehicleImg{
+  width: 70px;
+  height: 70px;
+  background-image: url(../resources/image/singleViewPage/vehicleImg.png);
+  background-size: cover;
+}
+/* button */
+.spv-s1-right-button{
+  width: 200px;
+  height: 30px;
+}
+.spv-s1-right-button2{
+  border-color: var(--green);
+}
+/* section 2 featured product */
+.spv-s2-heading{
+  /* margin-left: 150px; */
+}
+.spv-s2-container{
+  width: 180px;
+  height: 230px;
+}
+.spv-s2-box-top{
+  width: 180px;
+  height: 160px;
 
+}
+.spv-s2-box-top-img{
+  width: 90px;
+  height: 90px;
+  background-image: url(../resources/image/singleViewPage/cardImg.png);
+  background-size: cover;
+}
+.spv-s2-box-bottom-img{
+  width: 120px;
+  height: 20px;
+  background-image: url(../resources/image/singleViewPage/star.png);
+  background-size: cover;
+}
+.spv-s3{
+  width: 100%;
+}
+@media (max-width: 992px) {
+  /* single view page */
+  /* section 2 */
+  .spv-s2-container-4{
+    display: none;
+  }
+  .spv-s2-container{
+    width: 150px;
+    height: 220px;
+  }
+  .spv-s2-box-top{
+    width: 150px;
+    height: 130px;
+  
+  }
+  .spv-s2-box-top-img{
+    width: 90px;
+    height: 90px;
+  }
+}
 @media (max-width: 768px) {
   .searchSection-button {
     font-size: 11px;
@@ -409,6 +517,31 @@ h5 {
   .nav-menu li {
     display: block;
     margin-bottom: 10px;
+  }
+  /* Single page view */
+  /* section 1 */
+  .spv-s1{
+    flex-direction: column;
+    align-items: center;
+  }
+  .spv-s2-container-3{
+    display: none;
+  }
+   .spv-s2-container-4{
+    display: none;
+  }
+  .spv-s2-container{
+    width: 150px;
+    height: 200px;
+  }
+  .spv-s2-box-top{
+    width: 150px;
+    height: 130px;
+  
+  }
+  .spv-s2-box-top-img{
+    width: 90px;
+    height: 90px;
   }
 }
 @media (max-width: 725px) {
@@ -544,6 +677,39 @@ h5 {
 
   }
 
+  /* Single view page */
+  /* section 1 */
+  .spv-s1-img-box{
+    width: 300px;
+    height: 320px;
+  } 
+  .spv-s1-img{
+    width: 250px;
+    height: 220px;
+  }
+  .spv-s1-img-sbox{
+    width: 60px;
+    height: 90px;
+  
+  }
+  .spv-s1-simg{
+    width: 50px;
+    height: 40px;
+  }
+  .spv-s1-right-button{
+    width: 150px;
+    height: 30px;
+  }
+/* section 2 */
+.spv-s2-container-2{
+  display: none;
+}
+.spv-s2-container-3{
+  display: none;
+}
+.spv-s2-container-4{
+  display: none;
+}
 }
 
 @media (max-width: 320px) {
@@ -569,6 +735,12 @@ h5 {
   }
   .cu-s2-button{
     width: 100px;
+    height: 30px;
+  }
+  /* Single view page */
+  /* section 1 */
+  .spv-s1-right-button{
+    width: 120px;
     height: 30px;
   }
 }

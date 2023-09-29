@@ -50,7 +50,7 @@
             Hi, how we can help ?
         </div>
         <div class="cu-s2-email-box cu-s2-box py-3 ">
-            <input class="form-control border-primary" type="text" name="" placeholder="email">
+            <input class=" form-control border-primary" type="text" name="" placeholder="email">
         </div>
         <div class="cu-s2-name-box cu-s2-box py-3">
             <input class="form-control border-primary" type="text" name="" placeholder="name">
@@ -84,7 +84,7 @@
                 <div class="h-100 cu-s3-field-box alg-bg-light-blue d-flex flex-row p-1 alg-rounded-small">
                     <div><i class="fa-solid fa-square-phone fa-lg" style="color: #000000;"></i></div>
                     <div class="d-flex justify-content-center align-items-center w-100">
-                        <span class="alg-text-h3">
+                        <span class="alg-text-h3 alg-bold">
                             +94764556788
                         </span>
                     </div>
@@ -92,7 +92,7 @@
                 <div class="h-100cu-s3-field-box alg-bg-light-blue d-flex flex-row p-1 alg-rounded-small ">
                     <div><i class="fa-solid fa-envelope fa-lg" style="color: #000000;"></i></div>
                     <div class="d-flex justify-content-center align-items-center w-100">
-                        <span class="alg-text-h3">
+                        <span class="alg-text-h3 alg-bold">
                             abcdef@gmail.com
                         </span>
                     </div>
@@ -100,7 +100,7 @@
                 <div class="h-100cu-s3-field-box alg-bg-light-blue d-flex flex-row p-1 alg-rounded-small">
                     <div class=""><i class="fa-solid fa-location-dot fa-lg" style="color: #0d0d0d;"></i></div>
                     <div class="d-flex justify-content-center  w-100">
-                        <span class="alg-text-h3">
+                        <span class="alg-text-h3 alg-bold">
                             No: 23 Colombo 07
                         </span>
                     </div>

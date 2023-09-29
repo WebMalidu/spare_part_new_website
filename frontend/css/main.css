@@ -15,6 +15,7 @@
      --light: white;
      --dark-green:#00995C;
      --green:#01D07E;
+     --yellow:#BB9229;
    
      /* transistion */
      --transition1: 200ms;
@@ -22,7 +23,7 @@
      --transition3: 600ms;
    
      /* font */
-     --font-h1-lg: 46px;
+     --font-h1-lg: 43px;
      --font-h1-md: 30px;
      --font-h1: 20px;
    
@@ -93,12 +94,17 @@
    /* text-color */
    .alg-text-blue {
      color: var(--dark-blue);
+   } 
+   .alg-text-green {
+     color: var(--dark-green);
    }
 
    .alg-text-light {
      color: var(--light);
    }
-   
+   .alg-text-yellow{
+    color: var(--yellow);
+   }
    
    /* shadow */
    .alg-shadow {
