@@ -12,13 +12,13 @@
 
     <link rel="stylesheet" href="css/style.css">
     <style>
-        h5 {
+        /* h5 {
             color: white;
         }
 
         .item1 {
             color: white;
-        }
+        } */
 
         .splide__pagination {
             position: absolute;
@@ -54,7 +54,7 @@
 </head>
 
 <body>
-<div class="container pb-3 py-4">
+    <div class="container pb-3 py-4">
         <h1 class="py-4 fw-bold fs-2" style="color: #00447B;">Brand We Trust</h1>
         <div class="container">
             <div class="splide">
@@ -119,34 +119,12 @@
         </div>
 
     </div>
-      <!-- JavaScript -->
-      <script src="js/bootstrap.bundle.js"></script>
+    <!-- JavaScript -->
+    <!-- <script src="js/bootstrap.bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.0.9/dist/js/splide.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var splide = new Splide('.splide', {
-                type: 'loop',
-                perPage: 6, // Adjust this value as needed
-                perMove: 1,
-                autoplay: true, // Enable autoplay
-                pauseOnHover: false, // Keep autoplay running even when hovering
-                arrows: false, // Hide arrow icons
-                breakpoints: {
-                    768: {
-                        perPage: 2, // Show 2 images per page on screens with width 768px or more
-                    },
-                    992: {
-                        perPage: 3, // Show 3 images per page on screens with width 992px or more
-                    },
-                    1200: {
-                        perPage: 4, // Show 4 images per page on screens with width 1200px or more
-                    },
-                },
-            });
-
-            splide.mount();
-        });
-    </script>
+        
+    </script> -->
 </body>
 
 </html>

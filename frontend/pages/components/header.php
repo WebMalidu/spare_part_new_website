@@ -1,26 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Header</title>
-
-     <link rel="stylesheet" href="css/bootstrap.css">
-     <link rel="stylesheet" href="css/style.css">
-     <link rel="stylesheet" href="css/main.css">
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
-
-     <!-- icon -->
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-     <!-- js -->
-     <script defer src="js/bootstrap.bundle.js"></script>
-     <script defer src="js/script.js"></script>
-</head>
-
-<body>
-     <header class="fixed-top">
+     <header class="sticky-top">
           <nav class="batta-bg-prim header-bg py-2">
                <div class="container">
                     <div class="d-flex justify-content-between p-2">
@@ -32,7 +10,7 @@
                          </div>
                          <!-- logo -->
                          <div class="p-1 ps-2  ps-lg-5 pe-5 pe-lg-0">
-                              <img src="resources/image/battaLogoWhite.png" alt="logo" style="width:180px ;height: 20px;">
+                             <a href="index.php"> <img src="resources/image/battaLogoWhite.png" alt="logo" style="width:180px ;height: 20px;"></a>
                          </div>
                          <!-- navigation -->
                          <div class="d-lg-flex d-none gap-4 batta-font-lite">
@@ -52,9 +30,9 @@
 
                               </div>
                               <div class="header-link fs-5 d-flex justify-content-between gap-4 p-1 ps-4 pe-5 text-white">
-                                   <i class="bi bi-heart-fill" onclick="openWatchlistModel()"></i>
-                                   <i class="bi bi-cart-fill text-white" onclick="openCartModel();"></i>
-                                   <a href="./temp/kavindu/userProfile.php" class="text-decoration-none"><i class="bi bi-person-circle text-white"></i></a>
+                                   <a href="#watchlist" onclick="openWatchlistModel()"><i class="bi bi-heart-fill text-white"></i></a>
+                                   <a href="#cart" onclick="openCartModel();"><i class="bi bi-cart-fill text-white"></i></a>
+                                   <a href="userProfile.php" class="text-decoration-none"><i class="bi bi-person-circle text-white"></i></a>
                               </div>
                          </div>
                     </div>
@@ -92,10 +70,10 @@
                               <i class="fa-solid fa-circle-info"></i><a href="/about">My Garage</a>
                          </div>
                          <div class="modal-line">
-                              <a href="" onclick="openWatchlistModel();">Watchlist</a>
+                              <a href="#watchlist" onclick="openWatchlistModel();">Watchlist</a>
                          </div>
                          <div class="modal-line">
-                              <i class="fa-solid fa-circle-info" onclick="openCartModel();"></i><a href="">Cart</a>
+                              <a href="#cart" onclick="openCartModel();">Cart</a>
                          </div>
                          <!-- <div class="modal-line">
                               <i class="fa-solid fa-circle-info"></i><a href="/about">Watchlist</a>
@@ -107,8 +85,6 @@
 
 
      <!-- cart -->
-
-     <!-- Modal -->
      <div class="modal fade modal-xl" id="cartModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 
@@ -268,8 +244,5 @@
           </div>
      </div>
 
-</body>
-
-</html>
 
 

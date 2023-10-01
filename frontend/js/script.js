@@ -1,3 +1,27 @@
+// cart open
+let cartModel;
+function openCartModel() {
+  cartModel = new bootstrap.Modal("#cartModel");
+  cartModel.show();
+}
+
+// watchlist open
+let watchlistModel;
+function openWatchlistModel() {
+  watchlistModel = new bootstrap.Modal("#watchlistModel");
+  watchlistModel.show();
+}
+
+// password change open
+let passwordModel;
+function openPasswordModel() {
+  passwordModel = new bootstrap.Modal("#passwordModel");
+  passwordModel.show();
+}
+
+
+
+
 // swiper animation
 var swiper = new Swiper(".mySwiperld", {
     direction: "vertical",
@@ -27,6 +51,7 @@ function increaseCategory(id) {
     request.send();
 
 }
+
 
 // offersection
 
@@ -75,6 +100,34 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+
+// brand
+
+document.addEventListener('DOMContentLoaded', function() {
+    var splide = new Splide('.splide', {
+        type: 'loop',
+        perPage: 6, // Adjust this value as needed
+        perMove: 1,
+        autoplay: true, // Enable autoplay
+        pauseOnHover: false, // Keep autoplay running even when hovering
+        arrows: false, // Hide arrow icons
+        breakpoints: {
+            768: {
+                perPage: 2, // Show 2 images per page on screens with width 768px or more
+            },
+            992: {
+                perPage: 3, // Show 3 images per page on screens with width 992px or more
+            },
+            1200: {
+                perPage: 4, // Show 4 images per page on screens with width 1200px or more
+            },
+        },
+    });
+
+    splide.mount();
+});
+
+
 // profile section toggle
 
 function viewChange(id) {
@@ -92,27 +145,4 @@ function viewChange(id) {
 
 }
 
-
-// cart open
-let cartModel;
-function openCartModel() {
-    alert("efer")
-  cartModel = new bootstrap.Modal("#cartModel");
-  cartModel.show();
-}
-
-// watchlist open
-let watchlistModel;
-function openWatchlistModel() {
-  watchlistModel = new bootstrap.Modal("#watchlistModel");
-  watchlistModel.show();
-}
-
-// password change open
-let passwordModel;
-function openPasswordModel() {
-    alert("egfg")
-  passwordModel = new bootstrap.Modal("#passwordModel");
-  passwordModel.show();
-}
 

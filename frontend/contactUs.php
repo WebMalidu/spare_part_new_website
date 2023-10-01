@@ -32,7 +32,7 @@
 <body>
         <!-- header section-->
 
-        <?php include("header.php") ?>
+        <?php include("./pages/components/header.php") ?>
 
 
     <!-- section1 (cu-s1) -->
@@ -111,7 +111,7 @@
     </div>
 
         <!-- footer -->
-        <?php include("footer.php") ?>
+        <?php include("./pages/components/footer.php") ?>
 
 
 

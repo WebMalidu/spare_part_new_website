@@ -6,23 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="../../css/bootstrap.css">
-    <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/main.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+   <!-- Link Swiper's CSS -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <!-- splide -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.0.9/dist/css/splide.min.css">
+    <!-- css -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500&family=Lato:wght@300&family=Roboto&family=Rubik&display=swap" rel="stylesheet">
+
+
     <!-- js -->
-    <script defer src="../../js/bootstrap.bundle.js"></script>
-    <script defer src="../../js/script.js"></script>
+    <script defer src="js/bootstrap.bundle.js"></script>
+    <script defer src="js/script.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 </head>
 
 <body>
     <section>
-        <?php include("../../header.php") ?>
+        <?php include("./pages/components/header.php") ?>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-2 d-flex flex-column align-items-center profile-bg-gradient pt-5 pb-4 alg-text-h3 d-none d-md-block min-vh-100">
@@ -30,7 +40,7 @@
                     <div class="bg-white text-center w-75 p-1 rounded-1 alg-font-dark-blue fw-semibold alg-cursor" onclick="viewChange(2);"><span>Purchase History</span></div>
                 </div>
 
-                <div class="col-12 col-md-10 d-flex flex-column justify-content-center p-3" id="profile_view">
+                <div class="col-12 col-md-10 d-flex flex-column p-3" id="profile_view">
                     <div class="row d-flex justify-content-between text-center">
                         <span class="text-center col-5 col-md-2 alg-bg-dark-blue p-1 mx-lg-5 text-white rounded-1  alg-text-h3 fw-bold" onclick="viewChange(1);">Profile</span>
                         <span class="col-5 d-md-none d-block alg-bg-dark-blue opacity-75 p-1 text-white rounded-1 text-center alg-text-h3" onclick="viewChange(2);">Purchase History</span>
@@ -38,7 +48,7 @@
                     <div class="row d-flex flex-column flex-lg-row align-items-center pb-4 mt-4 m-0">
                         <div class="col-12 col-lg-4">
                             <div class="d-flex justify-content-center">
-                                <img src="../../resources/image/profile.png" class="profile-img" alt="profile_img" />
+                                <img src="resources/image/profile.png" class="profile-img" alt="profile_img" />
                             </div>
                         </div>
                         <div class="col-7 col-lg-4 d-flex flex-column gap-2 pt-4 pt-lg-0 p-0 m-0">
@@ -78,8 +88,8 @@
                 <!-- purchase history -->
                 <div class="col-12 col-md-8 d-flex ms-md-5 flex-column d-none" id="purchasing_view">
                     <div class="row d-flex justify-content-between text-center mt-5 mb-4 mb-5 px-3 px-lg-0">
-                        <span class="col-5 col-md-4 alg-bg-dark-blue p-1 text-white rounded-1 fw-bold" onclick="viewChange(1);">Purchasing History</span>
-                        <span class="col-2 d-md-none d-block alg-bg-dark-blue opacity-75 p-1 text-white rounded-1 alg-text-h3 fw-bold" onclick="viewChange(2);">Profile</span>
+                        <span class="col-5 col-md-4 alg-bg-dark-blue p-1 text-white rounded-1 fw-bold" onclick="viewChange(2);">Purchasing History</span>
+                        <span class="col-2 d-md-none d-block alg-bg-dark-blue opacity-75 p-1 text-white rounded-1 alg-text-h3 fw-bold" onclick="viewChange(1);">Profile</span>
                     </div>
 
                     <div>
@@ -117,34 +127,34 @@
 
 
 
-        <div class="modal fade modal-xl" id="passwordModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="passwordModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 
 
                 <div class="modal-content">
                     <div class="modal-header alg-bg-light-blue">
-                        <span class="modal-title alg-text-h2 alg-text-dark-blue fw-bold mx-3" id="staticBackdropLabel">My Cart</span>
+                        <span class="modal-title alg-text-h2 alg-text-dark-blue fw-bold mx-3" id="staticBackdropLabel">Update Password</span>
                         <button type="button" class="border-0 alg-bg-light-blue" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-square-fill fs-2"></i></button>
                     </div>
 
                     <div class="modal-body bg-white">
 
                         <div class="px-4">
-                            <div class="text-center col-3"><span class="alg-text-h3 fw-bold">Update Password</span></div>
+                            <!-- <div class="text-center col-12"><span class="alg-text-h3 fw-bold">Update Password</span></div> -->
                             <div class="row">
                                 <div class="alg-text-h3 mt-3 ms-lg-4">
                                     <span class="fw-bold">Old Password</span><br />
-                                    <input type="text" class="col-3 alg-input alg-bg-light-blue p-2 px-2 alg-text-h3 alg-bg-light-blue" id="address_one" />
+                                    <input type="text" class="col-10 alg-input alg-bg-light-blue p-2 px-2 alg-text-h3 alg-bg-light-blue" id="address_one" />
                                 </div>
                                 <div class="alg-text-h3 mt-3 ms-lg-4">
                                     <span class="fw-bold">New Password</span><br />
-                                    <input type="text" class="col-3 alg-input alg-bg-light-blue p-2 px-2 alg-text-h3 alg-bg-light-blue" id="address_one" />
+                                    <input type="text" class="col-10 alg-input alg-bg-light-blue p-2 px-2 alg-text-h3 alg-bg-light-blue" id="address_one" />
                                 </div>
                                 <div class="alg-text-h3 mt-3 ms-lg-4">
                                     <span class="fw-bold">Confirm Password</span><br />
-                                    <input type="text" class="col-3 alg-input alg-bg-light-blue p-2 px-2 alg-text-h3 alg-bg-light-blue" id="address_one" />
+                                    <input type="text" class="col-10 alg-input alg-bg-light-blue p-2 px-2 alg-text-h3 alg-bg-light-blue" id="address_one" />
                                 </div>
-                                <div class="text-center col-3 mt-3">
+                                <div class="text-center col-12 mt-3">
                                     <button class="profile-button px-4 alg-text-dark-blue">Save</button>
                                 </div>
                             </div>
@@ -155,7 +165,7 @@
             </div>
         </div>
     </section>
-    <?php include("../../footer.php") ?>
+    <?php include("./pages/components/footer.php") ?>
 </body>
 
 </html>
