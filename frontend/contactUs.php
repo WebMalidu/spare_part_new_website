@@ -31,9 +31,7 @@
 
 <body>
         <!-- header section-->
-
         <?php include("./pages/components/header.php") ?>
-
 
     <!-- section1 (cu-s1) -->
     <div class="cu-s1 alg-bg-dark-blue">

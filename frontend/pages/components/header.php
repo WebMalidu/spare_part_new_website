@@ -19,7 +19,7 @@
                                         <a class="nav-link" href="index.php">Home</a>
                                    </div>
                                    <div class="header-link">
-                                        <a class="nav-link">Category</a>
+                                        <a class="nav-link" href="./category.php">Category</a>
                                    </div>
                                    <div class="header-link">
                                         <a class="nav-link" href="contactUs.php">Contact Us</a>

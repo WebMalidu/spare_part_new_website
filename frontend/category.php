@@ -123,7 +123,7 @@
                     <hr class="alg-text-light" style="border-top: 3px solid ;">
                 </div>
             </div>
-            <!-- side bar section 3 -->
+            <!-- side bar section 4 -->
             <div class="cp-side-bar-s3">
                 <div class="p-3">
                     <select class="form-select" name="" id="">
@@ -143,32 +143,132 @@
                     <li class="breadcrumb-item active" aria-current="page">Library</li>
                 </ol>
             </nav>
-            <div class="py-2">
+            <div class="p-2">
                 <button type="button" class="btn btn-primary cp-side-bar-button" data-toggle="modal" data-target="#leftSideModal">
-                    Open Left-Side Modal
+                    Filter
                 </button>
             </div>
             <!-- left open model -->
             <div class="modal left fade" id="leftSideModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Left-Side Modal</h5>
+                        <div class="modal-header alg-bg-light-blue">
+                            <h5 class="modal-title alg-text-dark-blue" id="exampleModalLongTitle">
+                                Filter <i class="fas fa-square-xmark"></i>
+                            </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
+
+
+                        <div class="modal-body alg-bg-light-blue" style="overflow-y: auto; max-height: 80vh;">
                             <!-- Modal content goes here -->
-                            <p>This is your left-side modal content.</p>
+                            <!-- repeat side bar first section -->
+                            <div class="cp-model alg-bg-light alg-rounded-small">
+                                <div class="cp-side-bar-s1">
+                                    <div class="cp-side-bar-s1-content">
+                                        <span class="alg-text-h3 alg-bolder alg-text-dark-blue m-4">Orgin</span>
+                                        <div class="d-flex flex-row justify-content-center gap-4 py-2">
+                                            <div class="d-flex flex-column">
+                                                <input class="form-check-input" type="checkbox">
+                                                <input class="form-check-input" type="checkbox">
+                                            </div>
+                                            <div class="d-flex flex-column gap-3 p-1">
+                                                <span class="alg-text-p alg-text-dark-blue">Aftermarket (30)</span>
+                                                <span class="alg-text-p alg-text-dark-blue">OEM (6)</span>
+                                            </div>
+                                        </div>
+                                        <hr class="alg-text-dark-blue" style="border-top: 3px solid ;">
+                                    </div>
+                                </div>
+                                <!-- repeat side bar second section -->
+                                <div class="cp-side-bar-s2">
+                                    <div class="cp-side-bar-s2-content">
+                                        <span class="alg-text-h3 alg-bolder alg-text-dark-blue m-4">Garage</span>
+                                        <div class="d-flex flex-column  gap-4 p-3">
+                                            <select class="form-select" name="" id="">
+                                                <option value="" disabled selected>select the maker</option>
+                                                <option value="">test 1</option>
+                                                <option value="">test 2</option>
+                                                <option value="">test 3</option>
+                                            </select>
+                                            <select class="form-select" name="" id="">
+                                                <option value="" disabled selected>select model</option>
+                                                <option value="">test 4</option>
+                                                <option value="">test 5</option>
+                                                <option value="">test 6</option>
+                                            </select>
+                                            <select class="form-select" name="" id="">
+                                                <option value="" disabled selected>manufacturing year</option>
+                                                <option value="">test 4</option>
+                                                <option value="">test 5</option>
+                                                <option value="">test 6</option>
+                                            </select>
+                                            <select class="form-select" name="" id="">
+                                                <option value="" disabled selected>select modification</option>
+                                                <option value="">test 4</option>
+                                                <option value="">test 5</option>
+                                                <option value="">test 6</option>
+                                            </select>
+                                        </div>
+                                        <hr class="alg-text-light" style="border-top: 3px solid ;">
+                                    </div>
+                                </div>
+                                <!-- repeat side bar third section -->
+                                <div class="cp-side-bar-s3">
+                                    <div class="cp-side-bar-s3-content">
+                                        <span class="alg-text-h3 alg-bolder alg-text-dark-blue m-4">Product Brand</span>
+                                        <div class="d-flex flex-row justify-content-center py-2 gap-4">
+                                            <div class="d-flex flex-column justify-content-around gap-2">
+                                                <input class="form-check-input" type="checkbox">
+                                                <input class="form-check-input" type="checkbox">
+                                                <input class="form-check-input" type="checkbox">
+                                                <input class="form-check-input" type="checkbox">
+                                                <input class="form-check-input" type="checkbox">
+                                                <input class="form-check-input" type="checkbox">
+                                                <input class="form-check-input" type="checkbox">
+                                                <input class="form-check-input" type="checkbox">
+                                                <input class="form-check-input" type="checkbox">
+                                                <input class="form-check-input" type="checkbox">
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-around gap-2">
+                                                <span class="alg-text-h3 alg-text-dark-blue">BRANDO (30)</span>
+                                                <span class="alg-text-h3 alg-text-dark-blue">BLUE PRINT (06)</span>
+                                                <span class="alg-text-h3 alg-text-dark-blue">CONTITECH (06)</span>
+                                                <span class="alg-text-h3 alg-text-dark-blue">FENNER (6)</span>
+                                                <span class="alg-text-h3 alg-text-dark-blue">GATES (6)</span>
+                                                <span class="alg-text-h3 alg-text-dark-blue">HELICORD (6)</span>
+                                                <span class="alg-text-h3 alg-text-dark-blue">HONDA (6)</span>
+                                                <span class="alg-text-h3 alg-text-dark-blue">HUTCHINSON (6)</span>
+                                                <span class="alg-text-h3 alg-text-dark-blue">MITSOBOSHI (6)</span>
+                                                <span class="alg-text-h3 alg-text-dark-blue">OPTIBELT (6)</span>
+                                            </div>
+
+                                        </div>
+                                        <hr class="alg-text-dark-blue" style="border-top: 3px solid ;">
+                                    </div>
+                                </div>
+                                <!-- repeat side bar fourth section -->
+                                <div class="cp-side-bar-s3">
+                                    <div class="p-3">
+                                        <select class="form-select" name="" id="">
+                                            <option value="" disabled selected>select by category</option>
+                                            <option value="">category 1</option>
+                                            <option value="">category 2</option>
+                                            <option value="">category 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                        <div class="modal-footer d-flex justify-content-center alg-bg-light-blue">
+                            <button class="cp-model-btn alg-bg-green alg-text-light alg-rounded-small border-0">Submit</button>
                         </div>
                     </div>
                 </div>
             </div>
+
 
             <!-- Swiper -->
             <div class="swiper mySwiper">
