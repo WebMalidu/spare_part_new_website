@@ -31,7 +31,9 @@
 <body>
 
     <!-- header section-->
-    <?php include("header.php") ?>
+
+    <?php include("./pages/components/header.php") ?>
+
 
     <div class="container ">
         <!-- section 1 (spv-s1) -->
@@ -115,6 +117,7 @@
                 <div class="spv-s2 swiper mySwiper p-3 ">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide gap-5">
+                            <!-- card  -->
                             <div class="spv-s2-container alg-rounded-small alg-shadow">
                                 <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
                                     <div class="spv-s2-box-top-img"></div>
@@ -301,8 +304,8 @@
             </div>
     </section>
 
-        <!-- footer -->
-        <?php include("footer.php") ?>
+         <!-- footer -->
+    <?php include("./pages/components/footer.php") ?>
 
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
