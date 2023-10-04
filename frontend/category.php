@@ -284,6 +284,7 @@
                                 <!-- first row -->
                                 <div class="cp-right-box-slide-l1 d-flex  gap-5">
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                        <a href="http://localhost:9001/frontend/singlePageView.php"></a>
                                         <!-- <i class="watchlist-icon-product-card fa-solid fa-heart"></i> -->
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
                                             <div class="spv-s2-box-top-img"></div>
