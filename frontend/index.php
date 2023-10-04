@@ -305,8 +305,8 @@
 
     <section class="WCU-s w-100">
         <div class="container ">
-            <div class="w-100 text-ligh fw-bold fs-2 pt-4">
-                <p>Why Choose Us</p>
+            <div class="w-100 alg-text-blue alg-bold alg-text-h2 pt-4">
+                <span >Why Choose Us</span>
             </div>
             <div class="w-100 d-flex justify-content-center p-3 gap-5 pb-5">
                 <div class="WCU-s1-sBox alg-shadow d-flex flex-column justify-content-center align-items-center rounded-2 gap-4 text-center">
@@ -336,7 +336,7 @@
     <!--review section  -->
     <section class="review-section py-4">
         <div class="container review-section-container">
-            <div class="review-header text-light fs-2 fw-bold pb-3 pb-lg-1">Review</div>
+            <div class="review-header alg-text-light alg-text-h2 alg-bold pb-3 pb-lg-1">Review</div>
             <!-- Swiper -->
             <div class="review-section-box swiper mySwiper">
                 <div class="swiper-wrapper">
@@ -385,7 +385,7 @@
 
     <!-- brands -->
     <div class="container pb-5 py-4">
-        <h1 class="py-4 fw-bold fs-2" style="color: #00447B;">Brand We Trust</h1>
+        <h1 class="py-4 alg-text-blue alg-bold alg-text-h2">Brand We Trust</h1>
         <div class="container">
             <div class="splide">
                 <div class="splide__track">
