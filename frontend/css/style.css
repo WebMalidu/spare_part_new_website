@@ -794,6 +794,11 @@ h5 {
     flex-direction: column;
   }
 
+  /* about us */
+  .abt-txt-alin{
+    text-align: justify;
+  }
+
 
   /* landing page */
   /* section 1 */
@@ -1012,15 +1017,4 @@ h5 {
 
 
 
-/* user login section */
 
-.sign-btn {
-  border: 2px solid #00447B;
-  background-color: transparent;
-  color: #00447B;
-}
-
-.sign-btn:hover {
-  background-color: #002848;
-  color: white;
-}

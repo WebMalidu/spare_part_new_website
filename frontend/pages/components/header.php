@@ -59,7 +59,7 @@
                          </div>
 
                          <div class="modal-line">
-                              <i class="fa-solid fa-bell-concierge"></i><a href="/services" class="text-decoration-none">Category</a>
+                              <i class="fa-solid fa-bell-concierge"></i><a href="category.php" class="text-decoration-none">Category</a>
                          </div>
 
                          <div class="modal-line">

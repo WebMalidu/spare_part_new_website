@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BATTA.LK</title>
+    <title>BATTA</title>
     <link rel="icon" href="resources/image/home/engineImage.png" />
 
     <!-- Link Swiper's CSS -->
@@ -44,9 +44,8 @@
             <div class="row">
                 <div class="col-12 col-lg-6 m-0  pt-0 pt-lg-4 order-2 order-lg-0">
                     <div class="col-12  hr-bd-search">
-                            <input type="text" class="ld-s1-search-input  batta-bg-lit" />
-                            <!-- <i class="bi bi-mic-fill"></i>
-                            <i class="bi bi-search"></i> -->                     
+                        <input type="text" class="ld-s1-search-input  batta-bg-lit" placeholder="Search here......" />
+                        <!-- <i class="bi bi-search"></i>                      -->
                     </div>
                     <div class="col-12 hr-bd-parahmain">
                         <div class="col-12  pt-5 pt-lg-0">
@@ -272,27 +271,53 @@
     </section>
 
 
+    <!-- about us -->
+
+    <section class="alg-bg-dark-blue py-5">
+        <div class="container">
+            <div class="row ">
+                <div class="col-12 ">
+                    <div class="text-center pb-4"><h1 class="alg-text-h text-white fw-bold">ABOUT US</h1></div>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-8 col-lg-3 bg-white d-flex justify-content-center align-items-center rounded-1">
+                            <img src="./resources/image/home/engineImage.png" class="img-fluid" alt="about_us_img" />
+                        </div>
+                        <div class="col-12 col-lg-7 d-flex justify-content-center pt-5 pt-lg-0">
+                            <div class="col-8 ">
+                                <p class="text-white alg-text-h3 abt-txt-alin">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aspernatur corporis error, iusto tenetur natus voluptates hic at rem repudiandae sint, omnis aliquam itaque corrupti, laborum quae earum nisi rerum officia quos eligendi quod. Autem aliquam saepe nesciunt. Magni nam quod quasi! Suscipit, officiis ullam odio pariatur temporibus quasi tempore amet laborum tempora minima ut dolorum quos excepturi beatae consequatur? Modi eaque corporis delectus, voluptatum quasi dolorum! Perferendis, reprehenderit accusamus?
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aspernatur corporis error, iusto tenetur natus voluptates hic at rem repudiandae sint, omnis aliquam itaque corrupti, laborum quae earum nisi rerum officia quos eligendi quod. Autem aliquam saepe nesciunt. Magni nam quod quasi! Suscipit, officiis ullam odio pariatur temporibus quasi tempore amet laborum tempora minima ut dolorum quos excepturi beatae consequatur? Modi eaque corporis delectus, voluptatum quasi dolorum! Perferendis, reprehenderit accusamus?
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <!-- why chose us -->
 
-    <section class=" WCU-s1 w-100">
+    <section class="WCU-s w-100">
         <div class="container ">
-            <div class="w-100 text-light fw-bold fs-2 pt-4">
+            <div class="w-100 text-ligh fw-bold fs-2 pt-4">
                 <p>Why Choose Us</p>
             </div>
-            <div class="w-100 d-flex justify-content-center p-3 gap-5 ">
-                <div class="WCU-s1-sBox d-flex flex-column justify-content-center align-items-center rounded-2 gap-4 text-center">
+            <div class="w-100 d-flex justify-content-center p-3 gap-5 pb-5">
+                <div class="WCU-s1-sBox alg-shadow d-flex flex-column justify-content-center align-items-center rounded-2 gap-4 text-center">
                     <div class="w-100 ">
                         <img src="resources/image/home/test.jpeg" alt="" class="WCU-s1-image">
                     </div>
                     <div class="w-100 WCU-s1-box-para text-primary fw-bold">Accuracy</div>
                 </div>
-                <div class="WCU-s1-sBox d-flex flex-column justify-content-center align-items-center rounded-2 gap-4 text-center">
+                <div class="WCU-s1-sBox alg-shadow  d-flex flex-column justify-content-center align-items-center rounded-2 gap-4 text-center">
                     <div class="w-100 ">
                         <img src="resources/image/home/test.jpeg" alt="" class="WCU-s1-image">
                     </div>
                     <div class="w-100 WCU-s1-box-para text-primary fw-bold">Accuracy</div>
                 </div>
-                <div class="WCU-s1-sBox d-flex flex-column justify-content-center align-items-center rounded-2 gap-4 text-center">
+                <div class="WCU-s1-sBox alg-shadow  d-flex flex-column justify-content-center align-items-center rounded-2 gap-4 text-center">
                     <div class="w-100  ">
                         <img src="resources/image/home/test.jpeg" alt="" class="WCU-s1-image">
                     </div>
@@ -307,7 +332,7 @@
     <!--review section  -->
     <section class="review-section py-4">
         <div class="container review-section-container">
-            <div class="review-header text-light fs-2 fw-bold">Review</div>
+            <div class="review-header text-light fs-2 fw-bold pb-3 pb-lg-1">Review</div>
             <!-- Swiper -->
             <div class="review-section-box swiper mySwiper">
                 <div class="swiper-wrapper">
@@ -420,6 +445,8 @@
         </div>
 
     </div>
+
+    
 
 
     <!-- footer -->
