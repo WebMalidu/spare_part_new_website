@@ -27,6 +27,7 @@
     <script defer src="js/bootstrap.bundle.js"></script>
     <script defer src="js/script.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/79961d807c.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -36,7 +37,7 @@
 
     <!-- content  of page -->
     <div class="cp-main-box d-flex flex-row">
-        <div class="cp-side-bar alg-bg-dark-blue">
+        <div class="cp-side-bar profile-bg-gradient">
             <!--fixed   left side bar -->
             <div class="cp-side-bar-s1-heading alg-text-h2 alg-bolder alg-text-light p-2">Filters</div>
             <!-- side bar section 1 -->
@@ -145,6 +146,7 @@
             </nav>
             <div class="p-2">
                 <button type="button" class="btn btn-primary cp-side-bar-button" data-toggle="modal" data-target="#leftSideModal">
+                <i class="fa-solid fa-bars-staggered" style="color: #ffffff;"></i>
                     Filter
                 </button>
             </div>
@@ -154,10 +156,11 @@
                     <div class="modal-content">
                         <div class="modal-header alg-bg-light-blue">
                             <h5 class="modal-title alg-text-dark-blue" id="exampleModalLongTitle">
-                                Filter <i class="fas fa-square-xmark"></i>
+                                Filter 
                             </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+                                
+                                <span aria-hidden="true" class="p-1 alg-bg-darker-blue alg-text-light">&times;</span>
                             </button>
                         </div>
 
@@ -274,6 +277,170 @@
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper ">
                     <!-- first slide -->
+                    <div class="swiper-slide">
+                        <div class="cp-right-box-slide-main gap-5">
+                            <!-- first slide first column -->
+                            <div class="cp-right-box-slide-column d-flex flex-column">
+                                <!-- first row -->
+                                <div class="cp-right-box-slide-l1 d-flex  gap-5">
+                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                        <!-- <i class="watchlist-icon-product-card fa-solid fa-heart"></i> -->
+                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <div class="spv-s2-box-top-img"></div>
+                                        </div>
+                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                            <div class="spv-s2-box-bottom-img"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <div class="spv-s2-box-top-img"></div>
+                                        </div>
+                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                            <div class="spv-s2-box-bottom-img"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- second row -->
+                                <div class="cp-right-box-slide-l1 d-flex py-4  gap-5">
+                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <div class="spv-s2-box-top-img"></div>
+                                        </div>
+                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                            <div class="spv-s2-box-bottom-img"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <div class="spv-s2-box-top-img"></div>
+                                        </div>
+                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                            <div class="spv-s2-box-bottom-img"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- third row -->
+                                <div class="cp-right-box-slide-l1 d-flex  gap-5">
+                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <div class="spv-s2-box-top-img"></div>
+                                        </div>
+                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                            <div class="spv-s2-box-bottom-img"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <div class="spv-s2-box-top-img"></div>
+                                        </div>
+                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                            <div class="spv-s2-box-bottom-img"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <!-- first slide second colmun -->
+                            <div class="cp-right-box-slide-column d-flex flex-column">
+                                <!-- first row -->
+                                <div class="cp-right-box-slide-l1 d-flex flex-row gap-5">
+                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <div class="spv-s2-box-top-img"></div>
+                                        </div>
+                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                            <div class="spv-s2-box-bottom-img"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <div class="spv-s2-box-top-img"></div>
+                                        </div>
+                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                            <div class="spv-s2-box-bottom-img"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- second row -->
+                                <div class="cp-right-box-slide-l1 d-flex flex-row gap-5 py-4">
+                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <div class="spv-s2-box-top-img"></div>
+                                        </div>
+                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                            <div class="spv-s2-box-bottom-img"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <div class="spv-s2-box-top-img"></div>
+                                        </div>
+                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                            <div class="spv-s2-box-bottom-img"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- third row -->
+                                <div class="cp-right-box-slide-l1 d-flex flex-row gap-5">
+                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <div class="spv-s2-box-top-img"></div>
+                                        </div>
+                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                            <div class="spv-s2-box-bottom-img"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <div class="spv-s2-box-top-img"></div>
+                                        </div>
+                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                            <div class="spv-s2-box-bottom-img"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- second slide -->
                     <div class="swiper-slide">
                         <div class="cp-right-box-slide-main gap-5">
                             <!-- first slide first column -->
@@ -435,170 +602,7 @@
                             </div>
                         </div>
                     </div>
-                   
-                   <!-- second slide -->
-                   <div class="swiper-slide">
-                        <div class="cp-right-box-slide-main gap-5">
-                            <!-- first slide first column -->
-                            <div class="cp-right-box-slide-column d-flex flex-column">
-                                <!-- first row -->
-                                <div class="cp-right-box-slide-l1 d-flex  gap-5">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <div class="spv-s2-box-top-img"></div>
-                                        </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
 
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <div class="spv-s2-box-top-img"></div>
-                                        </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!-- second row -->
-                                <div class="cp-right-box-slide-l1 d-flex py-4  gap-5">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <div class="spv-s2-box-top-img"></div>
-                                        </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <div class="spv-s2-box-top-img"></div>
-                                        </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!-- third row -->
-                                <div class="cp-right-box-slide-l1 d-flex  gap-5">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <div class="spv-s2-box-top-img"></div>
-                                        </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <div class="spv-s2-box-top-img"></div>
-                                        </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <!-- first slide second colmun -->
-                            <div class="cp-right-box-slide-column d-flex flex-column">
-                                <!-- first row -->
-                                <div class="cp-right-box-slide-l1 d-flex flex-row gap-5">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <div class="spv-s2-box-top-img"></div>
-                                        </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <div class="spv-s2-box-top-img"></div>
-                                        </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!-- second row -->
-                                <div class="cp-right-box-slide-l1 d-flex flex-row gap-5 py-4">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <div class="spv-s2-box-top-img"></div>
-                                        </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <div class="spv-s2-box-top-img"></div>
-                                        </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!-- third row -->
-                                <div class="cp-right-box-slide-l1 d-flex flex-row gap-5">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <div class="spv-s2-box-top-img"></div>
-                                        </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <div class="spv-s2-box-top-img"></div>
-                                        </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
                     <!-- third slide -->
                     <div class="swiper-slide">
                         <div class="cp-right-box-slide-main gap-5">

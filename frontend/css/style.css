@@ -309,7 +309,7 @@ h5 {
 /* section 1 (cu-s1) */
 .cu-s1 {
   min-width: 100%;
-  height: 150px;
+  height: 135px;
 }
 
 /* section 2 (cu-s2) */
@@ -511,6 +511,10 @@ h5 {
 /* side model css */
 .cp-side-bar-button {
   display: none;
+  width: 110px;
+  height: 30px;
+  justify-content: space-around;
+  align-items: center;
 }
 .cp-right-box-slide-column {
   gap: 40px;
@@ -519,8 +523,12 @@ h5 {
 /* footer */
 .footer-mainBox {
   flex-direction: row;
+  gap: 120px;
 }
-
+.watchlist-icon-product-card{
+  margin-top: -155px;
+  margin-left: 50px;
+}
 @keyframes myfirst {
   from {
     opacity: 0.7;
@@ -729,6 +737,7 @@ h5 {
   /* footer */
   .footer-mainBox {
     flex-direction: column;
+    gap: 40px;
   }
   .footer-img-box{
     display: flex;
@@ -824,6 +833,10 @@ h5 {
   .ld-hero.swiper {
     height: 60vh;
   }
+/* contact us page */
+.cu-s1 {
+  height: 100px;
+}
 
   /* footer */
   .footer-mainBox {
