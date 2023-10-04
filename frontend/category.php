@@ -146,7 +146,7 @@
             </nav>
             <div class="p-2">
                 <button type="button" class="btn btn-primary cp-side-bar-button" data-toggle="modal" data-target="#leftSideModal">
-                <i class="fa-solid fa-bars-staggered" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-bars-staggered" style="color: #ffffff;"></i>
                     Filter
                 </button>
             </div>
@@ -156,10 +156,10 @@
                     <div class="modal-content">
                         <div class="modal-header alg-bg-light-blue">
                             <h5 class="modal-title alg-text-dark-blue" id="exampleModalLongTitle">
-                                Filter 
+                                Filter
                             </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                
+
                                 <span aria-hidden="true" class="p-1 alg-bg-darker-blue alg-text-light">&times;</span>
                             </button>
                         </div>
@@ -284,8 +284,8 @@
                                 <!-- first row -->
                                 <div class="cp-right-box-slide-l1 d-flex  gap-5">
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <!-- <i class="watchlist-icon-product-card fa-solid fa-heart"></i> -->
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                        <div class="spv-s2-box-top  d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -297,6 +297,7 @@
 
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -311,6 +312,7 @@
                                 <div class="cp-right-box-slide-l1 d-flex py-4  gap-5">
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -322,6 +324,7 @@
 
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -336,6 +339,7 @@
                                 <div class="cp-right-box-slide-l1 d-flex  gap-5">
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -347,6 +351,7 @@
 
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -365,6 +370,7 @@
                                 <div class="cp-right-box-slide-l1 d-flex flex-row gap-5">
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -376,6 +382,7 @@
 
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -390,6 +397,7 @@
                                 <div class="cp-right-box-slide-l1 d-flex flex-row gap-5 py-4">
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -401,6 +409,7 @@
 
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -415,6 +424,7 @@
                                 <div class="cp-right-box-slide-l1 d-flex flex-row gap-5">
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -426,6 +436,7 @@
 
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -449,6 +460,7 @@
                                 <div class="cp-right-box-slide-l1 d-flex  gap-5">
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -460,6 +472,7 @@
 
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -474,6 +487,7 @@
                                 <div class="cp-right-box-slide-l1 d-flex py-4  gap-5">
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -485,6 +499,7 @@
 
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -499,6 +514,7 @@
                                 <div class="cp-right-box-slide-l1 d-flex  gap-5">
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -510,6 +526,7 @@
 
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -528,6 +545,7 @@
                                 <div class="cp-right-box-slide-l1 d-flex flex-row gap-5">
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -539,6 +557,7 @@
 
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -553,6 +572,7 @@
                                 <div class="cp-right-box-slide-l1 d-flex flex-row gap-5 py-4">
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -564,6 +584,7 @@
 
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -578,6 +599,7 @@
                                 <div class="cp-right-box-slide-l1 d-flex flex-row gap-5">
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -589,6 +611,7 @@
 
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -612,6 +635,7 @@
                                 <div class="cp-right-box-slide-l1 d-flex  gap-5">
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -623,6 +647,7 @@
 
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -637,6 +662,7 @@
                                 <div class="cp-right-box-slide-l1 d-flex py-4  gap-5">
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -648,6 +674,7 @@
 
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -662,6 +689,7 @@
                                 <div class="cp-right-box-slide-l1 d-flex  gap-5">
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -673,6 +701,7 @@
 
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -691,6 +720,7 @@
                                 <div class="cp-right-box-slide-l1 d-flex flex-row gap-5">
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -702,6 +732,7 @@
 
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -716,6 +747,7 @@
                                 <div class="cp-right-box-slide-l1 d-flex flex-row gap-5 py-4">
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -727,6 +759,7 @@
 
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -741,6 +774,7 @@
                                 <div class="cp-right-box-slide-l1 d-flex flex-row gap-5">
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
@@ -752,6 +786,7 @@
 
                                     <div class="spv-s2-container alg-rounded-small alg-shadow">
                                         <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                             <div class="spv-s2-box-top-img"></div>
                                         </div>
                                         <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
