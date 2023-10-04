@@ -94,23 +94,23 @@
 
                     <div>
                         <div class="d-flex justify-content-around alg-bg-blue text-white purchase-shadow alg-text-h3 p-1 rounded-1">
-                            <span>Item name</span>
-                            <span>Qty</span>
-                            <span>Price</span>
-                            <span>Order date</span>
-                            <span>Delivery date</span>
-                            <span>Status</span>
+                            <span class="col-2">Item name</span>
+                            <span class="col-1">Qty</span>
+                            <span class="col-2 text-center">Price</span>
+                            <span class="col-2">Order date</span>
+                            <span class="col-3">Delivery date</span>
+                            <span class="col-2">Status</span>
                         </div>
                         <?php
                         for ($x = 0; $x < 4; $x++) {
                         ?>
                             <div class="d-flex justify-content-around alg-bg-light-blue my-4 alg-text-h3 purchase-shadow align-self-center rounded-1">
-                                <span>Item 1</span>
-                                <span>3</span>
-                                <span>Rs.1500</span>
-                                <span>2023-08-29</span>
-                                <span>2023-09-04</span>
-                                <span>Delivered</span>
+                                <span class="1 text-start">Item 1</span>
+                                <span class="1">3</span>
+                                <span class="2">Rs.1500</span>
+                                <span class="2">2023-08-29</span>
+                                <span class="2">2023-09-04</span>
+                                <span class="2">Delivered</span>
                             </div>
                         <?php
                         }

@@ -145,6 +145,18 @@ function viewChange(id) {
 
 }
 
+// login section toggle
+
+function changeView() {
+
+    var signUpBox = document.getElementById("signUpBox");
+    var signInBox = document.getElementById("signInBox");
+
+    signUpBox.classList.toggle("d-none");
+    signInBox.classList.toggle("d-none");
+}
+
+
 
 // category page image slider by swapper
 var swiper = new Swiper(".mySwiper", {

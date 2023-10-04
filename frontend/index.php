@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>BATTA.LK</title>
+    <link rel="icon" href="resources/image/home/engineImage.png" />
 
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
@@ -43,9 +44,11 @@
             <div class="row">
                 <div class="col-12 col-lg-6 m-0  pt-0 pt-lg-4 order-2 order-lg-0">
                     <div class="col-12  hr-bd-search">
-                        <input type="text" class="ld-s1-search-input  batta-bg-lit" />
+                            <input type="text" class="ld-s1-search-input  batta-bg-lit" />
+                            <!-- <i class="bi bi-mic-fill"></i>
+                            <i class="bi bi-search"></i> -->                     
                     </div>
-                    <div class="col-12 hr-bd-parahmain  ">
+                    <div class="col-12 hr-bd-parahmain">
                         <div class="col-12  pt-5 pt-lg-0">
                             <p class="text-white">our hope is find you to get best solution no matter what you want every component have in our hand</p>
                         </div>
@@ -66,6 +69,12 @@
                     <!-- slider -->
                     <div class="swiper ld-hero mySwiperld" style="height: 478px; width: 100%;">
                         <div class="swiper-wrapper">
+                            <div class="swiper-slide ld-hero">
+                                <img src="./resources/image/home/engineImage.png" />
+                            </div>
+                            <div class="swiper-slide ld-hero">
+                                <img src="./resources/image/home/engineImage.png" />
+                            </div>
                             <div class="swiper-slide ld-hero">
                                 <img src="./resources/image/home/engineImage.png" />
                             </div>
