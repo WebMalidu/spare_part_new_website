@@ -62,25 +62,25 @@
                 <div class="cp-side-bar-s2-content">
                     <span class="alg-text-h3 alg-bolder alg-text-light m-4">Garage</span>
                     <div class="d-flex flex-column  gap-4 p-3">
-                        <select class="cp-side-bar-s2-checkbox alg-text-p alg-rounded-small" name="" id="">
+                        <select class="cp-side-bar-s2-checkbox alg-text-h3 alg-text-dark-blue alg-rounded-small" name="" id="">
                             <option class="" value="" disabled selected>select the maker</option>
                             <option value="">test 1</option>
                             <option value="">test 2</option>
                             <option value="">test 3</option>
                         </select>
-                        <select class="cp-side-bar-s2-checkbox alg-text-p alg-rounded-small" name="" id="">
+                        <select class="cp-side-bar-s2-checkbox alg-text-h3 alg-text-dark-blue alg-rounded-small" name="" id="">
                             <option value="" disabled selected>select model</option>
                             <option value="">test 4</option>
                             <option value="">test 5</option>
                             <option value="">test 6</option>
                         </select>
-                        <select class="cp-side-bar-s2-checkbox alg-text-p alg-rounded-small" name="" id="">
+                        <select class="cp-side-bar-s2-checkbox alg-text-h3 alg-text-dark-blue alg-rounded-small" name="" id="">
                             <option value="" disabled selected>manufacturing year</option>
                             <option value="">test 4</option>
                             <option value="">test 5</option>
                             <option value="">test 6</option>
                         </select>
-                        <select class="cp-side-bar-s2-checkbox alg-text-p alg-rounded-small" name="" id="">
+                        <select class="cp-side-bar-s2-checkbox alg-text-h3 alg-text-dark-blue alg-rounded-small" name="" id="">
                             <option value="" disabled selected>select modification</option>
                             <option value="">test 4</option>
                             <option value="">test 5</option>
@@ -190,25 +190,25 @@
                                     <div class="cp-side-bar-s2-content">
                                         <span class="alg-text-h3 alg-bolder alg-text-dark-blue m-4">Garage</span>
                                         <div class="d-flex flex-column  gap-4 p-3">
-                                            <select class="cp-side-bar-s2-checkbox alg-text-p alg-rounded-small alg-text-blue" name="" id="">
+                                            <select class="cp-side-bar-s2-checkbox alg-text-h3 alg-rounded-small alg-text-blue" name="" id="">
                                                 <option value="" disabled selected>select the maker</option>
                                                 <option value="">test 1</option>
                                                 <option value="">test 2</option>
                                                 <option value="">test 3</option>
                                             </select>
-                                            <select class="cp-side-bar-s2-checkbox alg-text-p alg-rounded-small alg-text-blue" name="" id="">
+                                            <select class="cp-side-bar-s2-checkbox alg-text-h3 alg-rounded-small alg-text-blue" name="" id="">
                                                 <option value="" disabled selected>select model</option>
                                                 <option value="">test 4</option>
                                                 <option value="">test 5</option>
                                                 <option value="">test 6</option>
                                             </select>
-                                            <select class="cp-side-bar-s2-checkbox alg-text-p alg-rounded-small alg-text-blue" name="" id="">
+                                            <select class="cp-side-bar-s2-checkbox alg-text-h3 alg-rounded-small alg-text-blue" name="" id="">
                                                 <option value="" disabled selected>manufacturing year</option>
                                                 <option value="">test 4</option>
                                                 <option value="">test 5</option>
                                                 <option value="">test 6</option>
                                             </select>
-                                            <select class="cp-side-bar-s2-checkbox alg-text-p alg-rounded-small alg-text-blue" name="" id="">
+                                            <select class="cp-side-bar-s2-checkbox alg-text-h3 alg-rounded-small alg-text-blue" name="" id="">
                                                 <option value="" disabled selected>select modification</option>
                                                 <option value="">test 4</option>
                                                 <option value="">test 5</option>

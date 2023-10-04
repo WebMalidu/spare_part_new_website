@@ -534,8 +534,8 @@ h5 {
   .watchlist-icon-product-card{
     display: block;
     position: absolute;
-    transform: translateY(-75px);
-    margin-left: 140px;
+    transform: translateY(-70px);
+    margin-left: 133px;
   }
 }
 
