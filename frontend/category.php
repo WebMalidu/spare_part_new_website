@@ -283,83 +283,94 @@
                             <div class="cp-right-box-slide-column d-flex flex-column">
                                 <!-- first row -->
                                 <div class="cp-right-box-slide-l1 d-flex  gap-5">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top  d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top  d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
+                                    </a>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                    </div>
-
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
-                                        </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
                                 </div>
                                 <!-- second row -->
                                 <div class="cp-right-box-slide-l1 d-flex py-4  gap-5">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
                                 </div>
                                 <!-- third row -->
                                 <div class="cp-right-box-slide-l1 d-flex  gap-5">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
                                 </div>
 
@@ -368,83 +379,95 @@
                             <div class="cp-right-box-slide-column d-flex flex-column">
                                 <!-- first row -->
                                 <div class="cp-right-box-slide-l1 d-flex flex-row gap-5">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
                                 </div>
                                 <!-- second row -->
                                 <div class="cp-right-box-slide-l1 d-flex flex-row gap-5 py-4">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
                                 </div>
                                 <!-- third row -->
                                 <div class="cp-right-box-slide-l1 d-flex flex-row gap-5">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
                                 </div>
                             </div>
@@ -458,83 +481,95 @@
                             <div class="cp-right-box-slide-column d-flex flex-column">
                                 <!-- first row -->
                                 <div class="cp-right-box-slide-l1 d-flex  gap-5">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
                                 </div>
                                 <!-- second row -->
                                 <div class="cp-right-box-slide-l1 d-flex py-4  gap-5">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
                                 </div>
                                 <!-- third row -->
                                 <div class="cp-right-box-slide-l1 d-flex  gap-5">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
                                 </div>
 
@@ -543,83 +578,95 @@
                             <div class="cp-right-box-slide-column d-flex flex-column">
                                 <!-- first row -->
                                 <div class="cp-right-box-slide-l1 d-flex flex-row gap-5">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
                                 </div>
                                 <!-- second row -->
                                 <div class="cp-right-box-slide-l1 d-flex flex-row gap-5 py-4">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
                                 </div>
                                 <!-- third row -->
                                 <div class="cp-right-box-slide-l1 d-flex flex-row gap-5">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
                                 </div>
                             </div>
@@ -633,83 +680,95 @@
                             <div class="cp-right-box-slide-column d-flex flex-column">
                                 <!-- first row -->
                                 <div class="cp-right-box-slide-l1 d-flex  gap-5">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
                                 </div>
                                 <!-- second row -->
                                 <div class="cp-right-box-slide-l1 d-flex py-4  gap-5">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
                                 </div>
                                 <!-- third row -->
                                 <div class="cp-right-box-slide-l1 d-flex  gap-5">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
                                 </div>
 
@@ -718,83 +777,95 @@
                             <div class="cp-right-box-slide-column d-flex flex-column">
                                 <!-- first row -->
                                 <div class="cp-right-box-slide-l1 d-flex flex-row gap-5">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
                                 </div>
                                 <!-- second row -->
                                 <div class="cp-right-box-slide-l1 d-flex flex-row gap-5 py-4">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
                                 </div>
                                 <!-- third row -->
                                 <div class="cp-right-box-slide-l1 d-flex flex-row gap-5">
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
-                                    <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                        <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                            <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
-                                            <div class="spv-s2-box-top-img"></div>
+                                    <a href="singlePageView.php">
+                                        <div class="spv-s2-container alg-rounded-small alg-shadow">
+                                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
+                                                <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
+                                                <div class="spv-s2-box-top-img"></div>
+                                            </div>
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                                <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
+                                                <span class="alg-text-light alg-text-h3">Rs.4500</span>
+                                                <div class="spv-s2-box-bottom-img"></div>
+                                            </div>
                                         </div>
-                                        <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
-                                            <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                            <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                            <div class="spv-s2-box-bottom-img"></div>
-                                        </div>
-                                    </div>
+                                    </a>
 
                                 </div>
                             </div>
