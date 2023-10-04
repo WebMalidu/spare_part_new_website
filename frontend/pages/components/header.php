@@ -1,6 +1,6 @@
      <header class="sticky-top">
           <nav class="batta-bg-prim header-bg py-2">
-               <div class="container">
+               <div class="">
                     <div class="d-flex justify-content-between p-2">
                          <!-- Button trigger modal -->
                          <div class="mobile-toggler d-lg-none fs-2 ps-4 ">
