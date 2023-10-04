@@ -28,17 +28,17 @@
   --font-h1: 20px;
 
   --font-h2-lg: 30px;
-  --font-h2-md: 16px;
-  --font-h2: 13px;
+  --font-h2-md: 19px;
+  --font-h2: 14px;
 
-  --font-h3-lg: 14px;
-  --font-h3-md: 13px;
-  --font-h3: 11px;
+  --font-h3-lg: 15px;
+  --font-h3-md: 12px;
+  --font-h3: 10px;
 
-  --font-p-lg: 16px;
-  --font-p-mid: 14px;
-  --font-p-sm: 13px;
-  --font-p-xsm: 12px;
+  --font-p-lg: 13px;
+  --font-p-mid: 11px;
+  --font-p-sm: 9px;
+  --font-p-xsm: 7px;
 
   /* radius */
   --rounded-large: 30px;
