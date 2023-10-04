@@ -29,7 +29,7 @@
     <script defer src="js/bootstrap.bundle.js"></script>
     <script defer src="js/script.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    
+
 
 
 </head>
@@ -238,12 +238,12 @@
                         for ($x = 0; $x < 4; $x++) {
                     ?>
                             <div class="col-6 col-md-4 col-lg-2 alg-bg-category mb-3 rounded mt-3 mx-4 px-3">
-
-                                <div class="d-flex flex-column align-items-center">
-                                    <img src="resources/image/car.jpg" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
-                                    <span class="mt-1 p-3 fw-bold text-white pb-5 alg-text-h3">Air Condition</span>
-                                </div>
-                            </div>
+                                <a href="category.php">
+                                    <div class="d-flex flex-column align-items-center">
+                                        <img src="resources/image/car.jpg" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
+                                        <span class="mt-1 p-3 fw-bold text-white pb-5 alg-text-h3">Air Condition</span>
+                                    </div>
+                            </div></a>
                         <?php
                         }
                     } else {
@@ -279,7 +279,9 @@
         <div class="container">
             <div class="row ">
                 <div class="col-12 ">
-                    <div class="text-center pb-4"><h1 class="alg-text-h text-white fw-bold">ABOUT US</h1></div>
+                    <div class="text-center pb-4">
+                        <h1 class="alg-text-h text-white fw-bold">ABOUT US</h1>
+                    </div>
                     <div class="row d-flex justify-content-center">
                         <div class="col-8 col-lg-3 bg-white d-flex justify-content-center align-items-center rounded-1">
                             <img src="./resources/image/home/engineImage.png" class="img-fluid" alt="about_us_img" />
@@ -448,7 +450,7 @@
 
     </div>
 
-    
+
 
 
     <!-- footer -->

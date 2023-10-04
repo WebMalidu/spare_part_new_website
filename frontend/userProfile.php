@@ -79,7 +79,7 @@
                     </div>
 
                     <div class="col-12 col-lg-8 d-flex justify-content-between mt-3 alg-text-h3 pt-2 pb-5 ps-lg-4">
-                        <button class="profile-button px-4 alg-text-dark-blue button">Update Details</button>
+                        <button class="profile-button px-4 alg-text-dark-blue button"><a href="userLogin.php" class="text-decoration-none">Update Details</a></button>
                         <button class="profile-button px-4 alg-text-dark-blue button" onclick="openPasswordModel();">Change Password</button>
                     </div>
                 </div>
@@ -104,7 +104,7 @@
                         <?php
                         for ($x = 0; $x < 4; $x++) {
                         ?>
-                            <div class="d-flex justify-content-around alg-bg-light-blue my-5 alg-text-h3 purchase-shadow align-self-center rounded-1">
+                            <div class="d-flex justify-content-around alg-bg-light-blue my-4 alg-text-h3 purchase-shadow align-self-center rounded-1 p-1">
                                 <span class="d-none d-lg-block">Item 1</span>
                                 <span class="d-lg-none d-block">Item 1 (3)</span>
                                 <span class="d-none d-lg-block px-5">3</span>
