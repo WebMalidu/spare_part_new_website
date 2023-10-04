@@ -82,13 +82,13 @@
 }
 
 .main-btn-2 {
-  border: 3px solid #01D07E;
+  border: 3px solid #01d07e;
   background-color: transparent;
-  color: #01D07E;
+  color: #01d07e;
 }
 
 .main-btn-2:hover {
-  background-color: #01D07E;
+  background-color: #01d07e;
   color: white;
 }
 
@@ -119,7 +119,6 @@
   height: 478px;
 }
 
-
 .ld-s1-search-input {
   padding: 15px 30px;
   width: 100%;
@@ -137,12 +136,12 @@
 
 /* category */
 .alg-bg-category {
-  background-color: #00447B;
+  background-color: #00447b;
   box-shadow: 10px 10px 5px rgb(166, 216, 233);
 }
 
 .alg-text-blue {
-  color: #0261AE;
+  color: #0261ae;
 }
 
 .alg-category-img {
@@ -249,7 +248,6 @@
   transform: translateY(4px);
 }
 
-
 /* Brand we trust section  */
 h5 {
   color: white;
@@ -286,7 +284,7 @@ h5 {
 }
 
 .splide__pagination__page.is-active {
-  background-color: #00447B;
+  background-color: #00447b;
   /* Change the color of the active dot */
 }
 
@@ -303,12 +301,9 @@ h5 {
 }
 
 .item1 {
-
   transition: color 0.3s, border-bottom 0.3s;
   /* Smooth transition for color and border */
 }
-
-
 
 /* contact us page css */
 /* section 1 (cu-s1) */
@@ -347,7 +342,6 @@ h5 {
 
 .cu-s3-field-box {
   width: 250px;
-
 }
 
 /* Single view page */
@@ -377,7 +371,6 @@ h5 {
   height: 95px;
   background-color: var(--light-blue);
   border-radius: var(--rounded-small);
-
 }
 
 .spv-s1-simg {
@@ -386,8 +379,6 @@ h5 {
   background-image: url(../resources/image/home/engineImage.png);
   background-size: cover;
 }
-
-
 
 .spv-s1-right-logo {
   width: 60px;
@@ -433,7 +424,6 @@ h5 {
 .spv-s2-box-top {
   width: 180px;
   height: 160px;
-
 }
 
 .spv-s2-box-top-img {
@@ -461,13 +451,12 @@ h5 {
   animation: myfirst 1s linear;
 }
 
-
 /* category page */
-.cp-side-bar{
+.cp-side-bar {
   width: 250px;
   height: 1000px;
 }
-.cp-side-bar-s2-checkbox{
+.cp-side-bar-s2-checkbox {
   height: 30px;
 }
 /* details sector (right) */
@@ -475,7 +464,7 @@ h5 {
   width: 800px;
   height: 900px;
 }
-.cp-right-box-slide-l1{
+.cp-right-box-slide-l1 {
   /* margin-top: -0px; */
 }
 .cp-right-box .swiper-slide {
@@ -506,7 +495,7 @@ h5 {
   color: #fff;
   background: #007aff;
 }
-.cp-right-box-slide-main{
+.cp-right-box-slide-main {
   display: flex;
   flex-direction: row;
   margin-top: -165px;
@@ -520,31 +509,31 @@ h5 {
   width: 160px;
 }
 /* side model css */
-.cp-side-bar-button{
+.cp-side-bar-button {
   display: none;
 }
-.cp-right-box-slide-column{
+.cp-right-box-slide-column {
   gap: 40px;
 }
 
-
+/* footer */
+.footer-mainBox {
+  flex-direction: row;
+}
 
 @keyframes myfirst {
   from {
-    opacity:0.7;
-    transform:translateY(0);
+    opacity: 0.7;
+    transform: translateY(0);
   }
 
   to {
     /* opacity: 1; */
-    transform:translateY(20px);
+    transform: translateY(20px);
   }
 }
 
-
-
 @media (max-width: 992px) {
-
   /* single view page */
   /* section 2 */
   .spv-s2-container-4 {
@@ -559,7 +548,6 @@ h5 {
   .spv-s2-box-top {
     width: 150px;
     height: 150px;
-
   }
 
   .spv-s2-box-top-img {
@@ -571,17 +559,15 @@ h5 {
     width: 630px;
     height: 1600px;
   }
-  .cp-right-box-slide-main{
-   
+  .cp-right-box-slide-main {
     flex-direction: column;
     margin-top: -70px;
   }
-  .cp-side-bar{
+  .cp-side-bar {
     height: 1800px;
   }
 }
 @media (max-width: 900px) {
-
   .cp-right-box .spv-s2-container {
     width: 150px;
     height: 200px;
@@ -589,7 +575,6 @@ h5 {
   .cp-right-box .swiper {
     width: 600px;
   }
-  
 }
 @media (max-width: 768px) {
   .searchSection-button {
@@ -601,7 +586,6 @@ h5 {
   .ld-s1-search-input {
     width: 100%;
     height: 20%;
-
   }
 
   .ld-hero-section1 {
@@ -636,8 +620,6 @@ h5 {
   .ld-hero.swiper {
     height: 100vh;
   }
-
-
 
   .nav-menu {
     display: none;
@@ -698,7 +680,6 @@ h5 {
   .spv-s2-box-top {
     width: 150px;
     height: 130px;
-
   }
 
   .spv-s2-box-top-img {
@@ -707,48 +688,55 @@ h5 {
   }
   /* category page  */
   /* slides */
-  .cp-side-bar-button{
+  .cp-side-bar-button {
     display: flex;
     /* display: block; */
   }
-  .cp-side-bar{
+  .cp-side-bar {
     display: none;
   }
-  .cp-right-box-slide-l3{
+  .cp-right-box-slide-l3 {
     display: none;
   }
   /* left open model */
-    .modal.left .modal-dialog {
-        position: fixed;
-        margin: auto;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        max-width: 400px; /* Adjust the width as needed */
-        height: 100%;
-        transform: translateX(-100%);
-        transition: transform 0.4s ease-in-out;
-    }
+  .modal.left .modal-dialog {
+    position: fixed;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    max-width: 400px; /* Adjust the width as needed */
+    height: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in-out;
+  }
 
-    .modal.left.show .modal-dialog {
-        transform: translateX(0);
-    }
-    .model-body{
-      /* overflow-y: auto; */
-      height: 700px;
-    }
-    .cp-model{
-      width: 300px;
-    }
-    .cp-model-btn{
-      width: 100px;
-      height: 30px;
-    }
+  .modal.left.show .modal-dialog {
+    transform: translateX(0);
+  }
+  .model-body {
+    /* overflow-y: auto; */
+    height: 700px;
+  }
+  .cp-model {
+    width: 300px;
+  }
+  .cp-model-btn {
+    width: 100px;
+    height: 30px;
+  }
 
+  /* footer */
+  .footer-mainBox {
+    flex-direction: column;
+  }
+  .footer-img-box{
+    display: flex;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 725px) {
-
   /* contact US */
   /* section 3 */
   .cu-s3-container {
@@ -768,13 +756,12 @@ h5 {
     gap: 20px;
   }
 }
-@media (max-width: 605px){
+@media (max-width: 605px) {
   .cp-right-box .swiper {
     width: 370px;
   }
 }
 @media (max-width: 576px) {
-
   /* Why Choose Us section */
   .WCU-s1-sBox {
     height: 200px;
@@ -793,7 +780,6 @@ h5 {
   .searchSection-selectorBox {
     flex-direction: column;
   }
-
 
   /* landing page */
   /* section 1 */
@@ -848,12 +834,9 @@ h5 {
     width: 180px;
     height: 25px;
   }
-
-
 }
 
 @media (max-width: 426px) {
-
   /* Why Choose Us section */
   .WCU-s1-sBox {
     height: 150px;
@@ -888,7 +871,6 @@ h5 {
   .cu-s3-map {
     width: 250px;
     height: 170px;
-
   }
 
   /* Single view page */
@@ -906,7 +888,6 @@ h5 {
   .spv-s1-img-sbox {
     width: 60px;
     height: 90px;
-
   }
 
   .spv-s1-simg {
@@ -934,7 +915,6 @@ h5 {
 }
 
 @media (max-width: 320px) {
-
   /* Why Choose Us section */
   .WCU-s1-image {
     height: 40px;
@@ -950,25 +930,25 @@ h5 {
   }
 }
 
-
-
 /* user Profile section */
 
 .profile-button {
-  border: 2px solid #00447B;
+  border: 2px solid #00447b;
   border-radius: 6px;
   font-weight: 500;
 }
 
 .profile-bg-gradient {
-  background: var(--gradiant-1, linear-gradient(107deg, #00447B 26.4%, #036FC8 81.38%));
+  background: var(
+    --gradiant-1,
+    linear-gradient(107deg, #00447b 26.4%, #036fc8 81.38%)
+  );
 }
 
 .profile-img {
   width: 220px;
   height: 220px;
 }
-
 
 /* purchasing section */
 
@@ -978,7 +958,10 @@ h5 {
 }
 
 .header-bg {
-  background: var(--gradiant-1, linear-gradient(107deg, #00447B 26.4%, #036FC8 81.38%));
+  background: var(
+    --gradiant-1,
+    linear-gradient(107deg, #00447b 26.4%, #036fc8 81.38%)
+  );
 }
 
 /* cart section */
@@ -1010,14 +993,12 @@ h5 {
   }
 }
 
-
-
 /* user login section */
 
 .sign-btn {
-  border: 2px solid #00447B;
+  border: 2px solid #00447b;
   background-color: transparent;
-  color: #00447B;
+  color: #00447b;
 }
 
 .sign-btn:hover {

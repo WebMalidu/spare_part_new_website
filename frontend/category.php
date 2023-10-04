@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Category page</title>
-    <link rel="icon" href="resources/image/home/engineImage.png" />
+    <title>category page</title>
 
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
@@ -45,13 +44,13 @@
                 <div class="cp-side-bar-s1-content">
                     <span class="alg-text-h3 alg-bolder alg-text-light m-4">Orgin</span>
                     <div class="d-flex flex-row justify-content-center gap-4 py-2">
-                        <div class="d-flex flex-column">
+                        <div class="d-flex flex-column gap-2">
                             <input class="form-check-input" type="checkbox">
                             <input class="form-check-input" type="checkbox">
                         </div>
-                        <div class="d-flex flex-column gap-3 p-1">
-                            <span class="alg-text-p alg-text-light">Aftermarket (30)</span>
-                            <span class="alg-text-p alg-text-light">OEM (6)</span>
+                        <div class="d-flex flex-column  ">
+                            <span class="alg-text-h3 alg-text-light">Aftermarket (30)</span>
+                            <span class="alg-text-h3 alg-text-light">OEM (6)</span>
                         </div>
                     </div>
                     <hr class="alg-text-light" style="border-top: 3px solid ;">
@@ -171,13 +170,13 @@
                                     <div class="cp-side-bar-s1-content">
                                         <span class="alg-text-h3 alg-bolder alg-text-dark-blue m-4">Orgin</span>
                                         <div class="d-flex flex-row justify-content-center gap-4 py-2">
-                                            <div class="d-flex flex-column">
+                                            <div class="d-flex flex-column gap-1">
                                                 <input class="form-check-input" type="checkbox">
                                                 <input class="form-check-input" type="checkbox">
                                             </div>
-                                            <div class="d-flex flex-column gap-3 p-1">
-                                                <span class="alg-text-p alg-text-dark-blue">Aftermarket (30)</span>
-                                                <span class="alg-text-p alg-text-dark-blue">OEM (6)</span>
+                                            <div class="d-flex flex-column">
+                                                <span class="alg-text-h3 alg-text-dark-blue">Aftermarket (30)</span>
+                                                <span class="alg-text-h3 alg-text-dark-blue">OEM (6)</span>
                                             </div>
                                         </div>
                                         <hr class="alg-text-dark-blue" style="border-top: 3px solid ;">
