@@ -45,35 +45,35 @@
      <!-- Modal -->
      <div class="modal fade" id="navbModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
-               <div class="modal-content">
+               <div class="modal-content header-bg">
 
-                    <div class="modal-header">
-                         <img src="/img/logo-variant.png" alt="Logo">
-                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                    <div class="modal-header d-flex justify-content-around gap-1 px-4">
+                         <img src="resources/image/battaLogoWhite.png" class="img-fluid pe-5" alt="Logo">
+                         <button type="button" class="btn-close bg-white px-3" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                     </div>
 
                     <div class="modal-body text-white">
 
                          <div class="modal-line">
-                              <i class="fa-solid fa-house"></i><a href="/">Home</a>
+                              <i class="fa-solid fa-house"></i><a href="index.php" class="text-decoration-none">Home</a>
                          </div>
 
                          <div class="modal-line">
-                              <i class="fa-solid fa-bell-concierge"></i><a href="/services">Category</a>
+                              <i class="fa-solid fa-bell-concierge"></i><a href="/services" class="text-decoration-none">Category</a>
                          </div>
 
                          <div class="modal-line">
-                              <i class="fa-solid fa-file-lines"></i> <a href="/cases">Contact Us</a>
+                              <i class="fa-solid fa-file-lines"></i> <a href="contactUs.php" class="text-decoration-none">Contact Us</a>
                          </div>
 
                          <div class="modal-line">
-                              <i class="fa-solid fa-circle-info"></i><a href="/about">My Garage</a>
+                              <i class="fa-solid fa-circle-info"></i><a href="/about" class="text-decoration-none">My Garage</a>
                          </div>
                          <div class="modal-line">
-                              <a href="#watchlist" onclick="openWatchlistModel();">Watchlist</a>
+                              <a href="#watchlist" class="text-decoration-none" onclick="openWatchlistModel();">Watchlist</a>
                          </div>
                          <div class="modal-line">
-                              <a href="#cart" onclick="openCartModel();">Cart</a>
+                              <a href="#cart" class="text-decoration-none" onclick="openCartModel();">Cart</a>
                          </div>
                          <!-- <div class="modal-line">
                               <i class="fa-solid fa-circle-info"></i><a href="/about">Watchlist</a>

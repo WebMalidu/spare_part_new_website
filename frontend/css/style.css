@@ -984,3 +984,18 @@ h5 {
     height: 30px;
   }
 }
+
+
+
+/* user login section */
+
+.sign-btn {
+  border: 2px solid #00447B;
+  background-color: transparent;
+  color: #00447B;
+}
+
+.sign-btn:hover {
+  background-color: #002848;
+  color: white;
+}
