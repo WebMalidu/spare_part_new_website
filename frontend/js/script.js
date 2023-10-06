@@ -1,15 +1,22 @@
-// cart open
+// cart open model
 let cartModel;
 function openCartModel() {
   cartModel = new bootstrap.Modal("#cartModel");
   cartModel.show();
 }
 
-// watchlist open
+// watchlist open model
 let watchlistModel;
 function openWatchlistModel() {
   watchlistModel = new bootstrap.Modal("#watchlistModel");
   watchlistModel.show();
+}
+
+// user login open model
+let loginModel;
+function openLoginModel() {
+  loginModel = new bootstrap.Modal("#loginModel");
+  loginModel.show();
 }
 
 // password change open
