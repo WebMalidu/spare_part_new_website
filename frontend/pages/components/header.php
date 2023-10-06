@@ -4,7 +4,7 @@
                     <div class="d-flex justify-content-between p-2">
                          <!-- Button trigger modal -->
                          <div class="mobile-toggler d-lg-none fs-2 ps-4 ">
-                              <a href="#" data-bs-toggle="modal" data-bs-target="#navbModal" class="batta-font-lite">
+                              <a href="#header" onclick="openHeaderModel();" data-bs-toggle="modal" data-bs-target="#navbModal" class="batta-font-lite">
                                    <i class="bi bi-border-width"></i>
                               </a>
                          </div>
@@ -43,7 +43,7 @@
      </header>
 
      <!-- Modal -->
-     <div class="modal fade" id="navbModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal fade" id="headerModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
                <div class="modal-content header-bg">
 
@@ -280,7 +280,7 @@
                                                        <h4 class="alg-text-dark-blue fw-bold">Sign In</h4>
                                                        <input type="email" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter email" />
                                                        <input type="password" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter password">
-                                                       <button class="button rounded-2 alg-text-h3">Continue</button>
+                                                       <button class="button rounded-2 alg-text-h3"><a href="userProfile.php" class="text-decoration-none">Continue</a></button>
                                                        <div class="text-center"><span class="alg-cursor fw-semibold alg-text-dark-blue alg-text-h3" onclick="changeView();">Sign up with &nbsp;<span class="fw-bold"> ></span></span></div>
                                                   </div>
                                                   <!-- sign Up section -->

@@ -79,7 +79,7 @@
                     </div>
 
                     <div class="col-12 col-lg-8 d-flex justify-content-between mt-3 alg-text-h3 pt-2 pb-5 ps-lg-4">
-                        <button class="profile-button px-4 alg-text-dark-blue button"><a href="userLogin.php" class="text-decoration-none">Update Details</a></button>
+                        <button class="profile-button px-4 alg-text-dark-blue button">Update Details</button>
                         <button class="profile-button px-4 alg-text-dark-blue button" onclick="openPasswordModel();">Change Password</button>
                     </div>
                 </div>

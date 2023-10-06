@@ -1,8 +1,17 @@
+// header open model
+let headerModel;
+function openHeaderModel() {
+  headerModel = new bootstrap.Modal("#headerModel");
+  headerModel.show();
+}
+
+
 // cart open model
 let cartModel;
 function openCartModel() {
   cartModel = new bootstrap.Modal("#cartModel");
   cartModel.show();
+  headerModel.hide();
 }
 
 // watchlist open model
@@ -10,6 +19,7 @@ let watchlistModel;
 function openWatchlistModel() {
   watchlistModel = new bootstrap.Modal("#watchlistModel");
   watchlistModel.show();
+  headerModel.hide();
 }
 
 // user login open model
@@ -17,6 +27,7 @@ let loginModel;
 function openLoginModel() {
   loginModel = new bootstrap.Modal("#loginModel");
   loginModel.show();
+  headerModel.hide();
 }
 
 // password change open
