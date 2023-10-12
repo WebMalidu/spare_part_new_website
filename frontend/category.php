@@ -49,7 +49,7 @@
                             <input class="form-check-input" type="checkbox">
                             <input class="form-check-input" type="checkbox">
                         </div>
-                        <div class="d-flex flex-column  ">
+                        <div class="d-flex flex-column  gap-2">
                             <span class="alg-text-h3 alg-text-light">Aftermarket (30)</span>
                             <span class="alg-text-h3 alg-text-light">OEM (6)</span>
                         </div>
