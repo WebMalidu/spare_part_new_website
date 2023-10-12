@@ -262,7 +262,7 @@
             <div class="spv-s3-heading-box">
                 <span class="alg-text-h2 alg-text-light alg-bolder">Features and Specification</span>
             </div>
-            <div class="d-flex flex-row justify-content-between  alg-text-light">
+            <div class="d-flex flex-row justify-content-between py-3  alg-text-light">
                 <div class="d-flex flex-column gap-3">
                     <div class="d-flex flex-row gap-1">
                         <div class="alg-bolder alg-text-h3">Number of Teeth</div>

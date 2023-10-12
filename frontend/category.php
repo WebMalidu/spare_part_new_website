@@ -146,7 +146,7 @@
             </nav>
             <div class="p-2">
                 <button type="button" class="btn btn-primary cp-side-bar-button" data-toggle="modal" data-target="#leftSideModal">
-                    <i class="fa-solid fa-bars-staggered" style="color: #ffffff;"></i>
+                <i class="fa-solid fa-filter" style="color: #ffffff;"></i>
                     Filter
                 </button>
             </div>
