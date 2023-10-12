@@ -11,7 +11,8 @@ $responseObject = new stdClass();
 $responseObject->status = "failed";
 
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-    $responseObject->error = "invalid access";
+    $responseObject->error = "invalid a
+    ccess";
     response_sender::sendJson($responseObject);
 }
 

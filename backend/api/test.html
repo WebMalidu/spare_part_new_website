@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Upload</title>
+</head>
+<body>
+    <form id="imageForm" enctype="multipart/form-data" method="post"> <!-- Added method="post" -->
+        <input type="file" name="image" id="imageInput">
+        <input type="submit" value="Upload Image" name="submit">
+    </form>
+    <script>
+        document.getElementById('imageInput').addEventListener('change', function() {
+            let imageForm = new FormData();
+            
+            const selectedFile = document.getElementById('imageInput').files[0];
+            
+            imageForm.append('image', selectedFile);
+
+            // send the data to the server
+            let request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (request.readyState == 4) {
+                    // perform an action on response
+                    if (request.status === 200) {
+                        let response = JSON.parse(request.responseText);
+                        
+                        if (response.status == "success") {
+                            alert(response.status);
+                            // Perform some action on success
+                        } else {
+                            console.log(response.error);
+                            // Handle the error
+                        }
+                    }
+                }
+            };
+            request.open("POST", "/backend/api/upload.php", true);
+            request.send(imageForm);
+        });
+    </script>
+</body>
+</html>
