@@ -37,7 +37,7 @@
 
     <div class="container ">
         <!-- section 1 (spv-s1) -->
-        <section class="spv-s1  gap-5 p-5">
+        <section class="spv-s1  gap-5 p-2">
             <!-- images sector -->
             <div class="">
                 <div class="spv-s1-img-box alg-bg-light-blue d-flex justify-content-center align-items-center ">
@@ -79,7 +79,7 @@
                     <span class="alg-text-p alg-text-blue alg-bold">Seller Name : Sirimal Kaldera</span>
                     <span class="alg-text-h3">Brand Name : Jalthara Production</span>
                 </div>
-                <div class="">
+                <div class="w-100 gap-2">
                     <span class="alg-text-yellow alg-text-p alg-bold">Compatibility :</span>
                     <div class="d-flex flex-row">
                         <div class="w-50 d-flex flex-column ">
@@ -109,7 +109,7 @@
 
         <!-- section 2 (spv-s2) featured product-->
         <section class="">
-            <div class="d-flex p-4">
+            <div class="d-flex p-2">
                 <span class="spv-s2-heading alg-text-h2 alg-text-blue alg-bolder">Featured Product</span>
             </div>
             <div>
@@ -257,19 +257,19 @@
         </section>
     </div>
     <!-- section 3 Features and Specification -->
-    <section class="spv-s3 alg-bg-dark-blue p-4">
+    <section class="spv-s3 alg-bg-dark-blue p-2">
         <div class="container">
             <div class="spv-s3-heading-box">
                 <span class="alg-text-h2 alg-text-light alg-bolder">Features and Specification</span>
             </div>
-            <div class="d-flex flex-row justify-content-between p-3 alg-text-light">
+            <div class="d-flex flex-row justify-content-between py-3  alg-text-light">
                 <div class="d-flex flex-column gap-3">
                     <div class="d-flex flex-row gap-1">
                         <div class="alg-bolder alg-text-h3">Number of Teeth</div>
                         <div class=" alg-text-h3">(101)</div>
                     </div>
                     <div>
-                        <div class="alg-bolder">Material</div>
+                        <div class="alg-bolder alg-text-h3">Material</div>
                         <div class="alg-text-h3">Highly Saturated Nitrile</div>
                     </div>
                 </div>

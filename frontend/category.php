@@ -49,7 +49,7 @@
                             <input class="form-check-input" type="checkbox">
                             <input class="form-check-input" type="checkbox">
                         </div>
-                        <div class="d-flex flex-column  ">
+                        <div class="d-flex flex-column  gap-2">
                             <span class="alg-text-h3 alg-text-light">Aftermarket (30)</span>
                             <span class="alg-text-h3 alg-text-light">OEM (6)</span>
                         </div>
@@ -146,7 +146,7 @@
             </nav>
             <div class="p-2">
                 <button type="button" class="btn btn-primary cp-side-bar-button" data-toggle="modal" data-target="#leftSideModal">
-                    <i class="fa-solid fa-bars-staggered" style="color: #ffffff;"></i>
+                <i class="fa-solid fa-filter" style="color: #ffffff;"></i>
                     Filter
                 </button>
             </div>

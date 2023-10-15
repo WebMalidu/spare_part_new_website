@@ -663,7 +663,10 @@ h5 {
     width: 90px;
     height: 90px;
   }
-
+  .spv-s1-right-button {
+    width: 100px;
+    height: 30px;
+  }
   /*category page */
   .cp-right-box .swiper {
     width: 630px;
