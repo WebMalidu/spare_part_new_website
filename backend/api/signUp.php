@@ -3,7 +3,7 @@ require("../model/database_driver.php");
 require("../model/data_validator.php");
 require("../model/passwordEncryptor.php");
 require("../model/response_sender.php");
-require("../model/user_access_updater.php");
+require("../model/SessionManager.php");
 require("../model/mail/MailSender.php");
 
 
@@ -41,7 +41,7 @@ $password = base64_encode($decrypt_password);
 $first_name = base64_encode($first_name);
 
 
-$login_link =  $_SERVER['HTTP_HOST'] . "/Algowrite/spare_part_new_website/backend/api/userVerification.php?email={$email}&password={$password}&first_name={$first_name}";
+$login_link =  $_SERVER['HTTP_HOST'] . "/backend/api/userVerification.php?email={$email}&password={$password}&first_name={$first_name}";
 $body = '<p>Click below to verify </p> <br> http://' . $login_link;
 
 

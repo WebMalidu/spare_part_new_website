@@ -11,8 +11,7 @@ $responseObject = new stdClass();
 $responseObject->status = "failed";
 
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-    $responseObject->error = "invalid a
-    ccess";
+    $responseObject->error = "invalid access";
     response_sender::sendJson($responseObject);
 }
 
@@ -22,6 +21,11 @@ $db = new database_driver();
 // Load order data
 $selectQuery = "SELECT * FROM `product_promotion` WHERE product_promotion_status_p_promotion_status_id = ?";
 $result2 = $db->execute_query($selectQuery, 's', [1]);
+
+
+
+
+
 
 // Initialize an array to store all rows
 $rows = [];

@@ -32,9 +32,9 @@ class SessionManager
         return isset($_SESSION[$this->sessionVariable]);
     }
 
-    public function login($userId)
+    public function login($data)
     {
-        $_SESSION[$this->sessionVariable] = $userId;
+        $_SESSION[$this->sessionVariable] = $data;
     }
 
     public function logout()
@@ -42,7 +42,7 @@ class SessionManager
         unset($_SESSION[$this->sessionVariable]);
     }
 
-    public function getUserId()
+    public function getUserData()
     {
         if ($this->isLoggedIn()) {
             return $_SESSION[$this->sessionVariable];

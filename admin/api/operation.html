@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON and Image POST Request</title>
+</head>
+<body>
+    <h1>JSON and Image POST Request</h1>
+    <input type="file" id="imageInput" accept="image/*">
+    <button id="submitButton">Submit</button>
+    <script>
+        const submitButton = document.getElementById("submitButton");
+        submitButton.addEventListener("click", () => {
+            const imageInput = document.getElementById("imageInput");
+            const imageFile = imageInput.files[0];
+            
+            if (imageFile) {
+                const requestDataObject = {
+                    "parts_id": 1,
+                    "start_date": "2023-2-20",
+                    "end_date": "2078-4-4",
+                    "discount": "56786"
+                };
+                
+                const form = new FormData();
+                form.append("productData", JSON.stringify(requestDataObject));
+                form.append("category_image", imageFile);
+                
+                const request = new XMLHttpRequest();
+                request.onreadystatechange = function () {
+                    if (request.readyState == 4) {
+                        if (request.status == 200) {
+                            try {
+                                const response = JSON.parse(request.responseText);
+                                if (response.status == "success") {
+                                    alert(response.status);
+                                    // Perform further actions if needed
+                                } else {
+                                    console.log(response.error);
+                                }
+                            } catch (error) {
+                                console.log("Error parsing JSON: " + error);
+                            }
+                        } else {
+                            console.log("Request failed with status: " + request.status);
+                        }
+                    }
+                };
+                request.open("POST", "./promationAdding.php", true);
+                request.send(form);
+            } else {
+                alert("Please select an image file.");
+            }
+        });
+    </script>
+</body>
+</html>

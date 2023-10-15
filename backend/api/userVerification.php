@@ -3,7 +3,7 @@ require("../model/database_driver.php");
 require("../model/data_validator.php");
 require("../model/passwordEncryptor.php");
 require("../model/response_sender.php");
-require("../model/user_access_updater.php");
+require("../model/SessionManager.php");
 require("../model/mail/MailSender.php");
 
 $responseObject=new stdClass();
@@ -50,14 +50,7 @@ $salt = $passwordEncryptor['salt'];
     $parms=array(1,$first_name,$email,$hash,$salt,$sqlDateFormat,1);
     $result1=$db->execute_query($insertQuery,'isssssi',$parms);
 
-   // Check if the query execution was successful
-if ($result1 && $result1['stmt']) {
-    // Check the number of affected rows
-    if (!$result1['stmt']->affected_rows > 0) {
-        $responseObject->error="insert failed";
-        response_sender::sendJson($responseObject);
-    } 
-} 
+   
 
 
     $selectQuery = "SELECT * FROM `user` WHERE email = ?";
@@ -69,7 +62,7 @@ if ($result1 && $result1['stmt']) {
 
 
     //create a session
-    $UseerAccess = new UserAccess();
+    $UseerAccess = new SessionManager();
     $UseerAccess->login($row);
 
     ?>

@@ -10,10 +10,13 @@
     <script>
         
   const requestDataObject = {
-    "email":"kaviska525@gmail.com",
-    "password": "secretpassword",
-    "cpassword": "secretpassword",
-    "firstName": "John"
+    "parts_id": 1,
+    "start_date":"2023-2-20",
+    "end_date":"2078-2-4",
+    "discount":"6",
+    "promotionId":45
+
+   
     
   }
 
@@ -24,7 +27,7 @@
 
   // store data in a form
   let form = new FormData();
-  form.append("signInData", JSON.stringify(requestDataObject));
+  form.append("promotionEdit", JSON.stringify(requestDataObject));
 
   // send the data to server
   let request = new XMLHttpRequest();
@@ -41,7 +44,7 @@
       console.log(request.responseText);
     }
   };
-  request.open("POST", "http://localhost/Algowrite/spare_part_new_website/backend/api/signIn.php", true);
+  request.open("POST", "/admin/api/promotionEdit.php", true);
   request.send(form);
 
 
