@@ -7,7 +7,6 @@
     <title>Contact US</title>
     <link rel="icon" href="resources/image/home/engineImage.png" />
 
-    
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <!-- splide -->
@@ -26,6 +25,7 @@
 
 
     <!-- js -->
+    <script src="https://kit.fontawesome.com/79961d807c.js" crossorigin="anonymous"></script>
     <script defer src="js/bootstrap.bundle.js"></script>
     <script defer src="js/script.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>

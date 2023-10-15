@@ -1,5 +1,5 @@
      <header class="sticky-top">
-          <nav class="batta-bg-prim header-bg py-2">
+          <nav class="batta-bg-prim header-b ma-img-overla m-header py-2 position-absolute">
                <div class="">
                     <div class="d-flex justify-content-between p-2">
                          <!-- Button trigger modal -->
@@ -14,7 +14,7 @@
                          </div>
                          <!-- navigation -->
                          <div class="d-lg-flex d-none gap-4 batta-font-lite">
-                              <div class="p-1 fs-5 d-flex  gap-5 ps-2 pe-2 text-white">
+                              <div class="p-1 fs-5 d-flex  gap-5 ps-2 pe-2 text-white fw-bold">
                                    <div class="header-link">
                                         <a class="nav-link" href="index.php">Home</a>
                                    </div>
@@ -54,28 +54,28 @@
 
                     <div class="modal-body text-white">
 
-                         <div class="modal-line d-flex gap-3">
+                         <div class="modal-line d-flex gap-3 align-items-center fw-bolder">
                               <i class="fa-solid fa-house"></i><a href="index.php" class="text-decoration-none">Home</a>
                          </div>
 
-                         <div class="modal-line d-flex gap-3">
+                         <div class="modal-line d-flex gap-3 align-items-center fw-bolder">
                               <i class="fa-solid fa-bell-concierge"></i><a href="category.php" class="text-decoration-none">Category</a>
                          </div>
 
-                         <div class="modal-line d-flex gap-3">
+                         <div class="modal-line d-flex gap-3 align-items-center fw-bolder">
                               <i class="fa-solid fa-file-lines"></i> <a href="contactUs.php" class="text-decoration-none">Contact Us</a>
                          </div>
 
-                         <div class="modal-line d-flex gap-3">
+                         <div class="modal-line d-flex gap-3 align-items-center fw-bolder">
                               <i class="fa-solid fa-circle-info"></i><a href="/about" class="text-decoration-none">My Garage</a>
                          </div>
-                         <div class="modal-line d-flex gap-3">
+                         <div class="modal-line d-flex gap-3 align-items-center fw-bolder">
                               <i class="bi bi-heart-fill text-white"></i><a href="#watchlist" class="text-decoration-none" onclick="openWatchlistModel();">Watchlist</a>
                          </div>
-                         <div class="modal-line d-flex gap-3">
+                         <div class="modal-line d-flex gap-3 align-items-center fw-bolder">
                               <i class="bi bi-cart-fill text-white"></i> <a href="#cart" class="text-decoration-none" onclick="openCartModel();">Cart</a>
                          </div>
-                         <div class="modal-line d-flex gap-3">
+                         <div class="modal-line d-flex gap-3 align-items-center fw-bolder">
                               <i class="bi bi-person-circle text-white"></i> <a href="#login" class="text-decoration-none" onclick="openLoginModel();">User Login</a>
                          </div>
                     </div>
@@ -110,7 +110,7 @@
                               <?php
                               for ($x = 0; $x < 5; $x++) {
                               ?>
-                                   <div class="col-12 d-flex justify-content-center align-items-center gap-5 pb-3">
+                                   <div class="col-12 d-flex justify-content-center  align-items-center gap-5 pb-3">
                                         <div class="col-5 col-lg-2 d-flex flex-column flex-lg-row justify-content-center bg-white ct-div-size alg-shadow rounded-1">
                                              <img src="resources/image/home/engineImage.png" class="crt_itm_img img-fluid my-auto mx-auto" alt="item_img" />
                                              <div class="col-12 d-flex flex-row d-lg-none d-block justify-content-around gap-5 pt-3">
@@ -211,7 +211,7 @@
                                              </div>
                                         </div>
 
-                                        <div class="row col-6 col-lg-8 col-lg-9 bg-white ct-div-size alg-shadow rounded-1 d-flex justify-content-lg-between align-items-lg-center">
+                                        <div class="row col-6 col-lg-8 col-lg-9 py-1 bg-white ct-div-size alg-shadow rounded-1 d-flex justify-content-lg-between align-items-lg-center">
                                              <div class="col-12 col-lg-3 d-flex flex-column alg-text-h3 gap-1 gap-lg-2">
                                                   <span class="fw-bold lh-1 alg-text-blue">Break Cable<br /><span class="fw-normal text-black">(Brand New)</span></span>
                                                   <span class="text-black-50">Brand : <span class="alg-text-blue"> &nbsp;&nbsp;&nbsp;&nbsp;Honda</span></span>

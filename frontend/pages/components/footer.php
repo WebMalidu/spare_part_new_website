@@ -23,9 +23,9 @@
                     <img src="resources/image/logo.jpg" alt="" srcset="" class="footer-logo">
                 </div>
                 <div class="footer-content-box d-flex flex-row justify-content-around w-100">
-                    <div class="">
-                        <h4 class=" alg-text-light alg-bolder">About</h4>
-                        <div class="footer-list-container py-4 alg-text-p alg-text-light">
+                    <div class="text-center">
+                        <span class="alg-text-light alg-bolder alg-text-h2">About</span>
+                        <div class="footer-list-container py-4 alg-text-p alg-text-light alg-cursor text-center">
                             <div class="alg-text-h3 py-2"> About us</div>
                             <div class="alg-text-h3 py-2">Contact Us</div>
                             <div class="alg-text-h3 py-2">Careers</div>
@@ -33,9 +33,9 @@
 
                         </div>
                     </div>
-                    <div class="">
-                        <h4 class=" alg-text-light alg-bolder">policy</h4>
-                        <div class="footer-list-container py-4 alg-text-p alg-text-light">
+                    <div class="text-center">
+                        <span class="alg-text-light alg-bolder alg-text-h2">policy</span>
+                        <div class="footer-list-container py-4 alg-text-p alg-text-light alg-cursor text-center">
                             <div class="alg-text-h3 py-2"> About us</div>
                             <div class="alg-text-h3 py-2">Contact Us</div>
                             <div class="alg-text-h3 py-2">Careers</div>
@@ -43,9 +43,9 @@
 
                         </div>
                     </div>
-                    <div class="">
-                        <h4 class=" alg-text-light alg-bolder">Usefull links</h4>
-                        <div class="footer-list-container py-4 alg-text-p alg-text-light">
+                    <div class="text-center">
+                        <span class="alg-text-light alg-bolder alg-text-h2">Usefull links</span>
+                        <div class="footer-list-container py-4 alg-text-p alg-text-light alg-cursor text-center">
                             <div class="alg-text-h3 py-2"> About us</div>
                             <div class="alg-text-h3 py-2">Contact Us</div>
                             <div class="alg-text-h3 py-2">Careers</div>

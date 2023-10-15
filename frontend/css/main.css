@@ -23,19 +23,19 @@
   --transition3: 600ms;
 
   /* font */
-  --font-h1-lg: 43px;
+  --font-h1-lg: 38px;
   --font-h1-md: 30px;
-  --font-h1: 20px;
+  --font-h1: 22px;
 
-  --font-h2-lg: 30px;
-  --font-h2-md: 19px;
-  --font-h2: 14px;
+  --font-h2-lg: 20px;
+  --font-h2-md: 15px;
+  --font-h2: 13px;
 
   --font-h3-lg: 15px;
   --font-h3-md: 12px;
-  --font-h3: 10px;
+  --font-h3: 11px;
 
-  --font-p-lg: 13px;
+  --font-p-lg: 14px;
   --font-p-mid: 11px;
   --font-p-sm: 9px;
   --font-p-xsm: 7px;
@@ -123,7 +123,15 @@
 }
 
 .alg-button-hover:hover {
-  transform: scale(1.09);
+  transform: scale(1.04);
+}
+
+.alg-card-hover {
+  transition: 1.5s ease;
+}
+
+.alg-card-hover:hover {
+  transform: scale(1.06);
 }
 
 .alg-text-hover:hover {
@@ -148,6 +156,10 @@
   color: white;
 }
 
+.bg-ne{
+  background-color: rgba(228, 214, 214, 0.211);
+}
+
 /* input field */
 
 .alg-input {
@@ -160,14 +172,29 @@
   cursor: pointer;
 }
 
+.alg-line1{
+  width:60%;
+  height:3px;
+  /* background-color: #0261ae; */
+  border-radius:3px;
+}
+
+.alg-line2{
+  width:30%;
+  height:5px;
+  /* background-color: #0261ae; */
+  border-radius:3px;
+  transform: translateY(-4px);
+}
+
 .alg-main-button {
   border: none;
 }
-
+/* 
 .alg-text-p {
   font-size: var(--font-p-small);
   line-height: 10px;
-}
+} */
 
 /* border radius */
 .alg-rounded-large {
@@ -227,9 +254,9 @@
 }
 
 /* font size */
-.alg-text-p {
+/* .alg-text-p {
   font-size: var(--font-p-lg);
-}
+} */
 
 /* font weight */
 .alg-bolder {
@@ -245,7 +272,7 @@
 @media screen and (min-width: 1070px) {
   /* font size */
   .alg-text-p {
-    font-size: var(--font-p-mid);
+    font-size: var(--font-p-lg);
   }
 
   .alg-text-h1 {
@@ -269,7 +296,7 @@
 @media screen and (max-width: 1070px) and (min-width: 575px) {
   /* font size */
   .alg-text-p {
-    font-size: var(--font-p-sm);
+    font-size: var(--font-p-mid);
   }
 
   .alg-text-h1 {
@@ -293,7 +320,7 @@
 @media screen and (max-width: 575px) {
   /* font size */
   .alg-text-p {
-    font-size: var(--font-p-xsm);
+    font-size: var(--font-p-sm);
   }
 
   .alg-text-h1 {
