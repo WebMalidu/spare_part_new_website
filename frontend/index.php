@@ -47,19 +47,19 @@
             <div class="container">
                 <div class="d-flex col-lg-6 flex-column gap-lg-5  justify-content-end justify-content-md-center justify-content-lg-center alg-lp-hero">
                     <div class="pb-3 pb-lg-0">
-                        <div class="d-flex align-items-center">
+                        <div class="hr-s1-search d-flex align-items-center">
                             <input type="text" class="col-10 col-lg-11 hr-se1-input px-3 p-2 hr-s1-rl" placeholder="Search here......" />
                             <div class="col-2 col-lg-1 d-flex justify-content-center p-2 align-items-center hr-s1-rr alg-bg-blue"><i class="bi bi-search text-white"></i></div>
                         </div>
                     </div>
-                    <div class="d-flex flex-column">
+                    <div class="hr-s1-paragraph d-flex flex-column">
                         <p class="text-white alg-text-h2">our hope is find you to get best solution no matter what you want every component have in our hand</p>
                         <div class="col-12 hr-bd-parah m-0">
-                            <div class="row pb-md-3 pb-lg-0  p-0 gap-2 gap-md-0 gap-lg-0 pt-3 pt-md-0 pt-lg-0 pb-5">
-                                <div class="col-12 col-md-6 col-lg-6 d-grid hr-bd-btn pb-2 pb-md-0">
+                            <div class=" row pb-md-3 pb-lg-0  p-0 gap-2 gap-md-0 gap-lg-0 pt-3 pt-md-0 pt-lg-0 pb-5">
+                                <div class="hr-s1-button col-12 col-md-6 col-lg-6 d-grid hr-bd-btn pb-2 pb-md-0">
                                     <button class="main-btn-1 alg-bg-blue rounded-1 alg-text-h3 alg-button-hover fw-bold">ADD CAR</button>
                                 </div>
-                                <div class="col-12 col-md-6  col-lg-6  d-grid hr-bd-btn">
+                                <div class="hr-s1-button col-12 col-md-6  col-lg-6  d-grid hr-bd-btn">
                                     <button class="main-btn-2 rounded-1 alg-text-h3 text-white">Learn More</button>
                                 </div>
                             </div>
@@ -71,17 +71,17 @@
     </section>
 
     <!-- social media links section -->
-    <div class="d-lg-flex justify-content-lg-end align-items-lg-center text-white">
-        <div class="d-flex flex-column gap-2 fs-5 position-fixed alg-cursor alg-bg-blue p-2 rounded-2">
-            <span><i class="bi bi-facebook"></i></span>
-            <span><i class="bi bi-youtube"></i></span>
-            <span><i class="bi bi-instagram"></i></span>
-            <span><i class="bi bi-whatsapp"></i></span>
-        </div>
+    <div class="d-flex justify-content-end align-items-center text-white">
+    <div class="d-flex flex-column gap-2 fs-5 position-fixed alg-cursor alg-bg-blue p-2 rounded-2" style="z-index: 2;">
+        <span><i class="bi bi-facebook"></i></span>
+        <span><i class="bi bi-youtube"></i></span>
+        <span><i class="bi bi-instagram"></i></span>
+        <span><i class="bi bi-whatsapp"></i></span>
     </div>
+</div>
 
     <!-- offer section -->
-    <section class="offerSection py-2 py-lg-4">
+    <section class="offerSection py-2 py-lg-4" style="position: relative; z-index: 1;">
         <div class="container pb-5">
             <div class="col-12">
                 <div class="d-flex flex-column align-items-center mb-2">

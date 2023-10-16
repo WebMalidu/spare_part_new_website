@@ -43,7 +43,7 @@
 
     <div class="container ">
         <!-- section 1 (spv-s1) -->
-        <section class="spv-s1  gap-5 p-2">
+        <section class="spv-s1  gap-5 p-3">
             <!-- images sector -->
             <div class="spv-s1-left">
                 <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper spv-mySwiper2">
@@ -182,7 +182,7 @@
                                 <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
                                     <div class="spv-s2-box-top-img"></div>
                                 </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                     <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                     <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                     <div class="spv-s2-box-bottom-img"></div>
@@ -193,7 +193,7 @@
                                 <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
                                     <div class="spv-s2-box-top-img"></div>
                                 </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                     <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                     <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                     <div class="spv-s2-box-bottom-img"></div>
@@ -203,7 +203,7 @@
                                 <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
                                     <div class="spv-s2-box-top-img"></div>
                                 </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                     <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                     <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                     <div class="spv-s2-box-bottom-img"></div>
@@ -213,7 +213,7 @@
                                 <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
                                     <div class="spv-s2-box-top-img"></div>
                                 </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                     <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                     <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                     <div class="spv-s2-box-bottom-img"></div>
@@ -226,7 +226,7 @@
                                 <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
                                     <div class="spv-s2-box-top-img"></div>
                                 </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                     <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                     <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                     <div class="spv-s2-box-bottom-img"></div>
@@ -237,7 +237,7 @@
                                 <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
                                     <div class="spv-s2-box-top-img"></div>
                                 </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                     <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                     <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                     <div class="spv-s2-box-bottom-img"></div>
@@ -247,7 +247,7 @@
                                 <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
                                     <div class="spv-s2-box-top-img"></div>
                                 </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                     <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                     <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                     <div class="spv-s2-box-bottom-img"></div>
@@ -257,7 +257,7 @@
                                 <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
                                     <div class="spv-s2-box-top-img"></div>
                                 </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                     <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                     <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                     <div class="spv-s2-box-bottom-img"></div>
@@ -270,7 +270,7 @@
                                 <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
                                     <div class="spv-s2-box-top-img"></div>
                                 </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                     <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                     <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                     <div class="spv-s2-box-bottom-img"></div>
@@ -281,7 +281,7 @@
                                 <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
                                     <div class="spv-s2-box-top-img"></div>
                                 </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                     <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                     <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                     <div class="spv-s2-box-bottom-img"></div>
@@ -291,7 +291,7 @@
                                 <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
                                     <div class="spv-s2-box-top-img"></div>
                                 </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                     <span class="alg-text-light alg-bolde alg-text-h3">Product Name</span>
                                     <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                     <div class="spv-s2-box-bottom-img"></div>
@@ -301,7 +301,7 @@
                                 <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
                                     <div class="spv-s2-box-top-img"></div>
                                 </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                     <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                     <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                     <div class="spv-s2-box-bottom-img"></div>

@@ -21,6 +21,13 @@
             <div class="footer-mainBox d-flex  justify-content-between p-3">
                 <div class="footer-img-box">
                     <img src="resources/image/logo.jpg" alt="" srcset="" class="footer-logo">
+                    <div class="h-100 gap-4 d-flex align-items-center">
+                        <i class="fa-brands fa-facebook fa-xl" style="color: #ffffff;"></i>
+                        <!-- <i class="fa-brands fa-square-facebook fa-lg" style="color: #ffffff;"></i> -->
+                        <i class="fa-brands fa-youtube fa-xl" style="color: #ffffff;"></i>
+                        <i class="fa-brands fa-instagram fa-xl" style="color: #ffffff;"></i>
+                        <i class="fa-brands fa-whatsapp fa-xl" style="color: #ffffff;"></i>
+                    </div>
                 </div>
                 <div class="footer-content-box d-flex flex-row justify-content-around w-100">
                     <div class="text-center">

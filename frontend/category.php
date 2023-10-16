@@ -177,7 +177,7 @@
                                                 <input class="form-check-input" type="checkbox">
                                                 <input class="form-check-input" type="checkbox">
                                             </div>
-                                            <div class="d-flex flex-column">
+                                            <div class="d-flex flex-column gap-2">
                                                 <span class="alg-text-h3 alg-text-dark-blue">Aftermarket (30)</span>
                                                 <span class="alg-text-h3 alg-text-dark-blue">OEM (6)</span>
                                             </div>
@@ -274,10 +274,10 @@
 
 
             <!-- Swiper -->
-            <div class="swiper mySwiper">
+            <div class=" swiper mySwiper">
                 <div class="swiper-wrapper ">
                     <!-- first slide -->
-                    <div class="swiper-slide">
+                    <div class=" swiper-slide">
                         <div class="cp-right-box-slide-main gap-5">
                             <!-- first slide first column -->
                             <div class="cp-right-box-slide-column d-flex flex-column">
@@ -289,7 +289,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -302,7 +302,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -319,7 +319,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -333,7 +333,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -350,7 +350,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -364,7 +364,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -385,7 +385,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -399,7 +399,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -416,7 +416,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -430,7 +430,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -447,7 +447,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -461,7 +461,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -477,7 +477,7 @@
                     <!-- second slide -->
                     <div class="swiper-slide">
                         <div class="cp-right-box-slide-main gap-5">
-                            <!-- first slide first column -->
+                            <!-- second slide first column -->
                             <div class="cp-right-box-slide-column d-flex flex-column">
                                 <!-- first row -->
                                 <div class="cp-right-box-slide-l1 d-flex  gap-5">
@@ -487,7 +487,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -501,7 +501,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -518,7 +518,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -532,7 +532,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -549,7 +549,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -563,7 +563,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -574,7 +574,7 @@
                                 </div>
 
                             </div>
-                            <!-- first slide second colmun -->
+                            <!-- second slide second colmun -->
                             <div class="cp-right-box-slide-column d-flex flex-column">
                                 <!-- first row -->
                                 <div class="cp-right-box-slide-l1 d-flex flex-row gap-5">
@@ -584,7 +584,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -598,7 +598,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -615,7 +615,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -629,7 +629,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -646,7 +646,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -660,7 +660,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -676,7 +676,7 @@
                     <!-- third slide -->
                     <div class="swiper-slide">
                         <div class="cp-right-box-slide-main gap-5">
-                            <!-- first slide first column -->
+                            <!-- third slide first column -->
                             <div class="cp-right-box-slide-column d-flex flex-column">
                                 <!-- first row -->
                                 <div class="cp-right-box-slide-l1 d-flex  gap-5">
@@ -686,7 +686,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -700,7 +700,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -717,7 +717,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -731,7 +731,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -748,7 +748,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -762,7 +762,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -773,7 +773,7 @@
                                 </div>
 
                             </div>
-                            <!-- first slide second colmun -->
+                            <!-- third slide second colmun -->
                             <div class="cp-right-box-slide-column d-flex flex-column">
                                 <!-- first row -->
                                 <div class="cp-right-box-slide-l1 d-flex flex-row gap-5">
@@ -783,7 +783,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -797,7 +797,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -814,7 +814,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -828,7 +828,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -845,7 +845,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
@@ -859,7 +859,7 @@
                                                 <i class="watchlist-icon-product-card fa-solid fa-heart alg-text-dark-blue"></i>
                                                 <div class="spv-s2-box-top-img"></div>
                                             </div>
-                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2">
+                                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
                                                 <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
                                                 <span class="alg-text-light alg-text-h3">Rs.4500</span>
                                                 <div class="spv-s2-box-bottom-img"></div>
