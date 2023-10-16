@@ -47,6 +47,7 @@
   --rounded-large: 30px;
   --rounded-mid: 15px;
   --rounded-small: 7px;
+  --rounded-under:0px 0px 7px 7px;
 
   /* font-weight */
   --bolder: 900;
@@ -239,6 +240,9 @@
 
 .alg-rounded-small {
   border-radius: var(--rounded-small);
+}
+.alg-rounded-under-small{
+  border-radius: var(--rounded-under);
 }
 
 /* button */
