@@ -54,6 +54,10 @@
   opacity: 0.98;
 }
 
+.position-h{
+  position: absolute;
+}
+
 /* hero slider section style */
 .hero-body-container {
   min-width: max-content;
@@ -93,6 +97,14 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  animation: garage 9s linear infinite;
+  transition: all .40s ease-in-out;
+}
+
+@keyframes garage{
+  100%{
+    scale: 1.1;
+  }
 }
 
 .ma-img-overlay {
@@ -100,6 +112,8 @@
   /* min-height:80vh; */
   background-color: rgba(0, 64, 116, 0.35);
 }
+
+
 
 .main-btn-1 {
   outline: none;
@@ -109,13 +123,13 @@
 }
 
 .main-btn-2 {
-  border: 3px solid #01d07e;
+  border: 3px solid #0261ae;
   background-color: transparent;
-  color: #01d07e;
+  color: #0261ae;
 }
 
 .main-btn-2:hover {
-  background-color: #01d07e;
+  background-color: #0261ae;
   color: white;
 }
 

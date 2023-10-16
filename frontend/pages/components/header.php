@@ -1,5 +1,5 @@
      <header class="sticky-top">
-          <nav class="batta-bg-prim header-b ma-img-overla m-header py-2 position-absolute">
+          <nav class="batta-bg-prim header-b ma-img-overla m-header py-2">
                <div class="">
                     <div class="d-flex justify-content-between p-2">
                          <!-- Button trigger modal -->
