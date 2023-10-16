@@ -35,52 +35,33 @@
 
 </head>
 
-<body>
+<body class="scrollbar">
     <!-- header section-->
 
     <?php include("./pages/components/header.php") ?>
 
     <!-- hero section slider -->
 
-    <section class="main-img">
+    <section class="main-img mb-3">
         <div class="ma-img-overlay">
             <div class="container">
-                <div class="d-flex flex-column flex-lg-row justify-content-start align-items-center gap-3 pt-md-5">
-                    <div class="col-10 col-lg-5 d-flex flex-column gap-lg-5 order-2 order-lg-1 pt-md-5">
-                        <div class="pb-3 pb-lg-5">
-                            <div class="d-flex align-items-center">
-                                <input type="text" class="col-10 col-lg-11 hr-se1-input px-3 p-2 hr-s1-rl" placeholder="Search here......" />
-                                <div class="col-2 col-lg-1 d-flex justify-content-center p-2 align-items-center hr-s1-rr alg-bg-blue"><i class="bi bi-search text-white"></i></div>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="text-white alg-text-h3">our hope is find you to get best solution no matter what you want every component have in our hand</p>
-                            <div class="col-12 hr-bd-parah m-0">
-                                <div class="row pb-md-3 pb-lg-0  p-0 gap-2 gap-md-0 gap-lg-0 pt-3 pt-md-0 pt-lg-0 pb-5">
-                                    <div class="col-12 col-md-6 col-lg-6 d-grid hr-bd-btn pb-2 pb-md-0">
-                                        <button class="main-btn-1 alg-bg-blue rounded-1 alg-text-h3 alg-button-hover fw-bold">ADD CAR</button>
-                                    </div>
-                                    <div class="col-12 col-md-6  col-lg-6 d-grid hr-bd-btn">
-                                        <button class="main-btn-2 rounded-1 alg-text-h3">Learn More</button>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="d-flex col-lg-6 flex-column gap-lg-5  justify-content-end justify-content-md-center justify-content-lg-center alg-lp-hero">
+                    <div class="pb-3 pb-lg-0">
+                        <div class="d-flex align-items-center">
+                            <input type="text" class="col-10 col-lg-11 hr-se1-input px-3 p-2 hr-s1-rl" placeholder="Search here......" />
+                            <div class="col-2 col-lg-1 d-flex justify-content-center p-2 align-items-center hr-s1-rr alg-bg-blue"><i class="bi bi-search text-white"></i></div>
                         </div>
                     </div>
-                    <div class="col-10 col-lg-6 order-1 order-lg-2 pt-md-5">
-                        <!-- main slider -->
-                        <div class="swiper ld-hero mySwiperld" style="height: 478px; width: 100%;">
-                            <div class="swiper-wrapper d-block d-lg-none">
-                                <div class="swiper-slide ld-hero">
-                                    <img src="./resources/image/home/engineImage.png" />
+                    <div class="d-flex flex-column">
+                        <p class="text-white alg-text-h2">our hope is find you to get best solution no matter what you want every component have in our hand</p>
+                        <div class="col-12 hr-bd-parah m-0">
+                            <div class="row pb-md-3 pb-lg-0  p-0 gap-2 gap-md-0 gap-lg-0 pt-3 pt-md-0 pt-lg-0 pb-5">
+                                <div class="col-12 col-md-6 col-lg-6 d-grid hr-bd-btn pb-2 pb-md-0">
+                                    <button class="main-btn-1 alg-bg-blue rounded-1 alg-text-h3 alg-button-hover fw-bold">ADD CAR</button>
                                 </div>
-                                <div class="swiper-slide ld-hero">
-                                    <img src="./resources/image/home/engineImage.png" />
+                                <div class="col-12 col-md-6  col-lg-6  d-grid hr-bd-btn">
+                                    <button class="main-btn-2 rounded-1 alg-text-h3 text-white">Learn More</button>
                                 </div>
-                                <div class="swiper-slide ld-hero">
-                                    <img src="./resources/image/home/engineImage.png" />
-                                </div>
-
                             </div>
                         </div>
                     </div>

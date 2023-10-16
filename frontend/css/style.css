@@ -49,26 +49,29 @@
   transition: background-color 1.2s ease-in-out;
 }
 
-.scrolled{
-  background-color:rgba(0, 64, 116);;
+.scrolled {
+  background-color: rgba(0, 64, 116);
+  ;
   opacity: 0.98;
 }
 
-.position-h{
+.position-h {
   /* position: absolute; */
-  background-color:#00447b;
+  background-color: #00447b;
 }
 
-.position-hh{
+.position-hh {
   position: absolute;
   /* background-color:#00447b; */
 }
+
 /* header hamburger menu css */
-.nav-model-logo{
+.nav-model-logo {
   width: 160px;
   height: 19px;
 }
-.nav-model-heading:hover{
+
+.nav-model-heading:hover {
   color: var(--blue);
   font-weight: var(--bolder);
   /* background-color: #000; */
@@ -108,25 +111,29 @@
 
 .main-img {
   width: 100%;
-  /* height:100vh; */
-  /* min-height:80vh; */
+  min-height: 500px;
   background-image: url("../resources/image/home/main_img.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  animation: garage 9s linear infinite;
+  animation: garage 6s linear infinite;
   transition: all .40s ease-in-out;
 }
 
-@keyframes garage{
-  100%{
+.alg-lp-hero {
+  min-height: 500px;
+}
+
+@keyframes garage {
+  100% {
     scale: 1.1;
   }
 }
 
 .ma-img-overlay {
   width: 100%;
-  /* min-height:80vh; */
+  min-height: 500px;
+  /* min-height: 50%; */
   background-color: rgba(0, 64, 116, 0.35);
 }
 
@@ -694,10 +701,12 @@ h5 {
     width: 90px;
     height: 90px;
   }
+
   .spv-s1-right-button {
     width: 100px;
     height: 30px;
   }
+
   /*category page */
   .cp-right-box .swiper {
     width: 630px;
@@ -1081,6 +1090,21 @@ h5 {
 
   .spv-s2-container-4 {
     display: none;
+  }
+  /* hero section */
+  .main-img {
+    min-height: 300px;
+  }
+
+  .ma-img-overlay {
+    min-height: 300px;
+  }
+
+  .alg-lp-hero {
+    min-height: 340px;
+  }
+  .main-btn-2{
+    height: 32px;
   }
 }
 
