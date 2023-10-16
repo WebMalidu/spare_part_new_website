@@ -41,25 +41,79 @@
         <!-- section 1 (spv-s1) -->
         <section class="spv-s1  gap-5 p-2">
             <!-- images sector -->
-            <div class="">
-                <div class="spv-s1-img-box alg-bg-light-blue d-flex justify-content-center align-items-center ">
-                    <div class="spv-s1-img"></div>
+            <div class="spv-s1-left">
+                <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper spv-mySwiper2">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
-                <div class="d-flex flex-row gap-3 py-3">
-                    <div class="spv-s1-img-sbox d-flex justify-content-center align-items-center">
-                        <div class="spv-s1-simg"></div>
-                    </div>
-                    <div class="spv-s1-img-sbox d-flex justify-content-center align-items-center">
-                        <div class="spv-s1-simg"></div>
-                    </div>
-                    <div class="spv-s1-img-sbox d-flex justify-content-center align-items-center">
-                        <div class="spv-s1-simg"></div>
-                    </div>
-                    <div class="spv-s1-img-sbox d-flex justify-content-center align-items-center">
-                        <div class="spv-s1-simg"></div>
+                <div thumbsSlider="" class="swiper spv-mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+                        </div>
                     </div>
                 </div>
             </div>
+
             <!-- details sector -->
             <div class="spv-s1-right">
                 <div class="d-flex flex-row gap-3">
@@ -302,14 +356,15 @@
             <div class="d-flex flex-row justify-content-between p-3 alg-text-light">
 
 
-                </div>
             </div>
+        </div>
     </section>
 
-         <!-- footer -->
+    <!-- footer -->
     <?php include("./pages/components/footer.php") ?>
 
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.0.9/dist/js/splide.min.js"></script>
+
 </body>
