@@ -1,12 +1,29 @@
-document.addEventListener('scroll', () => {
-    const header = document.querySelector('.m-header');
+if (document.URL.endsWith('/index.php')) {
+    document.addEventListener('scroll', () => {
+        const header = document.querySelector('.m-header');
 
-    if (window.scrollY > 0) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-})
+        if (window.scrollY > 0) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+            header.classList.add('position-hh');
+        }
+    });
+}else{
+    document.addEventListener('scroll', () => {
+        const header = document.querySelector('.m-header');
+
+     
+            // header.classList.add('scrolled');
+
+            // header.classList.remove('scrolled');
+            header.classList.add('position-h');
+        
+    });
+}
+
+
+
 
 
 // header open model

@@ -10,13 +10,13 @@
   --darker-blue: #002848;
   --dark-blue: #00447b;
   --blue: #0261ae;
-  --light-blue: #d6eafa;
+  --light-blue: #e3eef7cd;
   --light: white;
   --dark-green: #00995c;
   --green: #01d07e;
   --yellow: #bb9229;
   --gradiant-1: linear-gradient(107deg, #00447b 26.4%, #036fc8 81.38%);
-
+  /* #d6eaf */
   /* transistion */
   --transition1: 200ms;
   --transition2: 400ms;
@@ -55,7 +55,7 @@
   /* outline */
 
   /* shadows */
-  --shadow: rgba(0, 0, 0, 0.3) 0px 0px 15px;
+  --shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px;
 }
 
 /* background color */

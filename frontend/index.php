@@ -45,12 +45,12 @@
     <section class="main-img">
         <div class="ma-img-overlay">
             <div class="container">
-                <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3 pt-md-5">
+                <div class="d-flex flex-column flex-lg-row justify-content-start align-items-center gap-3 pt-md-5">
                     <div class="col-10 col-lg-5 d-flex flex-column gap-lg-5 order-2 order-lg-1 pt-md-5">
                         <div class="pb-3 pb-lg-5">
                             <div class="d-flex align-items-center">
                                 <input type="text" class="col-10 col-lg-11 hr-se1-input px-3 p-2 hr-s1-rl" placeholder="Search here......" />
-                                <div class="col-2 col-lg-1 d-flex justify-content-center p-2 align-items-center hr-s1-rr alg-bg-dark-blue"><i class="bi bi-search text-white"></i></div>
+                                <div class="col-2 col-lg-1 d-flex justify-content-center p-2 align-items-center hr-s1-rr alg-bg-blue"><i class="bi bi-search text-white"></i></div>
                             </div>
                         </div>
                         <div>
@@ -58,7 +58,7 @@
                             <div class="col-12 hr-bd-parah m-0">
                                 <div class="row pb-md-3 pb-lg-0  p-0 gap-2 gap-md-0 gap-lg-0 pt-3 pt-md-0 pt-lg-0 pb-5">
                                     <div class="col-12 col-md-6 col-lg-6 d-grid hr-bd-btn pb-2 pb-md-0">
-                                        <button class="main-btn-1 alg-bg-green rounded-1 alg-text-h3 alg-button-hover">Add car</button>
+                                        <button class="main-btn-1 alg-bg-blue rounded-1 alg-text-h3 alg-button-hover fw-bold">ADD CAR</button>
                                     </div>
                                     <div class="col-12 col-md-6  col-lg-6 d-grid hr-bd-btn">
                                         <button class="main-btn-2 rounded-1 alg-text-h3">Learn More</button>
@@ -70,7 +70,7 @@
                     <div class="col-10 col-lg-6 order-1 order-lg-2 pt-md-5">
                         <!-- main slider -->
                         <div class="swiper ld-hero mySwiperld" style="height: 478px; width: 100%;">
-                            <div class="swiper-wrapper">
+                            <div class="swiper-wrapper d-block d-lg-none">
                                 <div class="swiper-slide ld-hero">
                                     <img src="./resources/image/home/engineImage.png" />
                                 </div>
@@ -89,11 +89,19 @@
         </div>
     </section>
 
+    <div class="d-flex justify-content-end align-items-center text-white">
+        <div class="d-flex flex-column gap-2 fs-5 position-fixed alg-cursor alg-bg-blue p-2 rounded-2">
+            <span><i class="bi bi-facebook"></i></span>
+            <span><i class="bi bi-youtube"></i></span>
+            <span><i class="bi bi-instagram"></i></span>
+            <span><i class="bi bi-whatsapp"></i></span>
+        </div>
+    </div>
     <!-- offer section -->
     <section class="offerSection py-2 py-lg-4">
         <div class="container pb-5">
             <div class="col-12">
-                <div class="d-flex flex-column align-items-center mb-4">
+                <div class="d-flex flex-column align-items-center mb-2">
                     <div class="col-4 col-md-3 col-lg-2 d-flex flex-column align-items-center">
                         <span class="alg-text-blue mt-1 fw-bolder alg-text-h2 pb-1">OUR OFFERS</span>
                         <div class="alg-line1 alg-bg-blue d-flex align-self-center"></div>
@@ -103,79 +111,45 @@
 
                 <div class="swiper mySwiperk pt-3">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide d-flex gap-5">
-                            <div>
-                                <img src="resources/image/offer.png" class="alg-slider-img" alt="">
+                        <?php
+                        for ($x = 0; $x < 4; $x++) {
+                        ?>
+                            <div class="swiper-slide d-flex gap-5 p-3">
+                                <div>
+                                    <img src="resources/image/offer.png" class="alg-slider-img alg-shadow" alt="">
+                                </div>
+                                <div>
+                                    <img src="resources/image/offer.png" class="alg-slider-img alg-shadow" alt="">
+                                </div>
                             </div>
-                            <div>
-                                <img src="resources/image/offer.png" class="alg-slider-img" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-slide d-flex gap-5">
-                            <div>
-                                <img src="resources/image/offer.png" class="alg-slider-img" alt="">
-                            </div>
-                            <div>
-                                <img src="resources/image/offer.png" class="alg-slider-img" alt="">
-                            </div>
+                        <?php
+                        }
 
-                        </div>
-                        <div class="swiper-slide d-flex gap-5">
-                            <div>
-                                <img src="resources/image/offer.png" class="alg-slider-img" alt="">
-                            </div>
-                            <div>
-                                <img src="resources/image/offer.png" class="alg-slider-img" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-slide d-flex gap-5">
-                            <div>
-                                <img src="resources/image/offer.png" class="alg-slider-img" alt="">
-                            </div>
-                            <div>
-                                <img src="resources/image/offer.png" class="alg-slider-img" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-slide d-flex gap-5">
-                            <div>
-                                <img src="resources/image/offer.png" class="alg-slider-img" alt="">
-                            </div>
-                            <div>
-                                <img src="resources/image/offer.png" class="alg-slider-img" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-slide d-flex gap-5">
-                            <div>
-                                <img src="resources/image/offer.png" class="alg-slider-img" alt="">
-                            </div>
-                            <div>
-                                <img src="resources/image/offer.png" class="alg-slider-img" alt="">
-                            </div>
-                        </div>
-
+                        ?>
+                        <!-- <div class="swiper-pagination bg-succes"></div> -->
                     </div>
 
                 </div>
-                <!-- <div class="swiper-pagination bg-succes"></div> -->
+
             </div>
         </div>
     </section>
 
 
     <!-- search section -->
-    <section class="w-100 searchSection bg-n py-2 py-lg-4">
+    <section class="w-100 searchSectio alg-bg-light-blue bg-n py-2 py-lg-5">
         <div class="container searchSection-mainContainer pb-5">
             <div class="d-flex flex-column align-items-center mb-4">
                 <div class="col-6 col-md-4 col-lg-3 d-flex flex-column align-items-center">
-                    <span class="text-white mt-1 fw-bolder alg-text-h2 pb-1">SEARCH BY VEHICAL</span>
-                    <div class="alg-line1 bg-white d-flex align-self-center"></div>
-                    <div class="alg-line2 bg-white d-flex align-self-center"></div>
+                    <span class="alg-text-blue mt-1 fw-bolder alg-text-h2 pb-1">SEARCH BY VEHICAL</span>
+                    <div class="alg-line1 alg-bg-blue d-flex align-self-center"></div>
+                    <div class="alg-line2 alg-bg-blue d-flex align-self-center"></div>
                 </div>
             </div>
             <div class="searchSection-selectorBox d-flex justify-content-center gap-2 p-3">
                 <div class="col-12 d-flex flex-column flex-lg-row align-items-center justify-content-lg-center gap-3">
                     <div class="w-100">
-                        <select class="searchSection-selector form-select form-select-sm  " aria-label="Small select example">
+                        <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example">
                             <option selected>Select Car Maker</option>
                             <option class="fw-bold" value="1" disabled>popular car makers</option>
                             <option value="3">CHARVELOT</option>
@@ -190,7 +164,7 @@
                         </select>
                     </div>
                     <div class="w-100">
-                        <select class="searchSection-selector  form-select form-select-sm" aria-label="Small select example">
+                        <select class="searchSection-selector  form-select form-select-sm alg-shadow" aria-label="Small select example">
                             <option selected>Select Model Line</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
@@ -198,7 +172,7 @@
                         </select>
                     </div>
                     <div class="w-100">
-                        <select class="searchSection-selector form-select form-select-sm" aria-label="Small select example">
+                        <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example">
                             <option selected>Select Car Year</option>
                             <option value="1">2000</option>
                             <option value="2">2001</option>
@@ -223,7 +197,7 @@
                         </select>
                     </div>
                     <div class="w-100">
-                        <select class="searchSection-selector form-select form-select-sm" aria-label="Small select example">
+                        <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example">
                             <option selected>Select Modification</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
@@ -231,7 +205,7 @@
                         </select>
                     </div>
                     <div class="w-100 d-grid">
-                        <button class="rounded-2 border-0 fw-bold text-light searchSection-button p-2 alg-button-hover">SEARCH PARTS</button>
+                        <button class="rounded-2 border-0 fw-bold text-light searchSection-butto alg-bg-blue p-2 alg-button-hover">SEARCH PARTS</button>
                     </div>
                 </div>
             </div>
@@ -250,7 +224,7 @@
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
-                <div class="col-12 d-flex justify-content-center flex-wrap gap-5 gap-lg-5" id="category">
+                <div class="col-12 d-flex justify-content-center flex-wrap gap-2 gap-lg-5" id="category">
 
                     <?php
                     $num_row = 10;
@@ -296,25 +270,25 @@
 
     <!-- about us -->
 
-    <section class="alg-bg-dark-blue py-2 py-lg-4">
+    <section class="alg-bg-light-blue py-2 py-lg-4">
         <div class="container pb-5">
             <div class="row ">
                 <div class="col-12 ">
                     <div class="d-flex flex-column align-items-center mb-4">
                         <div class="col-6 col-md-4 col-lg-3 d-flex flex-column align-items-center">
-                            <span class="text-white mt-1 fw-bolder alg-text-h2 pb-1">ABOUT US</span>
-                            <div class="alg-line1 bg-white d-flex align-self-center"></div>
-                            <div class="alg-line2 bg-white d-flex align-self-center"></div>
+                            <span class="alg-text-blue mt-1 fw-bolder alg-text-h2 pb-1">ABOUT US</span>
+                            <div class="alg-line1 alg-bg-blue d-flex align-self-center"></div>
+                            <div class="alg-line2 alg-bg-blue d-flex align-self-center"></div>
                         </div>
                     </div>
                     <div class="row d-flex justify-content-center pt-3">
-                        <div class="col-8 col-lg-3 bg-white d-flex justify-content-center align-items-center rounded-1">
+                        <div class="col-8 col-lg-3 bg-white d-flex justify-content-center align-items-center rounded-1 alg-shadow">
                             <!-- <img src="./resources/image/home/about_us.jpg" class="img-fluid" alt="about_us_img" /> -->
                             <div class="abt-us"></div>
                         </div>
                         <div class="col-12 col-lg-7 d-flex justify-content-center pt-5 pt-lg-0">
                             <div class="col-8 ">
-                                <p class="text-white alg-text-h3 abt-txt-alin">
+                                <p class="alg-text-h3 abt-txt-alin">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aspernatur corporis error, iusto tenetur natus voluptates hic at rem repudiandae sint, omnis aliquam itaque corrupti, laborum quae earum nisi rerum officia quos eligendi quod. Autem aliquam saepe nesciunt. Magni nam quod quasi! Suscipit, officiis ullam odio pariatur temporibus quasi tempore amet laborum tempora minima ut dolorum quos excepturi beatae consequatur? Modi eaque corporis delectus, voluptatum quasi dolorum! Perferendis, reprehenderit accusamus?
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aspernatur corporis error, iusto tenetur natus voluptates hic at rem repudiandae sint, omnis aliquam itaque corrupti, laborum quae earum nisi rerum officia quos eligendi quod. Autem aliquam saepe nesciunt. Magni nam quod quasi! Suscipit, officiis ullam odio pariatur temporibus quasi tempore amet laborum tempora minima ut dolorum quos excepturi beatae consequatur? Modi eaque corporis delectus, voluptatum quasi dolorum! Perferendis, reprehenderit accusamus?
                                 </p>
@@ -364,45 +338,39 @@
 
 
     <!--review section  -->
-    <section class="review-section py-4">
+    <section class="alg-bg-light-blue py-4">
         <div class="container review-section-container">
             <div class="d-flex flex-column align-items-center mb-4">
                 <div class="col-6 col-md-4 col-lg-3 d-flex flex-column align-items-center">
-                    <span class="text-white mt-1 fw-bolder alg-text-h2 pb-1">REVIEW</span>
-                    <div class="alg-line1 bg-white d-flex align-self-center"></div>
-                    <div class="alg-line2 bg-white d-flex align-self-center"></div>
+                    <span class="alg-text-blue mt-1 fw-bolder alg-text-h2 pb-1">REVIEW</span>
+                    <div class="alg-line1 alg-bg-blue d-flex align-self-center"></div>
+                    <div class="alg-line2 alg-bg-blue d-flex align-self-center"></div>
                 </div>
             </div>
             <!-- Swiper -->
-            <div class="review-section-box swiper mySwiper">
+            <div class="review-section-b swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="review-section-box swiper-slide">
-                        <div class="review-box p-5 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                    <div class="review-section-b swiper-slide rounded-5">
+                        <div class="review-bo p-5 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                            <div class="w-100 p-5 bg-light rounded-top"><span class="alg-text-h1 fw-bold">"</span>Lorem ipsum dolor sit amet consectetur adipisicing elit.<span class="alg-text-h1 fw-bold">"</span></div>
+                            <div class="w-100 bg-light text-center p-2 rounded-bottom">nimal</div>
+                        </div>
+                    </div>
+                    <div class="review-section-b swiper-slide rounded-5">
+                        <div class="review-bo p-5 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                            <div class="w-100 p-5 bg-light rounded-top"><span class="alg-text-h1 fw-bold">"</span>Lorem ipsum dolor sit amet consectetur adipisicing elit.<span class="alg-text-h1 fw-bold">"</span></div>
+                            <div class="w-100 bg-light text-center p-2 rounded-bottom">kamal</div>
+                        </div>
+                    </div>
+                    <div class="review-section-b swiper-slide rounded-5">
+                        <div class="review-bo p-5 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
                             <div class="w-100 p-5 bg-light rounded-top"><span class="alg-text-h1 fw-bold">"</span>Lorem ipsum dolor sit amet consectetur adipisicing elit.<span class="alg-text-h1 fw-bold">"</span></div>
                             <div class="w-100 bg-light text-center p-2 rounded-bottom">malindu</div>
                         </div>
                     </div>
-                    <div class="review-section-box swiper-slide">
-                        <div class="review-box p-5 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
-                            <div class="w-100 p-5 bg-light rounded-top"><span class="alg-text-h1 fw-bold">"</span>Lorem ipsum dolor sit amet consectetur adipisicing elit.<span class="alg-text-h1 fw-bold">"</span></div>
-                            <div class="w-100 bg-light text-center p-2 rounded-bottom">Daham</div>
-                        </div>
-                    </div>
-                    <div class="review-section-box swiper-slide">
-                        <div class="review-box p-5 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
-                            <div class="w-100 p-5 bg-light rounded-top"><span class="alg-text-h1 fw-bold">"</span>Lorem ipsum dolor sit amet consectetur adipisicing elit.<span class="alg-text-h1 fw-bold">"</span></div>
-                            <div class="w-100 bg-light text-center p-2 rounded-bottom">janith</div>
-                        </div>
-                    </div>
-                    <div class="review-section-box swiper-slide">
-                        <div class="review-box p-5 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
-                            <div class="w-100 p-5 bg-light rounded-top"><span class="alg-text-h1 fw-bold">"</span>Lorem ipsum dolor sit amet consectetur adipisicing elit.<span class="alg-text-h1 fw-bold">"</span></div>
-                            <div class="w-100 bg-light text-center p-2 rounded-bottom">kavindu</div>
-                        </div>
-                    </div>
                 </div>
-                <div class="swiper-button-next text-light"></div>
-                <div class="swiper-button-prev text-light"></div>
+                <div class="swiper-button-next text-black-50"></div>
+                <div class="swiper-button-prev text-black-50"></div>
             </div>
         </div>
     </section>
