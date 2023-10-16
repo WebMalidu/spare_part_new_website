@@ -110,7 +110,7 @@
         </section>
 
         <!-- section 2 (spv-s2) featured product-->
-        <section class="">
+        <section class="py-5">
             <div class="d-flex p-2">
                 <span class="spv-s2-heading alg-text-h2 alg-text-blue alg-bolder">Featured Product</span>
             </div>
@@ -259,12 +259,12 @@
         </section>
     </div>
     <!-- section 3 Features and Specification -->
-    <section class="spv-s3 alg-bg-dark-blue p-2">
+    <section class="spv-s3 py-4 alg-bg-light-blue">
         <div class="container">
             <div class="spv-s3-heading-box">
-                <span class="alg-text-h2 alg-text-light alg-bolder">Features and Specification</span>
+                <span class="alg-text-h2 alg-text-dark-blue alg-bolder">Features and Specification</span>
             </div>
-            <div class="d-flex flex-row justify-content-between py-3  alg-text-light">
+            <div class="d-flex flex-row justify-content-between py-4  alg-text-b">
                 <div class="d-flex flex-column gap-3">
                     <div class="d-flex flex-row gap-1">
                         <div class="alg-bolder alg-text-h3">Number of Teeth</div>
