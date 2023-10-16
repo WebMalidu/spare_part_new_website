@@ -55,7 +55,13 @@
 }
 
 .position-h{
+  /* position: absolute; */
+  background-color:#00447b;
+}
+
+.position-hh{
   position: absolute;
+  /* background-color:#00447b; */
 }
 
 /* hero slider section style */
