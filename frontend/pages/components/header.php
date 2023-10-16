@@ -5,7 +5,8 @@
                          <!-- Button trigger modal -->
                          <div class="mobile-toggler d-lg-none fs-2 ps-4 ">
                               <a href="#header" onclick="openHeaderModel();" data-bs-toggle="modal" data-bs-target="#navbModal" class="batta-font-lite">
-                                   <i class="bi bi-border-width"></i>
+                                   <!-- <i class="bi bi-border-width"></i> -->
+                                   <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
                               </a>
                          </div>
                          <!-- logo -->
@@ -45,38 +46,54 @@
      <!-- Modal -->
      <div class="modal fade" id="headerModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
-               <div class="modal-content header-bg">
+               <div class="modal-content header-b">
 
                     <div class="modal-header d-flex justify-content-around gap-1 px-4">
-                         <img src="resources/image/battaLogoWhite.png" class="img-fluid pe-5" alt="Logo">
+                         <img src="resources/image/battaLogo.png" class="img-fluid pe-5" alt="Logo">
                          <button type="button" class="btn-close bg-white px-3" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
-                    <div class="modal-body text-white">
+                    <div class="modal-body">
 
-                         <div class="modal-line d-flex gap-3 align-items-center fw-bolder">
-                              <i class="fa-solid fa-house"></i><a href="index.php" class="text-decoration-none">Home</a>
+                         <div class="modal-line d-flex gap-3 align-items-center">
+                              <!-- <i class="fa-solid fa-house"></i> -->
+                              <a href="index.php" class=" nav-model-heading text-decoration-none alg-text-dark-blue">Home</a>
                          </div>
+                         <hr style="color: black;">
+                         
+                         <div class="modal-line d-flex gap-3 align-items-center">
+                              <!-- <i class="fa-solid fa-bell-concierge"></i> -->
+                              <a href="category.php" class=" nav-model-heading text-decoration-none alg-text-dark-blue">Category</a>
+                         </div>
+                         <hr style="color: black;">
+                         
+                         <div class="modal-line d-flex gap-3 align-items-center">
+                              <!-- <i class="fa-solid fa-file-lines"></i> -->
+                              <a href="contactUs.php" class=" nav-model-heading text-decoration-none alg-text-dark-blue">Contact Us</a>
+                         </div>
+                         <hr style="color: black;">
+                         
+                         <div class="modal-line d-flex gap-3 align-items-center">
+                              <!-- <i class="fa-solid fa-circle-info"></i> -->
+                              <a href="/about" class=" nav-model-heading text-decoration-none alg-text-dark-blue">My Garage</a>
+                         </div>
+                         <hr style="color: black;">
 
-                         <div class="modal-line d-flex gap-3 align-items-center fw-bolder">
-                              <i class="fa-solid fa-bell-concierge"></i><a href="category.php" class="text-decoration-none">Category</a>
+                         <div class="modal-line d-flex gap-3 align-items-center">
+                              <!-- <i class="bi bi-heart-fill text-white"></i> -->
+                              <a href="#watchlist" class=" nav-model-heading text-decoration-none alg-text-dark-blue" onclick="openWatchlistModel();">Watchlist</a>
                          </div>
+                         <hr style="color: black;">
 
-                         <div class="modal-line d-flex gap-3 align-items-center fw-bolder">
-                              <i class="fa-solid fa-file-lines"></i> <a href="contactUs.php" class="text-decoration-none">Contact Us</a>
+                         <div class="modal-line d-flex gap-3 align-items-center">
+                              <!-- <i class="bi bi-cart-fill text-white"></i>  -->
+                              <a href="#cart" class=" nav-model-heading text-decoration-none alg-text-dark-blue" onclick="openCartModel();">Cart</a>
                          </div>
+                         <hr style="color: black;">
 
-                         <div class="modal-line d-flex gap-3 align-items-center fw-bolder">
-                              <i class="fa-solid fa-circle-info"></i><a href="/about" class="text-decoration-none">My Garage</a>
-                         </div>
-                         <div class="modal-line d-flex gap-3 align-items-center fw-bolder">
-                              <i class="bi bi-heart-fill text-white"></i><a href="#watchlist" class="text-decoration-none" onclick="openWatchlistModel();">Watchlist</a>
-                         </div>
-                         <div class="modal-line d-flex gap-3 align-items-center fw-bolder">
-                              <i class="bi bi-cart-fill text-white"></i> <a href="#cart" class="text-decoration-none" onclick="openCartModel();">Cart</a>
-                         </div>
-                         <div class="modal-line d-flex gap-3 align-items-center fw-bolder">
-                              <i class="bi bi-person-circle text-white"></i> <a href="#login" class="text-decoration-none" onclick="openLoginModel();">User Login</a>
+                         <div class="modal-line d-flex gap-3 align-items-center">
+                              <!-- <i class="bi bi-person-circle text-white"></i>  -->
+                              <a href="#login" class=" nav-model-heading text-decoration-none alg-text-dark-blue" onclick="openLoginModel();">User Login</a>
                          </div>
                     </div>
                </div>

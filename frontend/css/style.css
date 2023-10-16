@@ -63,6 +63,17 @@
   position: absolute;
   /* background-color:#00447b; */
 }
+/* header hamburger menu css */
+.img-fluid{
+  width: 160px;
+  height: 19px;
+}
+.nav-model-heading:hover{
+  color: var(--blue);
+  font-weight: var(--bolder);
+  /* background-color: #000; */
+}
+
 
 /* hero slider section style */
 .hero-body-container {
