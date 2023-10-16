@@ -49,7 +49,7 @@
                <div class="modal-content header-b">
 
                     <div class="modal-header d-flex justify-content-around gap-1 px-4">
-                         <img src="resources/image/battaLogo.png" class="img-fluid pe-5" alt="Logo">
+                         <img src="resources/image/battaLogo.png" class="nav-model-logo pe-5" alt="Logo">
                          <button type="button" class="btn-close bg-white px-3" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 

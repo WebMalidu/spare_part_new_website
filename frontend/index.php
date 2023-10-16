@@ -89,7 +89,8 @@
         </div>
     </section>
 
-    <div class="d-flex justify-content-end align-items-center text-white">
+    <!-- social media links section -->
+    <div class="d-lg-flex justify-content-lg-end align-items-lg-center text-white">
         <div class="d-flex flex-column gap-2 fs-5 position-fixed alg-cursor alg-bg-blue p-2 rounded-2">
             <span><i class="bi bi-facebook"></i></span>
             <span><i class="bi bi-youtube"></i></span>
@@ -97,6 +98,7 @@
             <span><i class="bi bi-whatsapp"></i></span>
         </div>
     </div>
+
     <!-- offer section -->
     <section class="offerSection py-2 py-lg-4">
         <div class="container pb-5">
