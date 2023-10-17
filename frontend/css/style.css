@@ -1259,6 +1259,12 @@ h5 {
     height: 350px;
 
   }
+  /* footer */
+  
+  .footer-img-box {
+
+    gap: 15px;
+  }
 }
 
 /* user Profile section */
