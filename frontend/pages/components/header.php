@@ -26,7 +26,7 @@
                               <a class="nav-link" href="contactUs.php">Contact Us</a>
                          </div>
                          <div class="header-link">
-                              <a class="nav-link">My Garage</a>
+                              <a class="nav-link" href="garage.php">My Garage</a>
                          </div>
 
                     </div>

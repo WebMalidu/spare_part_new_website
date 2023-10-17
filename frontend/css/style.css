@@ -51,7 +51,6 @@
 
 .scrolled {
   background-color: rgba(0, 64, 116);
-  ;
   opacity: 0.98;
 }
 
@@ -144,6 +143,7 @@
   border: none;
   color: white;
   padding: 7px;
+  z-index:1000;
 }
 
 .main-btn-2 {
@@ -1166,6 +1166,22 @@ h5 {
   .main-btn-2{
     height: 32px;
   }
+}
+
+
+/* my garage section */
+
+.garage-card{
+  width: 180px;
+}
+
+.garge-box-hei{
+  min-height:400px;
+}
+
+.garage-lg-car{
+  width:600px;
+  margin-top:-200px;
 }
 
 @media (max-width: 320px) {
