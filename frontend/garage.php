@@ -37,12 +37,12 @@
                 <span class="alg-text-h2 fw-bold">My Garage</span>
             </div>
             <div class="d-flex justify-content-center py-3 py-md-5 position-relative">
-                <!-- <img src="resources/image/car.jpg" class="position-absolute garage-lg-car opacity-25" alt=""> -->
                 <div class="col-10">
                     <div class="d-flex justify-content-center gap-3 gap-md-4 flex-wrap" id="garage">
                         <div class="d-flex flex-column align-items-center justify-content-center garge-box-hei">
+                            <img src="resources/image/car.jpg" class="position-absolute garage-lg-car opacity-25" alt="">
                             <p class="alg-text-h3">Add your car for quick checkup what you need</p>
-                            <button class="main-btn-1 alg-bg-blue rounded-1 alg-text-h3 alg-button-hover fw-bold px-3" onclick="openGarageModel();">Add Your Car</button>
+                            <button class="w-50 main-btn-1 alg-bg-blue rounded-1 alg-text-h3 alg-button-hover fw-bold px-3" onclick="openGarageModel();">Add Your Car</button>
                         </div>
                     </div>
                 </div>

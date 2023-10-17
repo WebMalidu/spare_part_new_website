@@ -1214,8 +1214,13 @@ h5 {
 }
 
 .garage-lg-car{
-  width:600px;
-  margin-top:-200px;
+  width:200px;
+  margin-top:-160px;
+}
+
+/* flating social meadi */
+.f-social-media{
+  z-index: 2;
 }
 
 @media (max-width: 320px) {
