@@ -58,15 +58,20 @@ function openWatchlistModel() {
 }
 
 // user login open model
+// function openLoginModel() {
+//     headerModel.hide();
+// }
+
 let loginModel;
 function openLoginModel() {
+    headerModel.hide();
     loginModel = new bootstrap.Modal("#loginModel");
     loginModel.show();
     forgotPasswordModel.hide();
     passwordResetModel.hide();
     passwordSetModel.hide();
-    headerModel.hide();
 }
+
 
 // password change open
 let passwordModel;
