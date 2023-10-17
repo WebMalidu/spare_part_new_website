@@ -46,10 +46,10 @@
         <div class="ma-img-overlay">
             <div class="container">
                 <div class="d-flex col-lg-6 flex-column gap-lg-5  justify-content-end justify-content-md-center justify-content-lg-center alg-lp-hero">
-                    <div class="pb-3 pb-lg-0">
-                        <div class="hr-s1-search d-flex align-items-center">
-                            <input type="text" class="col-10 col-lg-11 hr-se1-input px-3 p-2 hr-s1-rl" placeholder="Search here......" />
-                            <div class="col-2 col-lg-1 d-flex justify-content-center p-2 align-items-center hr-s1-rr alg-bg-blue"><i class="bi bi-search text-white"></i></div>
+                    <div class="pb-3 pb-lg-0 pt-5">
+                        <div class="hr-s1-search d-flex align-items-center pt-5">
+                            <input type="text" class="col-10 col-lg-11 hr-se1-input px-3 p-2 hr-s1-rl mt-5" placeholder="Search here......" />
+                            <div class="col-2 col-lg-1 d-flex justify-content-center p-2 align-items-center hr-s1-rr alg-bg-blue mt-5"><i class="bi bi-search text-white"></i></div>
                         </div>
                     </div>
                     <div class="hr-s1-paragraph d-flex flex-column">
