@@ -120,7 +120,7 @@
 
             <!-- details sector -->
             <div class="spv-s1-right">
-                <div class="d-flex flex-row gap-3">
+                <div class="W-100 d-flex flex-row gap-3">
                     <div class="spv-s1-right-logo"></div>
                     <div class="d-flex flex-column">
                         <span class="alg-text-h2 alg-bold">NISSAN</span>
