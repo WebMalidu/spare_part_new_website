@@ -1,31 +1,36 @@
 if (document.URL.endsWith('/index.php')) {
-    document.addEventListener('scroll', () => {
-        const header = document.querySelector('.m-header');
+    const header = document.querySelector('.m-header');
 
+    if (window.scrollY === 0) {
+        header.classList.add('position-hh');
+    } else {
+        header.classList.add('scrolled');
+    }
+
+    window.addEventListener('scroll', () => {
         if (window.scrollY === 0) {
             header.classList.remove('scrolled');
             header.classList.add('position-hh');
-
         } else {
-
             header.classList.add('scrolled');
+            header.classList.remove('position-hh');
         }
     });
 } else {
-    document.addEventListener('scroll', () => {
-        const header = document.querySelector('.m-header');
+    const header = document.querySelector('.m-header');
 
+    header.classList.add('position-h');
 
-        // header.classList.add('scrolled');
-
-        // header.classList.remove('scrolled');
-        header.classList.add('position-h');
-
+    window.addEventListener('scroll', () => {
+        if (window.scrollY === 0) {
+            header.classList.remove('scrolled');
+            header.classList.add('position-h');
+        } else {
+            header.classList.add('scrolled');
+            header.classList.remove('position-h');
+        }
     });
 }
-
-
-
 
 
 // header open model
