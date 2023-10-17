@@ -75,7 +75,7 @@
 
                     <div class="modal-line d-flex gap-3 align-items-center">
                          <!-- <i class="fa-solid fa-circle-info"></i> -->
-                         <a href="/about" class=" nav-model-heading text-decoration-none alg-text-dark-blue">My Garage</a>
+                         <a href="garage.php" class=" nav-model-heading text-decoration-none alg-text-dark-blue">My Garage</a>
                     </div>
                     <hr style="color: black;">
 

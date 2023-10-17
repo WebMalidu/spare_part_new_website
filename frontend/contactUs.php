@@ -38,9 +38,9 @@
         <?php include("./pages/components/header.php") ?>
 
     <!-- section1 (cu-s1) -->
-    <div class="cu-s1 profile-bg-gradient">
-        <div class="h-100 container d-flex justify-content-center align-items-center">
-            <div class="cu-s1-heading alg-text-light alg-text-h1 alg-bolder">
+    <div class="cu-s1 alg-bg-darker-blue">
+        <div class="h-100 container  d-flex justify-content-center align-items-center">
+            <div class="cu-s1-heading  alg-text-light alg-text-h2 alg-bolder">
                 Help & Support
             </div>
         </div>
@@ -72,7 +72,7 @@
 
         </div>
         <div class="cu-s2-button-box ">
-            <button class="cu-s2-button alg-bg-green alg-text-light alg-rounded-small border-0">Submit</button>
+            <button class="cu-s2-button alg-bg-blue alg-text-light alg-rounded-small border-0">Submit</button>
         </div>
     </div>
 
