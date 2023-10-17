@@ -28,7 +28,7 @@
     <script defer src="js/script.js"></script>
 </head>
 
-<body>
+<body style="min-height: 100vh;">
     <?php include("./pages/components/header.php") ?>
 
     <section>
