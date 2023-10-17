@@ -38,7 +38,7 @@
         <?php include("./pages/components/header.php") ?>
 
     <!-- section1 (cu-s1) -->
-    <div class="cu-s1 alg-bg-dark-blue">
+    <div class="cu-s1 profile-bg-gradient">
         <div class="h-100 container d-flex justify-content-center align-items-center">
             <div class="cu-s1-heading alg-text-light alg-text-h1 alg-bolder">
                 Help & Support
