@@ -72,6 +72,7 @@ let garageModel;
 function openGarageModel() {
     garageModel = new bootstrap.Modal("#garageModel");
     garageModel.show();
+    
 }
 
 
