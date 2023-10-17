@@ -1,4 +1,4 @@
-<header class="sticky-top">
+<header class="sticky-top top-0">
 
      <nav class="batta-bg-prim header-b m-header py-2">
           <div class="d-flex justify-content-between p-2 ">
