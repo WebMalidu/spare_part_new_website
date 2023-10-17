@@ -34,7 +34,7 @@
     <section>
         <div class="container">
             <div class="pt-2 pt-md-4">
-                <span class="alg-text-h2 fw-bold">My Garage</span>
+                <span class="fs-4 alg-text-blue fw-bold">My Garage</span>
             </div>
             <div class="d-flex justify-content-center py-3 py-md-5 position-relative">
                 <div class="col-10">

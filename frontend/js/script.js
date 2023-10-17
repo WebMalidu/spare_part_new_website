@@ -7,7 +7,7 @@ if (document.URL.endsWith('/index.php')) {
             header.classList.add('position-hh');
 
         } else {
-   
+
             header.classList.add('scrolled');
         }
     });
@@ -57,6 +57,9 @@ let loginModel;
 function openLoginModel() {
     loginModel = new bootstrap.Modal("#loginModel");
     loginModel.show();
+    forgotPasswordModel.hide();
+    passwordResetModel.hide();
+    passwordSetModel.hide();
     headerModel.hide();
 }
 
@@ -65,6 +68,38 @@ let passwordModel;
 function openPasswordModel() {
     passwordModel = new bootstrap.Modal("#passwordModel");
     passwordModel.show();
+}
+
+
+
+// forgot password model
+let forgotPasswordModel;
+function openForgotPassword() {
+    forgotPasswordModel = new bootstrap.Modal("#forgotPasswordModel");
+    loginModel.hide();
+    forgotPasswordModel.show();
+}
+
+// password reset
+let passwordResetModel;
+function passwordReset() {
+    passwordResetModel = new bootstrap.Modal("#passwordResetModel");
+    passwordResetModel.show();
+    forgotPasswordModel.hide();
+}
+
+// password set
+let passwordSetModel;
+function passwordSet() {
+    passwordSetModel = new bootstrap.Modal("#passwordSetModel");
+    passwordSetModel.show();
+    passwordResetModel.hide();
+}
+
+
+function goBackToSignIn() {
+    signUpModel.hide();
+    signInModel.show();
 }
 
 // garage model
@@ -105,9 +140,9 @@ function changeView() {
 
 var x = 0;
 function addCarGarage() {
-let garage = '';
+    let garage = '';
     for (x = 0; x < 2; x++) {
-         garage += `<div class="alg-shadow py-2 garage-card">
+        garage += `<div class="alg-shadow py-2 garage-card">
         <div class="d-flex flex-column">
             <div class="d-flex justify-content-end gap-2 px-2">
                 <span><i class="bi bi-pencil-square"></i></span>
