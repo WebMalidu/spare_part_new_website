@@ -140,6 +140,7 @@
   border: none;
   color: white;
   padding: 7px;
+  z-index:1000;
 }
 
 .main-btn-2 {
@@ -1214,6 +1215,27 @@ h5 {
     width: 300px;
     height: 30px;
   }
+}
+
+
+/* my garage section */
+
+.garage-card{
+  width: 180px;
+}
+
+.garge-box-hei{
+  min-height:400px;
+}
+
+.garage-lg-car{
+  width:200px;
+  margin-top:-160px;
+}
+
+/* flating social meadi */
+.f-social-media{
+  z-index: 2;
 }
 
 @media (max-width: 320px) {

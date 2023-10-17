@@ -35,7 +35,7 @@
 
 </head>
 
-<body class="scrollbar">
+<body class="">
     <!-- header section-->
 
     <?php include("./pages/components/header.php") ?>
@@ -72,11 +72,12 @@
 
     <!-- social media links section -->
     <div class="d-flex justify-content-end align-items-center text-white">
-    <div class="d-flex flex-column gap-2 fs-5 position-fixed alg-cursor alg-bg-blue p-2 rounded-2" style="z-index: 2;">
-        <span><i class="bi bi-facebook"></i></span>
-        <span><i class="bi bi-youtube"></i></span>
-        <span><i class="bi bi-instagram"></i></span>
-        <span><i class="bi bi-whatsapp"></i></span>
+        <div class="d-flex flex-column gap-2 fs-5 position-fixed alg-cursor alg-bg-blue p-2 rounded-2 f-social-media">
+            <span><i class="bi bi-facebook"></i></span>
+            <span><i class="bi bi-youtube"></i></span>
+            <span><i class="bi bi-instagram"></i></span>
+            <span><i class="bi bi-whatsapp"></i></span>
+        </div>
     </div>
 </div>
 

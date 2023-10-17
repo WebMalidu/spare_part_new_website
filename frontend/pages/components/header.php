@@ -26,7 +26,7 @@
                               <a class="nav-link" href="contactUs.php">Contact Us</a>
                          </div>
                          <div class="header-link">
-                              <a class="nav-link">My Garage</a>
+                              <a class="nav-link" href="garage.php">My Garage</a>
                          </div>
 
                     </div>
@@ -298,7 +298,10 @@
                                                   <input type="email" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter email" />
                                                   <input type="password" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter password">
                                                   <button class="button rounded-2 alg-text-h3"><a href="userProfile.php" class="text-decoration-none">Continue</a></button>
-                                                  <div class="text-center"><span class="alg-cursor fw-semibold alg-text-dark-blue alg-text-h3" onclick="changeView();">Sign up with &nbsp;<span class="fw-bold"> ></span></span></div>
+                                                  <div class="text-center">
+                                                       <span class="alg-cursor alg-text-h3" onclick="openForgotPassword();">Forgot your password?</span><br />
+                                                       <span class="alg-cursor fw-semibold alg-text-dark-blue alg-text-h3" onclick="changeView();">Sign up with &nbsp;<span class="fw-bold"> ></span></span>
+                                                  </div>
                                              </div>
                                              <!-- sign Up section -->
                                              <div class="col-8 d-flex flex-column gap-3 d-none py-4 py-md-0" id="signUpBox">
@@ -316,6 +319,91 @@
                          </div>
                     </div>
 
+               </div>
+          </div>
+     </div>
+</div>
+
+<!-- forgot password model -->
+<div class="modal fade" id="forgotPasswordModel" tabindex="-1" aria-labelledby="ALG-SignIn-Modal-Label" aria-hidden="true">
+     <div class="modal-dialog p-0">
+          <div class="modal-content rounded-3">
+               <div class="modal-body p-0">
+                    <div class="rounded-3">
+                         <div class="alg-bg-light-blue p-3 rounded-3 d-flex flex-column align-items-center">
+                              <div class="text-center">
+                                   <span class="alg-text-h2 fw-bold">Forgot password?</span>
+                                   <p class="alg-text-h3 text-black-50">No worries, we will send you reset instructions.</p>
+
+                                   <div class="text-start">
+                                        <span class="alg-text-h3 fw-semibold">Email</span>
+                                        <input type="email" id="forgottenPasswordEmail" class="ALG-model-input alg-bg alg-text-h3 form-control rounded-3" placeholder="Email address" />
+                                        <button id="mainButton" class="p-2 mb-3 w-100 rounded-3 alg-bg-blue main-btn-1 alg-text-h3 text-white fw-bolder mt-2 mt-md-3" onclick="passwordReset();">
+                                             <span class="spinner-border spinner-border-sm d-none" aria-hidden="true"></span>
+                                             <span role="status">Reset Password</span>
+                                        </button>
+                                        <p class="alg-text-h3 text-center alg-cursor" onclick="openLoginModel();"><i class="bi bi-arrow-left"></i> Back to Sign In</p>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</div>
+
+<!-- password reset model -->
+<div class="modal fade" id="passwordResetModel" tabindex="-1" aria-labelledby="ALG-SignIn-Modal-Label" aria-hidden="true">
+     <div class="modal-dialog p-0">
+          <div class="modal-content rounded-3">
+               <div class="modal-body p-0">
+                    <div class="rounded-3">
+                         <div class="alg-bg-light-blue p-3 rounded-3 px-5">
+                              <div class="text-center">
+                                   <span class="alg-text-h2 fw-bold">Password Reset</span>
+                                   <p class="alg-text-h3 text-black-50">We sent a code to abc@gmail.com</p>
+
+                                   <div class="text-start">
+                                        <span class="alg-text-h3 fw-semibold">Verification code</span>
+                                        <span class="alg-text-h3 fw-semibold" id="verificationSendingTimeRunner">30</span>
+                                        <input type="text" id="verification_code" class="ALG-model-input alg-text-h3 form-control rounded-3" placeholder="code" />
+                                        <button class="p-2 mb-3 w-100 rounded-3 alg-text-h3  text-white alg-bg-blue main-btn-1 fw-bolder mt-2 mt-md-3" onclick="passwordSet();">Next</button>
+                                        <p class="alg-text-h3 text-center alg-cursor">Didn't receive the email? <a href="#">Click to resend</a></p>
+                                        <p class="alg-text-h3 text-center alg-cursor" onclick="openLoginModel();"><i class="bi bi-arrow-left"></i> Back to Sign In</p>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</div>
+
+<!-- set password model -->
+<div class="modal fade" id="passwordSetModel" tabindex="-1" aria-labelledby="ALG-SignIn-Modal-Label" aria-hidden="true">
+     <div class="modal-dialog p-0">
+          <div class="modal-content rounded-3">
+               <div class="modal-body p-0">
+                    <div class="rounded-3">
+                         <div class="alg-bg-light-blue p-3 rounded-5">
+                              <div class="text-center px-5">
+                                   <span class="alg-text-h2 fw-bold">Set new password</span>
+                                   <p class="alg-text-h3 text-black-50">Must be at least 8 characters</p>
+
+                                   <div class="text-start">
+
+                                        <span class="alg-text-h3 fw-semibold">Password</span>
+                                        <input type="password" id="fg-password" class="ALG-model-input form-control alg-text-h3 rounded-3 mb-3" placeholder="password" />
+
+                                        <span class="alg-text-h3 fw-semibold">Confirm Password</span>
+                                        <input type="password" id="fg-confirm_password" class="ALG-model-input alg-text-h3 form-control rounded-3" placeholder="confirm password" />
+
+                                        <button class="p-2 mb-3 w-100 rounded-3 alg-text-h3 alg-bg-blue main-btn-1 text-white fw-bolder mt-2 mt-md-3">Reset password</button>
+                                        <p class="alg-text-h3 text-center alg-cursor" onclick="openLoginModel();"><i class="bi bi-arrow-left"></i> Back to Sign In</p>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
                </div>
           </div>
      </div>
