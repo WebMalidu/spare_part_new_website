@@ -35,10 +35,16 @@ if ($userData['user_type_user_type_id'] != 2) {
 
 $database_driver = new database_driver();
 
-$selectQuery = "SELECT pp.*, vp.* 
+$selectQuery = "SELECT *
                FROM `product_promotion` pp
                JOIN `vehicle_parts` vp ON pp.vehicle_parts_parts_id = vp.parts_id
+               JOIN `parts_origin` po ON vp.parts_origin_origin_id=po.origin_id
+               JOIN `category_item` ci ON vp.category_item_category_item_id=ci.category_item_id
+               JOIN `parts_status` ps ON vp.parts_status_parts_status_id=ps.parts_status_id
+               JOIN `brand` br ON vp.brand_brand_id=br.brand_id
+               JOIN `vehicle_models` vm ON vp.vehicle_models_model_id=vm.model_id
                WHERE pp.`user_user_id` = ?";
+
 
 // Execute the SQL query and bind user ID as a parameter
 $searchResult = $database_driver->execute_query($selectQuery, 'i', array($userData['user_id']));
@@ -52,6 +58,7 @@ while ($row = $searchResult['result']->fetch_assoc()) {
 }
 
 // Set the 'status' property of the response object to the 'rows' array
+$responseObject->status = "sucess";
 $responseObject->data = $rows;
 
 // Send the JSON response using the 'response_sender' class
