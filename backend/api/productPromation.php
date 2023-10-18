@@ -19,8 +19,20 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 $db = new database_driver();
 
 // Load order data
-$selectQuery = "SELECT * FROM `product_promotion` WHERE product_promotion_status_p_promotion_status_id = ?";
+$selectQuery = "SELECT *
+FROM `product_promotion` pp
+JOIN `vehicle_parts` vp ON pp.vehicle_parts_parts_id = vp.parts_id
+JOIN `parts_origin` po ON vp.parts_origin_origin_id=po.origin_id
+JOIN `category_item` ci ON vp.category_item_category_item_id=ci.category_item_id
+JOIN `parts_status` ps ON vp.parts_status_parts_status_id=ps.parts_status_id
+JOIN `brand` br ON vp.brand_brand_id=br.brand_id
+JOIN `vehicle_models` vm ON vp.vehicle_models_model_id=vm.model_id
+WHERE pp.`product_promotion_status_p_promotion_status_id` = ?";
+
+
 $result2 = $db->execute_query($selectQuery, 's', [1]);
+
+
 
 
 
