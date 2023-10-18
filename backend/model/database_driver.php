@@ -6,13 +6,13 @@ class database_driver
     // Constructor that takes in connection details and establishes a connection to the database
     public function __construct()
     {
-       
 
-         $host = 'localhost'; // update your own
-         $user = 'root'; // update your own
-     $password = 'KaviskaDilshan12#$'; // update janith
-    //     $password = '#Apeamma2001'; // update madusha
-         $database = 'alg006_battalk'; // update your own
+
+        $host = 'localhost'; // update your own
+        $user = 'root'; // update your own
+        //  $password = 'KaviskaDilshan12#$'; // update janith
+        $password = '#Apeamma2001'; // update madusha
+        $database = 'alg006_battalk'; // update your own
 
         // Connect to the database using mysqli
         $this->connection = new mysqli($host, $user, $password, $database);
