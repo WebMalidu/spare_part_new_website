@@ -1,0 +1,369 @@
+<?php
+//dev by madusha
+//22-10-2023
+
+//include models
+require_once("../model/database_driver.php");
+require_once("../model/response_sender.php");
+require_once("../model/fileSearch.php");
+require_once("../model/RequestHandler.php");
+require_once("../model/data_validator.php");
+require_once("../model/SessionManager.php");
+
+// headers
+header("Content-Type: application/json; charset=UTF-8");
+
+//response object
+$responseObject = new stdClass();
+$responseObject->status = 'failed';
+
+// Define the destination directory
+$savePath = "../../frontend/resources/image/vehicleModelImages/";
+
+
+// image manager
+$directory = "../../frontend/resources/image/vehicleModelImages";
+$fileExtensions = ['png', 'jpeg', 'jpg', 'svg'];
+
+// get database
+$db = new database_driver();
+
+if (RequestHandler::isGetMethod()) {
+
+     if (isset($_GET['maker_id'])) {
+          $makerId = $_GET['maker_id'];
+          //load vehicle  model table 
+          $searchQuery = "SELECT * FROM `vehicle_models` WHERE `makers_makers_id`";
+          $resultSet = $db->execute_query($searchQuery, 's', array($makerId));
+          $result = $resultSet['result'];
+          //now select model names and parse the response
+          if ($result->num_rows > 0) {
+               $responseModelNamesArray = [];
+
+               while ($rowData = $result->fetch_assoc()) {
+                    $modelName = $rowData['name'];
+                    array_push($responseModelNamesArray, $modelName);
+               }
+
+               $responseObject->status = 'success';
+               $responseObject->result = $responseModelNamesArray;
+               response_sender::sendJson($responseObject);
+          } else {
+               $responseObject->error = 'no row data';
+               response_sender::sendJson($responseObject);
+          }
+     } else if (isset($_GET['model_name'])) {
+          $model_name = $_GET['model_name'];
+          //load vehicle  model table 
+          $searchQuery = "SELECT * FROM `vehicle_models` WHERE `name`";
+          $resultSet = $db->execute_query($searchQuery, 's', array($model_name));
+          $result = $resultSet['result'];
+          //now select model names and parse the response
+          if ($result->num_rows > 0) {
+               $responseModelYearsArray = [];
+
+               while ($rowData = $result->fetch_assoc()) {
+                    $modelYears = $rowData['vehicle_year_vehicle_year_Id'];
+                    array_push($responseModeYearsArray, $modelYears);
+               }
+
+               $responseObject->status = 'success';
+               $responseObject->result = $responseModelYearsArray;
+               response_sender::sendJson($responseObject);
+          } else {
+               $responseObject->error = 'no row data';
+               response_sender::sendJson($responseObject);
+          }
+     } else if (isset($_GET['model_year_id'])) {
+          $model_year_id = $_GET['model_year_id'];
+          //load vehicle  model table 
+          $searchQuery = "SELECT * FROM `vehicle_models` WHERE `modification_line_mod_id`";
+          $resultSet = $db->execute_query($searchQuery, 'i', array($model_year_id));
+          $result = $resultSet['result'];
+          //now select model names and parse the response
+          if ($result->num_rows > 0) {
+               $responseModelModification = [];
+
+               while ($rowData = $result->fetch_assoc()) {
+                    $modelModification = $rowData['modification_line_mod_id'];
+                    array_push($responseModelModification, $modelModification);
+               }
+
+               $responseObject->status = 'success';
+               $responseObject->result = $responseModelModification;
+               response_sender::sendJson($responseObject);
+          } else {
+               $responseObject->error = 'no row data';
+               response_sender::sendJson($responseObject);
+          }
+     } else if (isset($_GET['maker_id'], $_GET['model_name'], $_GET['model_year_id'], $_GET['mod_id'])) {
+
+          $maker_id = $_GET['maker_id'];
+          $model_name = $_GET['model_name'];
+          $model_year_id = $_GET['model_year_id'];
+          $mod_id = $_GET['mod_id'];
+          //load vehicle  model table 
+          $searchQuery = "SELECT * FROM `vehicle_models` WHERE `modification_line_mod_id`=? AND `makers_makers_id`=? AND `name`=? AND `vehicle_year_vehicle_year_Id`=? AND `modification_line_mod_id`=?";
+          $resultSet = $db->execute_query($searchQuery, 'issii', array($model_year_id));
+          $result = $resultSet['result'];
+          //now select model names and parse the response
+          if ($result->num_rows > 0) {
+               $responseArray  = [];
+
+               while ($rowData = $result->fetch_assoc()) {
+                    $modelId = $rowData['model_id'];
+                    array_push($responseArray, $modelId);
+               }
+
+               $responseObject->status = 'success';
+               $responseObject->result = $responseArray;
+               response_sender::sendJson($responseObject);
+          } else {
+               $responseObject->error = 'no row data';
+               response_sender::sendJson($responseObject);
+          }
+     } else {
+          //load vehicle  model table 
+          $searchQuery = "SELECT * FROM `vehicle_models`";
+          $resultSet = $db->query($searchQuery);
+
+          //response array 
+          $responseArray = [];
+
+          if ($resultSet->num_rows > 0) {
+
+               $groupedResults = []; // Create an array to group results
+
+               while ($rowData = $resultSet->fetch_assoc()) {
+                    $model_id = $rowData['model_id']; // Use categoryName instead of category_type
+
+                    $fileSearch = new FileSearch($directory, $model_id, $fileExtensions); // Use categoryName as the search parameter
+
+                    $searchResults = $fileSearch->search();
+
+                    $resRowDetailObject = new stdClass();
+
+                    $resRowDetailObject->model_name = $rowData['name'];
+                    $resRowDetailObject->model_type_id = $rowData['vehicle_type_vehicle_type_id'];
+                    $resRowDetailObject->model_year_id = $rowData['vehicle_year_vehicle_year_Id'];
+                    $resRowDetailObject->model_generation_id = $rowData['generation_generation_id'];
+                    $resRowDetailObject->model_modification_line = $rowData['modification_line_mod_id'];
+                    $resRowDetailObject->model_id = $model_id;
+
+                    if (is_array($searchResults)) {
+                         foreach ($searchResults as $searchResult) {
+                              $resRowDetailObject->model_image = $searchResult;
+                         }
+                    } else {
+                         $responseObject->error = $searchResults;
+                         response_sender::sendJson($responseObject);
+                    }
+
+                    array_push($responseArray, $resRowDetailObject);
+               }
+               $responseObject->status = 'success';
+               $responseObject->results = $responseArray;
+               response_sender::sendJson($responseObject);
+          } else {
+               $responseObject->error = 'no row data';
+               response_sender::sendJson($responseObject);
+          }
+     }
+}
+
+//vehicle model add , update
+if (RequestHandler::isPostMethod()) {
+
+     // chekcing is user logging
+     // $userCheckSession = new SessionManager();
+     // if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
+     //      $responseObject->error = 'Please Login';
+     //      response_sender::sendJson($responseObject);
+     // }
+
+     if (isset($_POST['ad_name'], $_POST['ad_vehicle_type_id'], $_POST['ad_vehicle_year_Id'], $_POST['ad_generation_id'], $_POST['ad_modification_line_mod_id'], $_POST['ad_makers_id'], $_FILES['ad_model_img'])) {
+          //get all data in a variables 
+          $ad_model_name = $_POST['ad_name'];
+          $ad_vehicle_type_id = $_POST['ad_vehicle_type_id'];
+          $ad_vehicle_year_id = $_POST['ad_vehicle_year_Id'];
+          $ad_generation_id = $_POST['ad_generation_id'];
+          $ad_modification_line_id = $_POST['ad_modification_line_mod_id'];
+          $ad_makers_id = $_POST['ad_makers_id'];
+          $ad_model_img = $_FILES['ad_model_img'];
+
+          // data validation
+          $dataToValidate = [
+               'string_or_null' => [
+                    (object)['datakey' => 'vehicle model name', 'value' => $ad_model_name],
+                    (object)['datakey' => 'vehicle maker', 'value' => $ad_makers_id],
+               ],
+               'int_or_null' => [
+                    (object)['datakey' => 'vehicle type', 'value' => $ad_vehicle_type_id],
+                    (object)['datakey' => 'vehicle year', 'value' => $ad_vehicle_year_id],
+                    (object)['datakey' => 'vehicle generation', 'value' => $ad_generation_id],
+                    (object)['datakey' => 'vehicle modification line', 'value' => $ad_modification_line_id],
+
+               ],
+          ];
+
+          // validation
+          $validator = new data_validator($dataToValidate);
+          $errors = $validator->validate();
+          foreach ($errors as $key => $value) {
+               if ($value) {
+                    $responseObject->error = "Invalid Input for : " . $key;
+                    response_sender::sendJson($responseObject);
+               }
+          }
+
+          //check already have this model
+          $searchData = "SELECT * FROM `vehicle_models` WHERE 
+          `name`=? AND `vehicle_type_vehicle_type_id`=? AND `vehicle_year_vehicle_year_Id`=? 
+          AND `generation_generation_id`=? AND `modification_line_mod_id`=? AND `makers_makers_id`=?";
+
+          $result = $db->execute_query($searchData, 'siiiii', array($ad_model_name, $ad_vehicle_type_id, $ad_vehicle_year_id, $ad_generation_id, $ad_modification_line_id, $ad_makers_id));
+
+          //get by result
+          if ($result['result']->num_rows > 0) {
+               $responseObject->error = "this product already added ";
+               response_sender::sendJson($responseObject);
+          }
+
+          //next  add data our database table
+          //generate vahicle makers Ids
+          $modelId = '#MOD_' . str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
+
+
+          //makers image adding
+          if ($_FILES['ad_model_img']['error'] === 0) {
+               $allowImageExtension = ['png', 'jpg', 'jpeg', 'svg'];
+               $fileExtension = strtolower(pathinfo($_FILES['ad_model_img']['name'], PATHINFO_EXTENSION));
+
+
+               if (in_array($fileExtension, $allowImageExtension)) {
+
+                    // new name
+                    $newImageName = $modelId .  "." . $fileExtension;
+
+                    //upload images makers image files
+                    if (move_uploaded_file($_FILES['ad_model_img']['tmp_name'], $savePath . $newImageName)) {
+                         // insert data this table
+                         $InsertQuery = "INSERT INTO `vehicle_models` (`model_id`,`name`,`vehicle_type_vehicle_type_id`,`vehicle_year_vehicle_year_Id`,`generation_generation_id`,`modification_line_mod_id`,`makers_makers_id`) VALUES (?,?,?,?,?,?,?)";
+                         $db->execute_query($InsertQuery, 'ssiiiis', array($modelId, $ad_model_name, $ad_vehicle_type_id, $ad_vehicle_year_id, $ad_generation_id, $ad_modification_line_id, $ad_makers_id));
+
+
+                         $responseObject->status = 'success';
+                         response_sender::sendJson($responseObject);
+                    } else {
+                         $responseObject->error = 'Failed to save the image';
+                         response_sender::sendJson($responseObject);
+                    }
+               } else {
+                    $responseObject->error = 'Invalid file type';
+                    response_sender::sendJson($responseObject);
+               }
+          } else {
+               $responseObject->error = 'No image upload';
+               response_sender::sendJson($responseObject);
+          }
+     } else if (isset($_POST['up_model_id'], $_POST['up_model_name'], $_POST['up_type_id'], $_POST['up_vehicle_year_Id'], $_POST['up_generation_id'], $_POST['up_modification_line_mod_id'], $_POST['up_makers_id'])) {
+
+          //gets all request one by one variables
+          $up_model_id = $_POST['up_model_id'];
+          $up_model_name = $_POST['up_model_name'];
+          $up_type_id = $_POST['up_type_id'];
+          $up_vehicle_year_Id = $_POST['up_vehicle_year_Id'];
+          $up_generation_id = $_POST['up_generation_id'];
+          $up_modification_line_mod_id = $_POST['up_modification_line_mod_id'];
+          $up_makers_id = $_POST['up_makers_id'];
+
+          //validation our data
+          // data validation
+          $dataToValidate = [
+               'string_or_null' => [
+                    (object)['datakey' => 'vehicle model id', 'value' => $up_model_id],
+                    (object)['datakey' => 'vehicle model name', 'value' => $up_model_name],
+                    (object)['datakey' => 'vehicle maker', 'value' => $up_makers_id],
+               ],
+               'int_or_null' => [
+                    (object)['datakey' => 'vehicle type', 'value' => $up_type_id],
+                    (object)['datakey' => 'vehicle year', 'value' => $up_vehicle_year_Id],
+                    (object)['datakey' => 'vehicle generation', 'value' => $up_generation_id],
+                    (object)['datakey' => 'vehicle modification line', 'value' => $up_modification_line_mod_id],
+
+               ],
+          ];
+
+          // validation
+          $validator = new data_validator($dataToValidate);
+          $errors = $validator->validate();
+          foreach ($errors as $key => $value) {
+               if ($value) {
+                    $responseObject->error = "Invalid Input for : " . $key;
+                    response_sender::sendJson($responseObject);
+               }
+          }
+
+          //update our data
+          $updateModelTable = "UPDATE `vehicle_models` SET `name`=?,`vehicle_type_vehicle_type_id`=?,`vehicle_year_vehicle_year_Id`=?,`generation_generation_id`=?,`modification_line_mod_id`=?,`makers_makers_id`=? WHERE `model_id`=?";
+          $db->execute_query($updateModelTable, 'siiiiss', array($up_model_name, $up_type_id, $up_vehicle_year_Id, $up_generation_id, $up_modification_line_mod_id, $up_makers_id, $up_model_id));
+          //if success
+          $responseObject->status = "success";
+          response_sender::sendJson($responseObject);
+     } else if (isset($_POST['up_model_id'], $_FILES['up_model_img'])) {
+          //makers Request data
+          $up_model_img = $_FILES['up_model_img'];
+          $up_model_id = $_POST['up_model_id'];
+
+
+
+          //search image
+          $fileSearch = new FileSearch($directory, $up_model_id, $fileExtensions); // Use categoryName as the search parameter
+          $imagePath = $fileSearch->search();
+
+
+          if (is_array($imagePath) && count($imagePath) > 0) {
+               $imagePath = $imagePath[0]; // Select the first image in the array
+          }
+
+
+          if (is_string($imagePath) && file_exists($imagePath)) {
+               if (unlink($imagePath)) {
+
+                    //category image adding
+                    if ($_FILES['up_model_img']['error'] === 0) {
+                         $fileExtension = strtolower(pathinfo($_FILES['up_model_img']['name'], PATHINFO_EXTENSION));
+
+
+                         if (in_array($fileExtension, $fileExtensions)) {
+
+                              //new image name
+                              $newImageName = $up_model_id .  "." . $fileExtension;
+
+
+                              if (move_uploaded_file($_FILES['up_model_img']['tmp_name'], $savePath . $newImageName)) {
+
+                                   $responseObject->status = 'success';
+                                   response_sender::sendJson($responseObject);
+                              } else {
+                                   $responseObject->error = 'Failed to save the image';
+                                   response_sender::sendJson($responseObject);
+                              }
+                         } else {
+                              $responseObject->error = 'Invalid file type';
+                              response_sender::sendJson($responseObject);
+                         }
+                    } else {
+                         $responseObject->error = 'No image upload';
+                         response_sender::sendJson($responseObject);
+                    }
+               } else {
+                    $responseObject->error = 'Failed to delete the image.';
+                    response_sender::sendJson($responseObject);
+               }
+          } else {
+               $responseObject->error = 'Image does not exist.';
+               response_sender::sendJson($responseObject);
+          }
+     }
+}
