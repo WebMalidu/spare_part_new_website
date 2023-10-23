@@ -6,6 +6,7 @@
 
 
 require_once("database_driver.php");
+require_once("imageSearchEngine.php");
 
 class AdvancedSearchEngine
 {
@@ -132,10 +133,48 @@ class AdvancedSearchEngine
         WHERE `parts_origin_origin_id`=? AND `parts_status_parts_status_id`=? AND `vehicle_models_model_id`=? AND `category_item_category_item_id`=?";
         $resultResponse = $this->database->execute_query($query, "ssss", [$vehiclePartsOriginId, $vehiclePartsStatusId, $vehicleModelId, $vehicleCategoryItemId]);
         $resultSet = $resultResponse["result"];
-
         // generate output
         $result = $resultSet->fetch_assoc();
-        return $result;
+
+        $responseRowArray = [];
+        $resRowDetailObject = new stdClass();
+        $savePath = "../../frontend/resources/image/partsImages";
+        $fileExtensions = ['png', 'jpeg', 'jpg'];
+
+        // search single product images
+        $fileSearch = new ImageSearch($savePath, $result['parts_id'], $result['category_item_category_item_id'], $fileExtensions);
+        $searchResults = $fileSearch->search();
+
+        $imageArray = array();
+        // Add images to the new object if available
+        if (is_array($searchResults)) {
+            foreach ($searchResults as $index => $searchResult) {
+                array_push($imageArray, $searchResult);
+            }
+        }
+        $resRowDetailObject->images = $imageArray;
+
+        // Check if there's an existing object with the same productId and weightId
+        $key = "{$result['parts_id']}_{$result['category_item_category_item_id']}";
+        if (!isset($groupedResults[$key])) {
+            $groupedResults[$key] = $resRowDetailObject;
+        } else {
+            // Merge images into the existing object
+            $existingObject = $groupedResults[$key];
+            foreach ($resRowDetailObject as $property => $value) {
+                // Skip merging productId and weightId properties
+                if ($property !== $result['parts_id'] && $property !== $result['category_item_category_item_id']) {
+                    $existingObject->$property = $value;
+                }
+            }
+        }
+
+
+        $resRowDetailObject->result = $result;
+
+        array_push($responseRowArray, $resRowDetailObject);
+
+        return $responseRowArray;
     }
 
     public function searchAllProduct()
@@ -153,33 +192,53 @@ class AdvancedSearchEngine
         INNER JOIN `generation` ON `vehicle_models`.`generation_generation_id`=`generation`.`generation_id`
         INNER JOIN `modification_line` ON `vehicle_models`.`modification_line_mod_id`=`modification_line`.`mod_id`
         INNER JOIN `makers` ON `vehicle_models`.`makers_makers_id`=`makers`.`makers_id`";
-        
+
         $resultResponse = $this->database->query($query);
         $responseRowArray = [];
+
+        $savePath = "../../frontend/resources/image/partsImages";
+        $fileExtensions = ['png', 'jpeg', 'jpg'];
 
         for ($i = 0; $i < $resultResponse->num_rows; $i++) {
             // generate output
             $result = $resultResponse->fetch_assoc();
-            array_push($responseRowArray, $result);
+            $parts_id = $result['parts_id'];
+            $category_item_id = $result['category_item_category_item_id'];
+
+            $resRowDetailObject = new stdClass();
+            $resRowDetailObject->result = $result;
+
+            $fileSearch = new ImageSearch($savePath, $parts_id, $category_item_id, $fileExtensions);
+            $searchResults = $fileSearch->search();
+
+            $imageArray = array();
+            // Add images to the new object if available
+            if (is_array($searchResults)) {
+                foreach ($searchResults as $index => $searchResult) {
+                    array_push($imageArray, $searchResult);
+                }
+            }
+            $resRowDetailObject->images = $imageArray;
+
+            // Check if there's an existing object with the same productId and weightId
+            $key = "{$parts_id}_{$category_item_id}";
+            if (!isset($groupedResults[$key])) {
+                $groupedResults[$key] = $resRowDetailObject;
+            } else {
+                // Merge images into the existing object
+                $existingObject = $groupedResults[$key];
+                foreach ($resRowDetailObject as $property => $value) {
+                    // Skip merging productId and weightId properties
+                    if ($property !== 'parts_id' && $property !== 'category_item_category_item_id') {
+                        $existingObject->$property = $value;
+                    }
+                }
+            }
+
+            array_push($responseRowArray, $resRowDetailObject);
         }
 
         // output
         return $responseRowArray;
-        
     }
 }
-
-// 
-// 
-// 
-// 
-// 
-// // test
-// $searchEngine = new AdvancedSearchEngine();
-// $searchTerms = '';
-
-// $orderBy = 'price';
-// $orderDirection = 'high to low';
-
-// $foundProducts = $searchEngine->searchProducts($searchTerms, "", 'price', $orderDirection);
-// print_r($foundProducts);
