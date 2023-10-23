@@ -1,4 +1,5 @@
 <?php
+
 // Include necessary files for database connection and response handling
 require_once("../../backend/model/database_driver.php");
 require_once("../../backend/model/response_sender.php");
@@ -26,30 +27,7 @@ if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
 }
 
 // Get user data
-$userData = $userCheckSession->getUserData();
+$userData = $userCheckSession->logout();
 
-
-
-
-
-
-$database_driver=new database_driver();
-
-$selectQuery = "SELECT *
-               FROM `cart` ct
-               JOIN `vehicle_parts` vp ON ct.vehicle_parts_parts_id = vp.parts_id
-               JOIN `parts_origin` po ON vp.parts_origin_origin_id=po.origin_id
-               JOIN `category_item` ci ON vp.category_item_category_item_id=ci.category_item_id
-               JOIN `parts_status` ps ON vp.parts_status_parts_status_id=ps.parts_status_id
-               JOIN `brand` br ON vp.brand_brand_id=br.brand_id
-               JOIN `vehicle_models` vm ON vp.vehicle_models_model_id=vm.model_id
-               WHERE ct.`user_user_id` = ?";
-$result=$database_driver->execute_query($selectQuery,'i',array($userData['user_id']));
-
-$rows=[];
-while ($row = $result['result']->fetch_assoc()) {
-    $rows=$row;
-}
 $responseObject->status="sucess";
-$responseObject->data=$rows;
 response_sender::sendJson($responseObject);

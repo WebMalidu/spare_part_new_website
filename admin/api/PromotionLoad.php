@@ -28,7 +28,7 @@ if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
 $userData = $userCheckSession->getUserData();
 
 // Check if the user is an admin
-if ($userData['user_type_user_type_id'] != 2) {
+if ($userData['user_type_user_type_id'] != 1) {
      $responseObject->error = "You are not an admin";
      response_sender::sendJson($responseObject);
 }
@@ -67,31 +67,32 @@ $fileExtensions = ['png', 'jpeg', 'jpg', 'svg'];
 
 
 
-// Initialize an array to store all rows
+// Initialize an array to store all rows and image URLs
 $rows = [];
-$imageUrls=[];
+$imageUrls = [];
 
 // Fetch all rows from the result and store them in the 'rows' array
 while ($row = $searchResult['result']->fetch_assoc()) {
     $rows[] = $row;
-    $fileName=strval($row['promotion_id']);
+
+    $fileName = strval($row['promotion_id']);
     // Create an instance of the FileSearch class
     $fileSearch = new FileSearch($directory, $fileName, $fileExtensions);
 
+    // Perform the search
+    $results = $fileSearch->search();
 
-// Perform the search
-$results = $fileSearch->search(); 
-
-foreach($results as $file){
-     $imageUrls=$file;
-}
-
+    if (is_array($results)) {
+        foreach ($results as $file) {
+            $imageUrls[] = $file; // Append the image URL to the $imageUrls array
+        }
+    }
 }
 
 // Set the 'status' property of the response object to the 'rows' array
-$responseObject->status = "sucess";
+$responseObject->status = "suess";
 $responseObject->data = $rows;
-$responseObject->imageUrls=$imageUrls;
+$responseObject->imageUrls = $imageUrls;
 
 // Send the JSON response using the 'response_sender' class
 response_sender::sendJson($responseObject);
