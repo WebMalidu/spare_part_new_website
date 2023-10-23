@@ -29,6 +29,7 @@
     <script defer src="js/bootstrap.bundle.js"></script>
     <script defer src="js/script.js"></script>
     <script defer src="js/slider.js"></script>
+    <script defer src="js/home.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 
@@ -208,39 +209,9 @@
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
-                <div class="col-12 d-flex justify-content-center flex-wrap gap-2 gap-lg-5" id="category">
+                <div class="col-12 d-flex justify-content-center flex-wrap gap-2 gap-lg-5" id="categoryContainer">
 
-                    <?php
-                    $num_row = 10;
-
-                    if ($num_row >= 4) {
-                        for ($x = 0; $x < 4; $x++) {
-                    ?>
-                            <div class="col-6 col-md-4 col-lg-2 alg-bg-categor alg-shadow mb-1 rounded mt-3 mx-4 px-3 alg-card-hover">
-                                <a href="category.php" class="text-decoration-none">
-                                    <div class="d-flex flex-column align-items-center">
-                                        <img src="resources/image/car.jpg" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
-                                        <span class="mt-1 p-3 fw-bold text-whit pb-5 alg-text-h3">Air Condition</span>
-                                    </div>
-                            </div></a>
-                        <?php
-                        }
-                    } else {
-                        for ($x = 0; $x < $num_row; $x++) {
-                        ?>
-                            <div class="col-6 col-md-4 col-lg-2 alg-bg-categor alg-shadow mb-1 rounded mt-3 mx-4 px-3 alg-card-hover">
-                                <a href="category.php" class="text-decoration-none">
-                                    <div class="d-flex flex-column align-items-center">
-                                        <img src="resources/image/car.jpg" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
-                                        <span class="mt-1 p-3 fw-bold text-whit pb-5 alg-text-h3">Air Condition</span>
-                                    </div>
-                            </div></a>
-                    <?php
-                        }
-                    }
-
-                    ?>
-
+                   
                 </div>
 
                 <div class="d-flex justify-content-center mt-5 p-3">
