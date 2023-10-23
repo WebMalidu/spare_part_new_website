@@ -29,6 +29,7 @@
     <script defer src="js/bootstrap.bundle.js"></script>
     <script defer src="js/script.js"></script>
     <script defer src="js/slider.js"></script>
+    <script defer src="js/catogery.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 
