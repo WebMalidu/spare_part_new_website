@@ -31,25 +31,46 @@ $userData = $userCheckSession->getUserData();
 
 
 
-
-
 $database_driver=new database_driver();
 
+// Directory to search in
+$directory = '../../frontend/resources/image/userImages/';
+
+// Name of the file you're looking for
+
+// File extensions to search for (you can specify multiple extensions in an array)
+$fileExtensions = ['png', 'jpeg', 'jpg', 'svg'];
+
+
 $selectQuery = "SELECT *
-               FROM `cart` ct
-               JOIN `vehicle_parts` vp ON ct.vehicle_parts_parts_id = vp.parts_id
-               JOIN `parts_origin` po ON vp.parts_origin_origin_id=po.origin_id
-               JOIN `category_item` ci ON vp.category_item_category_item_id=ci.category_item_id
-               JOIN `parts_status` ps ON vp.parts_status_parts_status_id=ps.parts_status_id
-               JOIN `brand` br ON vp.brand_brand_id=br.brand_id
-               JOIN `vehicle_models` vm ON vp.vehicle_models_model_id=vm.model_id
-               WHERE ct.`user_user_id` = ?";
+               FROM `user` ur
+               JOIN `user_type` ut ON ur.user_type_user_type_id = ut.user_type_id
+               JOIN `user_status` us ON ur.user_status_u_status_id=us.u_status_id
+               WHERE ur.`user_id` = ?";
 $result=$database_driver->execute_query($selectQuery,'i',array($userData['user_id']));
 
 $rows=[];
+$imageUrls=[];
 while ($row = $result['result']->fetch_assoc()) {
     $rows=$row;
+    $fileName=strval($userData['user_id']);
+
+    $fileSearch = new FileSearch($directory, $fileName, $fileExtensions);
+
+
+    // Perform the search if there is a profile image
+    $results = $fileSearch->search(); 
+    if(!$results){
+        foreach($results as $file){
+            $imageUrls=$file;
+       }
+
+    }
+    
+    
 }
 $responseObject->status="sucess";
 $responseObject->data=$rows;
+$responseObject->imageUrls=$imageUrls;
+
 response_sender::sendJson($responseObject);

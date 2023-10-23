@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category Image Update</title>
+</head>
+<body>
+    <h1>Category Image Update</h1>
+    <form id="categoryImageForm" enctype="multipart/form-data">
+        <label for="category_id">Category ID:</label>
+        <input type="text" name="category_id" id="category_id">
+        <br>
+        <label for="new_category_image">New Category Image:</label>
+        <input type="file" name="new_category_image" id="new_category_image">
+        <br>
+        <button type="submit">Update Category Image</button>
+    </form>
+    <div id="response"></div>
+
+    <script>
+        document.getElementById('categoryImageForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            let formData = new FormData(this);
+
+            fetch('userImageChanger.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('response').textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    console.error(error);
+                    document.getElementById('response').textContent = 'Error occurred while updating category image.';
+                });
+        });
+    </script>
+</body>
+</html>

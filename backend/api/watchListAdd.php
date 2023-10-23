@@ -29,27 +29,24 @@ if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
 $userData = $userCheckSession->getUserData();
 
 
-
-
+// Decode the POST data to get the promotion ID
+$watchListData = json_decode($_POST['watchListData']);
+$qty=$watchListData->qty;
+$partId=$watchListData->parts_id;
 
 
 $database_driver=new database_driver();
 
-$selectQuery = "SELECT *
-               FROM `cart` ct
-               JOIN `vehicle_parts` vp ON ct.vehicle_parts_parts_id = vp.parts_id
-               JOIN `parts_origin` po ON vp.parts_origin_origin_id=po.origin_id
-               JOIN `category_item` ci ON vp.category_item_category_item_id=ci.category_item_id
-               JOIN `parts_status` ps ON vp.parts_status_parts_status_id=ps.parts_status_id
-               JOIN `brand` br ON vp.brand_brand_id=br.brand_id
-               JOIN `vehicle_models` vm ON vp.vehicle_models_model_id=vm.model_id
-               WHERE ct.`user_user_id` = ?";
-$result=$database_driver->execute_query($selectQuery,'i',array($userData['user_id']));
+$insertQuery="INSERT INTO `watchlist`(`user_user_id`,`vehicle_parts_parts_id`) VALUES (?,?)";
+$parms=array($userData['user_id'],$partId);
+$result=$database_driver->execute_query($insertQuery,'ii',$parms);
 
-$rows=[];
-while ($row = $result['result']->fetch_assoc()) {
-    $rows=$row;
+
+if (!$result['stmt']->affected_rows > 0) {
+    $responseObject->error = "Data adding failed. " . $database->connection->error;
+    response_sender::sendJson($responseObject);
 }
+
 $responseObject->status="sucess";
-$responseObject->data=$rows;
 response_sender::sendJson($responseObject);
+
