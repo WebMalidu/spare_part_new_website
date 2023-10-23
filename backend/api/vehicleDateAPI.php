@@ -114,8 +114,11 @@ if (RequestHandler::isGetMethod()) {
      $resultArray = [];
      //search data form table
      if ($result->num_rows > 0) {
-          foreach ($result->fetch_assoc() as $value) {
-               array_push($resultArray, $value);
+          // foreach ($result->fetch_assoc() as $value) {
+          //      array_push($resultArray, $value);
+          // }
+          while ($rowData = $result->fetch_assoc()) {
+               array_push($resultArray, $rowData);
           }
 
           //if send a response result

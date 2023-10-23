@@ -148,6 +148,7 @@ if (RequestHandler::isGetMethod()) {
                     $resRowDetailObject->model_year_id = $rowData['vehicle_year_vehicle_year_Id'];
                     $resRowDetailObject->model_generation_id = $rowData['generation_generation_id'];
                     $resRowDetailObject->model_modification_line = $rowData['modification_line_mod_id'];
+                    $resRowDetailObject->maker_id = $rowData['makers_makers_id'];
                     $resRowDetailObject->model_id = $model_id;
 
                     if (is_array($searchResults)) {
