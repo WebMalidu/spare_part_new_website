@@ -43,10 +43,10 @@
                     <div class="text-center">
                         <span class="alg-text-light alg-bolder alg-text-h2">policy</span>
                         <div class="footer-list-container py-4 alg-text-p alg-text-light alg-cursor text-center">
-                            <div class="alg-text-h3 py-2"> About us</div>
-                            <div class="alg-text-h3 py-2">Contact Us</div>
-                            <div class="alg-text-h3 py-2">Careers</div>
-                            <div class="alg-text-h3 py-2">FAQ</div>
+                            <a class="nav-link" href="privacyPolicy.php"><div class="alg-text-h3 py-2"> Privacy Policy</div></a>
+                            <a class="nav-link" href="returned&refund.php">  <div class="alg-text-h3 py-2">Returned & Refund</div></a>
+                            <a class="nav-link" href="term&condition.php"> <div class="alg-text-h3 py-2">Term & Condition</div></a>
+                            <div class="alg-text-h3 py-2"></div>
 
                         </div>
                     </div>
