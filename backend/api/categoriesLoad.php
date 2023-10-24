@@ -23,9 +23,18 @@ if (!RequestHandler::isGetMethod()) {
      response_sender::sendJson($responseObject);
 }
 
+// validate request
+if (RequestHandler::getMethodHasError("categoryCount")) {
+    $responseObject->error = "Invalid Request";
+    response_sender::sendJson($responseObject);
+}
+
+// catch inputs
+$categoryCount = (isset($_GET['categoryCount']) ? $_GET['categoryCount'] : null);
+
 //get data base model
 $db = new database_driver();
-$searchQuery = "SELECT * FROM `category`";
+$searchQuery = "SELECT * FROM `category` LIMIT $categoryCount";
 $resultSet = $db->query($searchQuery);
 
 
