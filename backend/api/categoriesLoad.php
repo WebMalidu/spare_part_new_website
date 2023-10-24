@@ -16,16 +16,25 @@ header("Content-Type: application/json; charset=UTF-8");
 //response object
 $responseObject = new stdClass();
 $responseObject->status = 'failed';
-
+     
 //handle the request
 if (!RequestHandler::isGetMethod()) {
      $responseObject->error = "invalid request";
      response_sender::sendJson($responseObject);
 }
 
+// validate request
+if (RequestHandler::getMethodHasError("categoryCount")) {
+    $responseObject->error = "Invalid Request";
+    response_sender::sendJson($responseObject);
+}
+
+// catch inputs
+$categoryCount = (isset($_GET['categoryCount']) ? $_GET['categoryCount'] : null);
+
 //get data base model
 $db = new database_driver();
-$searchQuery = "SELECT * FROM `category`";
+$searchQuery = "SELECT * FROM `category` LIMIT $categoryCount";
 $resultSet = $db->query($searchQuery);
 
 
@@ -72,3 +81,4 @@ if ($resultSet->num_rows > 0) {
      $responseObject->error = 'no row data';
      response_sender::sendJson($responseObject);
 }
+

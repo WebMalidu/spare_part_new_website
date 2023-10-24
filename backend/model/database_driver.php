@@ -10,8 +10,9 @@ class database_driver
 
         $host = 'localhost'; // update your own
         $user = 'root'; // update your own
-        $password = 'KaviskaDilshan12#$'; // update janith
-       // $password = '#Apeamma2001'; // update madusha
+        //  $password = 'KaviskaDilshan12#$'; // update janith
+        // $password = '#Apeamma2001'; // update madusha
+        $password = 'Assiment@1234ABC';
         $database = 'alg006_battalk'; // update your own
 
         // Connect to the database using mysqli

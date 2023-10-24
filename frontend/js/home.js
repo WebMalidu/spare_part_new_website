@@ -1,59 +1,89 @@
-function promotionLoder(){
-    
-console.log("hi")        
-  
-
-  // Send the data to the server using Fetch
-  fetch("../../backend/api//productPromation.php", {
-    method: "POST",
-  })
-    .then(response => response.json())
-    .then(data => {
-      // Handle the response data
-      if (data.status === "success") {
-        alert(data.status);
-        
-        const imageUrls = data.imageUrls;
-        const promotionData = document.getElementById('promotion_list');
-
-for (let i = 0; i < imageUrls.length; i++) {
-    const li = document.createElement('li');
-    li.className = "splide__slide";
-
-    const img = document.createElement('img');
-    img.src = imageUrls[i]; // Use the image URL from the array
-    img.alt = ""; // Set alt text if needed
-
-    // Add any additional attributes or styles here
-    img.style.width = "100%"; // For example, set the image width to 100%
-
-    li.appendChild(img);
-    promotionData.appendChild(li);
-}
 
 
 
 
-        
-        
-      } else {
-        console.log(data.error);
-      }
-      console.log(data);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    loadCategory();
+});
+
+
+
+
+
+
+// load category
+let categoryCount = 4;
+document.getElementById('loadButton').addEventListener('click', () => {
+    categoryCount += 4;
+    loadCategory();
+})
+
+function loadCategory() {
+
+    // fetch request
+    fetch(SERVER_URL + "../../backend/api/categoriesLoad.php?categoryCount=" + categoryCount, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
     })
-    .catch(error => {
-      console.error("Error:", error);
-    });
-    
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then((data) => {
+            const categoryContainer = document.getElementById("categoryContainer");
 
+            if (data.status == "success") {
+                categoryContainer.innerHTML = "";
+                data.results.forEach(element => {
+                    categoryContainer.innerHTML += ` <div class="col-6 col-md-4 col-lg-2 alg-bg-categor alg-shadow mb-1 rounded mt-3 mx-4 px-3 alg-card-hover">
+                    
+                        <div class="d-flex flex-column align-items-center" id="categoryItem${element.category_id}">
+                            <img src="resources/image/car.jpg" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
+                            <span class="mt-1 p-3 fw-bold text-whit pb-5 alg-text-h3">${element.category_type}</span>
+                        </div>
+                </div>`
+                    document.getElementById('categoryItem' + element.category_id).addEventListener('click', () => {
+                        alert("erfe")
+                        // loadCategoryItem(element.category_id)
+                    });
+                });
+
+            } else if (data.status == "failed") {
+                console.log(data.error);
+            } else {
+                console.log(data);
+            }
+        })
+        .catch((error) => {
+            console.error("Fetch error:", error);
+        });
 }
-promotionLoder()
 
 
 
-
-
-
-
-
-
+function loadCategoryItem(id) {
+    alert(id);
+    // window.location = "category.php"
+}
