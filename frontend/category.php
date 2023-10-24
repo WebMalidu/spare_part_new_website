@@ -276,11 +276,11 @@
 
             <!-- category slide -->
             <div class="d-flex flex-column align-items-center gap-5">
-                <div class="cp-right-box-slide-main gap-5">
+                <div class="cp-right-box-slide-main">
                     <!-- first slide first column -->
                     <div class="cp-right-box-slide-column d-flex flex-column">
                         <!-- first row -->
-                        <div class="cp-right-box-slide-l1 d-flex  gap-5">
+                        <div class="cp-right-box-slide-l1 d-flex ">
                             <a href="singlePageView.php">
                                 <div class="spv-s2-container alg-rounded-small alg-shadow">
                                     <div class="spv-s2-box-top  d-flex justify-content-center align-items-center">
@@ -310,7 +310,7 @@
 
                         </div>
                         <!-- second row -->
-                        <div class="cp-right-box-slide-l1 d-flex py-4  gap-5">
+                        <div class="cp-right-box-slide-l1 d-flex py-4">
                             <a href="singlePageView.php">
                                 <div class="spv-s2-container alg-rounded-small alg-shadow">
                                     <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
@@ -341,7 +341,7 @@
 
                         </div>
                         <!-- third row -->
-                        <div class="cp-right-box-slide-l1 d-flex  gap-5">
+                        <div class="cp-right-box-slide-l1 d-flex">
                             <a href="singlePageView.php">
                                 <div class="spv-s2-container alg-rounded-small alg-shadow">
                                     <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
@@ -376,7 +376,7 @@
                     <!-- first slide second colmun -->
                     <div class="cp-right-box-slide-column d-flex flex-column">
                         <!-- first row -->
-                        <div class="cp-right-box-slide-l1 d-flex flex-row gap-5">
+                        <div class="cp-right-box-slide-l1 d-flex flex-row ">
                             <a href="singlePageView.php">
                                 <div class="spv-s2-container alg-rounded-small alg-shadow">
                                     <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
@@ -407,7 +407,7 @@
 
                         </div>
                         <!-- second row -->
-                        <div class="cp-right-box-slide-l1 d-flex flex-row gap-5 py-4">
+                        <div class="cp-right-box-slide-l1 d-flex flex-row py-4">
                             <a href="singlePageView.php">
                                 <div class="spv-s2-container alg-rounded-small alg-shadow">
                                     <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
@@ -438,7 +438,7 @@
 
                         </div>
                         <!-- third row -->
-                        <div class="cp-right-box-slide-l1 d-flex flex-row gap-5">
+                        <div class="cp-right-box-slide-l1 d-flex flex-row">
                             <a href="singlePageView.php">
                                 <div class="spv-s2-container alg-rounded-small alg-shadow">
                                     <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
