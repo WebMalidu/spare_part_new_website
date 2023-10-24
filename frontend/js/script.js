@@ -112,13 +112,7 @@ function goBackToSignIn() {
     signInModel.show();
 }
 
-// garage model
-let garageModel;
-function openGarageModel() {
-    garageModel = new bootstrap.Modal("#garageModel");
-    garageModel.show();
-    
-}
+
 
 
 // profile section toggle
@@ -149,39 +143,7 @@ function changeView() {
     signInBox.classList.toggle("d-none");
 }
 
-var x = 0;
-function addCarGarage() {
-    let garage = '';
-    for (x = 0; x < 2; x++) {
-        garage += `<div class="alg-shadow py-2 garage-card">
-        <div class="d-flex flex-column">
-            <div class="d-flex justify-content-end gap-2 px-2">
-                <span><i class="bi bi-pencil-square"></i></span>
-                <span><i class="bi bi-trash3-fill"></i></span>
-            </div>
-            <div class="d-flex justify-content-center"><img src="resources/image/car.jpg" alt=""></div>
-            <div class="d-flex flex-column py-3 px-4 pt-4">
-                <span class="alg-text-h3 fw-bold">Honda City</span>
-                <span class="alg-text-h3">1.5L S/Petrol</span>
-                <span class="alg-text-h3">Model Year:2013</span>
-            </div>
-        </div>
-    </div>`;
-    }
 
-    garage += `<div class="alg-shadow py-2 garage-card" onclick="openGarageModel();">
-    <div class="d-flex flex-column">
-        <div class="d-flex justify-content-center"><img src="resources/image/car.jpg" alt=""></div>
-        <div class="d-flex flex-column align-items-center py-3 px-4 pt-4">
-            <span class="alg-text-h3 fw-bold">Add your car</span>
-            <span class="alg-text-h1 alg-text-blue"><i class="bi bi-plus-lg fw-bold"></i></span>
-        </div>
-    </div>
-</div>`;
-
-    document.getElementById('garage').innerHTML = garage;
-    garageModel.hide();
-}
 
 
 

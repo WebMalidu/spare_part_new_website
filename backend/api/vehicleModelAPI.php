@@ -143,12 +143,10 @@ if (RequestHandler::isGetMethod()) {
 
                     $resRowDetailObject = new stdClass();
 
-                    $resRowDetailObject->model_name = $rowData['name'];
                     $resRowDetailObject->model_type_id = $rowData['vehicle_type_vehicle_type_id'];
                     $resRowDetailObject->model_year_id = $rowData['vehicle_year_vehicle_year_Id'];
                     $resRowDetailObject->model_generation_id = $rowData['generation_generation_id'];
-                    $resRowDetailObject->model_modification_line = $rowData['modification_line_mod_id'];
-                    $resRowDetailObject->maker_id = $rowData['makers_makers_id'];
+                    $resRowDetailObject->vehicle_names_id = $rowData['vehicle_names_id'];
                     $resRowDetailObject->model_id = $model_id;
 
                     if (is_array($searchResults)) {
@@ -232,7 +230,7 @@ if (RequestHandler::isPostMethod()) {
 
           //next  add data our database table
           //generate vahicle makers Ids
-          $modelId = '#MOD_' . str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
+          $modelId = 'MOD_' . str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
 
 
           //makers image adding
