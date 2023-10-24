@@ -32,6 +32,8 @@
     <script defer src="js/vehicleFetchData.js"></script>
     <script defer src="js/product.js"></script>
     <script defer src="js/catogery.js"></script>
+    <script defer src="js/home.js"></script>
+
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 
@@ -85,43 +87,48 @@
 </div>
 
     <!-- offer section -->
-    <section class="offerSection py-2 py-lg-4" style="position: relative; z-index: 1;">
-        <div class="container pb-5">
-            <div class="col-12">
-                <div class="d-flex flex-column align-items-center mb-2">
-                    <div class="col-4 col-md-3 col-lg-2 d-flex flex-column align-items-center">
-                        <span class="alg-text-blue mt-1 fw-bolder alg-text-h2 pb-1">OUR OFFERS</span>
-                        <div class="alg-line1 alg-bg-blue d-flex align-self-center"></div>
-                        <div class="alg-line2 alg-bg-blue d-flex align-self-center"></div>
-                    </div>
+   <section class="offerSection py-2 py-lg-4" style="position: relative; z-index: 1;">
+    <div class="container pb-5">
+        <div class="col-12">
+            <div class="d-flex flex-column align-items-center mb-2">
+                <div class="col-4 col-md-3 col-lg-2 d-flex flex-column align-items-center">
+                    <span class="alg-text-blue mt-1 fw-bolder alg-text-h2 pb-1">OUR OFFERS</span>
+                    <div class="alg-line1 alg-bg-blue d-flex align-self-center"></div>
+                    <div class="alg-line2 alg-bg-blue d-flex align-self-center"></div>
                 </div>
-
-                <div class="swiper mySwiperk pt-3">
-                    <div class="swiper-wrapper">
-                        <?php
-                        for ($x = 0; $x < 4; $x++) {
-                        ?>
-                            <div class="swiper-slide d-flex gap-5 p-3">
-                                <div>
-                                    <img src="resources/image/offer.png" class="alg-slider-img alg-shadow" alt="">
-                                </div>
-                                <div>
-                                    <img src="resources/image/offer.png" class="alg-slider-img alg-shadow" alt="">
-                                </div>
-                            </div>
-                        <?php
-                        }
-
-                        ?>
-                        <!-- <div class="swiper-pagination bg-succes"></div> -->
-                    </div>
-
-                </div>
-
             </div>
-        </div>
-    </section>
 
+
+<div id="slider-promo">
+            <div class="splide-promotion" style="margin-left: 2%;margin-top:4%">
+    <div class="splide__track">
+        <ul class="splide__list" id="promotion_list">
+            <!-- Your slide items for the 'splide-promotion' slider go here -->
+          
+            <li class="splide__slide"><img src="../../frontend/resources/image/promotionImages//49.jpeg" alt="" srcset="" style="width: 100%;"></li>
+            <li class="splide__slide"><img src="../../frontend/resources/image/promotionImages//49.jpeg" alt="" srcset="" style="width: 100%;"></li>
+            <li class="splide__slide"><img src="../../frontend/resources/image/promotionImages//50.jpeg" alt="" srcset="" style="width: 100%;"></li>
+            <li class="splide__slide"><img src="../../frontend/resources/image/promotionImages//49.jpeg" alt="" srcset="" style="width: 100%;"></li>
+
+
+            
+
+            <!-- Add more slides as needed -->
+        </ul>
+    </div>
+</div>
+
+</div>
+
+
+
+
+
+
+            
+        </div>
+    </div>
+</section>
 
     <!-- search section -->
     <section class="w-100 searchSectio alg-bg-light-blue bg-n py-2 py-lg-5">
@@ -211,43 +218,12 @@
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
-                <div class="col-12 d-flex justify-content-center flex-wrap gap-2 gap-lg-5" id="category">
+                <div class="col-12 d-flex justify-content-center flex-wrap gap-2 gap-lg-5" id="categoryContainer">
 
-                    <?php
-                    $num_row = 10;
-
-                    if ($num_row >= 4) {
-                        for ($x = 0; $x < 4; $x++) {
-                    ?>
-                            <div class="col-6 col-md-4 col-lg-2 alg-bg-categor alg-shadow mb-1 rounded mt-3 mx-4 px-3 alg-card-hover">
-                                <a href="category.php" class="text-decoration-none">
-                                    <div class="d-flex flex-column align-items-center">
-                                        <img src="resources/image/car.jpg" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
-                                        <span class="mt-1 p-3 fw-bold text-whit pb-5 alg-text-h3">Air Condition</span>
-                                    </div>
-                            </div></a>
-                        <?php
-                        }
-                    } else {
-                        for ($x = 0; $x < $num_row; $x++) {
-                        ?>
-                            <div class="col-6 col-md-4 col-lg-2 alg-bg-categor alg-shadow mb-1 rounded mt-3 mx-4 px-3 alg-card-hover">
-                                <a href="category.php" class="text-decoration-none">
-                                    <div class="d-flex flex-column align-items-center">
-                                        <img src="resources/image/car.jpg" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
-                                        <span class="mt-1 p-3 fw-bold text-whit pb-5 alg-text-h3">Air Condition</span>
-                                    </div>
-                            </div></a>
-                    <?php
-                        }
-                    }
-
-                    ?>
-
+                   
                 </div>
-
                 <div class="d-flex justify-content-center mt-5 p-3">
-                    <button class="se3-btn fw-semibold px-3 p-1 rounded-2 alg-text-h3" onclick='increaseCategory(<?php echo $num_row ?>)'>Load More</button>
+                    <button class="se3-btn fw-semibold px-3 p-1 rounded-2 alg-text-h3" id="loadButton">Load More</button>
                 </div>
 
             </div>

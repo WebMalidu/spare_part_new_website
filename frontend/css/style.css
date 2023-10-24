@@ -618,53 +618,15 @@ h5 {
 }
 
 /* details sector (right) */
-.cp-right-box .swiper {
-  width: 800px;
-  height: 900px;
-}
-
-.cp-right-box-slide-l1 {
-  /* margin-top: -0px; */
-}
-
-.cp-right-box .swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.cp-right-box .swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.cp-right-box .swiper-pagination-bullet {
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  line-height: 20px;
-  font-size: 12px;
-  color: #000;
-  opacity: 1;
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.cp-right-box .swiper-pagination-bullet-active {
-  color: #fff;
-  background: #007aff;
-}
-
 .cp-right-box-slide-main {
   display: flex;
   flex-direction: row;
-  margin-top: -165px;
+  gap: 30px;
+  /* margin-top: -165px; */
 }
-
+.cp-right-box-slide-l1{
+  gap: 30px;
+}
 /* card css */
 .cp-right-box .spv-s2-container {
   width: 160px;
@@ -766,14 +728,9 @@ h5 {
     height: 500px;
   }
   /*category page */
-  .cp-right-box .swiper {
-    width: 630px;
-    height: 1600px;
-  }
-
   .cp-right-box-slide-main {
     flex-direction: column;
-    margin-top: -70px;
+    /* margin-top: -100px; */
   }
 
   .cp-side-bar {
@@ -924,7 +881,7 @@ h5 {
   }
 
   .cp-right-box-slide-main {
-    width: 600px;
+    /* width: 600px; */
     display: flex;
     align-items: center;
   }
@@ -1215,6 +1172,14 @@ h5 {
     width: 300px;
     height: 30px;
   }
+  /* category page css */
+  .cp-right-box-slide-main {
+    width: 150px;
+  }
+  .cp-right-box-slide-l1{
+    gap: 20px;
+  }
+  
 }
 
 
@@ -1239,6 +1204,8 @@ h5 {
 }
 
 @media (max-width: 320px) {
+ 
+
   /* Why Choose Us section */
   .WCU-s1-image {
     height: 40px;
@@ -1264,6 +1231,13 @@ h5 {
   .footer-img-box {
 
     gap: 15px;
+  }
+  /* category page css */
+  .cp-right-box-slide-main {
+    /* width: 100px; */
+  }
+  .cp-right-box-slide-l1{
+    gap: 5px;
   }
 }
 

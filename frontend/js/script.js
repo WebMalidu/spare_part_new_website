@@ -66,7 +66,7 @@ let loginModel;
 function openLoginModel() {
     loginModel = new bootstrap.Modal("#loginModel");
     loginModel.show();
-    headerModel.hide();
+    headerModel.hide(); 
     forgotPasswordModel.hide();
     passwordResetModel.hide();
     passwordSetModel.hide();
