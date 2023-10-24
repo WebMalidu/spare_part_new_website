@@ -1,3 +1,5 @@
+
+
 // swiper animation
 var swiper = new Swiper(".mySwiperld", {
     spaceBetween: 30,
@@ -53,36 +55,8 @@ function increaseCategory(id) {
 
 
 // offersection
+// Initialize Splide slider
 
-var swiper = new Swiper(".mySwiperk", {
-    loop: true, // Enable loop mode if you want the slider to wrap around
-    slidesPerView: 1, // Number of slides per view
-    spaceBetween: 30,
-    centeredSlides: true,
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    breakpoints: {
-        768: {
-            perPage: 2, // Show 2 images per page on screens with width 768px or more
-        },
-        992: {
-            perPage: 3, // Show 3 images per page on screens with width 992px or more
-        },
-        1200: {
-            perPage: 4, // Show 4 images per page on screens with width 1200px or more
-        },
-    },
-});
 // Review section js
 var swiper = new Swiper(".mySwiper", {
     navigation: {
@@ -95,27 +69,46 @@ var swiper = new Swiper(".mySwiper", {
 // Brand we trust section
 
 document.addEventListener('DOMContentLoaded', function () {
+    var splide1 = new Splide('.splide-promotion', {
+        type: 'loop',
+        drag: 'free',
+        autoplay: true,
+        snap: true,
+        arrows: false,
+        perPage: 2,
+        pagination: false, 
+        gap: 100, // Set the gap between slides to 20 pixels (adjust as needed)
+        // Disable navigation points
+    });
+    
+    // Mount the slider
+    splide1.mount();
+    
+    console.log("splide1 initialized");
+
     var splide = new Splide('.splide', {
         type: 'loop',
         perPage: 6, // Adjust this value as needed
         perMove: 1,
-        autoplay: true, // Enable autoplay
-        pauseOnHover: false, // Keep autoplay running even when hovering
-        arrows: false, // Hide arrow icons
+        autoplay: true,
+        pauseOnHover: false,
+        arrows: false,
         breakpoints: {
             768: {
-                perPage: 2, // Show 2 images per page on screens with width 768px or more
+                perPage: 2,
             },
             992: {
-                perPage: 3, // Show 3 images per page on screens with width 992px or more
+                perPage: 3,
             },
             1200: {
-                perPage: 4, // Show 4 images per page on screens with width 1200px or more
+                perPage: 4,
             },
         },
     });
 
     splide.mount();
+    
+    console.log("splide initialized");
 });
 
 
@@ -177,6 +170,9 @@ var swiper = new Swiper(".spv-mySwiper", {
     },
   });
 
+
+
+  
 
 
   
