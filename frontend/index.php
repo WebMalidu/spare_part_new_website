@@ -87,43 +87,26 @@
 </div>
 
     <!-- offer section -->
-    <section class="offerSection py-2 py-lg-4" style="position: relative; z-index: 1;">
-        <div class="container pb-5">
-            <div class="col-12">
-                <div class="d-flex flex-column align-items-center mb-2">
-                    <div class="col-4 col-md-3 col-lg-2 d-flex flex-column align-items-center">
-                        <span class="alg-text-blue mt-1 fw-bolder alg-text-h2 pb-1">OUR OFFERS</span>
-                        <div class="alg-line1 alg-bg-blue d-flex align-self-center"></div>
-                        <div class="alg-line2 alg-bg-blue d-flex align-self-center"></div>
-                    </div>
+   <section class="offerSection py-2 py-lg-4" style="position: relative; z-index: 1;">
+    <div class="container pb-5">
+        <div class="col-12">
+            <div class="d-flex flex-column align-items-center mb-2">
+                <div class="col-4 col-md-3 col-lg-2 d-flex flex-column align-items-center">
+                    <span class="alg-text-blue mt-1 fw-bolder alg-text-h2 pb-1">OUR OFFERS</span>
+                    <div class="alg-line1 alg-bg-blue d-flex align-self-center"></div>
+                    <div class="alg-line2 alg-bg-blue d-flex align-self-center"></div>
                 </div>
+            </div>
 
-                <div class="swiper mySwiperk pt-3">
-                    <div class="swiper-wrapper">
-                        <?php
-                        for ($x = 0; $x < 4; $x++) {
-                        ?>
-                            <div class="swiper-slide d-flex gap-5 p-3">
-                                <div>
-                                    <img src="resources/image/offer.png" class="alg-slider-img alg-shadow" alt="">
-                                </div>
-                                <div>
-                                    <img src="resources/image/offer.png" class="alg-slider-img alg-shadow" alt="">
-                                </div>
-                            </div>
-                        <?php
-                        }
-
-                        ?>
-                        <!-- <div class="swiper-pagination bg-succes"></div> -->
-                    </div>
-
+            <div class="swiper mySwiperk pt-3">
+                <div class="swiper-wrapper" id="swiper-wrapper">
+                    <!-- Dynamically generated slides will be added here -->
                 </div>
-
+                <div class="swiper-pagination"></div>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
 
     <!-- search section -->
     <section class="w-100 searchSectio alg-bg-light-blue bg-n py-2 py-lg-5">

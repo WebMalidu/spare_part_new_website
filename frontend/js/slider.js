@@ -55,6 +55,8 @@ function increaseCategory(id) {
 // offersection
 
 var swiper = new Swiper(".mySwiperk", {
+    loop: true, // Enable loop mode if you want the slider to wrap around
+    slidesPerView: 1, // Number of slides per view
     spaceBetween: 30,
     centeredSlides: true,
     autoplay: {
@@ -68,6 +70,17 @@ var swiper = new Swiper(".mySwiperk", {
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+        768: {
+            perPage: 2, // Show 2 images per page on screens with width 768px or more
+        },
+        992: {
+            perPage: 3, // Show 3 images per page on screens with width 992px or more
+        },
+        1200: {
+            perPage: 4, // Show 4 images per page on screens with width 1200px or more
+        },
     },
 });
 // Review section js
@@ -163,3 +176,7 @@ var swiper = new Swiper(".spv-mySwiper", {
       swiper: swiper,
     },
   });
+
+
+
+  

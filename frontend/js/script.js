@@ -64,9 +64,9 @@ function openWatchlistModel() {
 
 let loginModel;
 function openLoginModel() {
+    headerModel.hide();
     loginModel = new bootstrap.Modal("#loginModel");
     loginModel.show();
-    headerModel.hide();
     forgotPasswordModel.hide();
     passwordResetModel.hide();
     passwordSetModel.hide();
