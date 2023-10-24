@@ -222,7 +222,6 @@
 
                    
                 </div>
-<?php $id=5; ?>
                 <div class="d-flex justify-content-center mt-5 p-3">
                     <button class="se3-btn fw-semibold px-3 p-1 rounded-2 alg-text-h3" id="loadButton">Load More</button>
                 </div>
