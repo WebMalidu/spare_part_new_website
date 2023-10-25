@@ -8,9 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // load items
 function loadCategoryItem(category_id) {
-     console.log(category_id);
-     // alert(category_id);
-
      // fetch request
      fetch(SERVER_URL + "../../backend/api/categoryItemLoad.php?category_id=" + category_id, {
           method: "GET",
@@ -28,9 +25,6 @@ function loadCategoryItem(category_id) {
                const categoryItemContainer = document.getElementById("categoryItemContainer");
 
                if (data.status === "success") {
-                    // window.location = "category.php";
-                    console.log(data.results);
-
 
                     categoryItemContainer.innerHTML = "";
                     data.results.forEach(element => {
@@ -41,10 +35,6 @@ function loadCategoryItem(category_id) {
                         <img src="${element.category_image}" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
                         <span class="mt-1 p-3 fw-bold text-whit pb-5 alg-text-h3">${element.category_Item_type}</span>
                     </div>`;
-
-
-                         // Attach a click event listener
-
 
                          categoryItemContainer.appendChild(categoryDiv);
                     });
