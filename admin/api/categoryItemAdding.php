@@ -72,7 +72,7 @@ if ($resultSet['result']->num_rows > 0) {
 }
 
 //category Id
-$categoryItemId = '#' . str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
+$categoryItemId = 'CTI_' . str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
 
 //category image adding
 if ($_FILES['category_item_image']['error'] === 0) {
