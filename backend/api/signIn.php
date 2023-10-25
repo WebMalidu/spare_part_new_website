@@ -1,10 +1,13 @@
 <?php
-require("../model/database_driver.php");
-require("../model/data_validator.php");
-require("../model/passwordEncryptor.php");
-require("../model/response_sender.php");
-require("../model/user_access_updater.php");
-require("../model/mail/MailSender.php");
+require_once("../model/database_driver.php");
+require_once("../model/response_sender.php");
+require_once("../model/fileSearch.php");
+require_once("../model/RequestHandler.php");
+require_once("../model/AdvancedSearchEngine.php");
+require_once("../model/data_validator.php");
+require_once("../model/SessionManager.php");
+require_once("../model/passwordEncryptor.php");
+
 
 
 $responseObject = new stdClass();
@@ -43,11 +46,6 @@ $validateReadyObject->email = array($emailObject);
 $data_validator = new data_validator($validateReadyObject);
 //echo(json_encode($data_validator->validate()));
 
-$emailvalidate = $data_validator->validate();
-if (!$emailvalidate->email1 == null) {
-    $responseObject->error = "email ias not correct format";
-    response_sender::sendJson($responseObject);
-};
 
 
 //gather data from database
@@ -59,6 +57,14 @@ $result = $database_driver->execute_query($query, 's', [$email]);
 // Fetch the row from the result
 $row = $result['result']->fetch_assoc();
 
+if ($result['result']->num_rows > 0) {
+   
+} else {
+
+    // no row data
+    $responseObject->error = "You are not user please Sign Up";
+    response_sender::sendJson($responseObject);
+}
 // Extract the data values
 $userEmail = $row['email'];
 $password_hash = $row['password_hash'];

@@ -67,8 +67,7 @@ var swiper = new Swiper(".mySwiper", {
 
 
 // Brand we trust section
-
-document.addEventListener('DOMContentLoaded', function () {
+function promotionSliderLoader() {
     var splide1 = new Splide('.splide-promotion', {
         type: 'loop',
         drag: 'free',
@@ -84,6 +83,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Mount the slider
     splide1.mount();
     
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    
+    promotionSliderLoader();
     console.log("splide1 initialized");
 
     var splide = new Splide('.splide', {

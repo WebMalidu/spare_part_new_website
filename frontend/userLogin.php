@@ -25,6 +25,8 @@
     <!-- js -->
     <script defer src="js/bootstrap.bundle.js"></script>
     <script defer src="js/script.js"></script>
+    <script defer src="js/home.js"></script>
+
 
 </head>
 
@@ -49,9 +51,9 @@
                         <!-- sign In section -->
                         <div class="col-8 d-flex flex-column gap-3 py-4 py-md-0" id="signInBox">
                             <h4 class="alg-text-dark-blue fw-bold">Sign In</h4>
-                            <input type="email" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter email" />
-                            <input type="password" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter password">
-                            <button class="button rounded-2 alg-text-h3">Continue</button>
+                            <input type="email" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter email" id="signInEmail" />
+                            <input type="password" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter password" id="signInpassword">
+                            <button  onclick="SignIn()" id="signInButton">click</button>
                             <div class="text-center"><span class="alg-cursor fw-semibold alg-text-dark-blue alg-text-h3" onclick="changeView();">Sign up with &nbsp;<span class="fw-bold"> ></span></span></div>
                         </div>
                         <!-- sign Up section -->

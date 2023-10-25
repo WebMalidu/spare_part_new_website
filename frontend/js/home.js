@@ -1,112 +1,122 @@
-SERVER_URL = "http://localhost:9001/"
+SERVER_URL = "http://localhost:9001/";
 
 document.addEventListener("DOMContentLoaded", () => {
+    promotionLoder();
     loadCategory();
 });
 
 
 
 
+let imgpromo;
 function promotionLoder() {
-    console.log("hi")
-
+    console.log("hi");
 
     // Send the data to the server using Fetch
     fetch("../../backend/api//productPromation.php", {
         method: "POST",
     })
-        .then(response => response.json())
-        .then(data => {
+        .then((response) => response.json())
+        .then((data) => {
             // Handle the response data
             if (data.status === "success") {
                 alert(data.status);
 
                 const imageUrls = data.imageUrls;
-                const swiperWrapper = document.getElementById("swiper-wrapper");
+                const promotionData = document.getElementById("promotion_list");
 
-                // Clear existing slides
-                swiperWrapper.innerHTML = '';
+                for (let i = 0; i < imageUrls.length; i++) {
+                    const li = document.createElement("li");
+                    li.className = "splide__slide";
 
+                    imgpromo = document.createElement("img");
+                    imgpromo.src = imageUrls[i]; // Use the image URL from the array
 
-                // Check the screen size (viewport width)
-                const screenWidth = window.innerWidth;
+                    imgpromo.alt = ""; // Set alt text if needed
 
-                if (screenWidth <= 768) {
-                    // Code for small screens
-                    for (let i = 0; i < imageUrls.length; i++) {
-                        const slide = document.createElement("div");
-                        slide.className = "swiper-slide d-flex gap-5 p-3";
+                    // Add any additional attributes or styles here
+                    imgpromo.style.width = "100%"; // For example, set the image width to 100%
 
-                        const img = document.createElement("img");
-                        img.src = imageUrls[i];
-                        img.className = "alg-slider-img alg-shadow";
-                        img.alt = "";
-                        slide.appendChild(img);
-
-                        swiperWrapper.appendChild(slide);
-                    }
-                } else {
-                    // Code for big screens
-                    const swiperContainer = document.getElementById("swiper-container");
-                    const mySwiper = new Swiper(swiperContainer, {
-                        // Swiper parameters for big screens
-                        slidesPerView: 2,
-                        spaceBetween: 20,
-                        // Add other settings as needed
-                    });
-
-                    for (let i = 0; i < imageUrls.length; i += 2) {
-                        const slide = document.createElement("div");
-                        slide.className = "swiper-slide d-flex gap-5 p-3";
-
-                        const img1 = document.createElement("img");
-                        img1.src = imageUrls[i];
-                        img1.className = "alg-slider-img alg-shadow";
-                        img1.alt = "";
-                        slide.appendChild(img1);
-
-                        if (imageUrls[i + 1]) {
-                            const img2 = document.createElement("img");
-                            img2.src = imageUrls[i + 1];
-                            img2.className = "alg-slider-img alg-shadow";
-                            img2.alt = "";
-                            slide.appendChild(img2);
-                        }
-
-                        swiperWrapper.appendChild(slide);
-                    }
+                    li.appendChild(imgpromo);
+                    promotionData.appendChild(li);
+                    // Use an IIFE to capture the current value of imgpromo
+                    (function (src) {
+                        imgpromo.addEventListener("click", () => {
+                            promotionsingle(src);
+                        });
+                    })(imgpromo.src);
                 }
+
+                promotionSliderLoader();
             } else {
                 console.log(data.error);
             }
             console.log(data);
         })
-        .catch(error => {
+        .catch((error) => {
             console.error("Error:", error);
         });
-
-
 }
-// promotionLoder()
 
+function promotionsingle(promovalue) {
+    console.log(promovalue);
+    // Regular expression pattern to match a number
+    // Split the URL by '/' and get the last part
+    const parts = promovalue.split("/");
+    const lastPart = parts[parts.length - 1];
 
+    // Remove the ".jpeg" extension, if present
+    const number = lastPart.replace(".jpeg", "");
+
+    // Convert the number to an integer
+    const parsedNumber = parseInt(number, 10);
+
+    const requestDataObject = {
+        promotionId: parsedNumber,
+    };
+
+    // store data in a form
+    let form = new FormData();
+    form.append("singlePromotionLoad", JSON.stringify(requestDataObject));
+
+    // send the data to server
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4) {
+            // preform an action on response
+            let response = JSON.parse(request.responseText);
+            if (response.status == "success") {
+                alert(response.status);
+            } else {
+                console.log(response.error);
+            }
+            console.log(request.responseText);
+        }
+    };
+    request.open("POST", "../../backend/api//promotionSingleLoad.php", true);
+    request.send(form);
+}
 
 // load category
 let categoryCount = 4;
-document.getElementById('loadButton').addEventListener('click', () => {
+document.getElementById("loadButton").addEventListener("click", () => {
     categoryCount += 4;
     loadCategory();
-})
+});
 
 function loadCategory() {
-
     // fetch request
-    fetch(SERVER_URL + "../../backend/api/categoriesLoad.php?categoryCount=" + categoryCount, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        },
-    })
+    fetch(
+        SERVER_URL +
+        "../../backend/api/categoriesLoad.php?categoryCount=" +
+        categoryCount,
+        {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }
+    )
         .then((response) => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -118,7 +128,7 @@ function loadCategory() {
 
             if (data.status == "success") {
                 categoryContainer.innerHTML = "";
-                data.results.forEach(element => {
+                data.results.forEach((element) => {
                     categoryContainer.innerHTML += `
                  <div class="col-6 col-md-4 col-lg-2 alg-bg-categor alg-shadow mb-1 rounded mt-3 mx-4 px-3 alg-card-hover"> 
                  <a href="category.php?category_id=${element.category_id}" class="text-decoration-none"> 
@@ -140,18 +150,10 @@ function loadCategory() {
                     // categoryContainer.appendChild(categoryDiv);
                 });
 
-
-
-            } else if (data.status == "failed") {
-                console.log(data.error);
-            } else {
-                console.log(data);
-            }
-        })
-        .catch((error) => {
-            console.error("Fetch error:", error);
+            } // categoryContainer.appendChild(categoryDiv);
         });
 }
+
 
 // load items
 
