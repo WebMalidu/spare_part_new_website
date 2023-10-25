@@ -27,11 +27,11 @@ if (!RequestHandler::isPostMethod()) {
 }
 
 // chekcing is user logging
-$userCheckSession = new SessionManager();
-if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
-     $responseObject->error = 'Please Login';
-     response_sender::sendJson($responseObject);
-}
+// $userCheckSession = new SessionManager();
+// if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
+//      $responseObject->error = 'Please Login';
+//      response_sender::sendJson($responseObject);
+// }
 
 if (!isset($_POST['category']) && !isset($_FILES['category_image']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
      $responseObject->error = 'Access denied';

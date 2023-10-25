@@ -35,7 +35,7 @@ CREATE TABLE `brand` (
 
 LOCK TABLES `brand` WRITE;
 /*!40000 ALTER TABLE `brand` DISABLE KEYS */;
-INSERT INTO `brand` VALUES (1,'Aftermarket'),(2,'Koyo'),(3,'AA');
+INSERT INTO `brand` VALUES (1,'Aftermarket'),(2,'Koyo'),(3,'AAA');
 /*!40000 ALTER TABLE `brand` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +65,6 @@ CREATE TABLE `cart` (
 
 LOCK TABLES `cart` WRITE;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
-INSERT INTO `cart` VALUES (1,2,2,'1');
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,7 +88,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES ('#184751','Air Conditioner'),('#915051','Cables');
+INSERT INTO `category` VALUES ('CT_174228','Belts Chains and Rollers '),('CT_604812','Body'),('CT_795659','Air Conditioning  '),('CT_916337','Maintenance Service Parts ');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -102,7 +101,7 @@ DROP TABLE IF EXISTS `category_item`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `category_item` (
   `category_item_id` varchar(12) NOT NULL,
-  `category` varchar(45) NOT NULL,
+  `category_item_name` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `category_category_id` varchar(12) NOT NULL,
   PRIMARY KEY (`category_item_id`),
   KEY `fk_category_item_category1_idx` (`category_category_id`),
@@ -116,7 +115,7 @@ CREATE TABLE `category_item` (
 
 LOCK TABLES `category_item` WRITE;
 /*!40000 ALTER TABLE `category_item` DISABLE KEYS */;
-INSERT INTO `category_item` VALUES ('#375859','Glow Plug','#915051'),('#409507','Bar Lite','#915051'),('#869902','Belt','#184751'),('1','Brake Cable','#915051'),('2','Asselator Cable','#915051'),('3','DWS','#915051');
+INSERT INTO `category_item` VALUES ('CTI_029685','AC compressor Clutch','CT_795659'),('CTI_037070','Belt Pulley','CT_174228'),('CTI_058074','AC compressor','CT_795659'),('CTI_241679','AC compressor Valve','CT_795659'),('CTI_259049','Belt','CT_916337'),('CTI_289000','Beam Axie','CT_604812'),('CTI_363112','Crankshaft Pulley','CT_174228'),('CTI_393963','Alternator Pulley','CT_174228'),('CTI_405059','Automotive Tape','CT_604812'),('CTI_424893','Catalogue Service Manual','CT_916337'),('CTI_524894','Bonnet','CT_604812'),('CTI_644447','Clutch','CT_916337'),('CTI_711056','Brake','CT_916337'),('CTI_991271','AC compressor Oil','CT_795659');
 /*!40000 ALTER TABLE `category_item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,7 +153,7 @@ CREATE TABLE `generation` (
   `generation_id` int NOT NULL AUTO_INCREMENT,
   `generation` varchar(45) NOT NULL,
   PRIMARY KEY (`generation_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -163,7 +162,7 @@ CREATE TABLE `generation` (
 
 LOCK TABLES `generation` WRITE;
 /*!40000 ALTER TABLE `generation` DISABLE KEYS */;
-INSERT INTO `generation` VALUES (1,'3 Gen');
+INSERT INTO `generation` VALUES (1,'1 Gen'),(2,'2 Gen'),(3,'3 Gen'),(4,'4 Gen'),(5,'5 Gen'),(6,'6 Gen'),(7,'7 Gen'),(8,'8 Gen'),(9,'9 Gen'),(10,'10 Gen');
 /*!40000 ALTER TABLE `generation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -271,34 +270,8 @@ CREATE TABLE `makers` (
 
 LOCK TABLES `makers` WRITE;
 /*!40000 ALTER TABLE `makers` DISABLE KEYS */;
-INSERT INTO `makers` VALUES ('1','Toyota'),('2','Honda');
+INSERT INTO `makers` VALUES ('Mk_345841','BMW'),('Mk_452681','Toyota'),('Mk_743868','Honda'),('Mk_942865','Benz');
 /*!40000 ALTER TABLE `makers` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `model_imges`
---
-
-DROP TABLE IF EXISTS `model_imges`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `model_imges` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `model_img_url` text NOT NULL,
-  `vehicle_models_model_id` int NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_model_imges_vehicle_models1_idx` (`vehicle_models_model_id`),
-  CONSTRAINT `fk_model_imges_vehicle_models1` FOREIGN KEY (`vehicle_models_model_id`) REFERENCES `vehicle_models` (`model_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `model_imges`
---
-
-LOCK TABLES `model_imges` WRITE;
-/*!40000 ALTER TABLE `model_imges` DISABLE KEYS */;
-/*!40000 ALTER TABLE `model_imges` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -312,7 +285,7 @@ CREATE TABLE `modification_line` (
   `mod_id` int NOT NULL AUTO_INCREMENT,
   `mod` varchar(45) NOT NULL,
   PRIMARY KEY (`mod_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -321,7 +294,7 @@ CREATE TABLE `modification_line` (
 
 LOCK TABLES `modification_line` WRITE;
 /*!40000 ALTER TABLE `modification_line` DISABLE KEYS */;
-INSERT INTO `modification_line` VALUES (1,'Desel'),(2,'Eloctronic');
+INSERT INTO `modification_line` VALUES (1,'Desel'),(2,'Eloctric'),(3,'Petrol'),(4,'Hibride'),(5,'PHV'),(6,'Non Hibride');
 /*!40000 ALTER TABLE `modification_line` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -334,14 +307,14 @@ DROP TABLE IF EXISTS `my_garaj`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `my_garaj` (
   `mg_id` int NOT NULL AUTO_INCREMENT,
-  `vehicle_models_model_id` int NOT NULL,
   `user_user_id` int NOT NULL,
+  `vehicle_models_has_modification_line_mdu_id` int NOT NULL,
   PRIMARY KEY (`mg_id`),
-  KEY `fk_my_garaj_vehicle_models1_idx` (`vehicle_models_model_id`),
   KEY `fk_my_garaj_user1_idx` (`user_user_id`),
+  KEY `fk_my_garaj_vehicle_models_has_modification_line1_idx` (`vehicle_models_has_modification_line_mdu_id`),
   CONSTRAINT `fk_my_garaj_user1` FOREIGN KEY (`user_user_id`) REFERENCES `user` (`user_id`),
-  CONSTRAINT `fk_my_garaj_vehicle_models1` FOREIGN KEY (`vehicle_models_model_id`) REFERENCES `vehicle_models` (`model_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  CONSTRAINT `fk_my_garaj_vehicle_models_has_modification_line1` FOREIGN KEY (`vehicle_models_has_modification_line_mdu_id`) REFERENCES `vehicle_models_has_modification_line` (`mdu_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -350,6 +323,7 @@ CREATE TABLE `my_garaj` (
 
 LOCK TABLES `my_garaj` WRITE;
 /*!40000 ALTER TABLE `my_garaj` DISABLE KEYS */;
+INSERT INTO `my_garaj` VALUES (6,1,5),(8,1,7);
 /*!40000 ALTER TABLE `my_garaj` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -432,7 +406,6 @@ CREATE TABLE `product_promotion` (
 
 LOCK TABLES `product_promotion` WRITE;
 /*!40000 ALTER TABLE `product_promotion` DISABLE KEYS */;
-INSERT INTO `product_promotion` VALUES (1,'2023-10-04','2023-10-20',1,1,'20%','1'),(2,'2023-10-04','2023-10-20',1,2,'30%','1');
 /*!40000 ALTER TABLE `product_promotion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -603,32 +576,6 @@ INSERT INTO `user_type` VALUES (1,'user'),(2,'seller');
 UNLOCK TABLES;
 
 --
--- Table structure for table `users_images`
---
-
-DROP TABLE IF EXISTS `users_images`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users_images` (
-  `u_img_id` int NOT NULL AUTO_INCREMENT,
-  `img_url` text NOT NULL,
-  `user_user_id` int NOT NULL,
-  PRIMARY KEY (`u_img_id`),
-  KEY `fk_users_images_user1_idx` (`user_user_id`),
-  CONSTRAINT `fk_users_images_user1` FOREIGN KEY (`user_user_id`) REFERENCES `user` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `users_images`
---
-
-LOCK TABLES `users_images` WRITE;
-/*!40000 ALTER TABLE `users_images` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users_images` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `vehicle_models`
 --
 
@@ -636,25 +583,21 @@ DROP TABLE IF EXISTS `vehicle_models`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `vehicle_models` (
-  `model_id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
+  `model_id` varchar(12) NOT NULL,
   `vehicle_type_vehicle_type_id` int NOT NULL,
   `vehicle_year_vehicle_year_Id` int NOT NULL,
   `generation_generation_id` int NOT NULL,
-  `modification_line_mod_id` int NOT NULL,
-  `makers_makers_id` varchar(12) NOT NULL,
+  `vehicle_names_vh_name_id` int NOT NULL,
   PRIMARY KEY (`model_id`),
   KEY `fk_models_vehicle_type1_idx` (`vehicle_type_vehicle_type_id`),
   KEY `fk_models_vehicle_year1_idx` (`vehicle_year_vehicle_year_Id`),
   KEY `fk_models_generation1_idx` (`generation_generation_id`),
-  KEY `fk_vehicle_models_modification_line1_idx` (`modification_line_mod_id`),
-  KEY `fk_vehicle_models_makers1_idx` (`makers_makers_id`),
+  KEY `fk_vehicle_models_vehicle_names1_idx` (`vehicle_names_vh_name_id`),
   CONSTRAINT `fk_models_generation1` FOREIGN KEY (`generation_generation_id`) REFERENCES `generation` (`generation_id`),
   CONSTRAINT `fk_models_vehicle_type1` FOREIGN KEY (`vehicle_type_vehicle_type_id`) REFERENCES `vehicle_type` (`vehicle_type_id`),
   CONSTRAINT `fk_models_vehicle_year1` FOREIGN KEY (`vehicle_year_vehicle_year_Id`) REFERENCES `vehicle_year` (`vehicle_year_Id`),
-  CONSTRAINT `fk_vehicle_models_makers1` FOREIGN KEY (`makers_makers_id`) REFERENCES `makers` (`makers_id`),
-  CONSTRAINT `fk_vehicle_models_modification_line1` FOREIGN KEY (`modification_line_mod_id`) REFERENCES `modification_line` (`mod_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+  CONSTRAINT `fk_vehicle_models_vehicle_names1` FOREIGN KEY (`vehicle_names_vh_name_id`) REFERENCES `vehicle_names` (`vh_name_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -663,8 +606,64 @@ CREATE TABLE `vehicle_models` (
 
 LOCK TABLES `vehicle_models` WRITE;
 /*!40000 ALTER TABLE `vehicle_models` DISABLE KEYS */;
-INSERT INTO `vehicle_models` VALUES (1,'Honda Vezel',1,1,1,2,'2');
+INSERT INTO `vehicle_models` VALUES ('MOD_123938',1,7,7,6),('MOD_128107',1,8,6,14),('MOD_195745',3,8,8,11),('MOD_501316',1,9,3,5),('MOD_776738',1,8,3,7);
 /*!40000 ALTER TABLE `vehicle_models` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `vehicle_models_has_modification_line`
+--
+
+DROP TABLE IF EXISTS `vehicle_models_has_modification_line`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `vehicle_models_has_modification_line` (
+  `vehicle_models_model_id` varchar(12) NOT NULL,
+  `modification_line_mod_id` int NOT NULL,
+  `mdu_id` int NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`mdu_id`),
+  KEY `fk_vehicle_models_has_modification_line_modification_line1_idx` (`modification_line_mod_id`),
+  KEY `fk_vehicle_models_has_modification_line_vehicle_models1_idx` (`vehicle_models_model_id`),
+  CONSTRAINT `fk_vehicle_models_has_modification_line_modification_line1` FOREIGN KEY (`modification_line_mod_id`) REFERENCES `modification_line` (`mod_id`),
+  CONSTRAINT `fk_vehicle_models_has_modification_line_vehicle_models1` FOREIGN KEY (`vehicle_models_model_id`) REFERENCES `vehicle_models` (`model_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `vehicle_models_has_modification_line`
+--
+
+LOCK TABLES `vehicle_models_has_modification_line` WRITE;
+/*!40000 ALTER TABLE `vehicle_models_has_modification_line` DISABLE KEYS */;
+INSERT INTO `vehicle_models_has_modification_line` VALUES ('MOD_123938',3,4),('MOD_501316',4,5),('MOD_128107',4,6),('MOD_128107',6,7),('MOD_195745',4,8),('MOD_195745',6,9),('MOD_123938',4,10),('MOD_123938',5,11);
+/*!40000 ALTER TABLE `vehicle_models_has_modification_line` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `vehicle_names`
+--
+
+DROP TABLE IF EXISTS `vehicle_names`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `vehicle_names` (
+  `vh_name_id` int NOT NULL AUTO_INCREMENT,
+  `vh_name` varchar(45) NOT NULL,
+  `makers_makers_id` varchar(12) NOT NULL,
+  PRIMARY KEY (`vh_name_id`),
+  KEY `fk_vehicle_names_makers1_idx` (`makers_makers_id`),
+  CONSTRAINT `fk_vehicle_names_makers1` FOREIGN KEY (`makers_makers_id`) REFERENCES `makers` (`makers_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `vehicle_names`
+--
+
+LOCK TABLES `vehicle_names` WRITE;
+/*!40000 ALTER TABLE `vehicle_names` DISABLE KEYS */;
+INSERT INTO `vehicle_names` VALUES (5,'Prius','Mk_452681'),(6,'Vitz','Mk_452681'),(7,'BMW i8','Mk_345841'),(8,'BMW x-200','Mk_345841'),(9,'Benz GLA 250 SUV','Mk_942865'),(10,'Benz GLB 250 SUV','Mk_942865'),(11,'Honda Vezel','Mk_743868'),(12,'Honda Grace','Mk_743868'),(13,'Honda Civic','Mk_743868'),(14,'Axio','Mk_452681');
+/*!40000 ALTER TABLE `vehicle_names` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -685,21 +684,21 @@ CREATE TABLE `vehicle_parts` (
   `price` double NOT NULL,
   `parts_status_parts_status_id` int NOT NULL,
   `brand_brand_id` int NOT NULL,
-  `vehicle_models_model_id` int NOT NULL,
   `category_item_category_item_id` varchar(12) NOT NULL,
+  `vehicle_models_has_modification_line_mdu_id` int NOT NULL,
   PRIMARY KEY (`parts_id`),
   KEY `fk_vehicle_parts_parts_origin1_idx` (`parts_origin_origin_id`),
   KEY `fk_vehicle_parts_user1_idx` (`user_user_id`),
   KEY `fk_vehicle_parts_parts_status1_idx` (`parts_status_parts_status_id`),
   KEY `fk_vehicle_parts_brand1_idx` (`brand_brand_id`),
-  KEY `fk_vehicle_parts_vehicle_models1_idx` (`vehicle_models_model_id`),
   KEY `fk_vehicle_parts_category_item1_idx` (`category_item_category_item_id`),
+  KEY `fk_vehicle_parts_vehicle_models_has_modification_line1_idx` (`vehicle_models_has_modification_line_mdu_id`),
   CONSTRAINT `fk_vehicle_parts_brand1` FOREIGN KEY (`brand_brand_id`) REFERENCES `brand` (`brand_id`),
   CONSTRAINT `fk_vehicle_parts_category_item1` FOREIGN KEY (`category_item_category_item_id`) REFERENCES `category_item` (`category_item_id`),
   CONSTRAINT `fk_vehicle_parts_parts_origin1` FOREIGN KEY (`parts_origin_origin_id`) REFERENCES `parts_origin` (`origin_id`),
   CONSTRAINT `fk_vehicle_parts_parts_status1` FOREIGN KEY (`parts_status_parts_status_id`) REFERENCES `parts_status` (`parts_status_id`),
   CONSTRAINT `fk_vehicle_parts_user1` FOREIGN KEY (`user_user_id`) REFERENCES `user` (`user_id`),
-  CONSTRAINT `fk_vehicle_parts_vehicle_models1` FOREIGN KEY (`vehicle_models_model_id`) REFERENCES `vehicle_models` (`model_id`)
+  CONSTRAINT `fk_vehicle_parts_vehicle_models_has_modification_line1` FOREIGN KEY (`vehicle_models_has_modification_line_mdu_id`) REFERENCES `vehicle_models_has_modification_line` (`mdu_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -709,34 +708,8 @@ CREATE TABLE `vehicle_parts` (
 
 LOCK TABLES `vehicle_parts` WRITE;
 /*!40000 ALTER TABLE `vehicle_parts` DISABLE KEYS */;
-INSERT INTO `vehicle_parts` VALUES ('1','Brak cable Honda',1,2,'good product','2023-09-10',1,222222,1,1,1,'1');
+INSERT INTO `vehicle_parts` VALUES ('pp_235364','Compressor Assembly',1,2,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing','2023-10-25',1,12000,1,1,'CTI_058074',6);
 /*!40000 ALTER TABLE `vehicle_parts` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `vehicle_parts_images`
---
-
-DROP TABLE IF EXISTS `vehicle_parts_images`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `vehicle_parts_images` (
-  `img_id` int NOT NULL AUTO_INCREMENT,
-  `img_url` text NOT NULL,
-  `vehicle_parts_parts_id` varchar(12) NOT NULL,
-  PRIMARY KEY (`img_id`),
-  KEY `fk_vehicle_parts_images_vehicle_parts1_idx` (`vehicle_parts_parts_id`),
-  CONSTRAINT `fk_vehicle_parts_images_vehicle_parts1` FOREIGN KEY (`vehicle_parts_parts_id`) REFERENCES `vehicle_parts` (`parts_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `vehicle_parts_images`
---
-
-LOCK TABLES `vehicle_parts_images` WRITE;
-/*!40000 ALTER TABLE `vehicle_parts_images` DISABLE KEYS */;
-/*!40000 ALTER TABLE `vehicle_parts_images` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -750,7 +723,7 @@ CREATE TABLE `vehicle_type` (
   `vehicle_type_id` int NOT NULL AUTO_INCREMENT,
   `vehicale` varchar(45) NOT NULL,
   PRIMARY KEY (`vehicle_type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -759,7 +732,7 @@ CREATE TABLE `vehicle_type` (
 
 LOCK TABLES `vehicle_type` WRITE;
 /*!40000 ALTER TABLE `vehicle_type` DISABLE KEYS */;
-INSERT INTO `vehicle_type` VALUES (1,'car'),(2,'van');
+INSERT INTO `vehicle_type` VALUES (1,'CAR'),(2,'VAN'),(3,'SUV'),(4,'LORRY'),(5,'BUS');
 /*!40000 ALTER TABLE `vehicle_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -774,7 +747,7 @@ CREATE TABLE `vehicle_year` (
   `vehicle_year_Id` int NOT NULL AUTO_INCREMENT,
   `year` varchar(45) NOT NULL,
   PRIMARY KEY (`vehicle_year_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -783,7 +756,7 @@ CREATE TABLE `vehicle_year` (
 
 LOCK TABLES `vehicle_year` WRITE;
 /*!40000 ALTER TABLE `vehicle_year` DISABLE KEYS */;
-INSERT INTO `vehicle_year` VALUES (1,'2001'),(2,'2003');
+INSERT INTO `vehicle_year` VALUES (1,'2000'),(2,'2001'),(3,'2002'),(4,'2003'),(5,'2004'),(6,'2008'),(7,'2010'),(8,'2018'),(9,'2020'),(10,'2022');
 /*!40000 ALTER TABLE `vehicle_year` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -812,7 +785,6 @@ CREATE TABLE `watchlist` (
 
 LOCK TABLES `watchlist` WRITE;
 /*!40000 ALTER TABLE `watchlist` DISABLE KEYS */;
-INSERT INTO `watchlist` VALUES (1,1,'1');
 /*!40000 ALTER TABLE `watchlist` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -825,4 +797,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-12  1:15:16
+-- Dump completed on 2023-10-25 16:38:47

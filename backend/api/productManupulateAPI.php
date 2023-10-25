@@ -32,8 +32,8 @@ if (RequestHandler::isGetMethod()) {
      //load single product
      //check our parameters
 
-     if (isset($_GET['vh_model_id']) && isset($_GET['vh_category_item_id'])) {
-          $vehicleModelId = $_GET['vh_model_id'];
+     if (isset($_GET['vh_model_has_id']) && isset($_GET['vh_category_item_id'])) {
+          $vehicleModelId = $_GET['vh_model_has_id'];
           $vehicleCategoryItemId = $_GET['vh_category_item_id'];
           $vehiclePartsOriginId = isset($_GET['vh_origin_id']) ? $_GET['vh_origin_id'] : null;
           $vehiclePartsStatusId = isset($_GET['vh_status_id']) ? $_GET['vh_status_id'] : null;
@@ -100,7 +100,7 @@ if (RequestHandler::isGetMethod()) {
                     (object) ["datakey" => "category", "value" => $ad_category_id]
                ],
                "int_or_null" => [
-                    (object) ["datakey" => "origin", "value" => $ad_origin_id],      
+                    (object) ["datakey" => "origin", "value" => $ad_origin_id],
                     (object) ["datakey" => "quantity", "value" => $ad_qty],
                     (object) ["datakey" => "brand", "value" => $ad_brand_id],
                     (object) ["datakey" => "model", "value" => $ad_model_id],
@@ -125,7 +125,7 @@ if (RequestHandler::isGetMethod()) {
 
           //get data in by variables
           //partsId Generator 
-          $partsId = '#' . str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
+          $partsId = 'pp_' . str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
 
           // search first the product already have this product
           $searchProduct = "SELECT * FROM `vehicle_parts` WHERE  `title`=? AND `user_user_id`=? AND `brand_brand_id`=? AND `vehicle_models_model_id`=? AND `category_item_category_item_id`=?";
@@ -178,7 +178,10 @@ if (RequestHandler::isGetMethod()) {
 
           $responseObject->status = "success";
           response_sender::sendJson($responseObject);
-     } else if (isset($_POST['up_parts_id'], $_POST['up_title'], $_POST['up_origin_id'], $_POST['up_qty'], $_POST['up_description'], $_POST['up_price'], $_POST['up_brand_id'], $_POST['up_model_id'], $_POST['up_category_id'], $_POST['up_status_id'])) {
+
+
+          //data update
+     } else if (isset($_POST['up_parts_id'], $_POST['up_title'], $_POST['up_origin_id'], $_POST['up_qty'], $_POST['up_description'], $_POST['up_price'], $_POST['up_brand_id'], $_POST['up_category_id'], $_POST['up_status_id'], $_POST['model_has_id'])) {
 
           //data varibles
           $up_parts_id = $_POST['up_parts_id'];
@@ -188,7 +191,7 @@ if (RequestHandler::isGetMethod()) {
           $up_description = $_POST['up_description'];
           $up_price = $_POST['up_price'];
           $up_brand_id = $_POST['up_brand_id'];
-          $up_model_id = $_POST['up_model_id'];
+          $up_model_id = $_POST['model_has_id'];
           $up_category_id = $_POST['up_category_id'];
           $up_status_id = $_POST['up_status_id'];
 
@@ -196,35 +199,24 @@ if (RequestHandler::isGetMethod()) {
           //data validation
           $validateReadyObject = (object) [
                "string_or_null" => [
-                    (object) ["datakey" => "parts id id", "value" => $up_parts_id]
-               ],
-               "string_or_null" => [
-                    (object) ["datakey" => "title", "value" => $up_title]
-               ],
-               "int_or_null" => [
-                    (object) ["datakey" => "origin", "value" => $up_origin_id]
+                    (object) ["datakey" => "parts id id", "value" => $up_parts_id],
+                    (object) ["datakey" => "title", "value" => $up_title],
+                    (object) ["datakey" => "category", "value" => $up_category_id],
                ],
                "int_or_null" => [
-                    (object) ["datakey" => "quantity", "value" => $up_qty]
+                    (object) ["datakey" => "origin", "value" => $up_origin_id],
+                    (object) ["datakey" => "quantity", "value" => $up_qty],
+                    (object) ["datakey" => "brand", "value" => $up_brand_id],
+                    (object) ["datakey" => "model", "value" => $up_model_id],
+                    (object) ["datakey" => "status", "value" => $up_status_id]
                ],
                "price" => [
                     (object) ["datakey" => "price", "value" => $up_price]
                ],
-               "int_or_null" => [
-                    (object) ["datakey" => "brand", "value" => $up_brand_id]
-               ],
-               "int_or_null" => [
-                    (object) ["datakey" => "model", "value" => $up_model_id]
-               ],
+
                "text_255" => [
                     (object) ["datakey" => "description", "value" => $up_description]
-               ],
-               "string_or_null" => [
-                    (object) ["datakey" => "category", "value" => $up_category_id]
-               ],
-               "int_or_null" => [
-                    (object) ["datakey" => "status", "value" => $up_status_id]
-               ],
+               ]
           ];
 
           //validation
@@ -238,10 +230,12 @@ if (RequestHandler::isGetMethod()) {
           }
 
 
-          $updateQuery = "UPDATE `vehicle_parts` SET `title`=?,`parts_origin_origin_id`=?,`qty`=?,`description`=?,`price`=?,`parts_status_parts_status_id`=?,`brand_brand_id`=?,`vehicle_models_model_id`=?,`category_item_category_item_id`=? WHERE `parts_id`=?";
-          $db->execute_query($updateQuery, 'siissiiiis', array($up_title, $up_origin_id, $up_qty, $up_description, $up_price, $up_status_id, $up_brand_id, $up_model_id, $up_category_id, $up_parts_id));
+          $updateQuery = "UPDATE `vehicle_parts` SET `title`=?,`parts_origin_origin_id`=?,`qty`=?,`description`=?,`price`=?,`parts_status_parts_status_id`=?,`brand_brand_id`=?,`category_item_category_item_id`=?,vehicle_models_has_modification_line_mdu_id=? WHERE `parts_id`=?";
+          $db->execute_query($updateQuery, 'siissiiiii', array($up_title, $up_origin_id, $up_qty, $up_description, $up_price, $up_status_id, $up_brand_id, $up_category_id, $up_model_id, $up_parts_id));
           $responseObject->status = "success";
           response_sender::sendJson($responseObject);
+
+          //data delete
      } else if (isset($_POST['del_parts_id'])) {
 
           //get variables
