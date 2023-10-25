@@ -72,7 +72,7 @@ if (RequestHandler::isPostMethod()) {
           }
 
           //generate vahicle makers Ids
-          $makersId = '#Mk_' . str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
+          $makersId = 'Mk_' . str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
 
 
           //makers image adding
