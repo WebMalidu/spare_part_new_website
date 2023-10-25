@@ -1,8 +1,19 @@
 <?php
+<<<<<<< Updated upstream
 if (!isset($_GET["category_id"])) {
     header("Location: index.php");
     exit();
 }
+=======
+// $category_id = $_GET['category_id'];
+// echo ($category_id);
+// if (isset($_GET['category_id'])) {
+//     $category_id = $_GET['category_id'];
+//     echo "Category ID: " . htmlspecialchars($category_id);
+// } else {
+//     echo "Category ID not found in the URL.";
+// }
+>>>>>>> Stashed changes
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +50,11 @@ if (!isset($_GET["category_id"])) {
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </head>
 
+<<<<<<< Updated upstream
 <body data-category_id="<?php echo $_GET['category_id']; ?>">
+=======
+<body data-category="<?php echo $category_id ?>">
+>>>>>>> Stashed changes
     <!-- header section-->
     <?php include("./pages/components/header.php") ?>
 
