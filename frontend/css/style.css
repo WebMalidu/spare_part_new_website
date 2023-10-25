@@ -670,6 +670,10 @@ h5 {
   }
 }
 
+/* privacy section */
+.privacy-section{
+  padding: 40px;
+}
 @keyframes myfirst {
   from {
     opacity: 0.7;
@@ -1179,7 +1183,11 @@ h5 {
   .cp-right-box-slide-l1{
     gap: 20px;
   }
-  
+ 
+  /* privacy section */
+.privacy-section{
+  padding: 30px;
+}
 }
 
 
@@ -1239,6 +1247,10 @@ h5 {
   .cp-right-box-slide-l1{
     gap: 5px;
   }
+  /* privacy section */
+.privacy-section{
+  padding: 20px;
+}
 }
 
 /* user Profile section */

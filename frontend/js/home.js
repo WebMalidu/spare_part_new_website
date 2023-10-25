@@ -1,3 +1,4 @@
+SERVER_URL = "http://localhost:9001/"
 
 document.addEventListener("DOMContentLoaded", () => {
     loadCategory();
@@ -118,23 +119,28 @@ function loadCategory() {
             if (data.status == "success") {
                 categoryContainer.innerHTML = "";
                 data.results.forEach(element => {
-                    const categoryDiv = document.createElement("div");
-                    categoryDiv.className = "col-6 col-md-4 col-lg-2 alg-bg-categor alg-shadow mb-1 rounded mt-3 mx-4 px-3 alg-card-hover";
-                    categoryDiv.innerHTML = `
-                        <div class="d-flex flex-column align-items-center" id="categoryItem${element.category_id}">
-                            <img src="resources/image/car.jpg" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
-                            <span class="mt-1 p-3 fw-bold text-whit pb-5 alg-text-h3">${element.category_type}</span>
-                        </div>`;
-                    
-                    // Attach a click event listener
-                    categoryDiv.onclick = function() {
-                        loadCategoryItem(element.category_id);
-                    };
-            
-                    categoryContainer.appendChild(categoryDiv);
+                    categoryContainer.innerHTML += `
+                 <div class="col-6 col-md-4 col-lg-2 alg-bg-categor alg-shadow mb-1 rounded mt-3 mx-4 px-3 alg-card-hover"> 
+                 <a href="category.php?category_id=${element.category_id}" class="text-decoration-none"> 
+                 <div class="d-flex flex-column align-items-center" id="categoryItem${element.category_id}" onclick="loadCategoryItem('${element.category_id}');">
+                     <img src="resources/image/car.jpg" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
+                     <span class="mt-1 p-3 fw-bold text-whit pb-5 alg-text-h3">${element.category_type}</span>
+                 </div>
+                 </a>
+                 </div>`
+                //  let categoryId = document.body.dataset.category;
+                 
+               
+                    // // Attach a click event listener
+                    // categoryDiv.onclick = function() {
+                    //     loadCategoryItem(element.category_id);
+                    // };
+
+                  
+                    // categoryContainer.appendChild(categoryDiv);
                 });
-            
-            
+
+
 
             } else if (data.status == "failed") {
                 console.log(data.error);
@@ -147,13 +153,14 @@ function loadCategory() {
         });
 }
 
-
+  // load items
+ 
 function loadCategoryItem(category_id) {
-    // alert(id);
-    // window.location = "category.php"
+    console.log(category_id)
+    alert(category_id);
 
-      // fetch request
-      fetch(SERVER_URL + "../../backend/api/categoryItemLoad.php?category_id=" + category_id, {
+    // fetch request
+    fetch(SERVER_URL + "../backend/api/categoryItemLoad.php?category_id=" + category_id, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -166,15 +173,29 @@ function loadCategoryItem(category_id) {
             return response.json();
         })
         .then((data) => {
-            const categoryContainer = document.getElementById("categoryContainer");
+            const categoryItemContainer = document.getElementById("categoryItemContainer");
 
             if (data.status == "success") {
-                categoryContainer.innerHTML = "";
+                // window.location = "category.php";
+                console.log(data.results);
+                categoryItemContainer.innerHTML = "";
                 data.results.forEach(element => {
-                    
+                    const categoryDiv = document.createElement("div");
+                    categoryDiv.className = "col-6 col-md-4 col-lg-2 alg-bg-categor alg-shadow mb-1 rounded mt-3 mx-4 px-3 alg-card-hover";
+                    categoryDiv.innerHTML += `
+                    <div class="d-flex flex-column align-items-center" id="categoryItem${element.category_Item_id}">
+                    <img src="resources/image/car.jpg" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
+                    <span class="mt-1 p-3 fw-bold text-whit pb-5 alg-text-h3">${element.category_Item_type}</span>
+                </div>`;
+
+
+                    // Attach a click event listener
+
+
+                    categoryItemContainer.appendChild(categoryDiv);
                 });
-            
-            
+
+
 
             } else if (data.status == "failed") {
                 console.log(data.error);
