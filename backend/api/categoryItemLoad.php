@@ -58,7 +58,7 @@ if ($resultSet['result']->num_rows > 0) {
 
           $resRowDetailObject = new stdClass();
 
-          $resRowDetailObject->category_Item_type = $rowData['category'];
+          $resRowDetailObject->category_Item_type = $rowData['category_item_name'];
           $resRowDetailObject->category_id = $rowData['category_category_id'];
           $resRowDetailObject->category_Item_id = $categoryItemId; // Use categoryName
 

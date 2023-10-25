@@ -143,12 +143,10 @@ if (RequestHandler::isGetMethod()) {
 
                     $resRowDetailObject = new stdClass();
 
-                    $resRowDetailObject->model_name = $rowData['name'];
                     $resRowDetailObject->model_type_id = $rowData['vehicle_type_vehicle_type_id'];
                     $resRowDetailObject->model_year_id = $rowData['vehicle_year_vehicle_year_Id'];
                     $resRowDetailObject->model_generation_id = $rowData['generation_generation_id'];
-                    $resRowDetailObject->model_modification_line = $rowData['modification_line_mod_id'];
-                    $resRowDetailObject->maker_id = $rowData['makers_makers_id'];
+                    $resRowDetailObject->vehicle_names_id = $rowData['vehicle_names_id'];
                     $resRowDetailObject->model_id = $model_id;
 
                     if (is_array($searchResults)) {
@@ -182,27 +180,21 @@ if (RequestHandler::isPostMethod()) {
      //      response_sender::sendJson($responseObject);
      // }
 
-     if (isset($_POST['ad_name'], $_POST['ad_vehicle_type_id'], $_POST['ad_vehicle_year_Id'], $_POST['ad_generation_id'], $_POST['ad_modification_line_mod_id'], $_POST['ad_makers_id'], $_FILES['ad_model_img'])) {
+     if (isset($_POST['ad_vehicle_type_id'], $_POST['ad_vehicle_year_Id'], $_POST['ad_generation_id'], $_POST['ad_vehicle_name_id'], $_FILES['ad_model_img'])) {
           //get all data in a variables 
-          $ad_model_name = $_POST['ad_name'];
+          $ad_model_name_id = $_POST['ad_vehicle_name_id'];
           $ad_vehicle_type_id = $_POST['ad_vehicle_type_id'];
           $ad_vehicle_year_id = $_POST['ad_vehicle_year_Id'];
           $ad_generation_id = $_POST['ad_generation_id'];
-          $ad_modification_line_id = $_POST['ad_modification_line_mod_id'];
-          $ad_makers_id = $_POST['ad_makers_id'];
           $ad_model_img = $_FILES['ad_model_img'];
 
           // data validation
           $dataToValidate = [
-               'string_or_null' => [
-                    (object)['datakey' => 'vehicle model name', 'value' => $ad_model_name],
-                    (object)['datakey' => 'vehicle maker', 'value' => $ad_makers_id],
-               ],
                'int_or_null' => [
+                    (object)['datakey' => 'vehicle model name', 'value' => $ad_model_name_id],
                     (object)['datakey' => 'vehicle type', 'value' => $ad_vehicle_type_id],
                     (object)['datakey' => 'vehicle year', 'value' => $ad_vehicle_year_id],
                     (object)['datakey' => 'vehicle generation', 'value' => $ad_generation_id],
-                    (object)['datakey' => 'vehicle modification line', 'value' => $ad_modification_line_id],
 
                ],
           ];
@@ -219,10 +211,10 @@ if (RequestHandler::isPostMethod()) {
 
           //check already have this model
           $searchData = "SELECT * FROM `vehicle_models` WHERE 
-          `name`=? AND `vehicle_type_vehicle_type_id`=? AND `vehicle_year_vehicle_year_Id`=? 
-          AND `generation_generation_id`=? AND `modification_line_mod_id`=? AND `makers_makers_id`=?";
+          `vehicle_type_vehicle_type_id`=? AND `vehicle_year_vehicle_year_Id`=? 
+          AND `generation_generation_id`=? AND `vehicle_names_id`=?";
 
-          $result = $db->execute_query($searchData, 'siiiii', array($ad_model_name, $ad_vehicle_type_id, $ad_vehicle_year_id, $ad_generation_id, $ad_modification_line_id, $ad_makers_id));
+          $result = $db->execute_query($searchData, 'iiii', array($ad_vehicle_type_id, $ad_vehicle_year_id, $ad_generation_id,$ad_model_name_id));
 
           //get by result
           if ($result['result']->num_rows > 0) {
@@ -232,7 +224,7 @@ if (RequestHandler::isPostMethod()) {
 
           //next  add data our database table
           //generate vahicle makers Ids
-          $modelId = '#MOD_' . str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
+          $modelId = 'MOD_' . str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
 
 
           //makers image adding
@@ -249,8 +241,8 @@ if (RequestHandler::isPostMethod()) {
                     //upload images makers image files
                     if (move_uploaded_file($_FILES['ad_model_img']['tmp_name'], $savePath . $newImageName)) {
                          // insert data this table
-                         $InsertQuery = "INSERT INTO `vehicle_models` (`model_id`,`name`,`vehicle_type_vehicle_type_id`,`vehicle_year_vehicle_year_Id`,`generation_generation_id`,`modification_line_mod_id`,`makers_makers_id`) VALUES (?,?,?,?,?,?,?)";
-                         $db->execute_query($InsertQuery, 'ssiiiis', array($modelId, $ad_model_name, $ad_vehicle_type_id, $ad_vehicle_year_id, $ad_generation_id, $ad_modification_line_id, $ad_makers_id));
+                         $InsertQuery = "INSERT INTO `vehicle_models` (`model_id`,`vehicle_type_vehicle_type_id`,`vehicle_year_vehicle_year_Id`,`generation_generation_id`,`vehicle_names_id`) VALUES (?,?,?,?,?)";
+                         $db->execute_query($InsertQuery, 'sssss', array($modelId,$ad_vehicle_type_id, $ad_vehicle_year_id, $ad_generation_id, $ad_model_name_id));
 
 
                          $responseObject->status = 'success';

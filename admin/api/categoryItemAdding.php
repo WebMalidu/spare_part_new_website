@@ -27,11 +27,11 @@ if (!RequestHandler::isPostMethod()) {
 }
 
 // chekcing is user logging
-$userCheckSession = new SessionManager();
-if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
-     $responseObject->error = 'Please Login';
-     response_sender::sendJson($responseObject);
-}
+// $userCheckSession = new SessionManager();
+// if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
+//      $responseObject->error = 'Please Login';
+//      response_sender::sendJson($responseObject);
+// }
 
 if (!isset($_POST['category_name']) && !isset($_FILES['category_item_image']) && !isset($_POST['category_id'])) {
      $responseObject->error = 'Access denied';
@@ -62,7 +62,7 @@ foreach ($errors as $key => $value) {
 
 //database object
 $db = new database_driver();
-$searchQuery = "SELECT * FROM `category_item` WHERE  `category`=? AND `category_category_id`=?";
+$searchQuery = "SELECT * FROM `category_item` WHERE  `category_item_name`=? AND `category_category_id`=?";
 $resultSet = $db->execute_query($searchQuery, 'ss', array($category_item_name,$categoryId));
 
 //this category already have
@@ -72,7 +72,7 @@ if ($resultSet['result']->num_rows > 0) {
 }
 
 //category Id
-$categoryItemId = '#' . str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
+$categoryItemId = 'CTI_' . str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
 
 //category image adding
 if ($_FILES['category_item_image']['error'] === 0) {

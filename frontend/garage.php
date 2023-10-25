@@ -79,22 +79,17 @@
                                         </div>
                                         <div class="w-100">
                                             <select class="searchSection-selector  form-select form-select-sm alg-shadow" aria-label="Small select example" id="vehicleModelNameSelector">
-                                                
-                                                
+                                                <!-- details goes here -->
                                             </select>
                                         </div>
                                         <div class="w-100">
                                             <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example" id="vehicleYearsContainer">
-                                                <option selected>Select Car Year</option>
-        
+                                                <!-- details goes here -->
                                             </select>
                                         </div>
                                         <div class="w-100">
-                                            <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example">
-                                                <option selected>Select Modification</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
+                                            <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example" id="modificationLineContainer">
+                                                <!-- details goes here -->
                                             </select>
                                         </div>
                                         <div class="w-100 d-grid">
