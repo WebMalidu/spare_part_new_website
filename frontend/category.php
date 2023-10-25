@@ -39,11 +39,7 @@ if (!isset($_GET["category_id"])) {
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </head>
 
-<<<<<<< Updated upstream
 <body data-category_id="<?php echo $_GET['category_id']; ?>">
-=======
-<body data-category="<?php echo $category_id ?>">
->>>>>>> Stashed changes
     <!-- header section-->
     <?php include("./pages/components/header.php") ?>
 
