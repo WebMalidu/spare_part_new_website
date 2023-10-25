@@ -1,6 +1,6 @@
 <?php
-$category_id = $_GET['category_id'];
-echo ($category_id);
+// $category_id = $_GET['category_id'];
+// echo ($category_id);
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +37,7 @@ echo ($category_id);
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </head>
 
-<body data-category="$category_id">
+<body>
     <!-- header section-->
     <?php include("./pages/components/header.php") ?>
 

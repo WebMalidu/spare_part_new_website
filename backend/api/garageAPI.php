@@ -98,7 +98,7 @@ if (RequestHandler::isGetMethod()) {
      INNER JOIN `vehicle_models_has_modification_line` ON `my_garaj`.`vehicle_models_has_modification_line_mdu_id`=`vehicle_models_has_modification_line`.`mdu_id`
      INNER JOIN `modification_line` ON `vehicle_models_has_modification_line`.`modification_line_mod_id`=`modification_line`.`mod_id`
      INNER JOIN `vehicle_models` ON `vehicle_models_has_modification_line`.`vehicle_models_model_id`=`vehicle_models`.`model_id`
-     INNER JOIN `vehicle_names` ON `vehicle_names`.`vh_name_id`=`vehicle_models`.`vehicle_names_id`
+     INNER JOIN `vehicle_names` ON `vehicle_names`.`vh_name_id`=`vehicle_models`.`vehicle_names_vh_name_id`
      INNER JOIN `vehicle_year` ON `vehicle_year`.`vehicle_year_Id`=`vehicle_models`.`vehicle_year_vehicle_year_Id`
      INNER JOIN `vehicle_type` ON `vehicle_type`.`vehicle_type_id`=`vehicle_models`.`vehicle_type_vehicle_type_id`
      INNER JOIN `generation` ON `generation`.`generation_id`=`vehicle_models`.`generation_generation_id`

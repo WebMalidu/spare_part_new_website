@@ -33,7 +33,7 @@ if (RequestHandler::isGetMethod()) {
      if (isset($_GET['maker_id'])) {
           $makerId = $_GET['maker_id'];
           //load vehicle  model table 
-          $searchQuery = "SELECT * FROM `vehicle_models` WHERE `makers_makers_id`";
+          $searchQuery = "SELECT * FROM `vehicle_models` WHERE `makers_makers_id`=?";
           $resultSet = $db->execute_query($searchQuery, 's', array($makerId));
           $result = $resultSet['result'];
           //now select model names and parse the response
@@ -146,7 +146,7 @@ if (RequestHandler::isGetMethod()) {
                     $resRowDetailObject->model_type_id = $rowData['vehicle_type_vehicle_type_id'];
                     $resRowDetailObject->model_year_id = $rowData['vehicle_year_vehicle_year_Id'];
                     $resRowDetailObject->model_generation_id = $rowData['generation_generation_id'];
-                    $resRowDetailObject->vehicle_names_id = $rowData['vehicle_names_id'];
+                    $resRowDetailObject->vehicle_names_id = $rowData['vehicle_names_vh_name_id'];
                     $resRowDetailObject->model_id = $model_id;
 
                     if (is_array($searchResults)) {
