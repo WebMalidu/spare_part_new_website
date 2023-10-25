@@ -1,6 +1,8 @@
 <?php
-// $category_id = $_GET['category_id'];
-// echo ($category_id);
+if (!isset($_GET["category_id"])) {
+    header("Location: index.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -33,11 +35,11 @@
     <script defer src="js/bootstrap.bundle.js"></script>
     <script defer src="js/script.js"></script>
     <script defer src="js/slider.js"></script>
-    <script defer src="js/home.js"></script>
+    <script defer src="js/categoryItem.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </head>
 
-<body>
+<body data-category_id="<?php echo $_GET['category_id']; ?>">
     <!-- header section-->
     <?php include("./pages/components/header.php") ?>
 
@@ -319,7 +321,7 @@
 
     <!-- footer -->
     <?php include("./pages/components/footer.php") ?>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.0.9/dist/js/splide.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

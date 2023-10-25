@@ -30,7 +30,6 @@
     <script defer src="js/script.js"></script>
     <script defer src="js/slider.js"></script>
     <script defer src="js/vehicleFetchData.js"></script>
-    <script defer src="js/product.js"></script>
     <script defer src="js/catogery.js"></script>
     <script defer src="js/home.js"></script>
 
