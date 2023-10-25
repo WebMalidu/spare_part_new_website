@@ -130,16 +130,15 @@ function loadCategory() {
                 categoryContainer.innerHTML = "";
                 data.results.forEach((element) => {
                     categoryContainer.innerHTML += `
-                  
-                 <div class="col-6 col-md-4 col-lg-2 alg-bg-categor alg-shadow mb-1 rounded mt-3 mx-4 px-3 alg-card-hover" onclick="loadCategoryItem('${element.category_id}')"> 
-                
-                 <div class="d-flex flex-column align-items-center text-center">
-                     <img src="resources/image/car.jpg" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
+                 <div class="col-6 col-md-4 col-lg-2 alg-bg-categor alg-shadow mb-1 rounded mt-3 mx-4 px-3 alg-card-hover"> 
+                 <a href="category.php?category_id=${element.category_id}" class="text-decoration-none"> 
+                 <div class="d-flex flex-column align-items-center">
+                     <img src="${element.category_image}" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
                      <span class="mt-1 p-3 fw-bold text-whit pb-5 alg-text-h3">${element.category_type}</span>
                  </div>
-      
+                 </a>
                  </div>`
-
+                    //  let categoryId = document.body.dataset.category;
 
 
                     // // Attach a click event listener
@@ -156,62 +155,3 @@ function loadCategory() {
 }
 
 
-// load items
-
-function loadCategoryItem(category_id) {
-    // let category_id = document.body.dataset.category;
-    console.log(category_id);
-
-    // const urlParams = new URLSearchParams(window.location.search);
-    // const category_id = urlParams.get('category_id');
-    // console.log("Category ID:", category_id);
-
-
-    // alert(category_id);
-
-    // fetch request
-    fetch(SERVER_URL + "../../backend/api/categoryItemLoad.php?category_id=" + category_id, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        },
-    })
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then((data) => {
-            const categoryItemContainer = document.getElementById("categoryItemContainer");
-
-            if (data.status == "success") {
-                // window.location = "category.php";
-                // console.log(data.results);
-
-
-                categoryItemContainer.innerHTML = "";
-                data.results.forEach(element => {
-
-                    categoryItemContainer.innerHTML += `
-                  <button>${element.category_Item_id}</button>`;
-
-
-                    // Attach a click event listener
-
-
-                    // categoryItemContainer.appendChild(categoryDiv);
-                });
-
-
-
-            } else if (data.status === "failed") {
-                console.log(data.error);
-            } else {
-                console.log(data);
-            }
-        })
-        .catch((error) => {
-            console.error("Fetch error:", error);
-        });
-}

@@ -27,7 +27,7 @@ function loadCategoryItem(category_id) {
           .then((data) => {
                const categoryItemContainer = document.getElementById("categoryItemContainer");
 
-               if (data.status == "success") {
+               if (data.status === "success") {
                     // window.location = "category.php";
                     console.log(data.results);
 
