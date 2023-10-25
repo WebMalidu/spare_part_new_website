@@ -105,12 +105,7 @@
         <ul class="splide__list" id="promotion_list">
             <!-- Your slide items for the 'splide-promotion' slider go here -->
           
-            <li class="splide__slide"><img src="../../frontend/resources/image/promotionImages//49.jpeg" alt="" srcset="" style="width: 100%;"></li>
-            <li class="splide__slide"><img src="../../frontend/resources/image/promotionImages//49.jpeg" alt="" srcset="" style="width: 100%;"></li>
-            <li class="splide__slide"><img src="../../frontend/resources/image/promotionImages//50.jpeg" alt="" srcset="" style="width: 100%;"></li>
-            <li class="splide__slide"><img src="../../frontend/resources/image/promotionImages//49.jpeg" alt="" srcset="" style="width: 100%;"></li>
-
-
+            
             
 
             <!-- Add more slides as needed -->
