@@ -1,19 +1,8 @@
 <?php
-<<<<<<< Updated upstream
 if (!isset($_GET["category_id"])) {
     header("Location: index.php");
     exit();
 }
-=======
-// $category_id = $_GET['category_id'];
-// echo ($category_id);
-// if (isset($_GET['category_id'])) {
-//     $category_id = $_GET['category_id'];
-//     echo "Category ID: " . htmlspecialchars($category_id);
-// } else {
-//     echo "Category ID not found in the URL.";
-// }
->>>>>>> Stashed changes
 ?>
 
 <!DOCTYPE html>
