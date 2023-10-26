@@ -1,5 +1,5 @@
 <?php
-if (!isset($_GET["category_id"])) {
+if (!isset($_GET["item_id"])) {
     header("Location: index.php");
     exit();
 }
@@ -39,7 +39,7 @@ if (!isset($_GET["category_id"])) {
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </head>
 
-<body data-category_id="<?php echo $_GET['category_id']; ?>">
+<body data-item_id="<?php echo $_GET['item_id']; ?>">
     <!-- header section-->
     <?php include("./pages/components/header.php") ?>
 
@@ -149,7 +149,8 @@ if (!isset($_GET["category_id"])) {
             <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
                 <ol class="breadcrumb p-3">
                     <li class="breadcrumb-item nav-link"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">category page</li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="category.php">Category page</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Category item page</li>
                 </ol>
             </nav>
             <div class="p-2">
@@ -285,25 +286,39 @@ if (!isset($_GET["category_id"])) {
             <!-- category slide -->
             <div class="d-flex flex-column align-items-center gap-5">
 
-                <div class="col-12 d-flex justify-content-center flex-wrap gap-2 " id="categoryItemContainer">
-
+                <div class="col-12 d-flex justify-content-center flex-wrap gap-2 " id="itemContainer">
+                    <?php
+                    for ($i = 0; $i < 12; $i++) {
+                        # code...
+                    ?>
+                        <div class="col-6 col-md-4 col-lg-2 alg-bg-categor alg-shadow mb-1 rounded mt-3 mx-4 px-3 alg-card-hover">
+                            <a href="#" class="text-decoration-none">
+                                <div class="d-flex flex-column align-items-center">
+                                    <img src="${element.category_image}" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
+                                    <span class="mt-1 p-3 fw-bold text-whit pb-5 alg-text-h3">edfedr</span>
+                                </div>
+                            </a>
+                        </div>
+                    <?php
+                    }
+                    ?>
 
                 </div>
 
                 <!-- pagination section boostrap -->
                 <div class="pt-4">
                     <nav aria-label="Page navigation example">
-                        <ul class="pagination" >
-                            <li class="page-item" id="previous">
+                        <ul class="pagination">
+                            <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
                                     <span class="sr-only">Previous</span>
                                 </a>
                             </li>
-                            <span class="d-flex" id="paginationContainer">
-
-                            </span>
-                            <li class="page-item" id="next">
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
                                     <span class="sr-only">Next</span>
