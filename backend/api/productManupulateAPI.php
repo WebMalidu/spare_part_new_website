@@ -83,8 +83,8 @@ if (RequestHandler::isGetMethod()) {
      //$ad_title,$ad_origin_id,$ad_qty,$ad_description,$ad_price,$ad_brand_id,$ad_model_id,$ad_category_id 
      if (isset($_POST['insertData'],)) {
 
-          $insertData = json_decode($_POST['insertData']) ;
-         
+          $insertData = json_decode($_POST['insertData']);
+
 
           $ad_title = $insertData->ad_title;
           $ad_origin_id = $insertData->ad_origin_id;
@@ -94,7 +94,7 @@ if (RequestHandler::isGetMethod()) {
           $ad_brand_id = $insertData->ad_brand_id;
           $ad_model_id = $insertData->ad_model_id;
           $ad_category_id = $insertData->ad_category_id;
-          
+
           //data validation
           $validateReadyObject = (object) [
                "string_or_null" => [
@@ -124,7 +124,7 @@ if (RequestHandler::isGetMethod()) {
                     response_sender::sendJson($responseObject);
                }
           }
-          
+
 
           //get data in by variables
           //partsId Generator 
@@ -133,28 +133,28 @@ if (RequestHandler::isGetMethod()) {
           // search first the product already have this product
           $searchProduct = "SELECT * FROM `vehicle_parts` WHERE  `title`=? AND `user_user_id`=? AND `brand_brand_id`=? AND `vehicle_models_has_modification_line_mdu_id`=? AND `category_item_category_item_id`=?";
           $result = $db->execute_query($searchProduct, 'siiis', array($ad_title, $userId, $ad_brand_id, $ad_model_id, $ad_category_id));
-         
+
           //if 1 result code exit
           if ($result['result']->num_rows > 0) {
                $responseObject->error = "oops! this product already added";
                response_sender::sendJson($responseObject);
           }
-         
+
           //php date object
           date_default_timezone_set('Asia/Colombo');
           $currentDate = date('Y-m-d');
 
           //query
           $query = "INSERT INTO `vehicle_parts` 
-          (`parts_id`,`title`,`parts_origin_origin_id`,`qty`,`description`,`addedd_date`,`user_user_id`,`price`,`parts_status_parts_status_id`,`brand_brand_id`,`vehicle_models_has_modification_line_mdu_id`,`category_item_category_item_id`)
+          (`parts_id`,`title`,`parts_origin_origin_id`,`qty`,`description`,`addedd_date`,`user_user_id`,`price`,`parts_status_parts_status_id`,`brand_brand_id`,`category_item_category_item_id`,`vehicle_models_has_modification_line_mdu_id`)
           VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
           //insert data
-          $db->execute_query($query, 'ssssssssssss', array($partsId, $ad_title, $ad_origin_id, $ad_qty, $ad_description, $currentDate, $userId, $ad_price, '1', $ad_brand_id, $ad_model_id, $ad_category_id));
-          
-          // parts images Upload
+          $db->execute_query($query, 'ssssssssssss', array($partsId, $ad_title, $ad_origin_id, $ad_qty, $ad_description, $currentDate, $userId, $ad_price, '1', $ad_brand_id, $ad_category_id, $ad_model_id));
+
+          // // parts images Upload
           $imageArray = $insertData->ad_parts_img;
           $imageUrls = [];
-          
+
 
           // Loop through each uploaded file
           $countIndex = 1;
@@ -167,9 +167,11 @@ if (RequestHandler::isGetMethod()) {
                     $binaryData = base64_decode($base64Data);
                     $fileExtension = ".jpg";
 
+
+
                     // //file save path and file name create
-                    $savePath = "../../frontend/resources/image/partsImages";
-                    $newImageName = "partsId=" . uniqid() . "_" . "categoryItemId=" . $ad_category_id .  "_"  . "image=" . $countIndex  . $fileExtension;
+                    $savePath = "../../frontend/resources/image/partsImages/";
+                    $newImageName = "partsId=" . $partsId . "_" . "categoryItemId=" . $ad_category_id .  "_"  . "image=" . $countIndex  . $fileExtension;
                     $countIndex++;
 
                     // Save the image to a file
@@ -180,7 +182,9 @@ if (RequestHandler::isGetMethod()) {
                }
           }
 
+
           $responseObject->status = "success";
+          $responseObject->result = $insertData;
           response_sender::sendJson($responseObject);
 
 
@@ -199,7 +203,7 @@ if (RequestHandler::isGetMethod()) {
           $up_category_id = $_POST['up_category_id'];
           $up_status_id = $_POST['up_status_id'];
 
-          
+
 
 
           //data validation
