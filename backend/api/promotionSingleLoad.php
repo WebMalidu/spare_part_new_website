@@ -17,17 +17,9 @@ if (!RequestHandler::isPostMethod()) {
     response_sender::sendJson($responseObject);
 }
 
-// Create an object to manage user sessions
-$userCheckSession = new SessionManager();
 
-// Check if the user is logged in and user data is available
-if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
-    $responseObject->error = 'Please Login';
-    response_sender::sendJson($responseObject);
-}
 
-// Get user data
-$userData = $userCheckSession->getUserData();
+
 
 
 // Decode the POST data to get the promotion ID

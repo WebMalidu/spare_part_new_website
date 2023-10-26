@@ -1,3 +1,13 @@
+<?php
+require_once("SessionManager.php");
+
+$loggedUserData = null;
+$access = new SessionManager();
+if ($access->isLoggedIn()) {
+    $loggedUserData = $access->getUserData();
+}
+
+?>
 <header class="sticky-top top-0">
 
      <nav class="batta-bg-prim header-b m-header py-2">
@@ -33,7 +43,32 @@
                     <div class="header-link fs-5 d-flex justify-content-between gap-4 p-1 ps-4 pe-5 text-white">
                          <a href="#watchlist" onclick="openWatchlistModel()"><i class="bi bi-heart-fill text-white"></i></a>
                          <a href="#cart" onclick="openCartModel();"><i class="bi bi-cart-fill text-white"></i></a>
-                         <a href="#login" onclick="openLoginModel();"><i class="bi bi-person-circle text-white"></i></a>
+
+
+
+
+
+
+                         <?php
+if (isset($loggedUserData) && isset($loggedUserData["email"])) {
+?>
+    <i class="bi bi-box-arrow-right text-white" onclick="logOut()" style="cursor: pointer;"></i>
+<?php
+} else {
+?>
+    <a href="#login" onclick="openLoginModel();"><i class="bi bi-person-circle text-white"></i></a>
+<?php
+}
+?>
+
+
+
+
+
+
+
+
+                         
                     </div>
                </div>
           </div>
@@ -297,7 +332,7 @@
                                                   <h4 class="alg-text-dark-blue fw-bold">Sign In</h4>
                                                   <input type="email" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter email" / id="signInemail">
                                                   <input type="password" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter password" id="signInpassword">
-                                                  <button class="button rounded-2 alg-text-h3" onclick="SignIn()"><!--a href="userProfile.php" class="text-decoration-none" onclick="signIn()"-->Continue</-a></button>
+                                                  <button class="button rounded-2 alg-text-h3" onclick="signIn()"><!--a href="userProfile.php" class="text-decoration-none" onclick="signIn()"-->Continue</-a></button>
                                                   <div class="text-center">
                                                        <span class="alg-cursor alg-text-h3" onclick="openForgotPassword();">Forgot your password?</span><br />
                                                        <span class="alg-cursor fw-semibold alg-text-dark-blue alg-text-h3" onclick="changeView();">Sign up with &nbsp;<span class="fw-bold"> ></span></span>
@@ -306,11 +341,11 @@
                                              <!-- sign Up section -->
                                              <div class="col-8 d-flex flex-column gap-3 d-none py-4 py-md-0" id="signUpBox">
                                                   <h4 class="alg-text-dark-blue fw-bold">Sign Up</h4>
-                                                  <input type="email" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter email" />
-                                                  <input type="text" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter Full Name" />
-                                                  <input type="password" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter password">
-                                                  <input type="password" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Confirm password">
-                                                  <button class="button rounded-2 alg-text-h3" >Register</button>
+                                                  <input type="email" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter email" / id="SignUpemail"> 
+                                                  <input type="text" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter Full Name" / id="signUpname">
+                                                  <input type="password" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter password" id="signUppassword">
+                                                  <input type="password" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Confirm password" id="signUpCpassword">
+                                                  <button class="button rounded-2 alg-text-h3" onclick="signUp()" >Register</button>
                                                   <div class="text-center"><span class="alg-cursor fw-semibold alg-text-dark-blue alg-text-h3" onclick="changeView();">Sign In with &nbsp;<span class="fw-bold"> ></span></span></div>
                                              </div>
                                         </div>
@@ -364,6 +399,24 @@
                                    <p class="alg-text-h3 text-black-50">We sent a code to abc@gmail.com</p>
 
                                    <div class="text-start">
+                                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                   
                                         <span class="alg-text-h3 fw-semibold">Verification code</span>
                                         <span class="alg-text-h3 fw-semibold" id="verificationSendingTimeRunner">30</span>
                                         <input type="text" id="verification_code" class="ALG-model-input alg-text-h3 form-control rounded-3" placeholder="code" />

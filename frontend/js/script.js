@@ -144,6 +144,98 @@ function changeView() {
 }
 
 
+function signUp(){
+   const SignUpemail= document.getElementById('SignUpemail').value
+   const signUpname= document.getElementById('signUpname').value
+   const signUppassword= document.getElementById('signUppassword').value
+   const signUpCpassword= document.getElementById('signUpCpassword').value
+
+    const requestDataObject = {
+        email: SignUpemail,
+        password: signUppassword,
+        cpassword: signUppassword,
+        firstName: signUpname
+    };
+
+    // store data in a form
+    let form = new FormData();
+    form.append("signUpData", JSON.stringify(requestDataObject));
+
+    // send the data to server
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4) {
+            // preform an action on response
+            let response = JSON.parse(request.responseText);
+            if (response.status == "success") {
+                alert("please Check Your email");
+            } else {
+                console.log("Sign Up failed Please check your data");
+            }
+            console.log(request.responseText);
+        }
+    };
+    request.open("POST", "../../backend/api//signUp.php", true);
+    request.send(form);
+}
+ 
+
+function logOut(){
+    // send the data to server
+    console.log("logout")
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4) {
+            // preform an action on response
+            let response = JSON.parse(request.responseText);
+            if (response.status == "success") {
+                alert("Sucessfully Logout");
+                window.location.reload();
+
+            } else {
+                console.log(response.status);
+            }
+            console.log(request.responseText);
+        }
+    };
+    request.open("POST", "../../backend/api//signOut.php", true);
+    request.send();
+}
 
 
+function signIn(){
+    const signInemail= document.getElementById('signInemail').value
+    const signInpassword= document.getElementById('signInpassword').value
+    console.log(signInemail)
+   
+     const requestDataObject = {
+         email: signInemail,
+         password: signInpassword,
+        
+     };
+ 
+     // store data in a form
+     let form = new FormData();
+     form.append("signInData", JSON.stringify(requestDataObject));
+ 
+ 
+     // send the data to server
+     let request = new XMLHttpRequest();
+     request.onreadystatechange = function () {
+         if (request.readyState == 4) {
+             // preform an action on response
+             let response = JSON.parse(request.responseText);
+             if (response.status == "success") {
+                 alert("Sign In sucessfull");
+                 window.location.reload();
 
+             } else {
+                console.log(response.error);
+             }
+             console.log(request.responseText);
+         }
+     };
+     request.open("POST", "../../backend/api//signIn.php", true);
+     request.send(form);
+ }
+  

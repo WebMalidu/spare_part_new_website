@@ -151,7 +151,7 @@
                             </div>
                         </div>
                         <div class="d-flex flex-column">
-                            <span class="alg-text-h3">Model Line : FIT GP - 1</span>
+                            <span class="alg-text-h3" id="Model">Model Line : FIT GP - 1</span>
                             <span class="alg-text-h3">Modification : 1.6L </span>
                             <span class="py-2 alg-text-blue alg-text-h3">Origin : Aftermarket </span>
                         </div>

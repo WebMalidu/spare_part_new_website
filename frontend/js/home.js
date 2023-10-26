@@ -1,7 +1,7 @@
 SERVER_URL = "http://localhost:9001/";
 
 document.addEventListener("DOMContentLoaded", () => {
-    // promotionLoder();
+     promotionLoder();
     loadCategory();
 });
 
@@ -20,7 +20,6 @@ function promotionLoder() {
         .then((data) => {
             // Handle the response data
             if (data.status === "success") {
-                alert(data.status);
 
                 const imageUrls = data.imageUrls;
                 const promotionData = document.getElementById("promotion_list");
@@ -64,6 +63,7 @@ function promotionsingle(promovalue) {
     // Split the URL by '/' and get the last part
     const parts = promovalue.split("/");
     const lastPart = parts[parts.length - 1];
+    document.getElementById('')
 
     // Remove the ".jpeg" extension, if present
     const number = lastPart.replace(".jpeg", "");
@@ -86,7 +86,7 @@ function promotionsingle(promovalue) {
             // preform an action on response
             let response = JSON.parse(request.responseText);
             if (response.status == "success") {
-                alert(response.status);
+                window.location.href = 'http://localhost:9001/frontend/singlePageView.php'; // Replace 'another_page.html' with the URL you want to navigate to
             } else {
                 console.log(response.error);
             }

@@ -1,10 +1,24 @@
 <?php
-require("../model/database_driver.php");
-require("../model/data_validator.php");
-require("../model/passwordEncryptor.php");
-require("../model/response_sender.php");
-require("../model/SessionManager.php");
-require("../model/mail/MailSender.php");
+require_once("../model/database_driver.php");
+require_once("../model/response_sender.php");
+require_once("../model/fileSearch.php");
+require_once("../model/RequestHandler.php");
+require_once("../model/data_validator.php");
+require_once("../model/SessionManager.php");
+require_once("../model/passwordEncryptor.php");
+require_once("../model/mail/MailSender.php");
+require_once("../model/mail/Exception.php");
+require_once("../model/mail/OAuth.php");
+require_once("../model/mail/PHPMailer.php");
+require_once("../model/mail/POP3.php");
+require_once("../model/mail/SMTP.php");
+
+
+
+
+
+
+
 
 
 
@@ -35,7 +49,6 @@ $first_name=$signUpData->firstName;
 
 
 
-
 $email = base64_encode($decrypt_email);
 $password = base64_encode($decrypt_password);
 $first_name = base64_encode($first_name);
@@ -47,7 +60,7 @@ $body = '<p>Click below to verify </p> <br> http://' . $login_link;
 
 // kaviska 
 $mailSender = new MailSender($decrypt_email);
-$mailSender->mailInitiate("Sign UP Link - Design Lab", "Click on the following link to verify", $body);
+$mailSender->mailInitiate("Sign UP Link - batta.lk", "Click on the following link to verify", $body);
 $mailStatus =  $mailSender->sendMail();
 
 

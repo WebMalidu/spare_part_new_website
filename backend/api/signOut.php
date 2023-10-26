@@ -29,5 +29,5 @@ if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
 // Get user data
 $userData = $userCheckSession->logout();
 
-$responseObject->status="sucess";
+$responseObject->status="success";
 response_sender::sendJson($responseObject);
