@@ -45,7 +45,6 @@ $selectQuery = "SELECT *
                JOIN `category_item` ci ON vp.category_item_category_item_id=ci.category_item_id
                JOIN `parts_status` ps ON vp.parts_status_parts_status_id=ps.parts_status_id
                JOIN `brand` br ON vp.brand_brand_id=br.brand_id
-               JOIN `vehicle_models` vm ON vp.vehicle_models_model_id=vm.model_id
                WHERE pp.`promotion_id` = ?";
 
 // Execute the query to retrieve data

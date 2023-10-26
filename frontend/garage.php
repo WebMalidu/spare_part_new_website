@@ -27,7 +27,7 @@
     <script defer src="js/bootstrap.bundle.js"></script>
     <script defer src="js/script.js"></script>
     <script defer src="js/vehicleFetchData.js"></script>
-    <script defer src="js/product.js"></script>
+    <script defer src="js/garage.js"></script>
 </head>
 
 <body style="min-height: 100vh;">
@@ -74,21 +74,24 @@
                                     <div class="col-12 d-flex flex-column align-items-center justify-content-lg-center gap-3">
                                         <div class="w-100">
                                             <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example" id="vehicleMakerSelector">
-                                                <option selected>Select Car Maker</option>                                            
+                                                <option selected>Select Maker</option>
                                             </select>
                                         </div>
                                         <div class="w-100">
                                             <select class="searchSection-selector  form-select form-select-sm alg-shadow" aria-label="Small select example" id="vehicleModelNameSelector">
+                                                <option selected>Select Model</option>
                                                 <!-- details goes here -->
                                             </select>
                                         </div>
                                         <div class="w-100">
                                             <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example" id="vehicleYearsContainer">
+                                                <option selected>Select Year</option>
                                                 <!-- details goes here -->
                                             </select>
                                         </div>
                                         <div class="w-100">
                                             <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example" id="modificationLineContainer">
+                                                <option selected>Select Modification</option>
                                                 <!-- details goes here -->
                                             </select>
                                         </div>
