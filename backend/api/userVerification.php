@@ -67,4 +67,4 @@ $salt = $passwordEncryptor['salt'];
 
     ?>
     <h1 style="text-align: center; color: green;">Successfully Signed Up <?php echo $_SERVER["HTTP_HOST"]  ?></h1>
-    <a href="http://<?php echo $_SERVER["HTTP_HOST"] ?>"> GO TO Home</a>
+    <a href="http://<?php echo $_SERVER["HTTP_HOST"] . '/../../frontend/index.php'; ?>">GO TO Home</a>

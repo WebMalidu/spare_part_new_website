@@ -17,21 +17,8 @@ if (!RequestHandler::isPostMethod()) {
      response_sender::sendJson($responseObject);
 }
 
-// Check if the user is logged in
-$userCheckSession = new SessionManager();
-if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
-     $responseObject->error = 'Please Login';
-     response_sender::sendJson($responseObject);
-}
 
-// Get user data
-$userData = $userCheckSession->getUserData();
 
-// Check if the user is an admin
-if ($userData['user_type_user_type_id'] != 1) {
-     $responseObject->error = "You are not an admin";
-     response_sender::sendJson($responseObject);
-}
 
 $database_driver = new database_driver();
 
