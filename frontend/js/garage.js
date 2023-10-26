@@ -46,8 +46,15 @@ function vehicleMakers() {
 
 //get a maker id and set model line 
 const makersSelector = document.getElementById('vehicleMakerSelector');
+
+//vehicle year container
+const vehicleYearsContainer = document.getElementById('vehicleYearsContainer');
+
 //get vehicle model names
 const vehicleModelNameSelector = document.getElementById('vehicleModelNameSelector');
+
+//select vehicle modification line
+const modificationContainer = document.getElementById('modificationLineContainer');
 
 makersSelector.addEventListener('change', () => {
 
@@ -58,13 +65,21 @@ makersSelector.addEventListener('change', () => {
           const vhNames = data.vehicleNamesData;
 
           vehicleModelNameSelector.innerHTML = "";
+          vehicleYearsContainer.innerHTML = "";
+          modificationContainer.innerHTML = "";
 
           if (vhNames.status === 'success') {
                //get a variable
                const result = vhNames.results;
 
-               // vehicleModelNameSelector.innerHTML +=
-               //      `<option selected>Select Model Line</option>`;
+               vehicleModelNameSelector.innerHTML +=
+                    `<option selected>Select Model</option>`;
+
+               vehicleYearsContainer.innerHTML +=
+                    `<option selected>Select Year</option>`;
+
+               modificationContainer.innerHTML +=
+                    `<option selected>Select Modification</option>`;
                //result filter and map 
                result.filter((res) => res.makers_makers_id === makerId).map((rs2) => {
                     //create a new model selection
@@ -84,8 +99,7 @@ makersSelector.addEventListener('change', () => {
 
 });
 
-//vehicle year container
-const vehicleYearsContainer = document.getElementById('vehicleYearsContainer');
+
 
 //select related date in a car model
 vehicleModelNameSelector.addEventListener('change', async () => {
@@ -94,12 +108,22 @@ vehicleModelNameSelector.addEventListener('change', async () => {
 
      const data = await vehicleDataFetch();
 
+     vehicleYearsContainer.innerHTML = "";
+     modificationContainer.innerHTML = "";
+
      if (data && data.vehicleModelData) {
           //vehicleModelData exists and is not undefined
 
           const vehicleModelData = data.vehicleModelData;
 
           if (vehicleModelData.status === 'success') {
+
+               vehicleYearsContainer.innerHTML +=
+                    `<option selected>Select Year</option>`;
+
+               modificationContainer.innerHTML +=
+                    `<option selected>Select Modification</option>`;
+
                //get a variable
                const result = vehicleModelData.results;
 
@@ -139,8 +163,7 @@ vehicleModelNameSelector.addEventListener('change', async () => {
 //set model id in this global variable 
 let vehicleModelId;
 
-//select vehicle modification line
-const modificationContainer = document.getElementById('modificationLineContainer');
+
 
 vehicleYearsContainer.addEventListener('change', async () => {
 
@@ -150,11 +173,16 @@ vehicleYearsContainer.addEventListener('change', async () => {
 
      const data = await vehicleDataFetch();
 
+     modificationContainer.innerHTML = "";
+
      if (data && data.vehicleModelData) {
 
           const vehicleModelData = data.vehicleModelData;
 
           if (vehicleModelData.status === 'success') {
+
+               modificationContainer.innerHTML = "";
+
                const result = vehicleModelData.results;
 
                const relatedModelId = result.filter((res) => res.model_year_id === vehicleYearId && res.vehicle_names_id === nameId).map((res2) => res2.model_id);
@@ -165,6 +193,9 @@ vehicleYearsContainer.addEventListener('change', async () => {
                const vehicleModelModificationData = data.vehicleModelModificationData;
 
                if (vehicleModelModificationData.status === 'success') {
+
+                    modificationContainer.innerHTML = "";
+
                     const resultModification = vehicleModelModificationData.results;
 
                     const vhModificationId = resultModification.filter((resModification) => resModification.vh_model_id === relatedModelId[0]).map((resModification2) => resModification2.vh_modification_id);
@@ -172,6 +203,10 @@ vehicleYearsContainer.addEventListener('change', async () => {
                     const vehicleModificationModificationData = data.vehicleModificationLineData;
 
                     if (vehicleModificationModificationData.status === 'success') {
+
+                         modificationContainer.innerHTML +=
+                              `<option selected>Select Modification</option>`;
+
                          const resultModLineData = vehicleModificationModificationData.result;
 
                          vhModificationId.forEach((element) => {
@@ -187,6 +222,10 @@ vehicleYearsContainer.addEventListener('change', async () => {
 
 
                } else {
+                    modificationContainer.innerHTML = "";
+                    modificationContainer.innerHTML +=
+                         `<option selected>Select Modification</option>`;
+
                     console.log("vehicle modification has table loading error");
                }
 
@@ -265,7 +304,6 @@ const loadGarageData = async () => {
                     garage += `<div class="alg-shadow py-2 garage-card">
                            <div class="d-flex flex-column">
                                 <div class="d-flex justify-content-end gap-2 px-2">
-                                     <span><i class="bi bi-pencil-square"></i></span>
                                      <span><i class="bi bi-trash3-fill"></i></span>
                             </div>
                       <div class="d-flex justify-content-center"><img src="resources/image/vehicleModelImages/car.jpg" alt=""></div>

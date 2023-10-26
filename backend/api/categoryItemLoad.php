@@ -24,18 +24,31 @@ if (!RequestHandler::isGetMethod()) {
 }
 
 //check method 
-if (!isset($_GET['category_id'])) {
+if (!isset($_GET['category_id']) && !isset($_GET['itemCount'])) {
      $responseObject->error = 'Access denied';
      response_sender::sendJson($responseObject);
 }
 
 $categoryId = $_GET['category_id'];
+$count = $_GET['count'];
+
 
 //get data base model
 $db = new database_driver();
-$searchQuery = "SELECT * FROM `category_item` WHERE `category_category_id`=?";
-$resultSet = $db->execute_query($searchQuery, 's', array($categoryId));
+$searchQueryAll = "SELECT * FROM `category_item` WHERE `category_category_id`=?";
+$resultSets = $db->execute_query($searchQueryAll, 's', array($categoryId));
 
+$num = $resultSets['result']->num_rows;
+$perPageCount = 12;
+$pageCount = 0;
+
+$pageCount = ceil($num/$perPageCount);  
+$responseObject->countPage = $pageCount;
+
+$pageOffset = $perPageCount*$count;
+
+$searchQuery = "SELECT * FROM `category_item` WHERE `category_category_id`=? LIMIT $perPageCount OFFSET $pageOffset";
+$resultSet = $db->execute_query($searchQuery, 's', array($categoryId));
 
 //response array 
 $responseArray = [];
