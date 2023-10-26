@@ -81,18 +81,20 @@ if (RequestHandler::isGetMethod()) {
      //data insert Update Delete
      //data insert parameters
      //$ad_title,$ad_origin_id,$ad_qty,$ad_description,$ad_price,$ad_brand_id,$ad_model_id,$ad_category_id 
-     if (isset($_POST['ad_title'], $_POST['ad_origin_id'], $_POST['ad_qty'], $_POST['ad_description'], $_POST['ad_price'], $_POST['ad_brand_id'], $_POST['ad_model_id'], $_POST['ad_category_id'], $_FILES['ad_parts_img'])) {
+     if (isset($_POST['insertData'],)) {
 
-          $ad_title = $_POST['ad_title'];
-          $ad_origin_id = $_POST['ad_origin_id'];
-          $ad_qty = $_POST['ad_qty'];
-          $ad_description = $_POST['ad_description'];
-          $ad_price = $_POST['ad_price'];
-          $ad_brand_id = $_POST['ad_brand_id'];
-          $ad_model_id = $_POST['ad_model_id'];
-          $ad_category_id = $_POST['ad_category_id'];
+          $insertData = json_decode($_POST['insertData']) ;
+         
 
-
+          $ad_title = $insertData->ad_title;
+          $ad_origin_id = $insertData->ad_origin_id;
+          $ad_qty = $insertData->ad_qty;
+          $ad_description = $insertData->ad_description;
+          $ad_price = $insertData->ad_price;
+          $ad_brand_id = $insertData->ad_brand_id;
+          $ad_model_id = $insertData->ad_model_id;
+          $ad_category_id = $insertData->ad_category_id;
+          
           //data validation
           $validateReadyObject = (object) [
                "string_or_null" => [
@@ -122,35 +124,37 @@ if (RequestHandler::isGetMethod()) {
                     response_sender::sendJson($responseObject);
                }
           }
+          
 
           //get data in by variables
           //partsId Generator 
           $partsId = 'pp_' . str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
 
           // search first the product already have this product
-          $searchProduct = "SELECT * FROM `vehicle_parts` WHERE  `title`=? AND `user_user_id`=? AND `brand_brand_id`=? AND `vehicle_models_model_id`=? AND `category_item_category_item_id`=?";
+          $searchProduct = "SELECT * FROM `vehicle_parts` WHERE  `title`=? AND `user_user_id`=? AND `brand_brand_id`=? AND `vehicle_models_has_modification_line_mdu_id`=? AND `category_item_category_item_id`=?";
           $result = $db->execute_query($searchProduct, 'siiis', array($ad_title, $userId, $ad_brand_id, $ad_model_id, $ad_category_id));
-
+         
           //if 1 result code exit
           if ($result['result']->num_rows > 0) {
                $responseObject->error = "oops! this product already added";
                response_sender::sendJson($responseObject);
           }
-
+         
           //php date object
           date_default_timezone_set('Asia/Colombo');
           $currentDate = date('Y-m-d');
 
           //query
           $query = "INSERT INTO `vehicle_parts` 
-          (`parts_id`,`title`,`parts_origin_origin_id`,`qty`,`description`,`addedd_date`,`user_user_id`,`price`,`parts_status_parts_status_id`,`brand_brand_id`,`vehicle_models_model_id`,`category_item_category_item_id`)
+          (`parts_id`,`title`,`parts_origin_origin_id`,`qty`,`description`,`addedd_date`,`user_user_id`,`price`,`parts_status_parts_status_id`,`brand_brand_id`,`vehicle_models_has_modification_line_mdu_id`,`category_item_category_item_id`)
           VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
           //insert data
           $db->execute_query($query, 'ssssssssssss', array($partsId, $ad_title, $ad_origin_id, $ad_qty, $ad_description, $currentDate, $userId, $ad_price, '1', $ad_brand_id, $ad_model_id, $ad_category_id));
-
+          
           // parts images Upload
-          $imageArray = json_decode($_POST['ad_parts_img']);
+          $imageArray = $insertData->ad_parts_img;
           $imageUrls = [];
+          
 
           // Loop through each uploaded file
           $countIndex = 1;
@@ -165,7 +169,7 @@ if (RequestHandler::isGetMethod()) {
 
                     // //file save path and file name create
                     $savePath = "../../frontend/resources/image/partsImages";
-                    $newImageName = "partsId=" . $partsId . "_" . "categoryItemId=" . $ad_category_id .  "_"  . "image=" . $countIndex  . $fileExtension;
+                    $newImageName = "partsId=" . uniqid() . "_" . "categoryItemId=" . $ad_category_id .  "_"  . "image=" . $countIndex  . $fileExtension;
                     $countIndex++;
 
                     // Save the image to a file
@@ -194,6 +198,8 @@ if (RequestHandler::isGetMethod()) {
           $up_model_id = $_POST['model_has_id'];
           $up_category_id = $_POST['up_category_id'];
           $up_status_id = $_POST['up_status_id'];
+
+          
 
 
           //data validation
