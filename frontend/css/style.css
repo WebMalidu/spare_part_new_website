@@ -140,7 +140,7 @@
   border: none;
   color: white;
   padding: 7px;
-  z-index:1000;
+  z-index: 1000;
 }
 
 .main-btn-2 {
@@ -458,8 +458,9 @@ h5 {
 .spv-s1 {
   display: flex;
   flex-direction: row;
-  justify-content:space-around;
+  justify-content: space-around;
 }
+
 .spv-s1-left {
   width: 600px;
   position: relative;
@@ -624,9 +625,11 @@ h5 {
   gap: 30px;
   /* margin-top: -165px; */
 }
-.cp-right-box-slide-l1{
+
+.cp-right-box-slide-l1 {
   gap: 30px;
 }
+
 /* card css */
 .cp-right-box .spv-s2-container {
   width: 160px;
@@ -671,9 +674,10 @@ h5 {
 }
 
 /* privacy section */
-.privacy-section{
+.privacy-section {
   padding: 40px;
 }
+
 @keyframes myfirst {
   from {
     opacity: 0.7;
@@ -685,13 +689,16 @@ h5 {
     transform: translateY(20px);
   }
 }
+
 @media (max-width: 1200px) {
+
   /* spv section right button */
   .spv-s1-right-button {
-  width: 120px;
-  height: 30px;
+    width: 120px;
+    height: 30px;
+  }
 }
-}
+
 @media (max-width: 992px) {
   /* hero section */
 
@@ -725,12 +732,14 @@ h5 {
     width: 90px;
     height: 30px;
   }
+
   /* slider */
   .spv-s1-left {
     width: 400px;
     position: relative;
     height: 500px;
   }
+
   /*category page */
   .cp-right-box-slide-main {
     flex-direction: column;
@@ -841,7 +850,8 @@ h5 {
     /* align-items: center; */
     align-content: center;
   }
-/* SLIDER */
+
+  /* SLIDER */
   .spv-s1-left {
     width: 480px;
     position: relative;
@@ -889,6 +899,7 @@ h5 {
     display: flex;
     align-items: center;
   }
+
   /* left open model */
   .modal.left .modal-dialog {
     position: fixed;
@@ -936,6 +947,7 @@ h5 {
 }
 
 @media (max-width: 725px) {
+
   /* contact US */
   /* section 3 */
   .cu-s3-container {
@@ -960,6 +972,7 @@ h5 {
   .cp-right-box .swiper {
     width: 370px;
   }
+
   /* hero section */
   .main-img {
     background-image: url("../resources/image/home/main_img610.png");
@@ -967,6 +980,7 @@ h5 {
 }
 
 @media (max-width: 576px) {
+
   /* Why Choose Us section */
   .WCU-s1-sBox {
     height: 200px;
@@ -1045,6 +1059,7 @@ h5 {
     width: 180px;
     height: 25px;
   }
+
   /* spv slider */
   .spv-s1-left {
     width: 380px;
@@ -1054,6 +1069,7 @@ h5 {
 }
 
 @media (max-width: 426px) {
+
   /* Why Choose Us section */
   .WCU-s1-sBox {
     height: 150px;
@@ -1092,12 +1108,13 @@ h5 {
 
   /* Single view page */
   /* section 1 */
-    /* spv slider */
+  /* spv slider */
   .spv-s1-left {
     width: 300px;
     position: relative;
     height: 400px;
   }
+
   .spv-s1-img-box {
     width: 300px;
     height: 320px;
@@ -1135,6 +1152,7 @@ h5 {
   .spv-s2-container-4 {
     display: none;
   }
+
   /* hero section */
   .main-img {
     min-height: 300px;
@@ -1147,72 +1165,82 @@ h5 {
   .alg-lp-hero {
     min-height: 340px;
   }
+
   .main-btn-2 {
     height: 32px;
   }
+
   .hr-s1-search {
     justify-content: center;
   }
+
   .hr-s1-rl {
     width: 250px;
     height: 30px;
   }
+
   .hr-s1-rr {
     height: 30px;
   }
+
   .hr-s1-paragraph {
     justify-content: center;
     align-items: center;
   }
+
   .hr-s1-button {
     display: flex;
     justify-content: center;
   }
+
   .main-btn-1 {
     width: 300px;
     height: 30px;
   }
+
   .main-btn-2 {
     width: 300px;
     height: 30px;
   }
+
   /* category page css */
   .cp-right-box-slide-main {
     width: 150px;
   }
-  .cp-right-box-slide-l1{
+
+  .cp-right-box-slide-l1 {
     gap: 20px;
   }
- 
+
   /* privacy section */
-.privacy-section{
-  padding: 30px;
-}
+  .privacy-section {
+    padding: 30px;
+  }
 }
 
 
 /* my garage section */
 
-.garage-card{
+.garage-card {
   width: 180px;
 }
 
-.garge-box-hei{
-  min-height:400px;
+.garge-box-hei {
+  min-height: 400px;
 }
 
-.garage-lg-car{
-  width:200px;
-  margin-top:-160px;
+.garage-lg-car {
+  width: 200px;
+  margin-top: -160px;
 }
 
 /* flating social meadi */
-.f-social-media{
+.f-social-media {
   z-index: 2;
 }
 
 @media (max-width: 320px) {
- 
+
 
   /* Why Choose Us section */
   .WCU-s1-image {
@@ -1227,30 +1255,35 @@ h5 {
   .WCU-s1-box-para {
     font-size: 11px;
   }
-    /* spv slider */
+
+  /* spv slider */
   .spv-s1-left {
     width: 220px;
     position: relative;
     height: 350px;
 
   }
+
   /* footer */
-  
+
   .footer-img-box {
 
     gap: 15px;
   }
+
   /* category page css */
   .cp-right-box-slide-main {
     /* width: 100px; */
   }
-  .cp-right-box-slide-l1{
+
+  .cp-right-box-slide-l1 {
     gap: 5px;
   }
+
   /* privacy section */
-.privacy-section{
-  padding: 20px;
-}
+  .privacy-section {
+    padding: 20px;
+  }
 }
 
 /* user Profile section */
@@ -1262,10 +1295,8 @@ h5 {
 }
 
 .profile-bg-gradient {
-  background: var(
-    --gradiant-1,
-    linear-gradient(107deg, #00447b 26.4%, #036fc8 81.38%)
-  );
+  background: var(--gradiant-1,
+      linear-gradient(107deg, #00447b 26.4%, #036fc8 81.38%));
 }
 
 .profile-img {
@@ -1281,10 +1312,8 @@ h5 {
 }
 
 .header-bg {
-  background: var(
-    --gradiant-1,
-    linear-gradient(107deg, #00447b 26.4%, #036fc8 81.38%)
-  );
+  background: var(--gradiant-1,
+      linear-gradient(107deg, #00447b 26.4%, #036fc8 81.38%));
 }
 
 /* cart section */
@@ -1325,4 +1354,13 @@ h5 {
 .sign-btn:hover {
   background-color: #002848;
   color: white;
+}
+
+/* category item section page */
+.watchlist-hover .watchlist-hovr {
+  color: white;
+}
+
+.watchlist-hover:hover .watchlist-hovr {
+  color: #0261ae;
 }

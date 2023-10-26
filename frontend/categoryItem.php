@@ -291,11 +291,18 @@ if (!isset($_GET["item_id"])) {
                     for ($i = 0; $i < 12; $i++) {
                         # code...
                     ?>
-                        <div class="col-6 col-md-4 col-lg-2 alg-bg-categor alg-shadow mb-1 rounded mt-3 mx-4 px-3 alg-card-hover">
+                        <div class="col-6 col-md-4 col-lg-2 alg-bg-categor alg-shadow mb-1 rounded mt-3 mx-4 px alg-card-hover watchlist-hover">
                             <a href="#" class="text-decoration-none">
-                                <div class="d-flex flex-column align-items-center">
-                                    <img src="${element.category_image}" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
-                                    <span class="mt-1 p-3 fw-bold text-whit pb-5 alg-text-h3">edfedr</span>
+                                <div class="d-flex flex-column align-items-center justify-content-center">
+                                    <span class="align-self-end"><i class="bi bi-heart-fill  watchlist-hovr"></i></span>
+                                    <img src="resources/image/categoryItemImages/CTI_029685.png" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
+                                    <div class="d-flex flex-column profile-bg-gradient p-3 rounded">
+                                        <div class="d-flex gap-2 gap-lg-5">
+                                            <span class="fw-bold text-white alg-text-h3">edfedr</span>
+                                            <span class="fw-bold text-white alg-text-h3">LKR 2000.00</span>
+                                        </div>
+                                        <span class="alg-text-p text-white-50">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</span>
+                                    </div>
                                 </div>
                             </a>
                         </div>
