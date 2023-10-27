@@ -185,8 +185,8 @@ class AdvancedSearchEngine
             $resRowDetailObject = new stdClass();
             $resRowDetailObject->result = $result;
 
-            $fileSearch = new ImageSearch($savePath, $parts_id, $category_item_id, $fileExtensions);
-            $searchResults = $fileSearch->search();
+            $fileSearch = new ImageSearch();
+            $searchResults = $fileSearch->searchImage("../../resources/image/partsImages/", $parts_id, $category_item_id);
 
             $imageArray = array();
             // Add images to the new object if available
@@ -256,8 +256,9 @@ class AdvancedSearchEngine
             $resRowDetailObject = new stdClass();
             $resRowDetailObject->result = $result;
 
-            $fileSearch = new ImageSearch($savePath, $parts_id, $category_item_id, $fileExtensions);
-            $searchResults = $fileSearch->search();
+            $fileSearch = new ImageSearch();
+            $searchResults = $fileSearch->searchImage("../../resources/image/partsImages/", $parts_id, $category_item_id);
+
 
             $imageArray = array();
             // Add images to the new object if available

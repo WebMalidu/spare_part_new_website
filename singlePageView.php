@@ -56,72 +56,30 @@ if (!isset($_GET["parts_id"], $_GET['vh_category_item_id'], $_GET['vh_model_id']
             <!-- images sector -->
             <div class="spv-s1-left">
                 <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper spv-mySwiper2">
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper" id="singleProductSliderMainContainer">
                         <div class="swiper-slide">
-                            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                            <div style="background-color: gray; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">loading...</div>
                         </div>
                         <div class="swiper-slide">
-                            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                            <div style="background-color: gray; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">loading...</div>
                         </div>
                         <div class="swiper-slide">
-                            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+                            <div style="background-color: gray; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">loading...</div>
                         </div>
                     </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                 </div>
                 <div thumbsSlider="" class="swiper spv-mySwiper">
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper" id="singleProductSliderSecondaryContainer">
                         <div class="swiper-slide">
-                            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                            <div style="background-color: gray; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">loading...</div>
                         </div>
                         <div class="swiper-slide">
-                            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                            <div style="background-color: gray; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">loading...</div>
                         </div>
                         <div class="swiper-slide">
-                            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+                            <div style="background-color: gray; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">loading...</div>
                         </div>
                     </div>
                 </div>
