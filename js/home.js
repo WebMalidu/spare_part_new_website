@@ -3,6 +3,7 @@ SERVER_URL = "http://localhost:9001/";
 document.addEventListener("DOMContentLoaded", () => {
     promotionLoder();
     loadCategory();
+    vehicleMakers();
 });
 
 
@@ -93,7 +94,7 @@ console.log(parsedNumber)
             console.log(request.responseText);
         }
     };
-    request.open("POST", "../../backend/api//promotionSingleLoad.php", true);
+    request.open("POST", "../../backend/api/promotionSingleLoad.php", true);
     request.send(form);
 }
 
@@ -167,7 +168,7 @@ async function vehicleDataFetch() {
 //my garage section
 //set vehicle makers inside the model
 function vehicleMakers() {
-    const makersSelector = document.getElementById('vehicleMakerSelector');
+    const makersSelector = document.getElementById('vhMakerContainer');
 
     //get data and set
     vehicleDataFetch().then((data) => {
@@ -188,16 +189,16 @@ function vehicleMakers() {
 }
 
 //get a maker id and set model line 
-const makersSelector = document.getElementById('vehicleMakerSelector');
+const makersSelector = document.getElementById('vhMakerContainer');
 
 //vehicle year container
-const vehicleYearsContainer = document.getElementById('vehicleYearsContainer');
+const vehicleYearsContainer = document.getElementById('vhYearContainer');
 
 //get vehicle model names
-const vehicleModelNameSelector = document.getElementById('vehicleModelNameSelector');
+const vehicleModelNameSelector = document.getElementById('vhModelNameContainer');
 
 //select vehicle modification line
-const modificationContainer = document.getElementById('modificationLineContainer');
+const modificationContainer = document.getElementById('vhModelLineContainer');
 
 makersSelector.addEventListener('change', () => {
 

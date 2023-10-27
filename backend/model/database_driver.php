@@ -1,4 +1,6 @@
 <?php
+require_once(__DIR__ . "/../config.php");
+
 class database_driver
 {
     private $connection;
@@ -14,6 +16,8 @@ class database_driver
        // $password = '#Apeamma2001'; // update madusha
         // $password = 'Assiment@1234ABC';
         $database = 'alg006_battalk'; // update your own
+        $password = PASSWORD; // password
+        $database = DATABASE; // update your own
 
         // Connect to the database using mysqli
         $this->connection = new mysqli($host, $user, $password, $database);
