@@ -67,7 +67,7 @@
             </div>
             <div class="d-flex justify-content-center align-items-center gap-1">
                 <i class="fa-regular fa-copyright" style="color: #ffffff;"></i>
-                <span class="alg-text-light alg-text-p">2015-2023 BATTA.LK</span>
+                <span class="alg-text-light alg-text-p">2023 BATTA.LK</span>
             </div>
         </div>
     </footer>
