@@ -43,7 +43,7 @@ $selectQuery = "SELECT *
 $searchResult = $database_driver->execute_query($selectQuery, 'i', array($promotionId));
 
 // Define directory and file extensions for promotion images
-$directory = '../../frontend/resources/image/promotionImages';
+$directory = '../../resources/image/promotionImages';
 $fileExtensions = ['png', 'jpeg', 'jpg', 'svg'];
 
 // Arrays to store query results and image URLs

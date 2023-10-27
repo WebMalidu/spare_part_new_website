@@ -170,7 +170,7 @@ if (RequestHandler::isGetMethod()) {
 
 
                     // //file save path and file name create
-                    $savePath = "../../frontend/resources/image/partsImages/";
+                    $savePath = "../../resources/image/partsImages/";
                     $newImageName = "partsId=" . $partsId . "_" . "categoryItemId=" . $ad_category_id .  "_"  . "image=" . $countIndex  . $fileExtension;
                     $countIndex++;
 

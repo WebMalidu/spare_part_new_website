@@ -110,7 +110,7 @@ if (RequestHandler::isGetMethod()) {
      $responseArray = [];
 
      // image manager
-     $directory = "../../frontend/resources/image/vehicleModelImages";
+     $directory = "../../resources/image/vehicleModelImages";
      $fileExtensions = ['png', 'jpeg', 'jpg', 'svg'];
 
      //if check result

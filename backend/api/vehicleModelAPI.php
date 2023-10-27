@@ -18,11 +18,11 @@ $responseObject = new stdClass();
 $responseObject->status = 'failed';
 
 // Define the destination directory
-$savePath = "../../frontend/resources/image/vehicleModelImages/";
+$savePath = "../../resources/image/vehicleModelImages/";
 
 
 // image manager
-$directory = "../../frontend/resources/image/vehicleModelImages";
+$directory = "../../resources/image/vehicleModelImages";
 $fileExtensions = ['png', 'jpeg', 'jpg', 'svg'];
 
 // get database

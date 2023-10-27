@@ -54,7 +54,7 @@ $searchResult = $database_driver->execute_query($selectQuery, 'i', array($userDa
 // Include the FileSearch class (assuming it's in the same directory as this PHP file)
 
 // Directory to search in
-$directory = '../../frontend/resources/image/promotionImages/';
+$directory = '../../resources/image/promotionImages/';
 
 // Name of the file you're looking for
 

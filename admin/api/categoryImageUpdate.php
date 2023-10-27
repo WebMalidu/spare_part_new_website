@@ -27,7 +27,7 @@ if (!RequestHandler::isPostMethod()) {
 
 // chekcing is user logging
 $userCheckSession = new SessionManager();
-if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserId()) {
+if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
      $responseObject->error = 'Please Login';
      response_sender::sendJson($responseObject);
 }
@@ -42,7 +42,7 @@ $newCategoryImage = $_FILES['new_category_image'];
 $categoryId = $_POST['category_id'];
 
 // image manager
-$directory = "../../frontend/resources/image/categoryImages";
+$directory = "../../resources/image/categoryImages";
 $fileExtensions = ['png', 'jpeg', 'jpg', 'svg'];
 
 //search image
@@ -66,7 +66,7 @@ if (is_string($imagePath) && file_exists($imagePath)) {
                if (in_array($fileExtension, $fileExtensions)) {
 
                     // Define the destination directory
-                    $savePath = "../../frontend/resources/image/categoryImages/";
+                    $savePath = "../../resources/image/categoryImages/";
                     $newImageName = $categoryId .  "." . $fileExtension;
 
 

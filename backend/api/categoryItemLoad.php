@@ -54,7 +54,7 @@ $resultSet = $db->execute_query($searchQuery, 's', array($categoryId));
 $responseArray = [];
 
 // image manager
-$directory = "../../frontend/resources/image/categoryItemImages";
+$directory = "../../resources/image/categoryItemImages";
 $fileExtensions = ['png', 'jpeg', 'jpg', 'svg'];
 
 

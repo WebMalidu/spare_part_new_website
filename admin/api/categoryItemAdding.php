@@ -83,7 +83,7 @@ if ($_FILES['category_item_image']['error'] === 0) {
      if (in_array($fileExtension, $allowImageExtension)) {
 
           // Define the destination directory
-          $savePath = "../../frontend/resources/image/categoryItemImages/";
+          $savePath = "../../resources/image/categoryItemImages/";
           $newImageName = $categoryItemId .  "." . $fileExtension;
 
 

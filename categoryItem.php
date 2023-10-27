@@ -1,5 +1,5 @@
 <?php
-if (!isset($_GET["item_id"])) {
+if (!isset($_GET["category_item_id"])) {
     header("Location: index.php");
     exit();
 }
@@ -39,7 +39,7 @@ if (!isset($_GET["item_id"])) {
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </head>
 
-<body data-item_id="<?php echo $_GET['item_id']; ?>">
+<body data-item_id="<?php echo $_GET['category_item_id']; ?>">
     <!-- header section-->
     <?php include("./pages/components/header.php") ?>
 

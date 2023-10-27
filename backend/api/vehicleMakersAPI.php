@@ -21,11 +21,11 @@ $responseObject->status = 'failed';
 $db = new database_driver();
 
 // Define the destination directory
-$savePath = "../../frontend/resources/image/makersImages/";
+$savePath = "../../resources/image/makersImages/";
 
 
 // image manager
-$directory = "../../frontend/resources/image/makersImages";
+$directory = "../../resources/image/makersImages";
 $fileExtensions = ['png', 'jpeg', 'jpg', 'svg'];
 
 //we can add makers , update , load  this api

@@ -42,7 +42,7 @@ $newCategoryImage = $_FILES['new_category_item_image'];
 $categoryItemId = $_POST['category_item_id'];
 
 // image manager
-$directory = "../../frontend/resources/image/categoryItemImages";
+$directory = "../../resources/image/categoryItemImages";
 $fileExtensions = ['png', 'jpeg', 'jpg', 'svg'];
 
 //search image
@@ -66,7 +66,7 @@ if (is_string($imagePath) && file_exists($imagePath)) {
                if (in_array($fileExtension, $fileExtensions)) {
 
                     // Define the destination directory
-                    $savePath = "../../frontend/resources/image/categoryItemImages/";
+                    $savePath = "../../resources/image/categoryItemImages/";
                     $newImageName = $categoryItemId .  "." . $fileExtension;
 
 

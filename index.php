@@ -58,7 +58,7 @@
                         </div>
                     </div>
                     <div class="hr-s1-paragraph d-flex flex-column">
-                        <p class="text-white alg-text-h2">our hope is find you to get best solution no matter what you want every component have in our hand</p>
+                        <p class="text-white alg-text-h3">our hope is find you to get best solution no matter what you want every component have in our hand</p>
                         <div class="col-12 hr-bd-parah m-0">
                             <div class=" row pb-md-3 pb-lg-0  p-0 gap-2 gap-md-0 gap-lg-0 pt-3 pt-md-0 pt-lg-0 pb-5">
                                 <div class="hr-s1-button col-12 col-md-6 col-lg-6 d-grid hr-bd-btn pb-2 pb-md-0">
@@ -194,7 +194,7 @@
                         </select>
                     </div>
                     <div class="w-100 d-grid">
-                        <button class="rounded-2 border-0 fw-bold text-light searchSection-butto alg-bg-blue p-2 alg-button-hover">SEARCH PARTS</button>
+                        <button class="rounded-2 border-0 fw-bold text-light searchSection-butto alg-bg-blue p-2 alg-button-hover">SEARCH PARTS </button>
                     </div>
                 </div>
             </div>

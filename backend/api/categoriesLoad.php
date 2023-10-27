@@ -43,7 +43,7 @@ $resultSet = $db->query($searchQuery);
 $responseArray = [];
 
 // image manager
-$directory = "../../frontend/resources/image/categoryImages";
+$directory = "../../resources/image/categoryImages";
 $fileExtensions = ['png', 'jpeg', 'jpg', 'svg'];
 
 

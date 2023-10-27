@@ -85,7 +85,7 @@ if ($_FILES['category_image']['error'] === 0) {
      if (in_array($fileExtension, $allowImageExtension)) {
 
           // Define the destination directory for image
-          $savePath = "../../frontend/resources/image/promotionImages/";
+          $savePath = "../../resources/image/promotionImages/";
           $newImageName = $row['promotion_id'] . "." . $fileExtension;
 
           // Move the uploaded image to the destination directory

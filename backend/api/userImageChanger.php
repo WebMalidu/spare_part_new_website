@@ -42,7 +42,7 @@ if (!isset($_POST['category_id']) && !isset($_FILES['user_profile_image']) && $_
 $newCategoryImage = $_FILES['user_profile_image'];
 
 // image manager
-$directory = "../../frontend/resources/image/userImages/";
+$directory = "../../resources/image/userImages/";
 $fileExtensions = ['png', 'jpeg', 'jpg', 'svg'];
 
 //search image
@@ -66,7 +66,7 @@ if (is_string($imagePath) && file_exists($imagePath)) {
                if (in_array($fileExtension, $fileExtensions)) {
 
                     // Define the destination directory
-                    $savePath = "../../frontend/resources/image/userImages/";
+                    $savePath = "../../resources/image/userImages/";
                     $newImageName = $userData['user_id'] .  "." . $fileExtension;
 
 

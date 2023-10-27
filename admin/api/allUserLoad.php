@@ -34,7 +34,7 @@ $userData = $userCheckSession->getUserData();
 $database_driver=new database_driver();
 
 // Directory to search in
-$directory = '../../frontend/resources/image/userImages/';
+$directory = '../../resources/image/userImages/';
 
 // Name of the file you're looking for
 

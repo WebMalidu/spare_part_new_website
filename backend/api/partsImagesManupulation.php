@@ -50,7 +50,7 @@ if (isset($_POST['parts_id'], $_POST['category_item_id'])) {
      $category_item_id = $_POST['category_item_id'];
 
      //get all images in a array 
-     $savePath = "../../frontend/resources/image/partsImages";
+     $savePath = "../../resources/image/partsImages";
      $fileExtensions = ['png', 'jpeg', 'jpg'];
 
      // search single product images
