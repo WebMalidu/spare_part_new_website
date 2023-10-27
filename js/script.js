@@ -119,8 +119,6 @@ function categoryLoad(){
     categoryLoadModel.show();
 }
 
-
-
 // profile section toggle
 
 function viewChange(id) {

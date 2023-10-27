@@ -1,5 +1,6 @@
 SERVER_URL = "http://localhost:9001/";
 
+
 //main dom loader
 document.addEventListener("DOMContentLoaded", () => {
      const categoryItemId = document.body.dataset.category_item_id;
@@ -53,7 +54,7 @@ const loadProductCatalog = async (modelHasId, categoryItemId) => {
                          getFirst15Words(element.description) + "...";
 
                     productCatalogContainer.innerHTML += `
-                    <div class="col-6 col-md-4 col-lg-2 alg-shadow mb-1 alg-bg-category-item rounded mt-3 mx-4 px alg-card-hover watchlist-hover">
+                    <div class="col-6 col-md-4 col-lg-2 alg-shadow mb-1 alg-bg-category-item rounded mt-3 mx-4 px alg-card-hover watchlist-hover" onclick="garageModel();">
                             <a href="singlePageView.php?parts_id=${element.parts_id}&vh_category_item_id=${element.category_item_category_item_id}&vh_model_id=${element.vehicle_models_has_modification_line_mdu_id}" class="text-decoration-none">
                                 <div class="d-flex flex-column align-items-center justify-content-center">
                                     <span class="align-self-end"><i class="bi bi-heart-fill  watchlist-hovr"></i></span>
