@@ -216,16 +216,26 @@
   /* background-color: #00447b; */
   /* box-shadow: 10px 10px 5px rgb(166, 216, 233); */
   width:210px;
-  height:240px;
+  height:220px;
 }
+
+.alg-bg-category-item {
+  width:210px;
+  height:275px;
+}
+
+/* category item */
+.categ-itm-sec{
+  min-height:140px;
+ }
 
 .alg-text-blue {
   color: #0261ae;
 }
 
 .alg-category-img {
-  width: 112px;
-  /* height: 88px; */
+  width: 90px;
+  height: 70px;
 }
 
 /* offer section */
@@ -751,6 +761,16 @@ h5 {
   .cp-side-bar {
     height: 1800px;
   }
+
+  .alg-bg-category-item {
+    width:210px;
+    height:275px;
+  }
+  
+  /* category item */
+  .categ-itm-sec{
+    min-height:140px;
+   }
 }
 
 @media (max-width: 900px) {
@@ -946,6 +966,16 @@ h5 {
     align-items: center;
     gap: 30px;
   }
+
+  .alg-bg-category-item {
+    width:210px;
+    height:275px;
+  }
+  
+  /* category item */
+  .categ-itm-sec{
+    min-height:140px;
+   }
 }
 
 @media (max-width: 725px) {
@@ -1068,6 +1098,16 @@ h5 {
     position: relative;
     height: 400px;
   }
+
+  .alg-bg-category-item {
+    width:210px;
+    height:230px;
+  }
+  
+  /* category item */
+  .categ-itm-sec{
+    min-height:100px;
+   }
 }
 
 @media (max-width: 426px) {
@@ -1366,3 +1406,4 @@ h5 {
 .watchlist-hover:hover .watchlist-hovr {
   color: #0261ae;
 }
+

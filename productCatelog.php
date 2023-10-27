@@ -286,7 +286,7 @@ if (!isset($_GET["category_item_id"])) {
             <!-- category slide -->
             <div class="d-flex flex-column align-items-center gap-5">
 
-                <div class="col-12 d-flex justify-content-center flex-wrap gap-2 " id="productCatalogContainer">
+                <div class="col-12 d-flex justify-content-center  flex-wrap gap-2 " id="productCatalogContainer">
                     <!-- container goes  here -->
 
                 </div>
