@@ -286,7 +286,7 @@ if (!isset($_GET["category_item_id"])) {
             <!-- category slide -->
             <div class="d-flex flex-column align-items-center gap-5">
 
-                <div class="col-12 d-flex justify-content-center flex-wrap gap-2 " id="productCatalogContainer">
+                <div class="col-12 d-flex justify-content-center  flex-wrap gap-2 " id="productCatalogContainer">
                     <!-- container goes  here -->
 
                 </div>
@@ -317,6 +317,55 @@ if (!isset($_GET["category_item_id"])) {
 
 
 
+        </div>
+    </div>
+
+    <!-- garage Modal -->
+    <div class="modal fade modal-xl" id="garage" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+
+
+            <div class="modal-content">
+                <div class="modal-header alg-bg-light-blue">
+                    <span class="modal-title alg-text-h2 alg-text-dark-blue fw-bold mx-3" id="staticBackdropLabel">Category section</span>
+                    <button type="button" class="border-0 alg-bg-light-blue" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-square-fill fs-2"></i></button>
+                </div>
+
+                <div class="modal-body alg-bg-light-blue">
+
+
+                    <div class="p-4">
+                        <div class="col-12 d-flex justify-content-center flex-wrap">
+                            <?php
+                            for ($x = 0; $x < 5; $x++) {
+                            ?>
+                                <div class="alg-shadow py-2 garage-card">
+                                    <div class="d-flex flex-column">
+                                        <div class="d-flex justify-content-end gap-2 px-2">
+                                            <span><i class="bi bi-trash3-fill"></i></span>
+                                        </div>
+                                        <div class="d-flex justify-content-center"><img src="resources/image/vehicleModelImages/car.jpg" alt=""></div>
+                                        <div class="d-flex flex-column py-3 px-4 pt-4">
+                                            <span class="alg-text-h3 fw-bold">ddddd</span>
+                                            <span class="alg-text-h3">ttttt</span>
+                                            <span class="alg-text-h3">mmmmm</span>
+                                            <span class="alg-text-h3">jjjj</span>
+                                            <span class="alg-text-h3">Model Year:2006</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php
+                            }
+                            ?>
+
+                        </div>
+                        <!-- <div class="d-flex justify-content-center mt-5 p-3">
+                            <button class="se3-btn fw-semibold px-3 p-1 rounded-2 alg-text-h3" id="loadButton">Load More</button>
+                        </div> -->
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
