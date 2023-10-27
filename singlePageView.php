@@ -50,7 +50,7 @@ if (!isset($_GET["parts_id"], $_GET['vh_category_item_id'], $_GET['vh_model_id']
     <?php include("./pages/components/header.php") ?>
 
 
-    <div class="container ">
+    <div class="container">
         <!-- section 1 (spv-s1) -->
         <section class="spv-s1  gap-5 p-3">
             <!-- images sector -->

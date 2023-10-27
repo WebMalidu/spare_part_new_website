@@ -94,7 +94,7 @@ function promotionsingle(promovalue) {
             console.log(request.responseText);
         }
     };
-    request.open("POST", "../../backend/api//promotionSingleLoad.php", true);
+    request.open("POST", "../../backend/api/promotionSingleLoad.php", true);
     request.send(form);
 }
 
