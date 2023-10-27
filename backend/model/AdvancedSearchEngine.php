@@ -115,7 +115,7 @@ class AdvancedSearchEngine
         return $searchResultArray;
     }
 
-    public function searchSingleProduct($vehiclePartsOriginId, $vehiclePartsStatusId, $vehicleModelId, $vehicleCategoryItemId)
+    public function searchRelatedProductCatalog($vehiclePartsOriginId, $vehiclePartsStatusId, $vehicleModelId, $vehicleCategoryItemId)
     {
         $query = "SELECT `user`.`full_name`,`vehicle_parts`.*,`parts_status`.*,`brand`.*,`vehicle_models`.*,`category_item`.*,`category`.*,`vehicle_year`.*,`vehicle_type`.*,`generation`.*,`modification_line`.*,`makers`.*,`vehicle_names`.* 
         FROM `vehicle_parts` INNER JOIN `parts_origin` ON `vehicle_parts`.`parts_origin_origin_id`=`parts_origin`.`origin_id`
@@ -135,48 +135,21 @@ class AdvancedSearchEngine
         WHERE `parts_origin_origin_id`=? AND `parts_status_parts_status_id`=? AND `category_item_category_item_id`=? AND `vehicle_models_has_modification_line_mdu_id`=?";
         $resultResponse = $this->database->execute_query($query, "ssss", [$vehiclePartsOriginId, $vehiclePartsStatusId, $vehicleCategoryItemId, $vehicleModelId]);
         $resultSet = $resultResponse["result"];
-        // generate output
-        $result = $resultSet->fetch_assoc();
 
         $responseRowArray = [];
-        $resRowDetailObject = new stdClass();
-        $savePath = "../../frontend/resources/image/partsImages";
-        $fileExtensions = ['png', 'jpeg', 'jpg'];
+        // $resRowDetailObject = new stdClass();
+        // generate output
+        if ($resultSet->num_rows > 0) {
 
-        // search single product images
-        $fileSearch = new ImageSearch($savePath, $result['parts_id'], $result['category_item_category_item_id'], $fileExtensions);
-        $searchResults = $fileSearch->search();
-
-        $imageArray = array();
-        // Add images to the new object if available
-        if (is_array($searchResults)) {
-            foreach ($searchResults as $index => $searchResult) {
-                array_push($imageArray, $searchResult);
+            while ($result = $resultSet->fetch_assoc()) {
+                array_push($responseRowArray, $result);
             }
-        }
-        $resRowDetailObject->images = $imageArray;
 
-        // Check if there's an existing object with the same productId and weightId
-        $key = "{$result['parts_id']}_{$result['category_item_category_item_id']}";
-        if (!isset($groupedResults[$key])) {
-            $groupedResults[$key] = $resRowDetailObject;
+            return $responseRowArray;
         } else {
-            // Merge images into the existing object
-            $existingObject = $groupedResults[$key];
-            foreach ($resRowDetailObject as $property => $value) {
-                // Skip merging productId and weightId properties
-                if ($property !== $result['parts_id'] && $property !== $result['category_item_category_item_id']) {
-                    $existingObject->$property = $value;
-                }
-            }
+
+            return $responseRowArray;
         }
-
-
-        $resRowDetailObject->result = $result;
-
-        array_push($responseRowArray, $resRowDetailObject);
-
-        return $responseRowArray;
     }
 
     public function searchAllProduct()
@@ -200,7 +173,7 @@ class AdvancedSearchEngine
         $resultResponse = $this->database->query($query);
         $responseRowArray = [];
 
-        $savePath = "../../frontend/resources/image/partsImages";
+        $savePath = "../../resources/image/partsImages";
         $fileExtensions = ['png', 'jpeg', 'jpg'];
 
         for ($i = 0; $i < $resultResponse->num_rows; $i++) {
@@ -243,6 +216,76 @@ class AdvancedSearchEngine
         }
 
         // output
+        return $responseRowArray;
+    }
+
+    public function loadSingleProduct($parts_id)
+    {
+        $query = "SELECT `user`.`full_name`,`vehicle_parts`.*,`parts_status`.*,`brand`.*,`vehicle_models`.*,`category_item`.*,`category`.*,`vehicle_year`.*,`vehicle_type`.*,`generation`.*,`modification_line`.*,`makers`.*,`vehicle_names`.* 
+        FROM `vehicle_parts` INNER JOIN `parts_origin` ON `vehicle_parts`.`parts_origin_origin_id`=`parts_origin`.`origin_id`
+        INNER JOIN `parts_status` ON `vehicle_parts`.`parts_status_parts_status_id`=`parts_status`.`parts_status_id`
+        INNER JOIN `brand` ON `vehicle_parts`.`brand_brand_id`=`brand`.`brand_id`
+        INNER JOIN `vehicle_models_has_modification_line` ON `vehicle_parts`.`vehicle_models_has_modification_line_mdu_id`=`vehicle_models_has_modification_line`.`mdu_id`
+        INNER JOIN `user` ON `vehicle_parts`.`user_user_id`=`user`.`user_id`
+        INNER JOIN `vehicle_models` ON `vehicle_models_has_modification_line`.`vehicle_models_model_id`=`vehicle_models`.`model_id`
+        INNER JOIN `category_item` ON `vehicle_parts`.`category_item_category_item_id`=`category_item`.`category_item_id`
+        INNER JOIN `category` ON `category_item`.`category_category_id`=`category`.`category_id`
+        INNER JOIN `vehicle_year` ON `vehicle_models`.`vehicle_year_vehicle_year_Id`=`vehicle_year`.`vehicle_year_Id`
+        INNER JOIN `vehicle_type` ON `vehicle_models`.`vehicle_type_vehicle_type_id`=`vehicle_type`.`vehicle_type_id`
+        INNER JOIN `generation` ON `vehicle_models`.`generation_generation_id`=`generation`.`generation_id`
+        INNER JOIN `modification_line` ON `vehicle_models_has_modification_line`.`modification_line_mod_id`=`modification_line`.`mod_id`
+        INNER JOIN `vehicle_names` ON `vehicle_models`.`vehicle_names_vh_name_id`=`vehicle_names`.`vh_name_id`
+        INNER JOIN `makers` ON `vehicle_names`.`makers_makers_id`=`makers`.`makers_id`
+        WHERE `parts_id`=? ";
+
+        //get result
+        $responseData = $this->database->execute_query($query, 's', array($parts_id));
+        $resultSet = $responseData["result"];
+
+        $responseRowArray = [];
+
+        $savePath = "../../resources/image/partsImages";
+        $fileExtensions = ['png', 'jpeg', 'jpg'];
+
+        for ($i = 0; $i < $resultSet->num_rows; $i++) {
+            // generate output
+            $result = $resultSet->fetch_assoc();
+            $parts_id = $result['parts_id'];
+            $category_item_id = $result['category_item_category_item_id'];
+
+            $resRowDetailObject = new stdClass();
+            $resRowDetailObject->result = $result;
+
+            $fileSearch = new ImageSearch($savePath, $parts_id, $category_item_id, $fileExtensions);
+            $searchResults = $fileSearch->search();
+
+            $imageArray = array();
+            // Add images to the new object if available
+            if (is_array($searchResults)) {
+                foreach ($searchResults as  $searchResult) {
+                    array_push($imageArray, $searchResult);
+                }
+            }
+            $resRowDetailObject->images = $imageArray;
+
+            // Check if there's an existing object with the same productId and weightId
+            $key = "{$parts_id}_{$category_item_id}";
+            if (!isset($groupedResults[$key])) {
+                $groupedResults[$key] = $resRowDetailObject;
+            } else {
+                // Merge images into the existing object
+                $existingObject = $groupedResults[$key];
+                foreach ($resRowDetailObject as $property => $value) {
+                    // Skip merging productId and weightId properties
+                    if ($property !== 'parts_id' && $property !== 'category_item_category_item_id') {
+                        $existingObject->$property = $value;
+                    }
+                }
+            }
+
+            array_push($responseRowArray, $resRowDetailObject);
+        }
+
         return $responseRowArray;
     }
 }

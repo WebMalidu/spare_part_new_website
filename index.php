@@ -140,16 +140,6 @@
                     <div class="w-100">
                         <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example">
                             <option selected>Select Car Maker</option>
-                            <option class="fw-bold" value="1" disabled>popular car makers</option>
-                            <option value="3">CHARVELOT</option>
-                            <option value="2">FORD</option>
-                            <option value="2">HONDA</option>
-                            <option value="2">KIA</option>
-                            <option value="2">MARUTI</option>
-                            <option value="2">NISSAN</option>
-                            <option value="2">RENAULT</option>
-                            <option value="2">TOYOTA</option>
-                            <option value="2">TATA</option>
                         </select>
                     </div>
                     <div class="w-100">

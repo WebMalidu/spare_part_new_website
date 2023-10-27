@@ -1,3 +1,11 @@
+<?php
+if (!isset($_GET["parts_id"], $_GET['vh_category_item_id'], $_GET['vh_model_id'])) {
+    header("Location: index.php");
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,34 +15,35 @@
     <title>single Page View</title>
     <link rel="icon" href="resources/image/home/engineImage.png" />
 
-<!-- Link Swiper's CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-<!-- splide -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.0.9/dist/css/splide.min.css">
-<!-- css -->
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/style.css">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <!-- splide -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.0.9/dist/css/splide.min.css">
+    <!-- css -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
 
-<!-- icon -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-<!-- fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500&family=Lato:wght@300&family=Roboto&family=Rubik&display=swap" rel="stylesheet">
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500&family=Lato:wght@300&family=Roboto&family=Rubik&display=swap" rel="stylesheet">
 
 
-<!-- js -->
-<script src="https://kit.fontawesome.com/79961d807c.js" crossorigin="anonymous"></script>
-<script defer src="js/bootstrap.bundle.js"></script>
-<script defer src="js/script.js"></script>
-<script defer src="js/slider.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- js -->
+    <script src="https://kit.fontawesome.com/79961d807c.js" crossorigin="anonymous"></script>
+    <script defer src="js/bootstrap.bundle.js"></script>
+    <script defer src="js/script.js"></script>
+    <script defer src="js/slider.js"></script>
+    <script defer src="js/singleProduct.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 
 </head>
 
-<body>
+<body data-parts_id="<?php echo $_GET['parts_id'] ?>" data-vh_category_item_id="<?php echo $_GET['vh_category_item_id'] ?>" data-vh_model_id="<?php echo $_GET['vh_model_id'] ?>">
 
     <!-- header section-->
 

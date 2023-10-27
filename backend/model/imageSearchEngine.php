@@ -1,5 +1,4 @@
 <?php
-
 ## dev by madusha
 ## date - 2023/10/2
 
@@ -48,21 +47,21 @@ class ImageSearch
                     // Check if the file name contains productId, weightId, and has a valid extension
                     $filename = pathinfo($fullPath, PATHINFO_FILENAME);
                     $extension = pathinfo($fullPath, PATHINFO_EXTENSION);
-                    $parts = explode('&&', $filename);
+                    $parts = explode('_', $filename);
                     $foundProductId = false;
                     $foundWeightId = false;
                     $validExtension = in_array(strtolower($extension), $fileExtensions);
 
                     foreach ($parts as $part) {
-                         if (strpos($part, 'productId=') !== false) {
-                              $partProductId = substr($part, strpos($part, 'productId=') + strlen('productId='));
+                         if (strpos($part, 'partsId=') !== false) {
+                              $partProductId = substr($part, strpos($part, 'partsId=') + strlen('partsId='));
                               if ($partProductId == $productId) {
                                    $foundProductId = true;
                               }
                          }
 
-                         if (strpos($part, 'weightId=') !== false) {
-                              $partWeightId = substr($part, strpos($part, 'weightId=') + strlen('weightId='));
+                         if (strpos($part, 'categoryItemId=') !== false) {
+                              $partWeightId = substr($part, strpos($part, 'categoryItemId=') + strlen('categoryItemId='));
                               if ($partWeightId == $weightId) {
                                    $foundWeightId = true;
                               }
@@ -80,7 +79,3 @@ class ImageSearch
           return $results;
      }
 }
-
-
-
-

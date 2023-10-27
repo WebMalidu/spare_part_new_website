@@ -314,7 +314,7 @@ CREATE TABLE `my_garaj` (
   KEY `fk_my_garaj_vehicle_models_has_modification_line1_idx` (`vehicle_models_has_modification_line_mdu_id`),
   CONSTRAINT `fk_my_garaj_user1` FOREIGN KEY (`user_user_id`) REFERENCES `user` (`user_id`),
   CONSTRAINT `fk_my_garaj_vehicle_models_has_modification_line1` FOREIGN KEY (`vehicle_models_has_modification_line_mdu_id`) REFERENCES `vehicle_models_has_modification_line` (`mdu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -323,7 +323,7 @@ CREATE TABLE `my_garaj` (
 
 LOCK TABLES `my_garaj` WRITE;
 /*!40000 ALTER TABLE `my_garaj` DISABLE KEYS */;
-INSERT INTO `my_garaj` VALUES (6,1,5),(8,1,7);
+INSERT INTO `my_garaj` VALUES (12,1,7);
 /*!40000 ALTER TABLE `my_garaj` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -708,7 +708,7 @@ CREATE TABLE `vehicle_parts` (
 
 LOCK TABLES `vehicle_parts` WRITE;
 /*!40000 ALTER TABLE `vehicle_parts` DISABLE KEYS */;
-INSERT INTO `vehicle_parts` VALUES ('pp_235364','Compressor Assembly',1,2,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing','2023-10-25',1,12000,1,1,'CTI_058074',6);
+INSERT INTO `vehicle_parts` VALUES ('pp_305615','Timing Belt',1,2,'This Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the  a sample vehicle part.','2023-10-27',1,12000,1,1,'CTI_259049',7),('pp_614213','Compressor Assembly',1,10,'This Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the  a sample vehicle part.','2023-10-27',1,10000,1,1,'CTI_058074',6),('pp_634662','Tensioner Pulley, Timing Belt',1,3,'This Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the  a sample vehicle part.','2023-10-27',1,20000,1,1,'CTI_259049',7),('pp_640889','AXLE COMPREAR',1,2,'This Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the  a sample vehicle part.','2023-10-27',1,15000,1,1,'CTI_259049',7);
 /*!40000 ALTER TABLE `vehicle_parts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -797,4 +797,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-25 16:38:47
+-- Dump completed on 2023-10-27 22:26:37

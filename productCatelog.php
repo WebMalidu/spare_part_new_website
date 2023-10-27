@@ -35,11 +35,11 @@ if (!isset($_GET["category_item_id"])) {
     <script defer src="js/bootstrap.bundle.js"></script>
     <script defer src="js/script.js"></script>
     <script defer src="js/slider.js"></script>
-    <script defer src="js/categoryItem.js"></script>
+    <script defer src="js/product.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </head>
 
-<body data-item_id="<?php echo $_GET['category_item_id']; ?>">
+<body data-category_item_id="<?php echo $_GET['category_item_id']; ?>">
     <!-- header section-->
     <?php include("./pages/components/header.php") ?>
 
@@ -286,29 +286,8 @@ if (!isset($_GET["category_item_id"])) {
             <!-- category slide -->
             <div class="d-flex flex-column align-items-center gap-5">
 
-                <div class="col-12 d-flex justify-content-center flex-wrap gap-2 " id="itemContainer">
-                    <?php
-                    for ($i = 0; $i < 12; $i++) {
-                        # code...
-                    ?>
-                        <div class="col-6 col-md-4 col-lg-2 alg-bg-categor alg-shadow mb-1 rounded mt-3 mx-4 px alg-card-hover watchlist-hover">
-                            <a href="#" class="text-decoration-none">
-                                <div class="d-flex flex-column align-items-center justify-content-center">
-                                    <span class="align-self-end"><i class="bi bi-heart-fill  watchlist-hovr"></i></span>
-                                    <img src="resources/image/categoryItemImages/CTI_029685.png" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
-                                    <div class="d-flex flex-column profile-bg-gradient p-3 rounded">
-                                        <div class="d-flex gap-2 gap-lg-5">
-                                            <span class="fw-bold text-white alg-text-h3">edfedr</span>
-                                            <span class="fw-bold text-white alg-text-h3">LKR 2000.00</span>
-                                        </div>
-                                        <span class="alg-text-p text-white-50">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    <?php
-                    }
-                    ?>
+                <div class="col-12 d-flex justify-content-center flex-wrap gap-2 " id="productCatalogContainer">
+                    <!-- container goes  here -->
 
                 </div>
 
