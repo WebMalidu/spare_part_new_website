@@ -213,8 +213,10 @@
 
 /* category */
 .alg-bg-category {
-  background-color: #00447b;
-  box-shadow: 10px 10px 5px rgb(166, 216, 233);
+  /* background-color: #00447b; */
+  /* box-shadow: 10px 10px 5px rgb(166, 216, 233); */
+  width:210px;
+  height:240px;
 }
 
 .alg-text-blue {
