@@ -1,11 +1,11 @@
 <?php
 
 // Include necessary files
-require_once("../../backend/model/database_driver.php");
-require_once("../../backend/model/response_sender.php");
-require_once("../../backend/model/fileSearch.php");
-require_once("../../backend/model/RequestHandler.php");
-require_once("../../backend/model/SessionManager.php");
+require_once("../model/database_driver.php");
+require_once("../model/response_sender.php");
+require_once("../model/fileSearch.php");
+require_once("../model/RequestHandler.php");
+require_once("../model/SessionManager.php");
 
 // Create a response object
 $responseObject = new stdClass();
@@ -61,18 +61,18 @@ $imageUrls = [];
 while ($row = $searchResult['result']->fetch_assoc()) {
     $rows[] = $row;
 
-    $fileName = strval($row['promotion_id']);
+    // $fileName = strval($row['promotion_id']);
     // Create an instance of the FileSearch class
-    $fileSearch = new FileSearch($directory, $fileName, $fileExtensions);
+    // $fileSearch = new FileSearch($directory, $fileName, $fileExtensions);
 
-    // Perform the search
-    $results = $fileSearch->search();
+    // // Perform the search
+    // $results = $fileSearch->search();
 
-    if (is_array($results)) {
-        foreach ($results as $file) {
-            $imageUrls[] = $file; // Append the image URL to the $imageUrls array
-        }
-    }
+    // if (is_array($results)) {
+    //     foreach ($results as $file) {
+    //         $imageUrls[] = $file; // Append the image URL to the $imageUrls array
+    //     }
+    // }
 }
 
 // Set the 'status' property of the response object to the 'rows' array
