@@ -114,38 +114,32 @@
 
                 </div>
 
+            </div>
+
+
+            <div id="slider-promo">
+                <div class="splide-promotion" style="margin-left: 2%;margin-top:4%">
+                    <div class="splide__track">
+                        <ul class="splide__list" id="promotion_list">
+                            <!-- Your slide items for the 'splide-promotion' slider go here -->
 
 
 
 
 
+                            <!-- Add more slides as needed -->
+                        </ul>
+                    </div>
+                </div>
 
             </div>
 
 
-<div id="slider-promo">
-            <div class="splide-promotion" style="margin-left: 2%;margin-top:4%">
-    <div class="splide__track">
-        <ul class="splide__list" id="promotion_list">
-            <!-- Your slide items for the 'splide-promotion' slider go here -->
-          
-          
-            
-            
-
-            <!-- Add more slides as needed -->
-        </ul>
-    </div>
-</div>
-
-</div>
 
 
 
 
 
-
-            
         </div>
     </section>
 
@@ -202,7 +196,7 @@
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-12 d-flex justify-content-center flex-wrap gap-2 gap-lg-3" id="categoryContainer">
-
+                    <!-- contant goes here -->
 
                 </div>
                 <div class="d-flex justify-content-center mt-5 p-3">
@@ -411,26 +405,8 @@
 
                     <div class="p-4">
                         <div class="col-12 d-flex justify-content-center flex-wrap" id="categoryContaine">
-                            <?php
-                            for ($x = 0; $x < 15; $x++) {
-                            ?>
-                                <div class="col-6 col-md-4 col-lg-2 alg-bg-category alg-shadow mb-1 rounded mt-3 mx-4 px-3 alg-card-hover">
-                                    <a href="category.php?category_id=${element.category_id}" class="text-decoration-none">
-                                        <div class="d-flex flex-column align-items-center">
-                                            <img src="${element.category_image}" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
-                                            <span class="mt-1 p-3 fw-bold text-whit pb-5 alg-text-h3">${element.category_type}</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            <?php
-                            }
-                            ?>
-
+                            <!-- content goes here -->
                         </div>
-                        <!-- <div class="d-flex justify-content-center mt-5 p-3">
-                            <button class="se3-btn fw-semibold px-3 p-1 rounded-2 alg-text-h3" id="loadButton">Load More</button>
-                        </div> -->
-
                     </div>
                 </div>
             </div>

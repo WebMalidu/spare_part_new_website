@@ -106,12 +106,7 @@ function goBackToSignIn() {
   signInModel.show();
 }
 
-// category load
-let categoryLoadModel;
-function categoryLoad() {
-  categoryLoadModel = new bootstrap.Modal("#categoryLoad");
-  categoryLoadModel.show();
-}
+
 
 // profile section toggle
 
