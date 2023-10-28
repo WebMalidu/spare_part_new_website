@@ -36,10 +36,10 @@ $count = $_GET['count'];
 
 //get data base model
 $db = new database_driver();
-$searchQueryAll = "SELECT * FROM `category_item` WHERE `category_item`.`category_category_id`= " . $categoryId;
+$searchQueryAll = "SELECT * FROM `category_item`";
 $resultSets = $db->query($searchQueryAll);
 
-echo "test";
+echo var_dump($resultSets);
 // $num = $resultSets['result']->num_rows;
 // $perPageCount = 12;
 // $pageCount = 0;
