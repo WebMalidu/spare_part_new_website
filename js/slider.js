@@ -81,51 +81,31 @@ function promotionSliderLoader() {
   // Mount the slider
   splide1.mount();
 }
+function featureLoader(){
+  var splide1 = new Splide("#slider-feature", {
+    type: "loop",
+    drag: "free",
+    autoplay: true,
+    snap: true,
+    arrows: false,
+    perPage: 4,
+    pagination: false,
+    gap: 100, // Set the gap between slides to 20 pixels (adjust as needed)
+    // Disable navigation points
+  });
+
+  // Mount the slider
+  splide1.mount();
+}
+
 
 document.addEventListener("DOMContentLoaded", function () {
+  featureLoader();
   promotionSliderLoader();
   console.log("splide1 initialized");
 
-    var splide = new Splide('#slider-promo', {
-        type: 'loop',
-        perPage: 2, // Adjust this value as needed
-        perMove: 1,
-        autoplay: true,
-        pauseOnHover: false,
-        arrows: false,
-        breakpoints: {
-            768: {
-                perPage: 1,
-            },
-            992: {
-                perPage: 1,
-            },
-            1200: {
-                perPage: 1,
-            },
-        },
-    });
-  var splide = new Splide(".splide", {
-    type: "loop",
-    perPage: 6, // Adjust this value as needed
-    perMove: 1,
-    autoplay: true,
-    pauseOnHover: false,
-    arrows: false,
-    breakpoints: {
-      768: {
-        perPage: 2,
-      },
-      992: {
-        perPage: 3,
-      },
-      1200: {
-        perPage: 4,
-      },
-    },
-  });
+    
 
-  splide.mount();
 
   console.log("splide initialized");
 });

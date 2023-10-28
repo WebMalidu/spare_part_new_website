@@ -24,6 +24,7 @@ function promotionLoder() {
 
                 const imageUrls = data.imageUrls;
                 const promotionData = document.getElementById("promotion_list");
+                console.log(imageUrls)
 
                 for (let i = 0; i < imageUrls.length; i++) {
                     const li = document.createElement("li");
