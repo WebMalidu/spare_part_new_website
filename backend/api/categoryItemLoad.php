@@ -33,14 +33,13 @@ $categoryId = $_GET['category_id'];
 $count = $_GET['count'];
 
 
-echo $categoryId;
-echo $count;
 
-// //get data base model
-// $db = new database_driver();
-// $searchQueryAll = "SELECT * FROM `category_item` WHERE `category_category_id`=?";
-// $resultSets = $db->execute_query($searchQueryAll, 's', array($categoryId));
+//get data base model
+$db = new database_driver();
+$searchQueryAll = "SELECT * FROM `category_item` WHERE `category_category_id`=?";
+$resultSets = $db->execute_query($searchQueryAll, 's', array($categoryId));
 
+echo "test";
 // $num = $resultSets['result']->num_rows;
 // $perPageCount = 12;
 // $pageCount = 0;
