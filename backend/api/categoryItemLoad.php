@@ -24,7 +24,7 @@ if (!RequestHandler::isGetMethod()) {
 }
 
 //check method 
-if (!isset($_GET['category_id']) && !isset($_GET['itemCount'])) {
+if (!isset($_GET['category_id']) && !isset($_GET['count'])) {
      $responseObject->error = 'Access denied';
      response_sender::sendJson($responseObject);
 }
@@ -42,12 +42,12 @@ $num = $resultSets['result']->num_rows;
 $perPageCount = 12;
 $pageCount = 0;
 
-$pageCount = ceil($num/$perPageCount);  
+$pageCount = ceil($num / $perPageCount);
 $responseObject->countPage = $pageCount;
 
-$pageOffset = $perPageCount*$count;
+$pageOffset = $perPageCount * $count;
 
-$searchQuery = "SELECT * FROM `category_item` WHERE `category_category_id`=? LIMIT $perPageCount OFFSET $pageOffset";
+$searchQuery = "SELECT * FROM `category_item` WHERE `category_category_id`=? LIMIT " . $perPageCount . " OFFSET " . $pageOffset;
 $resultSet = $db->execute_query($searchQuery, 's', array($categoryId));
 
 //response array 
