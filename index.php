@@ -121,6 +121,31 @@
 
 
             </div>
+
+
+<div id="slider-promo">
+            <div class="splide-promotion" style="margin-left: 2%;margin-top:4%">
+    <div class="splide__track">
+        <ul class="splide__list" id="promotion_list">
+            <!-- Your slide items for the 'splide-promotion' slider go here -->
+          
+          
+            
+            
+
+            <!-- Add more slides as needed -->
+        </ul>
+    </div>
+</div>
+
+</div>
+
+
+
+
+
+
+            
         </div>
     </section>
 

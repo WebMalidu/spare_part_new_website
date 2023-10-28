@@ -140,12 +140,7 @@ if (!isset($_GET["parts_id"], $_GET['vh_category_item_id'], $_GET['vh_model_id']
                 <span class="spv-s2-heading alg-text-h2 alg-text-blue alg-bolder">Featured Product</span>
             </div>
             <div>
-                <!-- swper slider -->
-                <div class="spv-s2 swiper mySwiper p-3 ">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide gap-5">
-                            <!-- card  -->
-                            <div class="spv-s2-container alg-rounded-small alg-shadow">
+            <div class="spv-s2-container alg-rounded-small alg-shadow">
                                 <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
                                     <div class="spv-s2-box-top-img"></div>
                                 </div>
@@ -156,131 +151,6 @@ if (!isset($_GET["parts_id"], $_GET['vh_category_item_id'], $_GET['vh_model_id']
                                 </div>
                             </div>
 
-                            <div class="spv-s2-container spv-s2-container-2 alg-rounded-small alg-shadow">
-                                <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                    <div class="spv-s2-box-top-img"></div>
-                                </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
-                                    <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                    <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                    <div class="spv-s2-box-bottom-img"></div>
-                                </div>
-                            </div>
-                            <div class="spv-s2-container spv-s2-container-3 alg-rounded-small alg-shadow">
-                                <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                    <div class="spv-s2-box-top-img"></div>
-                                </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
-                                    <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                    <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                    <div class="spv-s2-box-bottom-img"></div>
-                                </div>
-                            </div>
-                            <div class="spv-s2-container spv-s2-container-4 alg-rounded-small alg-shadow">
-                                <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                    <div class="spv-s2-box-top-img"></div>
-                                </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
-                                    <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                    <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                    <div class="spv-s2-box-bottom-img"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- slider 2nd section -->
-                        <div class="swiper-slide gap-5">
-                            <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                    <div class="spv-s2-box-top-img"></div>
-                                </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
-                                    <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                    <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                    <div class="spv-s2-box-bottom-img"></div>
-                                </div>
-                            </div>
-
-                            <div class="spv-s2-container spv-s2-container-2 alg-rounded-small alg-shadow">
-                                <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                    <div class="spv-s2-box-top-img"></div>
-                                </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
-                                    <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                    <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                    <div class="spv-s2-box-bottom-img"></div>
-                                </div>
-                            </div>
-                            <div class="spv-s2-container spv-s2-container-3 alg-rounded-small alg-shadow">
-                                <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                    <div class="spv-s2-box-top-img"></div>
-                                </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
-                                    <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                    <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                    <div class="spv-s2-box-bottom-img"></div>
-                                </div>
-                            </div>
-                            <div class="spv-s2-container spv-s2-container-4 alg-rounded-small alg-shadow">
-                                <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                    <div class="spv-s2-box-top-img"></div>
-                                </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
-                                    <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                    <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                    <div class="spv-s2-box-bottom-img"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- slider 3rd section -->
-                        <div class="swiper-slide gap-5">
-                            <div class="spv-s2-container alg-rounded-small alg-shadow">
-                                <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                    <div class="spv-s2-box-top-img"></div>
-                                </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
-                                    <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                    <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                    <div class="spv-s2-box-bottom-img"></div>
-                                </div>
-                            </div>
-
-                            <div class="spv-s2-container spv-s2-container-2 alg-rounded-small alg-shadow">
-                                <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                    <div class="spv-s2-box-top-img"></div>
-                                </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
-                                    <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                    <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                    <div class="spv-s2-box-bottom-img"></div>
-                                </div>
-                            </div>
-                            <div class="spv-s2-container spv-s2-container-3 alg-rounded-small alg-shadow">
-                                <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                    <div class="spv-s2-box-top-img"></div>
-                                </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
-                                    <span class="alg-text-light alg-bolde alg-text-h3">Product Name</span>
-                                    <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                    <div class="spv-s2-box-bottom-img"></div>
-                                </div>
-                            </div>
-                            <div class="spv-s2-container spv-s2-container-4 alg-rounded-small alg-shadow">
-                                <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                    <div class="spv-s2-box-top-img"></div>
-                                </div>
-                                <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
-                                    <span class="alg-text-light alg-bolder alg-text-h3">Product Name</span>
-                                    <span class="alg-text-light alg-text-h3">Rs.4500</span>
-                                    <div class="spv-s2-box-bottom-img"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="swiper-button-next "></div>
-                    <div class="swiper-button-prev "></div>
-                </div>
-            </div>
         </section>
     </div>
     <!-- section 3 Features and Specification -->

@@ -71,7 +71,7 @@ function promotionsingle(promovalue) {
 
     // Convert the number to an integer
     const parsedNumber = parseInt(number, 10);
-
+console.log(parsedNumber)
     const requestDataObject = {
         promotionId: parsedNumber,
     };
@@ -87,7 +87,7 @@ function promotionsingle(promovalue) {
             // preform an action on response
             let response = JSON.parse(request.responseText);
             if (response.status == "success") {
-                window.location.href = 'http://localhost:9001/frontend/singlePageView.php'; // Replace 'another_page.html' with the URL you want to navigate to
+               // window.location.href = 'http://localhost:9001/frontend/singlePageView.php'; // Replace 'another_page.html' with the URL you want to navigate to
             } else {
                 console.log(response.error);
             }

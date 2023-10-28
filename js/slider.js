@@ -86,6 +86,25 @@ document.addEventListener("DOMContentLoaded", function () {
   promotionSliderLoader();
   console.log("splide1 initialized");
 
+    var splide = new Splide('#slider-promo', {
+        type: 'loop',
+        perPage: 2, // Adjust this value as needed
+        perMove: 1,
+        autoplay: true,
+        pauseOnHover: false,
+        arrows: false,
+        breakpoints: {
+            768: {
+                perPage: 1,
+            },
+            992: {
+                perPage: 1,
+            },
+            1200: {
+                perPage: 1,
+            },
+        },
+    });
   var splide = new Splide(".splide", {
     type: "loop",
     perPage: 6, // Adjust this value as needed
