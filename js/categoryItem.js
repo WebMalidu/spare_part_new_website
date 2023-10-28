@@ -1,4 +1,4 @@
-SERVER_URL ="";
+SERVER_URL = "";
 document.addEventListener("DOMContentLoaded", () => {
      const category_id = document.body.dataset.category_id;
      loadCategoryItem(category_id)
@@ -33,12 +33,16 @@ function loadCategoryItem(category_id) {
           },
      })
           .then((response) => {
-               if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-               }
-               return response.json();
+               // if (!response.ok) {
+               //      throw new Error(`HTTP error! Status: ${response.status}`);
+               // }
+               return response.text();
           })
           .then((data) => {
+
+               console.log(data);
+               return
+
                const categoryItemContainer = document.getElementById("categoryItemContainer");
 
                if (data.status === "success") {

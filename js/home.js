@@ -18,11 +18,6 @@ function promotionLoder() {
         .then((response) => response.text())
         .then((data) => {
             // Handle the response data
-
-
-            console.log(data);
-            return
-
             if (data.status === "success") {
 
                 const imageUrls = data.imageUrls;
@@ -134,6 +129,7 @@ function loadCategory() {
             const categoryContainer = document.getElementById("categoryContainer");
             categoryDataSet = data;
 
+            
             if (data.status == "success") {
                 categoryContainer.innerHTML = "";
                 data.results.forEach((element) => {

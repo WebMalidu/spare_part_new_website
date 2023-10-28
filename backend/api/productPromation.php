@@ -61,18 +61,18 @@ $imageUrls = [];
 while ($row = $searchResult['result']->fetch_assoc()) {
     $rows[] = $row;
 
-    // $fileName = strval($row['promotion_id']);
+    $fileName = strval($row['promotion_id']);
     // Create an instance of the FileSearch class
-    // $fileSearch = new FileSearch($directory, $fileName, $fileExtensions);
+    $fileSearch = new FileSearch($directory, $fileName, $fileExtensions);
 
-    // // Perform the search
-    // $results = $fileSearch->search();
+    // Perform the search
+    $results = $fileSearch->search();
 
-    // if (is_array($results)) {
-    //     foreach ($results as $file) {
-    //         $imageUrls[] = $file; // Append the image URL to the $imageUrls array
-    //     }
-    // }
+    if (is_array($results)) {
+        foreach ($results as $file) {
+            $imageUrls[] = $file; // Append the image URL to the $imageUrls array
+        }
+    }
 }
 
 // Set the 'status' property of the response object to the 'rows' array
