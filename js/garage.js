@@ -1,4 +1,4 @@
-
+SERVER_URL = "";
 document.addEventListener('DOMContentLoaded', async () => {
      vehicleMakers();
      loadGarageData();

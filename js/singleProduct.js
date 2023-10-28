@@ -1,4 +1,4 @@
-
+SERVER_URL = "";
 //main dom loader
 document.addEventListener("DOMContentLoaded", () => {
   const parts_id = document.body.dataset.parts_id;
