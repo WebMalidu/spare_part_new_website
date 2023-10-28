@@ -10,10 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let imgpromo;
 function promotionLoder() {
-    console.log("hi");
 
     // Send the data to the server using Fetch
-    fetch(SERVER_URL + "../backend/api//productPromation.php", {
+    fetch(SERVER_URL + "../backend/api/productPromation.php", {
         method: "POST",
     })
         .then((response) => response.json())
