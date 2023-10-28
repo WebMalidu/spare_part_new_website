@@ -12,9 +12,10 @@ class database_driver
 
 
         $host = 'localhost'; // update your own
-        $user = 'root'; // update your own
+        $user = USERNAME; // update your own
         $password = PASSWORD; // password
         $database = DATABASE; // update your own
+        
 
         // Connect to the database using mysqli
         $this->connection = new mysqli($host, $user, $password, $database);

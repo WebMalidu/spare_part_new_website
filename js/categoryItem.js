@@ -1,4 +1,4 @@
-SERVER_URL = "http://localhost:9001/";
+SERVER_URL = "";
 
 document.addEventListener("DOMContentLoaded", () => {
      const category_id = document.body.dataset.category_id;

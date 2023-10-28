@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BATTA</title>
+    <title>BATTALK</title>
     <link rel="icon" href="resources/image/home/engineImage.png" />
 
     <!-- Link Swiper's CSS -->

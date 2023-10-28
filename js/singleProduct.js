@@ -1,4 +1,4 @@
-SERVER_URL = "http://localhost:9001/";
+SERVER_URL = "";
 
 //main dom loader
 document.addEventListener("DOMContentLoaded", () => {
