@@ -13,7 +13,7 @@ function promotionLoder() {
     console.log("hi");
 
     // Send the data to the server using Fetch
-    fetch(SERVER_URL + "backend/api//productPromation.php", {
+    fetch(SERVER_URL + "../backend/api//productPromation.php", {
         method: "POST",
     })
         .then((response) => response.json())
@@ -94,7 +94,7 @@ function promotionsingle(promovalue) {
             console.log(request.responseText);
         }
     };
-    request.open("POST", SERVER_URL + "backend/api/promotionSingleLoad.php", true);
+    request.open("POST", SERVER_URL + "../backend/api/promotionSingleLoad.php", true);
     request.send(form);
 }
 
@@ -111,7 +111,7 @@ function loadCategory() {
     // fetch request
     fetch(
         SERVER_URL +
-        "backend/api/categoriesLoad.php?categoryCount=" +
+        "../backend/api/categoriesLoad.php?categoryCount=" +
         categoryCount,
         {
             method: "GET",

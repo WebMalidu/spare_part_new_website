@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const loadRelatedModelForUser = async (categoryItemId) => {
 
      try {
-          const garageResponse = await fetch(SERVER_URL + 'backend/api/garageAPI.php');
+          const garageResponse = await fetch(SERVER_URL + '../backend/api/garageAPI.php');
           const responseData = await garageResponse.json();
 
           if (responseData.status === 'success') {
@@ -39,7 +39,7 @@ const loadProductCatalog = async (modelHasId, categoryItemId) => {
      try {
           console.log(modelHasId);
           console.log(categoryItemId);
-          const productResponse = await fetch(SERVER_URL + 'backend/api/productManupulateAPI.php?vh_model_has_id=' + modelHasId + "&vh_category_item_id=" + categoryItemId);
+          const productResponse = await fetch(SERVER_URL + '../backend/api/productManupulateAPI.php?vh_model_has_id=' + modelHasId + "&vh_category_item_id=" + categoryItemId);
           const productResponseData = await productResponse.json();
 
 

@@ -164,7 +164,7 @@ function signUp() {
       console.log(request.responseText);
     }
   };
-  request.open("POST", "../../backend/api//signUp.php", true);
+  request.open("POST", "../backend/api/signUp.php", true);
   request.send(form);
 }
 
@@ -185,7 +185,7 @@ function logOut() {
       console.log(request.responseText);
     }
   };
-  request.open("POST", "../../backend/api//signOut.php", true);
+  request.open("POST", "../backend/api/signOut.php", true);
   request.send();
 }
 
@@ -218,6 +218,6 @@ function signIn() {
       console.log(request.responseText);
     }
   };
-  request.open("POST", "../../backend/api//signIn.php", true);
+  request.open("POST", "../backend/api/signIn.php", true);
   request.send(form);
 }
