@@ -1,4 +1,3 @@
-SERVER_URL = "";
 
 document.addEventListener("DOMContentLoaded", () => {
      const category_id = document.body.dataset.category_id;
