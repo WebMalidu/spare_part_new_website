@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const loadSingleProduct = async (parts_id) => {
   try {
     const productResponse = await fetch(
-      SERVER_URL + "../backend/api/productManupulateAPI.php?product_id=" + parts_id
+      SERVER_URL + "backend/api/productManupulateAPI.php?product_id=" + parts_id
     );
     const productResponseData = await productResponse.json();
 
@@ -125,7 +125,7 @@ const loadProductCatalog = async (modelHasId, categoryItemId) => {
     console.log(categoryItemId);
     const productResponse = await fetch(
       SERVER_URL +
-      "../backend/api/productManupulateAPI.php?vh_model_has_id=" +
+      "backend/api/productManupulateAPI.php?vh_model_has_id=" +
       modelHasId +
       "&vh_category_item_id=" +
       categoryItemId

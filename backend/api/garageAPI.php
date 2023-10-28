@@ -103,8 +103,8 @@ if (RequestHandler::isGetMethod()) {
      INNER JOIN `vehicle_type` ON `vehicle_type`.`vehicle_type_id`=`vehicle_models`.`vehicle_type_vehicle_type_id`
      INNER JOIN `generation` ON `generation`.`generation_id`=`vehicle_models`.`generation_generation_id`
      INNER JOIN `makers` ON `makers`.`makers_id`=`vehicle_names`.`makers_makers_id`
-     WHERE `user_user_id`=?";
-     $result = $db->execute_query($searchQuery, 'i', array($userId));
+     WHERE `user_user_id`='" . $userId . "'";
+     $result = $db->query($searchQuery);
 
      //response array
      $responseArray = [];
@@ -114,12 +114,12 @@ if (RequestHandler::isGetMethod()) {
      $fileExtensions = ['png', 'jpeg', 'jpg', 'svg'];
 
      //if check result
-     if ($result['result']->num_rows < 1) {
+     if ($result->num_rows < 1) {
           $responseObject->error = 'no row data';
           response_sender::sendJson($responseObject);
      }
 
-     while ($rowData = $result['result']->fetch_assoc()) {
+     while ($rowData = $result->fetch_assoc()) {
 
           $modelId = $rowData['model_id'];
 
