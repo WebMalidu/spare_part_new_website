@@ -31,7 +31,6 @@
     <script defer src="js/script.js"></script>
     <script defer src="js/slider.js"></script>
     <script defer src="js/vehicleFetchData.js"></script>
-    <script defer src="js/catogery.js"></script>
     <script defer src="js/home.js"></script>
 
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
@@ -84,46 +83,65 @@
             <span><i class="bi bi-whatsapp"></i></span>
         </div>
     </div>
-</div>
+    </div>
 
     <!-- offer section -->
-   <section class="offerSection py-2 py-lg-4" style="position: relative; z-index: 1;">
-    <div class="container pb-5">
-        <div class="col-12">
-            <div class="d-flex flex-column align-items-center mb-2">
-                <div class="col-4 col-md-3 col-lg-2 d-flex flex-column align-items-center">
-                    <span class="alg-text-blue mt-1 fw-bolder alg-text-h2 pb-1">OUR OFFERS</span>
-                    <div class="alg-line1 alg-bg-blue d-flex align-self-center"></div>
-                    <div class="alg-line2 alg-bg-blue d-flex align-self-center"></div>
+    <section class="offerSection py-2 py-lg-4" style="position: relative; z-index: 1;">
+        <div class="container pb-5">
+            <div class="col-12">
+                <div class="d-flex flex-column align-items-center mb-2">
+                    <div class="col-4 col-md-3 col-lg-2 d-flex flex-column align-items-center">
+                        <span class="alg-text-blue mt-1 fw-bolder alg-text-h2 pb-1">OUR OFFERS</span>
+                        <div class="alg-line1 alg-bg-blue d-flex align-self-center"></div>
+                        <div class="alg-line2 alg-bg-blue d-flex align-self-center"></div>
+                    </div>
                 </div>
+
+
+                <div id="slider-promo">
+                    <div class="splide-promotion" style="margin-left: 2%;margin-top:4%">
+                        <div class="splide__track">
+                            <ul class="splide__list" id="promotion_list">
+                                <!-- Your slide items for the 'splide-promotion' slider go here -->
+
+
+
+
+                                <!-- Add more slides as needed -->
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
 
 
-<div id="slider-promo">
-            <div class="splide-promotion" style="margin-left: 2%;margin-top:4%">
-    <div class="splide__track">
-        <ul class="splide__list" id="promotion_list">
-            <!-- Your slide items for the 'splide-promotion' slider go here -->
-          
-            
-            
-
-            <!-- Add more slides as needed -->
-        </ul>
-    </div>
-</div>
-
-</div>
+            <div id="slider-promo">
+                <div class="splide-promotion" style="margin-left: 2%;margin-top:4%">
+                    <div class="splide__track">
+                        <ul class="splide__list" id="promotion_list">
+                            <!-- Your slide items for the 'splide-promotion' slider go here -->
 
 
 
 
 
+                            <!-- Add more slides as needed -->
+                        </ul>
+                    </div>
+                </div>
 
-            
+            </div>
+
+
+
+
+
+
+
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- search section -->
     <section class="w-100 searchSectio alg-bg-light-blue bg-n py-2 py-lg-5">
@@ -138,63 +156,27 @@
             <div class="searchSection-selectorBox d-flex justify-content-center gap-2 p-3">
                 <div class="col-12 d-flex flex-column flex-lg-row align-items-center justify-content-lg-center gap-3">
                     <div class="w-100">
-                        <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example">
-                            <option selected>Select Car Maker</option>
-                            <option class="fw-bold" value="1" disabled>popular car makers</option>
-                            <option value="3">CHARVELOT</option>
-                            <option value="2">FORD</option>
-                            <option value="2">HONDA</option>
-                            <option value="2">KIA</option>
-                            <option value="2">MARUTI</option>
-                            <option value="2">NISSAN</option>
-                            <option value="2">RENAULT</option>
-                            <option value="2">TOYOTA</option>
-                            <option value="2">TATA</option>
+                        <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example" id="vhMakerContainer">
+                            <option selected>Select Maker</option>
                         </select>
                     </div>
                     <div class="w-100">
-                        <select class="searchSection-selector  form-select form-select-sm alg-shadow" aria-label="Small select example">
+                        <select class="searchSection-selector  form-select form-select-sm alg-shadow" aria-label="Small select example" id="vhModelNameContainer">
                             <option selected>Select Model Line</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
                         </select>
                     </div>
                     <div class="w-100">
-                        <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example">
+                        <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example" id="vhYearContainer">
                             <option selected>Select Car Year</option>
-                            <option value="1">2000</option>
-                            <option value="2">2001</option>
-                            <option value="3">2003</option>
-                            <option value="3">2004</option>
-                            <option value="3">2005</option>
-                            <option value="3">2006</option>
-                            <option value="3">2007</option>
-                            <option value="3">2008</option>
-                            <option value="3">2009</option>
-                            <option value="3">2010</option>
-                            <option value="3">2011</option>
-                            <option value="3">2012</option>
-                            <option value="3">2013</option>
-                            <option value="3">2014</option>
-                            <option value="3">2015</option>
-                            <option value="3">2016</option>
-                            <option value="3">2017</option>
-                            <option value="3">2018</option>
-                            <option value="3">2019</option>
-                            <option value="3">2020</option>
                         </select>
                     </div>
                     <div class="w-100">
-                        <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example">
+                        <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example" id="vhModelLineContainer">
                             <option selected>Select Modification</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
                         </select>
                     </div>
                     <div class="w-100 d-grid">
-                        <button class="rounded-2 border-0 fw-bold text-light searchSection-butto alg-bg-blue p-2 alg-button-hover">SEARCH PARTS </button>
+                        <button class="rounded-2 border-0 fw-bold text-light searchSection-butto alg-bg-blue p-2 alg-button-hover" onclick="categoryLoad();">SEARCH PARTS </button>
                     </div>
                 </div>
             </div>
@@ -213,9 +195,9 @@
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
-                <div class="col-12 d-flex justify-content-center flex-wrap gap-2 gap-lg-5" id="categoryContainer">
+                <div class="col-12 d-flex justify-content-center flex-wrap gap-2 gap-lg-3" id="categoryContainer">
+                    <!-- contant goes here -->
 
-                   
                 </div>
                 <div class="d-flex justify-content-center mt-5 p-3">
                     <button class="se3-btn fw-semibold px-3 p-1 rounded-2 alg-text-h3" id="loadButton">Load More</button>
@@ -406,6 +388,30 @@
 
     </div>
 
+
+    <!-- Category Modal -->
+    <div class="modal fade modal-xl" id="categoryLoad" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+
+
+            <div class="modal-content">
+                <div class="modal-header alg-bg-light-blue">
+                    <span class="modal-title alg-text-h2 alg-text-dark-blue fw-bold mx-3" id="staticBackdropLabel">Category section</span>
+                    <button type="button" class="border-0 alg-bg-light-blue" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-square-fill fs-2"></i></button>
+                </div>
+
+                <div class="modal-body alg-bg-light-blue">
+
+
+                    <div class="p-4">
+                        <div class="col-12 d-flex justify-content-center flex-wrap" id="categoryContaine">
+                            <!-- content goes here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 

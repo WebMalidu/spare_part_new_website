@@ -61,8 +61,8 @@ function loadCategoryItem(category_id) {
                          const categoryDiv = document.createElement("div");
                          categoryDiv.className = "col-6 col-md-4 col-lg-2 alg-bg-categor alg-shadow mb-1 rounded mt-3 mx-4 px-3 alg-card-hover";
                          categoryDiv.innerHTML += `
-                        <a href="categoryItem.php?category_item_id=${element.category_Item_id}" class="text-decoration-none">
-                        <div class="d-flex flex-column align-items-center" id="categoryItem${element.category_Item_id}">
+                        <a href="productCatelog.php?category_item_id=${element.category_Item_id}" class="text-decoration-none">
+                        <div class="d-flex flex-column align-items-center">
                         <img src="${element.category_image}" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
                         <span class="mt-1 p-3 fw-bold text-whit pb-5 alg-text-h3">${element.category_Item_type}</span>
                     </div>

@@ -49,12 +49,37 @@ if (RequestHandler::isGetMethod()) {
           }
 
           //advance sigle product load 
-          $responseDataArray = $searchEngine->searchSingleProduct($vehiclePartsOriginId, $vehiclePartsStatusId, $vehicleModelId, $vehicleCategoryItemId);
+          $responseDataArray = $searchEngine->searchRelatedProductCatalog($vehiclePartsOriginId, $vehiclePartsStatusId, $vehicleModelId, $vehicleCategoryItemId);
+          //validation
+          if (count($responseDataArray) === 0) {
+
+               $responseObject->error = "no row data";
+               response_sender::sendJson($responseObject);
+          }
+          //row data
+          $responseObject->status = "success";
+          $responseObject->result = $responseDataArray;
+          response_sender::sendJson($responseObject);
+
+          //single product load
+     } else if (isset($_GET['product_id'])) {
+
+          //click product id
+          $product_id = $_GET['product_id'];
+
+          //advance search engin single product load
+          $responseDataArray = $searchEngine->loadSingleProduct($product_id);
+
+          if (count($responseDataArray) === 0) {
+               $responseObject->error = "no row data";
+               response_sender::sendJson($responseObject);
+          }
 
           //row data
           $responseObject->status = "success";
           $responseObject->result = $responseDataArray;
           response_sender::sendJson($responseObject);
+          
      } else {
           // we can load all product in this
           $result = $searchEngine->searchAllProduct();
