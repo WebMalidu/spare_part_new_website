@@ -37,7 +37,7 @@ $count = $_GET['count'];
 //get data base model
 $db = new database_driver();
 $searchQueryAll = "SELECT * FROM `category_item` WHERE `category_category_id`=?";
-$resultSets = $db->execute_query($searchQueryAll, 's', array($categoryId));
+$resultSets = $db->execute_query($searchQueryAll, 's', [$categoryId]);
 
 echo "test";
 // $num = $resultSets['result']->num_rows;
