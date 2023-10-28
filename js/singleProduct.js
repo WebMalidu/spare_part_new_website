@@ -31,6 +31,8 @@ const loadSingleProduct = async (parts_id) => {
       mainContainer.innerHTML = "";
       secondaryContainer.innerHTML = "";
 
+
+
       let index = 1;
       data.images.forEach((element) => {
         const imageUrl = `resources/image/partsImages/${element}`;
@@ -65,20 +67,26 @@ const loadProductCatalog = async (modelHasId, categoryItemId) => {
     console.log(categoryItemId);
     const productResponse = await fetch(
       SERVER_URL +
-        "backend/api/productManupulateAPI.php?vh_model_has_id=" +
-        modelHasId +
-        "&vh_category_item_id=" +
-        categoryItemId
+      "backend/api/productManupulateAPI.php?vh_model_has_id=" +
+      modelHasId +
+      "&vh_category_item_id=" +
+      categoryItemId
     );
     const productResponseData = await productResponse.json();
 
-    // const productCatalogContainer = document.getElementById('productCatalogContainer');
-    // productCatalogContainer.innerHTML = "";
+    const relatedProductContainer = document.getElementById('relatedProductContainer');
 
     if (productResponseData.status === "success") {
       const result = productResponseData.result;
 
-      console.log(result);
+      result.map((element) => {
+        relatedProductContainer.innerHTML += `
+        
+                
+
+        `;
+      });
+
     } else {
       console.log(productResponseData.error);
     }

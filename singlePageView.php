@@ -90,37 +90,37 @@ if (!isset($_GET["parts_id"], $_GET['vh_category_item_id'], $_GET['vh_model_id']
                 <div class="W-100 d-flex flex-row gap-3">
                     <div class="spv-s1-right-logo"></div>
                     <div class="d-flex flex-column">
-                        <span class="alg-text-h2 alg-bold">NISSAN</span>
-                        <span class="alg-text-h3 alg-text-blue alg-bold-medium">DISTRIBUTION CONTROL UNIT</span>
+                        <span class="alg-text-h2 alg-bold" id="modelMaker"></span>
+                        <span class="alg-text-h3 alg-text-blue alg-bold-medium" id="productTitle">DISTRIBUTION CONTROL UNIT</span>
                         <div class="spv-s1-review-img"></div>
                     </div>
                 </div>
                 <div>
-                    <span class="alg-bold alg-text-h3">Rs. 120,000</span>
+                    <span class="alg-bold alg-text-h3" id="price">Rs. 120,000</span>
                 </div>
                 <div class="d-flex flex-column py-2">
-                    <span class="alg-text-yellow alg-text-h3">Currently Unavailable</span>
+                    <span class="alg-text-yellow alg-text-h3" id="qtyContainer">Currently Unavailable</span>
                     <span class="alg-bold alg-text-h3">We don't know when or if this item will be back in stock</span>
                 </div>
                 <div class="d-flex flex-column py-2">
-                    <span class="alg-text-p alg-text-blue alg-bold">Seller Name : Sirimal Kaldera</span>
-                    <span class="alg-text-h3">Brand Name : Jalthara Production</span>
+                    <span class="alg-text-p alg-text-blue alg-bold" id="sellerName">Seller Name : Sirimal Kaldera</span>
+                    <span class="alg-text-h3" id="brandName">Brand Name : Jalthara Production</span>
                 </div>
                 <div class="w-100 gap-2">
                     <span class="alg-text-yellow alg-text-p alg-bold">Compatibility :</span>
                     <div class="d-flex flex-row">
                         <div class="w-50 d-flex flex-column ">
-                            <span class="alg-text-h3">Car Market : HONDA</span>
-                            <span class="alg-text-h3">Year : 2018</span>
+                            <span class="alg-text-h3" id="carMaker">Car Market : HONDA</span>
+                            <span class="alg-text-h3" id="carYear">Year : 2018</span>
                             <div class="py-2 d-flex flex-column">
-                                <span class="alg-text-blue alg-text-h3">Part Number : ZRK3KS452 </span>
-                                <span class="alg-text-blue alg-text-h3">Class : Timing Belt </span>
+                                <span class="alg-text-blue alg-text-h3" id="ProductId">Part Number : ZRK3KS452 </span>
+                                <span class="alg-text-blue alg-text-h3" id="categotyItemName">Class : Timing Belt </span>
                             </div>
                         </div>
                         <div class="d-flex flex-column">
-                            <span class="alg-text-h3" id="Model">Model Line : FIT GP - 1</span>
-                            <span class="alg-text-h3">Modification : 1.6L </span>
-                            <span class="py-2 alg-text-blue alg-text-h3">Origin : Aftermarket </span>
+                            <span class="alg-text-h3" id="carModel">Model Line : FIT GP - 1</span>
+                            <span class="alg-text-h3" id="carModelLine">Modification : 1.6L </span>
+                            <span class="py-2 alg-text-blue alg-text-h3" id="carOrigin">Origin : Aftermarket </span>
                         </div>
                     </div>
                 </div>
