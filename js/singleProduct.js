@@ -22,8 +22,8 @@ const loadSingleProduct = async (parts_id) => {
       const data = productResponseData.result[0];
 
       // image slide handle
-      const modelMaker = document.getElementById(
-        "modelMaker"
+      const mainContainer = document.getElementById(
+        "singleProductSliderMainContainer"
       );
       const secondaryContainer = document.getElementById(
         "singleProductSliderSecondaryContainer"
@@ -31,7 +31,7 @@ const loadSingleProduct = async (parts_id) => {
       mainContainer.innerHTML = "";
       secondaryContainer.innerHTML = "";
 
-      modelMaker.textContent = data.result.name
+
 
       let index = 1;
       data.images.forEach((element) => {
@@ -67,20 +67,26 @@ const loadProductCatalog = async (modelHasId, categoryItemId) => {
     console.log(categoryItemId);
     const productResponse = await fetch(
       SERVER_URL +
-        "backend/api/productManupulateAPI.php?vh_model_has_id=" +
-        modelHasId +
-        "&vh_category_item_id=" +
-        categoryItemId
+      "backend/api/productManupulateAPI.php?vh_model_has_id=" +
+      modelHasId +
+      "&vh_category_item_id=" +
+      categoryItemId
     );
     const productResponseData = await productResponse.json();
 
-    // const productCatalogContainer = document.getElementById('productCatalogContainer');
-    // productCatalogContainer.innerHTML = "";
+    const relatedProductContainer = document.getElementById('relatedProductContainer');
 
     if (productResponseData.status === "success") {
       const result = productResponseData.result;
 
-      console.log(result);
+      result.map((element) => {
+        relatedProductContainer.innerHTML += `
+        
+                
+
+        `;
+      });
+
     } else {
       console.log(productResponseData.error);
     }
