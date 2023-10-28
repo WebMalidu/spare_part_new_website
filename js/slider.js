@@ -81,7 +81,7 @@ function promotionSliderLoader() {
   // Mount the slider
   splide1.mount();
 }
-function featureLoader(){
+function featureLoader() {
   var splide1 = new Splide("#slider-feature", {
     type: "loop",
     drag: "free",
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
   promotionSliderLoader();
   console.log("splide1 initialized");
 
-    
+
 
 
   console.log("splide initialized");
@@ -168,3 +168,16 @@ function singleProductSliderCreated() {
     },
   });
 }
+
+
+//single product javaScript slider
+var swiper = new Swiper(".single-product-Swiper", {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  freeMode: true,
+  navigator:true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
