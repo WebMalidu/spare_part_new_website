@@ -140,6 +140,15 @@ if (!isset($_GET["parts_id"], $_GET['vh_category_item_id'], $_GET['vh_model_id']
                 <span class="spv-s2-heading alg-text-h2 alg-text-blue alg-bolder">Featured Product</span>
             </div>
             <div>
+           
+
+                            <div id="slider-feature">
+            <div class="splide-featuretion" style="margin-left: 2%;margin-top:4%">
+    <div class="splide__track">
+        <ul class="splide__list" id="featuretion_list">
+            <!-- Your slide items for the 'splide-featuretion' slider go here -->
+          <li class="splide__slide">
+          
             <div class="spv-s2-container alg-rounded-small alg-shadow">
                                 <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
                                     <div class="spv-s2-box-top-img"></div>
@@ -150,6 +159,22 @@ if (!isset($_GET["parts_id"], $_GET['vh_category_item_id'], $_GET['vh_model_id']
                                     <div class="spv-s2-box-bottom-img"></div>
                                 </div>
                             </div>
+            
+                            </li>
+                            
+            <!-- Add more slides as needed -->
+        </ul>
+    </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
 
         </section>
     </div>
@@ -207,5 +232,6 @@ if (!isset($_GET["parts_id"], $_GET['vh_category_item_id'], $_GET['vh_model_id']
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.0.9/dist/js/splide.min.js"></script>
+
 
 </body>
