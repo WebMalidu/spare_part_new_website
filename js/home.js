@@ -1,4 +1,4 @@
-SERVER_URL="";
+SERVER_URL = "";
 document.addEventListener("DOMContentLoaded", () => {
     promotionLoder();
     loadCategory();
@@ -15,9 +15,14 @@ function promotionLoder() {
     fetch(SERVER_URL + "backend/api/productPromation.php", {
         method: "POST",
     })
-        .then((response) => response.json())
+        .then((response) => response.text())
         .then((data) => {
             // Handle the response data
+
+
+            console.log(data);
+            return
+
             if (data.status === "success") {
 
                 const imageUrls = data.imageUrls;
