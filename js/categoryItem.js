@@ -27,7 +27,7 @@ function loadCategoryItem(category_id) {
      console.log(category_id);
 
      // fetch request
-     fetch(SERVER_URL + "../../backend/api/categoryItemLoad.php?category_id=" + category_id + "&count=" + count, {
+     fetch(SERVER_URL + "backend/api/categoryItemLoad.php?category_id=" + category_id + "&count=" + count, {
           method: "GET",
           headers: {
                "Content-Type": "application/json",
