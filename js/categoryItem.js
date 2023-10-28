@@ -28,21 +28,16 @@ function loadCategoryItem(category_id) {
      // fetch request
      fetch(SERVER_URL + "backend/api/categoryItemLoad.php?category_id=" + category_id + "&count=" + count, {
           method: "GET",
-          headers: {
-               "Content-Type": "application/json",
-          },
+
      })
           .then((response) => {
-               // if (!response.ok) {
-               //      throw new Error(`HTTP error! Status: ${response.status}`);
-               // }
-               return response.text();
+               if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+               }
+               return response.json();
           })
           .then((data) => {
-
-               console.log(data);
-               return
-
+               
                const categoryItemContainer = document.getElementById("categoryItemContainer");
 
                if (data.status === "success") {
