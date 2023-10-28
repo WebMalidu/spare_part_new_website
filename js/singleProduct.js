@@ -22,14 +22,16 @@ const loadSingleProduct = async (parts_id) => {
       const data = productResponseData.result[0];
 
       // image slide handle
-      const mainContainer = document.getElementById(
-        "singleProductSliderMainContainer"
+      const modelMaker = document.getElementById(
+        "modelMaker"
       );
       const secondaryContainer = document.getElementById(
         "singleProductSliderSecondaryContainer"
       );
       mainContainer.innerHTML = "";
       secondaryContainer.innerHTML = "";
+
+      modelMaker.textContent = data.result.name
 
       let index = 1;
       data.images.forEach((element) => {

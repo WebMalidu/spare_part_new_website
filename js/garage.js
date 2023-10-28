@@ -306,7 +306,7 @@ const loadGarageData = async () => {
                                 <div class="d-flex justify-content-end gap-2 px-2">
                                      <span><i class="bi bi-trash3-fill"></i></span>
                             </div>
-                      <div class="d-flex justify-content-center"><img src="resources/image/vehicleModelImages/car.jpg" class="alg-category-img" alt="car_img"></div>
+                      <div class="d-flex justify-content-center"><img src="${element.model_image}" class="alg-category-img" alt="car_img"></div>
                            <div class="d-flex flex-column py-3 px-4 pt-4 categ-itm-sec">
                                 <span class="alg-text-p fw-bold">${element.vh_name}</span>
                                 <span class="alg-text-p">${element.vehicale}</span>
