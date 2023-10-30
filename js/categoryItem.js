@@ -1,5 +1,4 @@
-SERVER_URL = "http://localhost:9001/";
-
+SERVER_URL = "";
 document.addEventListener("DOMContentLoaded", () => {
      const category_id = document.body.dataset.category_id;
      loadCategoryItem(category_id)
@@ -27,11 +26,9 @@ function loadCategoryItem(category_id) {
      console.log(category_id);
 
      // fetch request
-     fetch(SERVER_URL + "../../backend/api/categoryItemLoad.php?category_id=" + category_id + "&count=" + count, {
+     fetch(SERVER_URL + "backend/api/categoryItemLoad.php?category_id=" + category_id + "&count=" + count, {
           method: "GET",
-          headers: {
-               "Content-Type": "application/json",
-          },
+
      })
           .then((response) => {
                if (!response.ok) {
@@ -40,6 +37,7 @@ function loadCategoryItem(category_id) {
                return response.json();
           })
           .then((data) => {
+               
                const categoryItemContainer = document.getElementById("categoryItemContainer");
 
                if (data.status === "success") {

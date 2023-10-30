@@ -1,11 +1,11 @@
 <?php
 
 // Include necessary files
-require_once("../../backend/model/database_driver.php");
-require_once("../../backend/model/response_sender.php");
-require_once("../../backend/model/fileSearch.php");
-require_once("../../backend/model/RequestHandler.php");
-require_once("../../backend/model/SessionManager.php");
+require_once("../model/database_driver.php");
+require_once("../model/response_sender.php");
+require_once("../model/fileSearch.php");
+require_once("../model/RequestHandler.php");
+require_once("../model/SessionManager.php");
 
 // Create a response object
 $responseObject = new stdClass();

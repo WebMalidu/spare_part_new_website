@@ -1,5 +1,4 @@
-SERVER_URL = "http://localhost:9001/";
-
+SERVER_URL = "";
 document.addEventListener("DOMContentLoaded", () => {
     promotionLoder();
     loadCategory();
@@ -11,13 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let imgpromo;
 function promotionLoder() {
-    console.log("hi");
 
     // Send the data to the server using Fetch
-    fetch("../../backend/api//productPromation.php", {
+    fetch(SERVER_URL + "backend/api/productPromation.php", {
         method: "POST",
     })
-        .then((response) => response.json())
+        .then((response) => response.text())
         .then((data) => {
             // Handle the response data
             if (data.status === "success") {
@@ -72,7 +70,7 @@ function promotionsingle(promovalue) {
 
     // Convert the number to an integer
     const parsedNumber = parseInt(number, 10);
-console.log(parsedNumber)
+    console.log(parsedNumber)
     const requestDataObject = {
         promotionId: parsedNumber,
     };
@@ -88,14 +86,14 @@ console.log(parsedNumber)
             // preform an action on response
             let response = JSON.parse(request.responseText);
             if (response.status == "success") {
-               // window.location.href = 'http://localhost:9001/frontend/singlePageView.php'; // Replace 'another_page.html' with the URL you want to navigate to
+                // window.location.href = 'http://localhost:9001/frontend/singlePageView.php'; // Replace 'another_page.html' with the URL you want to navigate to
             } else {
                 console.log(response.error);
             }
             console.log(request.responseText);
         }
     };
-    request.open("POST", "../../backend/api/promotionSingleLoad.php", true);
+    request.open("POST", SERVER_URL + "../backend/api/promotionSingleLoad.php", true);
     request.send(form);
 }
 
@@ -106,11 +104,13 @@ document.getElementById("loadButton").addEventListener("click", () => {
     loadCategory();
 });
 
+let categoryDataSet;
+
 function loadCategory() {
     // fetch request
     fetch(
         SERVER_URL +
-        "../../backend/api/categoriesLoad.php?categoryCount=" +
+        "../backend/api/categoriesLoad.php?categoryCount=" +
         categoryCount,
         {
             method: "GET",
@@ -127,7 +127,9 @@ function loadCategory() {
         })
         .then((data) => {
             const categoryContainer = document.getElementById("categoryContainer");
+            categoryDataSet = data;
 
+            
             if (data.status == "success") {
                 categoryContainer.innerHTML = "";
                 data.results.forEach((element) => {
@@ -152,7 +154,11 @@ function loadCategory() {
                     // categoryContainer.appendChild(categoryDiv);
                 });
 
+
+
             } // categoryContainer.appendChild(categoryDiv);
+
+
         });
 }
 
@@ -384,4 +390,35 @@ vehicleYearsContainer.addEventListener('change', async () => {
 
 });
 
+
+// category load
+let categoryLoadModel;
+function categoryLoad() {
+    categoryLoadModel = new bootstrap.Modal("#categoryLoad");
+    categoryLoadModel.show();
+
+    console.log(vehicleModelId);
+
+    const categoryContainer = document.getElementById('categoryContaine');
+    categoryContainer.innerHTML = "";
+    if (categoryDataSet.status === 'success') {
+        console.log(categoryDataSet.results);
+
+        categoryDataSet.results.map((item) => {
+            categoryContainer.innerHTML += `
+                            <div class="col-6 col-md-4 col-lg-2 alg-bg-category alg-shadow mb-1 rounded mt-3 mx-4 px-3 alg-card-hover">
+                                <a href="category.php?category_id=${item.category_id}" class="text-decoration-none">
+                                    <div class="d-flex flex-column align-items-center">
+                                        <img src="${item.category_image}" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
+                                        <span class="mt-1 p-3 fw-bold text-whit pb-5 alg-text-h3">${item.category_type}</span>
+                                    </div>
+                                </a>
+                            </div>
+            `;
+        });
+
+    }
+
+
+}
 
