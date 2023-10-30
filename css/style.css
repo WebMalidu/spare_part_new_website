@@ -345,12 +345,9 @@
   border: none;
   background-color: #0261ae;
   color: white;
-  transition: 1.4s ease;
+  transition: 0.7s ease;
 }
 
-.se3-btn:hover {
-  transform: scale(1.05);
-}
 
 /* Brand we trust section  */
 h5 {

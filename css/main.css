@@ -150,12 +150,28 @@
 }
 
 /* hover */
-.alg-button-hover {
-  transition: 1.2s ease;
+/* hero seection search */
+.alg-button-search-hover:hover{
+  background-color: #077cdb;
+}
+.alg-button-search-hover:active{
+  transform: scale(1.02);
+}
+/* header hover */
+.alg-button-header-hover:hover{
+  transform: scale(1.06);
+}
+
+.alg-button-hover{
+  transition: 0.7s ease;
+}
+.alg-button-hover:active {
+  transform: translateY(4px);
 }
 
 .alg-button-hover:hover {
-  transform: scale(1.04);
+  /* transform: scale(1.04); */
+  background-color: #077cdb;
 }
 
 .alg-card-hover {

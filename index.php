@@ -53,7 +53,7 @@
                     <div class="pb-3 pb-lg-0 pt-5">
                         <div class="hr-s1-search d-flex align-items-center pt-5">
                             <input type="text" class="col-10 col-lg-11 hr-se1-input px-3 p-2 hr-s1-rl mt-5" placeholder="Search here......" />
-                            <div class="col-2 col-lg-1 d-flex justify-content-center p-2 align-items-center hr-s1-rr alg-bg-blue mt-5"><i class="bi bi-search text-white"></i></div>
+                            <div class="col-2 col-lg-1 d-flex justify-content-center p-2 align-items-center hr-s1-rr alg-bg-blue mt-5 alg-button-search-hover"><i class="bi bi-search text-white"></i></div>
                         </div>
                     </div>
                     <div class="hr-s1-paragraph d-flex flex-column">
@@ -200,7 +200,7 @@
 
                 </div>
                 <div class="d-flex justify-content-center mt-5 p-3">
-                    <button class="se3-btn fw-semibold px-3 p-1 rounded-2 alg-text-h3" id="loadButton">Load More</button>
+                    <button class="se3-btn fw-semibold px-3 p-1 rounded-2 alg-text-h3 alg-button-hover" id="loadButton">Load More</button>
                 </div>
 
             </div>
