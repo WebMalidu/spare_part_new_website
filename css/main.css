@@ -166,7 +166,7 @@
   transition: 0.7s ease;
 }
 .alg-button-hover:active {
-  transform: translateY(4px);
+  transform: translateY(5px);
 }
 
 .alg-button-hover:hover {

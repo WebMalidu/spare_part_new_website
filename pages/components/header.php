@@ -198,12 +198,43 @@ if (isset($loggedUserData) && isset($loggedUserData["email"])) {
                          }
                          ?>
 
-                         <div class="d-flex justify-content-end col-12 mt-4">
-                              <div class="col-12 col-md-5 col-lg-3 text-center bg-white alg-text-h3 pt-1 pb-3 rounded-1 alg-shadow">
-                                   <span class="fw-bold">Order Summery</span>
+                         <div class="cart-shipping-main d-flex flex-column flex-lg-row justify-content-between p-lg-3  col-12 mt-4 gap-3">
+                              <div class="d-flex flex-column col-12  col-lg-8 gap-2 align-items-md-center">
+                                   <div class="alg-text-h2 alg-text-blue alg-bold text-center">Shipping Details</div>
+                                   <div class="w-100 d-flex d-flex justify-content-center">
+                                        <input class="W-100 cart-shipping-lg-input alg-rounded-small  border-primary" type="text" value="username">
+                                   </div>
+                                   <div class="w-100 d-flex gap-3 justify-content-center">
+                                        <input class="cart-shipping-sm-input alg-rounded-small  border-primary"  type="text" value="phone number">
+                                        <input class="cart-shipping-sm-input alg-rounded-small  border-primary"  type="text" value="postal code">
+                                   </div>
+                                   <div class="w-100 d-fle d-flex justify-content-center">
+                                        <input class="cart-shipping-lg-input alg-rounded-small  border-primary" type="text" value="address line 1">
+                                   </div>
+                                   <div class="w-100 d-flex d-flex justify-content-center">
+                                        <input class="cart-shipping-lg-input alg-rounded-small  border-primary" type="text" value="address line 2">
+                                   </div>
+                                   <div class="w-100  d-flex gap-3 justify-content-center">
+                                        <input class="cart-shipping-sm-input alg-rounded-small  border-primary"  type="text" value="city">
+                                        <input  class="cart-shipping-sm-input alg-rounded-small  border-primary" type="text" value="district">
+                                   </div>
+                                   <div class="w-100 d-flex d-flex justify-content-center">
+                                        <input class="cart-shipping-lg-input alg-rounded-small  border-primary" type="text" value="province">
+                                   </div>
+                                   <div class="d-flex justify-content-center gap-2">
+                                        <input class="cart-shipping-button alg-rounded-small alg-text-light alg-text-h3 alg-bg-blue alg-button-search-hover p-2 border-0" type="submit" value="Edit">
+                                        <input class="cart-shipping-button alg-rounded-small cart-shipping-button-save alg-text-h3 cart-shipping-button" type="submit" value="Save">
+                                   </div>
+                              </div>
+                              <div class="cart-ordering-main d-flex flex-column col-12  col-lg-3 text-center bg-white alg-text-h3 pt-1 pb-3 rounded-1 alg-shadow gap-3">
+                                   <span class="alg-text-h2 alg-text-blue fw-bold">Order Summery</span>
                                    <div class="d-flex justify-content-between mx-3 pb-1 pt-1">
                                         <span>Sub Total(5)</span>
                                         <span class="fw-bold">LKR 65000.00</span>
+                                   </div>
+                                   <div class="d-flex justify-content-between mx-3">
+                                        <span class="">Discount</span>
+                                        <span class="fw-bold">LKR 0.00</span>
                                    </div>
                                    <div class="d-flex justify-content-between border-bottom border-2 pb-1 mx-3">
                                         <span>Shipping Price</span>
@@ -213,8 +244,8 @@ if (isset($loggedUserData) && isset($loggedUserData["email"])) {
                                         <span class="fw-bold">Total</span>
                                         <span class="fw-bold">LKR 65360.00</span>
                                    </div>
-                                   <div class="d-grid mx-4 mt-3">
-                                        <button class="alg-bg-green border-0 rounded-1 text-white fw-bolder">Proceed To Checkout</button>
+                                   <div class="d-grid mx-4 mt-5">
+                                        <button class="alg-bg-blue  alg-text-h3 alg-button-hover border-0 rounded-1 text-white p-1 fw-bolder">Proceed To Checkout</button>
                                    </div>
                               </div>
                          </div>
