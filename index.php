@@ -32,6 +32,7 @@
     <script defer src="js/slider.js"></script>
     <script defer src="js/vehicleFetchData.js"></script>
     <script defer src="js/home.js"></script>
+    <script defer src="js/toast.js"></script>
 
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
@@ -61,7 +62,7 @@
                         <div class="col-12 hr-bd-parah m-0">
                             <div class=" row pb-md-3 pb-lg-0  p-0 gap-2 gap-md-0 gap-lg-0 pt-3 pt-md-0 pt-lg-0 pb-5">
                                 <div class="hr-s1-button col-12 col-md-6 col-lg-6 d-grid hr-bd-btn pb-2 pb-md-0">
-                                    <button class="main-btn-1 alg-bg-blue rounded-1 alg-text-h3 alg-button-hover fw-bold">ADD CAR</button>
+                                    <button class="main-btn-1 alg-bg-blue rounded-1 alg-text-h3 alg-button-hover fw-bold" onclick="toastLoad();">ADD CAR</button>
                                 </div>
                                 <div class="hr-s1-button col-12 col-md-6  col-lg-6  d-grid hr-bd-btn">
                                     <button class="main-btn-2 rounded-1 alg-text-h3 text-white">Learn More</button>
@@ -74,6 +75,9 @@
         </div>
     </section>
 
+    <!-- toast message -->
+    <div id="toastContainer"></div>
+
     <!-- social media links section -->
     <div class="d-flex justify-content-end py-4 align-items-center text-white">
         <div class="d-flex flex-column gap-2 fs-5 position-fixed alg-cursor alg-bg-blue p-2 rounded-2 f-social-media">
@@ -85,6 +89,7 @@
     </div>
     </div>
 
+    
     <!-- offer section -->
     <section class="offerSection py-2 py-lg-4" style="position: relative; z-index: 1;">
         <div class="container pb-5">
@@ -133,15 +138,14 @@
                 </div>
 
             </div>
-
-
-
-
-
-
-
         </div>
     </section>
+
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+
+    
 
     <!-- search section -->
     <section class="w-100 searchSectio alg-bg-light-blue bg-n py-2 py-lg-5">
@@ -157,7 +161,7 @@
                 <div class="col-12 d-flex flex-column flex-lg-row align-items-center justify-content-lg-center gap-3">
                     <div class="w-100">
                         <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example" id="vhMakerContainer">
-                            <option selected>Select Maker</option>
+                            <option selected>Select Mekar</option>
                         </select>
                     </div>
                     <div class="w-100">

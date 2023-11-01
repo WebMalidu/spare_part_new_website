@@ -34,6 +34,23 @@ const loadRelatedModelForUser = async (categoryItemId) => {
 
 }
 
+let count = 0;
+document.getElementById("next").addEventListener("click", () => {
+     count += 1;
+     load(count);
+})
+
+document.getElementById("previous").addEventListener("click", () => {
+     count -= 1;
+     load(count);
+})
+
+function load(x) {
+     count = x;
+     const category_id = document.body.dataset.category_id;
+     loadCategoryItem(category_id);
+}
+
 const loadProductCatalog = async (modelHasId, categoryItemId) => {
 
      try {
@@ -94,5 +111,7 @@ function getFirst15Words(inputString) {
      const resultString = first20WordsArray.join(" ");
      return resultString;
 }
+
+
 
 

@@ -398,25 +398,7 @@ if (isset($loggedUserData) && isset($loggedUserData["email"])) {
                                    <span class="alg-text-h2 fw-bold">Password Reset</span>
                                    <p class="alg-text-h3 text-black-50">We sent a code to abc@gmail.com</p>
 
-                                   <div class="text-start">
-                                        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                   
+                                   <div class="text-start">                                
                                         <span class="alg-text-h3 fw-semibold">Verification code</span>
                                         <span class="alg-text-h3 fw-semibold" id="verificationSendingTimeRunner">30</span>
                                         <input type="text" id="verification_code" class="ALG-model-input alg-text-h3 form-control rounded-3" placeholder="code" />
