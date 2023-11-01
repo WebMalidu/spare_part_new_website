@@ -72,7 +72,7 @@
 
         </div>
         <div class="cu-s2-button-box ">
-            <button class="cu-s2-button alg-bg-blue alg-text-light alg-rounded-small border-0">Submit</button>
+            <button class="alg-button-hover cu-s2-button alg-bg-blue alg-text-light alg-rounded-small  border-0">Submit</button>
         </div>
     </div>
 
