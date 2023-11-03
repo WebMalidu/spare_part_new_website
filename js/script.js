@@ -221,3 +221,21 @@ function signIn() {
   request.open("POST", "../backend/api/signIn.php", true);
   request.send(form);
 }
+
+class First15Words {
+
+  // constructor(inputString){
+
+  // }
+
+ static getFirst15Words(inputString) {
+       // Split the input string into an array of words using whitespace as the delimiter
+       const wordsArray = inputString.split(/\s+/);
+       // Take the first 20 elements from the array using the slice method
+       const first20WordsArray = wordsArray.slice(0, 8);
+       // Join the first 20 words back together into a new string using whitespace as a separator
+       const resultString = first20WordsArray.join(" ");
+       return resultString;
+  }
+
+}

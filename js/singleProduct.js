@@ -138,23 +138,36 @@ const loadProductCatalog = async (modelHasId, categoryItemId) => {
       const result = productResponseData.result;
 
       result.map((element) => {
+        let miniDescription =
+        First15Words.getFirst15Words(element.description) + "...";
+        
         productSliders.innerHTML += `
+
+
+     
+
                  
-                     <div class="swiper-slide">
-                        <div class="spv-s2-container alg-rounded-small alg-shadow">
-                          <a href="singlePageView.php?parts_id=${element.parts_id}&vh_category_item_id=${element.category_item_category_item_id}&vh_model_id=${element.vehicle_models_has_modification_line_mdu_id}">
-                            <div class="spv-s2-box-top d-flex justify-content-center align-items-center">
-                                <div class="spv-s2-box-top-img"></div>
-                            </div>
-                            <div class="spv-s2-box-bottom d-flex flex-column align-items-start alg-bg-dark-blue p-2 alg-rounded-under-small">
-                                <span class="alg-text-light alg-bolder alg-text-h3">${element.title}</span>
-                                <span class="alg-text-light alg-text-h3">Rs.${element.price}</span>
-                                <div class="spv-s2-box-bottom-img"></div>
-                            </div>
-                          </a>
+        <div class="swiper-slide">
+
+        <div class="alg-shadow mb-1 alg-bg-category-item rounded mt-3 mx-4 px alg-card-hover watchlist-hover" onclick="garageModel();">
+            <a href="singlePageView.php?parts_id=${element.parts_id}&vh_category_item_id=${element.category_item_category_item_id}&vh_model_id=${element.vehicle_models_has_modification_line_mdu_id}" class="text-decoration-none">
+                <div class="d-flex flex-column align-items-center justify-content-center">
+                    <span class="align-self-end"><i class="bi bi-heart-fill  watchlist-hovr "></i></span>
+                    <img src="resources/image/partsImages/partsId=pp_305615_categoryItemId=CTI_259049_image=3.jpg" alt="category" class="alg-category-im mt-4 mb-4 img-fluid d-flex" style="width:100px;height:60px;">
+                    <div class="d-flex flex-column profile-bg-gradient p-3 rounded categ-itm-sec text-start">
+                        <div class="d-flex gap-2 gap-lg-3">
+                            <span class="fw-bold text-white alg-text-p">${element.title}</span>
+                            <span class="fw-bold text-white alg-text-h3">LKR ${element.price}.00</span>
                         </div>
-                        
+                        <span class="alg-text-p text-white-50">${miniDescription}</span>
                     </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+
                      
         `;
       });

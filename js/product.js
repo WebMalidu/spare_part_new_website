@@ -51,12 +51,12 @@ function load(x) {
      loadCategoryItem(category_id);
 }
 
-const loadProductCatalog = async (modelHasId, categoryItemId) => {
+const loadProductCatalog = async (modelHasId, categoryItemId, count) => {
 
      try {
           console.log(modelHasId);
           console.log(categoryItemId);
-          const productResponse = await fetch(SERVER_URL + 'backend/api/productManupulateAPI.php?vh_model_has_id=' + modelHasId + "&vh_category_item_id=" + categoryItemId);
+          const productResponse = await fetch(SERVER_URL + 'backend/api/productManupulateAPI.php?vh_model_has_id=' + modelHasId + "&vh_category_item_id=" + categoryItemId + "&itemCount=" + count);
           const productResponseData = await productResponse.json();
 
 
@@ -64,11 +64,23 @@ const loadProductCatalog = async (modelHasId, categoryItemId) => {
           productCatalogContainer.innerHTML = "";
 
           if (productResponseData.status === 'success') {
+
+               // let paginationContainer = document.getElementById('paginationContainer');
+               // paginationContainer.innerHTML = "";
+
+
+               // for (let x = 0; x <= data.countPage - 1; x++) {
+               //      paginationContainer.innerHTML += `
+               //             <li class="page-item ${x == count ? 'active' : ''}" onclick="load('${x}');">
+               //                 <a class="page-link" href="#">${x + 1}</a>
+               //             </li>`;
+               // }
+
                const result = productResponseData.result;
 
                result.map((element) => {
                     let miniDescription =
-                         getFirst15Words(element.description) + "...";
+                         First15Words.getFirst15Words(element.description) + "...";
 
                     productCatalogContainer.innerHTML += `
                     <div class="col-6 col-md-4 col-lg-2 alg-shadow mb-1 alg-bg-category-item rounded mt-3 mx-4 px alg-card-hover watchlist-hover" onclick="garageModel();">
@@ -102,16 +114,15 @@ const loadProductCatalog = async (modelHasId, categoryItemId) => {
 }
 
 
-function getFirst15Words(inputString) {
-     // Split the input string into an array of words using whitespace as the delimiter
-     const wordsArray = inputString.split(/\s+/);
-     // Take the first 20 elements from the array using the slice method
-     const first20WordsArray = wordsArray.slice(0, 8);
-     // Join the first 20 words back together into a new string using whitespace as a separator
-     const resultString = first20WordsArray.join(" ");
-     return resultString;
-}
-
+// function getFirst15Words(inputString) {
+//      // Split the input string into an array of words using whitespace as the delimiter
+//      const wordsArray = inputString.split(/\s+/);
+//      // Take the first 20 elements from the array using the slice method
+//      const first20WordsArray = wordsArray.slice(0, 8);
+//      // Join the first 20 words back together into a new string using whitespace as a separator
+//      const resultString = first20WordsArray.join(" ");
+//      return resultString;
+// }
 
 
 
