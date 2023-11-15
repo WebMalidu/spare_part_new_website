@@ -25,7 +25,7 @@ if (!isset($_GET["parts_id"], $_GET['vh_category_item_id'], $_GET['vh_model_id']
     <link rel="stylesheet" href="css/style.css">
 
     <!-- icon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">y
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,6 +39,7 @@ if (!isset($_GET["parts_id"], $_GET['vh_category_item_id'], $_GET['vh_model_id']
     <script defer src="js/script.js"></script>
     <script defer src="js/slider.js"></script>
     <script defer src="js/singleProduct.js"></script>
+    <script defer src="js/product.js"></script>
 
 
 </head>
@@ -142,10 +143,10 @@ if (!isset($_GET["parts_id"], $_GET['vh_category_item_id'], $_GET['vh_model_id']
                 <span class="spv-s2-heading alg-text-h2 alg-text-blue alg-bolder">Featured Product</span>
             </div>
             <!-- swiper feture product slider -->
-            <div class="swiper single-product-Swiper">
+            <div class="swiperCategory swiper single-product-Swiper">
                 <div class="swiper-wrapper pt-2 pb-2" id="productSliders">
                     <!-- slider goes here -->
-
+                   
                 </div>
             </div>
         </section>

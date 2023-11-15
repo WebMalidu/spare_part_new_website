@@ -82,11 +82,23 @@ const loadProductCatalog = async (modelHasId, categoryItemId, stockId = "1", ori
           brandCheckBoxNameContainer.innerHTML = "";
 
           if (productResponseData.status === 'success') {
+
+               // let paginationContainer = document.getElementById('paginationContainer');
+               // paginationContainer.innerHTML = "";
+
+
+               // for (let x = 0; x <= data.countPage - 1; x++) {
+               //      paginationContainer.innerHTML += `
+               //             <li class="page-item ${x == count ? 'active' : ''}" onclick="load('${x}');">
+               //                 <a class="page-link" href="#">${x + 1}</a>
+               //             </li>`;
+               // }
+
                const result = productResponseData.result;
 
                result.map((element) => {
                     let miniDescription =
-                         getFirst15Words(element.description) + "...";
+                         First15Words.getFirst15Words(element.description) + "...";
 
                     productCatalogContainer.innerHTML += `
                     <div class="col-6 col-md-4 col-lg-2 alg-shadow mb-1 alg-bg-category-item rounded mt-3 mx-4 px alg-card-hover watchlist-hover" onclick="garageModel();">

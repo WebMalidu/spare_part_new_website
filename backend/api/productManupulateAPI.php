@@ -23,6 +23,16 @@ $searchEngine = new AdvancedSearchEngine();
 
 $db = new database_driver();
 
+// pagenation
+// $num = $resultSets->num_rows;
+// $perPageCount = 12;
+// $pageCount = 0;
+
+// $pageCount = ceil($num / $perPageCount);
+// $responseObject->countPage = $pageCount;
+
+// $pageOffset = $perPageCount * $count;
+
 //handle the request
 //single product load and all product load 
 //you want to parse GET method

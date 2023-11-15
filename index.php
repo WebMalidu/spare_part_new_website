@@ -141,12 +141,7 @@
         </div>
     </section>
 
-    <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
-    </div>
-
-    
-
+ 
     <!-- search section -->
     <section class="w-100 searchSectio alg-bg-light-blue bg-n py-2 py-lg-5">
         <div class="container searchSection-mainContainer pb-5">
