@@ -274,7 +274,7 @@ async function dataAddingForGarage(modelHasId) {
           const form = new FormData();
           form.append('modelHasId', modelHasId);
 
-          const garageResponse = await fetch(SERVER_URL + '../backend/api/garageAPI.php', {
+          const garageResponse = await fetch(SERVER_URL + 'backend/api/garageAPI.php', {
                method: 'POST',
                body: form
           });
@@ -292,7 +292,7 @@ const loadGarageData = async () => {
      let garage = '';
 
      try {
-          const garageDataResponse = await fetch(SERVER_URL + '../backend/api/garageAPI.php');
+          const garageDataResponse = await fetch(SERVER_URL + 'backend/api/garageAPI.php');
           const garageResult = await garageDataResponse.json();
 
           if (garageResult.status === 'success') {

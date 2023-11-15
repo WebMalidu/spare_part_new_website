@@ -58,7 +58,7 @@ function promotionLoder() {
 }
 
 function promotionsingle(promovalue) {
-    console.log(promovalue);
+    // console.log(promovalue);
     // Regular expression pattern to match a number
     // Split the URL by '/' and get the last part
     const parts = promovalue.split("/");
@@ -110,7 +110,7 @@ function loadCategory() {
     // fetch request
     fetch(
         SERVER_URL +
-        "../backend/api/categoriesLoad.php?categoryCount=" +
+        "backend/api/categoriesLoad.php?categoryCount=" +
         categoryCount,
         {
             method: "GET",
@@ -143,23 +143,9 @@ function loadCategory() {
                  </div>
                  </a>
                  </div>`
-                    //  let categoryId = document.body.dataset.category;
+              });
 
-
-                    // // Attach a click event listener
-                    // categoryDiv.onclick = function() {
-                    //     loadCategoryItem(element.category_id);
-                    // };
-
-
-                    // categoryContainer.appendChild(categoryDiv);
-                });
-
-
-
-            } // categoryContainer.appendChild(categoryDiv);
-
-
+            } 
         });
 }
 
@@ -339,7 +325,7 @@ vehicleYearsContainer.addEventListener('change', async () => {
         `<option selected>Loading.....</option>`;
 
 
-    setTimeout(async() => {
+    setTimeout(async () => {
         const vehicleYearId = vehicleYearsContainer.value;
         // const makerId = makersSelector.value;
         const nameId = vehicleModelNameSelector.value;
@@ -416,18 +402,71 @@ vehicleYearsContainer.addEventListener('change', async () => {
 });
 
 
+
+
+//onclick and save vehicle model
+//insert my garage for this data
+async function addCarGarage() {
+    const modificationId = modificationContainer.value;
+
+    const data = await vehicleDataFetch();
+
+    if (data && data.vehicleModelModificationData) {
+        const vhModificationData = data.vehicleModelModificationData;
+
+        //check condition and modification
+        if (vhModificationData.status === 'success') {
+            const result = vhModificationData.results;
+
+            //filter and get new array
+            const relatedModelHasId = result.filter((res) => res.vh_model_id === vehicleModelId && res.vh_modification_id === modificationId).map((newRes) => newRes.vh_mdu_id);
+
+            //call save function
+            dataAddingForGarage(relatedModelHasId[0]);
+
+
+        } else {
+            console.log(vhModificationData.error);
+        }
+
+    } else {
+        console.log('vehicleModelModificationData does not exist or is undefined');
+    }
+}
+
+
+
+
+//data add to garage
+async function dataAddingForGarage(modelHasId) {
+    try {
+        const form = new FormData();
+        form.append('modelHasId', modelHasId);
+
+        const garageResponse = await fetch(SERVER_URL + 'backend/api/garageAPI.php', {
+            method: 'POST',
+            body: form
+        });
+        garageData = await garageResponse.json();
+        //then get now response manege
+        garageData.status === 'success' ? categoryLoad() : console.log(garageData.error);
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
 // category load
 let categoryLoadModel;
 function categoryLoad() {
+
     categoryLoadModel = new bootstrap.Modal("#categoryLoad");
     categoryLoadModel.show();
-
-    console.log(vehicleModelId);
 
     const categoryContainer = document.getElementById('categoryContaine');
     categoryContainer.innerHTML = "";
     if (categoryDataSet.status === 'success') {
-        console.log(categoryDataSet.results);
 
         categoryDataSet.results.map((item) => {
             categoryContainer.innerHTML += `

@@ -23,7 +23,6 @@ function load(x) {
 
 // load items
 function loadCategoryItem(category_id) {
-     console.log(category_id);
 
      // fetch request
      fetch(SERVER_URL + "backend/api/categoryItemLoad.php?category_id=" + category_id + "&count=" + count, {
@@ -37,7 +36,7 @@ function loadCategoryItem(category_id) {
                return response.json();
           })
           .then((data) => {
-               
+
                const categoryItemContainer = document.getElementById("categoryItemContainer");
 
                if (data.status === "success") {

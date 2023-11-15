@@ -35,18 +35,20 @@ if (RequestHandler::isGetMethod()) {
      if (isset($_GET['vh_model_has_id']) && isset($_GET['vh_category_item_id'])) {
           $vehicleModelId = $_GET['vh_model_has_id'];
           $vehicleCategoryItemId = $_GET['vh_category_item_id'];
-          $vehiclePartsOriginId = isset($_GET['vh_origin_id']) ? $_GET['vh_origin_id'] : null;
-          $vehiclePartsStatusId = isset($_GET['vh_status_id']) ? $_GET['vh_status_id'] : null;
+          $vehiclePartsOriginId = $_GET['vh_origin_id'];
+          $vehiclePartsStatusId = $_GET['vh_status_id'];
+          // $vehiclePartsOriginId = isset($_GET['vh_origin_id']) ? $_GET['vh_origin_id'] : null;
+          // $vehiclePartsStatusId = isset($_GET['vh_status_id']) ? $_GET['vh_status_id'] : null;
 
 
-          //if we not parse the value then get the default value
-          if ($vehiclePartsOriginId === null || empty($vehiclePartsOriginId)) {
-               $vehiclePartsOriginId = '1';
-          }
+          // //if we not parse the value then get the default value
+          // if ($vehiclePartsOriginId === null || empty($vehiclePartsOriginId)) {
+          //      $vehiclePartsOriginId = '1';
+          // }
 
-          if ($vehiclePartsStatusId === null || empty($vehiclePartsStatusId)) {
-               $vehiclePartsStatusId = '1';
-          }
+          // if ($vehiclePartsStatusId === null || empty($vehiclePartsStatusId)) {
+          //      $vehiclePartsStatusId = '1';
+          // }
 
           //advance sigle product load 
           $responseDataArray = $searchEngine->searchRelatedProductCatalog($vehiclePartsOriginId, $vehiclePartsStatusId, $vehicleModelId, $vehicleCategoryItemId);

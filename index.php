@@ -180,7 +180,7 @@
                         </select>
                     </div>
                     <div class="w-100 d-grid">
-                        <button class="rounded-2 border-0 fw-bold text-light searchSection-butto alg-bg-blue p-2 alg-button-hover" onclick="categoryLoad();">SEARCH PARTS </button>
+                        <button class="rounded-2 border-0 fw-bold text-light searchSection-butto alg-bg-blue p-2 alg-button-hover" onclick="addCarGarage();">SEARCH PARTS </button>
                     </div>
                 </div>
             </div>
