@@ -58,7 +58,7 @@ $rows = [];
 $imageUrls = [];
 
 // Fetch all rows from the result and store them in the 'rows' array
-while ($row = $searchResult['result']->fetch_assoc()) {
+while ($row = $searchResult->fetch_assoc()) {
     $rows[] = $row;
 
     $fileName = strval($row['promotion_id']);
