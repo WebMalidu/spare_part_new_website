@@ -15,7 +15,7 @@ function promotionLoder() {
     fetch(SERVER_URL + "backend/api/productPromation.php", {
         method: "POST",
     })
-        .then((response) => response.text())
+        .then((response) => response.json())
         .then((data) => {
             // Handle the response data
             if (data.status === "success") {
