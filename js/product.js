@@ -2,10 +2,12 @@ SERVER_URL = "";
 //main dom loader
 document.addEventListener("DOMContentLoaded", () => {
      const categoryItemId = document.body.dataset.category_item_id;
+     id = categoryItemId;
      loadRelatedModelForUser(categoryItemId);
      loadCategory();
 });
 let modelHasId;
+let id;
 
 const loadRelatedModelForUser = async (categoryItemId) => {
 
@@ -20,6 +22,8 @@ const loadRelatedModelForUser = async (categoryItemId) => {
 
                //check length for result array 
                const length = resultArr.length;
+
+
 
                //if length more than 1 then open vh select model
                if (length > 1) {
@@ -59,18 +63,16 @@ document.getElementById("previous").addEventListener("click", () => {
 
 function load(x) {
      count = x;
-     const category_id = document.body.dataset.category_id;
-     loadCategoryItem(category_id);
+     console.log(count);
+     loadProductCatalog(modelHasId, id);
 }
 
-
-let brandId;
 //load all product catalog
 const loadProductCatalog = async (modelHasId, categoryItemId, stockId = "1", originId = "1") => {
-
      try {
           const productResponse = await fetch(SERVER_URL + 'backend/api/productManupulateAPI.php?vh_model_has_id=' + modelHasId + "&vh_category_item_id=" + categoryItemId + "&vh_status_id=" + stockId + "&vh_origin_id=" + originId);
           const productResponseData = await productResponse.json();
+
 
 
           const productCatalogContainer = document.getElementById('productCatalogContainer');
@@ -83,20 +85,33 @@ const loadProductCatalog = async (modelHasId, categoryItemId, stockId = "1", ori
 
           if (productResponseData.status === 'success') {
 
-               // let paginationContainer = document.getElementById('paginationContainer');
-               // paginationContainer.innerHTML = "";
-
-
-               // for (let x = 0; x <= data.countPage - 1; x++) {
-               //      paginationContainer.innerHTML += `
-               //             <li class="page-item ${x == count ? 'active' : ''}" onclick="load('${x}');">
-               //                 <a class="page-link" href="#">${x + 1}</a>
-               //             </li>`;
-               // }
-
                const result = productResponseData.result;
 
-               result.map((element) => {
+               const perPageCount = 12;
+               const startIndex = count * perPageCount;
+               const endIndex = startIndex + perPageCount;
+               const paginatedResults = result.slice(startIndex, endIndex);
+
+
+               let lenght = result.length
+               let divide = lenght / perPageCount;
+               let number = Math.ceil(divide);
+
+               let paginationContainer = document.getElementById('paginationContainer');
+               paginationContainer.innerHTML = "";
+               page = 0;
+
+               for (let x = 0; x <= number - 1; x++) {
+                    paginationContainer.innerHTML += `
+                        <li class="page-item ${x == count ? 'active' : ''}" onclick="load(${x});">
+                            <a class="page-link" href="#">${x + 1}</a>
+                        </li>`;
+               }
+
+               let brandId = [];
+               let brandName = [];
+
+               paginatedResults.map((element) => {
                     let miniDescription =
                          First15Words.getFirst15Words(element.description) + "...";
 
@@ -117,38 +132,28 @@ const loadProductCatalog = async (modelHasId, categoryItemId, stockId = "1", ori
                             </a>
                         </div>
                     `
+                    brandName.push(element.brand_name);
+                    brandId.push(element.brand_id);
+               });
 
+
+               //brand filtering
+               let setId = new Set(brandId);
+               const brandIdSet = Array.from(setId);
+
+               brandIdSet.map((item) => {
                     brandCheckBoxContainer.innerHTML += `
-                    <input class="form-check-input"  for="brand" value="${element.brand_id}" type="checkbox" name="brandCheck">
-                    `;
-
-                    brandCheckBoxNameContainer.innerHTML += `
-                    <span class="alg-text-h3  alg-text-light">${element.brand_name}</span>
+                    <input class="form-check-input"  for="brand" value="${item}" type="checkbox" name="brandCheck">
                     `;
                });
-               
 
-               result.filter((res) => res.brand_id === brandId).map((element) => {
-                    let miniDescription =
-                         getFirst15Words(element.description) + "...";
+               let setNames = new Set(brandName);
+               const brandNameSet = Array.from(setNames);
 
-                    productCatalogContainer.innerHTML += `
-                    <div class="col-6 col-md-4 col-lg-2 alg-shadow mb-1 alg-bg-category-item rounded mt-3 mx-4 px alg-card-hover watchlist-hover" onclick="garageModel();">
-                       <a href="singlePageView.php?parts_id=${element.parts_id}&vh_category_item_id=${element.category_item_category_item_id}&vh_model_id=${element.vehicle_models_has_modification_line_mdu_id}" class="text-decoration-none">
-                           <div class="d-flex flex-column align-items-center justify-content-center">
-                               <span class="align-self-end"><i class="bi bi-heart-fill  watchlist-hovr"></i></span>
-                               <img src="resources/image/partsImages/partsId=${element.parts_id}_categoryItemId=${element.category_item_category_item_id}_image=1.jpg" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
-                               <div class="d-flex flex-column profile-bg-gradient p-3 rounded categ-itm-sec">
-                                   <div class="d-flex gap-2 gap-lg-3">
-                                       <span class="fw-bold text-white alg-text-p">${element.title}</span>
-                                       <span class="fw-bold text-white alg-text-h3">LKR ${element.price}.00</span>
-                                   </div>
-                                   <span class="alg-text-p text-white-50">${miniDescription}</span>
-                               </div>
-                           </div>
-                       </a>
-                    </div>
-               `
+               brandNameSet.map((item) => {
+                    brandCheckBoxNameContainer.innerHTML += `
+                    <span class="alg-text-h3  alg-text-light">${item}</span>
+                    `;
                });
 
 
@@ -161,6 +166,84 @@ const loadProductCatalog = async (modelHasId, categoryItemId, stockId = "1", ori
 
           console.log(error);
      }
+}
+
+let hasRunBrandChecked = false;
+let hasRunBrandUnChecked = false;
+
+function clearInnerHTMl() {
+     if (!hasRunBrandChecked) {
+          console.log("run once");
+          productCatalogContainer.innerHTML = "";
+          hasRunBrandChecked = true;
+     } else {
+          console.log('already run');
+
+     }
+}
+function clearInnerHTMlBrandUnChecked() {
+     if (!hasRunBrandUnChecked) {
+          console.log("run once uncked");
+          productCatalogContainer.innerHTML = "";
+          hasRunBrandUnChecked = true;
+     } else {
+          console.log('already run');
+
+     }
+}
+
+const relatedBrandSearch = (brandId) => {
+     resultSet.filter((res) => res.brand_id === brandId).map((element) => {
+          let miniDescription =
+               getFirst15Words(element.description) + "...";
+
+
+          // productCatalogContainer.innerHTML = "";
+          productCatalogContainer.innerHTML += `
+          <div class="col-6 col-md-4 col-lg-2 alg-shadow mb-1 alg-bg-category-item rounded mt-3 mx-4 px alg-card-hover watchlist-hover" onclick="garageModel();">
+             <a href="singlePageView.php?parts_id=${element.parts_id}&vh_category_item_id=${element.category_item_category_item_id}&vh_model_id=${element.vehicle_models_has_modification_line_mdu_id}" class="text-decoration-none">
+                 <div class="d-flex flex-column align-items-center justify-content-center">
+                     <span class="align-self-end"><i class="bi bi-heart-fill  watchlist-hovr"></i></span>
+                     <img src="resources/image/partsImages/partsId=${element.parts_id}_categoryItemId=${element.category_item_category_item_id}_image=1.jpg" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
+                     <div class="d-flex flex-column profile-bg-gradient p-3 rounded categ-itm-sec">
+                         <div class="d-flex gap-2 gap-lg-3">
+                             <span class="fw-bold text-white alg-text-p">${element.title}</span>
+                             <span class="fw-bold text-white alg-text-h3">LKR ${element.price}.00</span>
+                         </div>
+                         <span class="alg-text-p text-white-50">${miniDescription}</span>
+                     </div>
+                 </div>
+             </a>
+          </div>
+     `
+     });
+}
+
+const uncheckedBrandSearch = (brandId) => {
+     resultSet.filter((res) => res.brand_id != brandId).map((element) => {
+          let miniDescription =
+               getFirst15Words(element.description) + "...";
+
+
+          // productCatalogContainer.innerHTML = "";
+          productCatalogContainer.innerHTML += `
+          <div class="col-6 col-md-4 col-lg-2 alg-shadow mb-1 alg-bg-category-item rounded mt-3 mx-4 px alg-card-hover watchlist-hover" onclick="garageModel();">
+             <a href="singlePageView.php?parts_id=${element.parts_id}&vh_category_item_id=${element.category_item_category_item_id}&vh_model_id=${element.vehicle_models_has_modification_line_mdu_id}" class="text-decoration-none">
+                 <div class="d-flex flex-column align-items-center justify-content-center">
+                     <span class="align-self-end"><i class="bi bi-heart-fill  watchlist-hovr"></i></span>
+                     <img src="resources/image/partsImages/partsId=${element.parts_id}_categoryItemId=${element.category_item_category_item_id}_image=1.jpg" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
+                     <div class="d-flex flex-column profile-bg-gradient p-3 rounded categ-itm-sec">
+                         <div class="d-flex gap-2 gap-lg-3">
+                             <span class="fw-bold text-white alg-text-p">${element.title}</span>
+                             <span class="fw-bold text-white alg-text-h3">LKR ${element.price}.00</span>
+                         </div>
+                         <span class="alg-text-p text-white-50">${miniDescription}</span>
+                     </div>
+                 </div>
+             </a>
+          </div>
+     `
+     });
 }
 
 //keyword minimized
@@ -301,10 +384,14 @@ const checkboxContainer = document.getElementById('brandCheckBoxContainer');
 checkboxContainer.addEventListener('change', (e) => {
      if (e.target.type === 'checkbox' && e.target.name === 'brandCheck') {
           if (e.target.checked) {
+               clearInnerHTMl();
                const brand_Id = e.target.value;
+               relatedBrandSearch(brand_Id);
 
-               brandId = brand_Id;
-               console.log(brandId);
+          } else {
+               clearInnerHTMlBrandUnChecked()
+               const brand_Id = e.target.value;
+               uncheckedBrandSearch(brand_Id);
           }
 
      }

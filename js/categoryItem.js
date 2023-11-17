@@ -40,7 +40,7 @@ function loadCategoryItem(category_id) {
                const categoryItemContainer = document.getElementById("categoryItemContainer");
 
                if (data.status === "success") {
-                    console.log(data.results);
+               
 
                     let paginationContainer = document.getElementById('paginationContainer');
                     paginationContainer.innerHTML = "";

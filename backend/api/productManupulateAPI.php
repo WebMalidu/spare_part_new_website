@@ -47,18 +47,7 @@ if (RequestHandler::isGetMethod()) {
           $vehicleCategoryItemId = $_GET['vh_category_item_id'];
           $vehiclePartsOriginId = $_GET['vh_origin_id'];
           $vehiclePartsStatusId = $_GET['vh_status_id'];
-          // $vehiclePartsOriginId = isset($_GET['vh_origin_id']) ? $_GET['vh_origin_id'] : null;
-          // $vehiclePartsStatusId = isset($_GET['vh_status_id']) ? $_GET['vh_status_id'] : null;
-
-
-          // //if we not parse the value then get the default value
-          // if ($vehiclePartsOriginId === null || empty($vehiclePartsOriginId)) {
-          //      $vehiclePartsOriginId = '1';
-          // }
-
-          // if ($vehiclePartsStatusId === null || empty($vehiclePartsStatusId)) {
-          //      $vehiclePartsStatusId = '1';
-          // }
+          // $count = $_GET['count'];
 
           //advance sigle product load 
           $responseDataArray = $searchEngine->searchRelatedProductCatalog($vehiclePartsOriginId, $vehiclePartsStatusId, $vehicleModelId, $vehicleCategoryItemId);
@@ -91,7 +80,6 @@ if (RequestHandler::isGetMethod()) {
           $responseObject->status = "success";
           $responseObject->result = $responseDataArray;
           response_sender::sendJson($responseObject);
-          
      } else {
           // we can load all product in this
           $result = $searchEngine->searchAllProduct();

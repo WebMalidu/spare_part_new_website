@@ -55,8 +55,8 @@ if (!isset($_GET["category_item_id"])) {
                     <span class="alg-text-h3 alg-bolder alg-text-light m-4">Stock</span>
                     <div class="d-flex flex-row justify-content-center gap-4 py-2">
                         <div class="d-flex flex-column gap-2" id="stockInputContainer">
-                            <input class="form-check-input" for="inStock"  id="productStatusCheckbox1" checked value="1" name="stockCheckbox" type="radio" >
-                            <input class="form-check-input" for="outOfStock" id="productStatusCheckbox2"  name="stockCheckbox" type="radio" value="2" >
+                            <input class="form-check-input" for="inStock" id="productStatusCheckbox1" checked value="1" name="stockCheckbox" type="radio">
+                            <input class="form-check-input" for="outOfStock" id="productStatusCheckbox2" name="stockCheckbox" type="radio" value="2">
                         </div>
                         <div class="d-flex flex-column  gap-2" id="stockNameContainer">
                             <span class="alg-text-h3 alg-text-light" for="inStock">In a Stock</span>
@@ -86,7 +86,7 @@ if (!isset($_GET["category_item_id"])) {
                 <div class="cp-side-bar-s3-content">
                     <span class="alg-text-h3 alg-bolder alg-text-light m-4">Product Brand</span>
                     <div class="d-flex flex-row justify-content-center py-2 gap-4">
-                        <div class="d-flex flex-column justify-content-around gap-2"  id="brandCheckBoxContainer">
+                        <div class="d-flex flex-column justify-content-around gap-2" id="brandCheckBoxContainer">
                             <!-- container goes here -->
 
                         </div>
@@ -266,7 +266,7 @@ if (!isset($_GET["category_item_id"])) {
                                 </a>
                             </li>
                             <span class="d-flex" id="paginationContainer">
-
+                                <!-- pagination goes here -->
                             </span>
                             <li class="page-item" id="next">
                                 <a class="page-link" href="#" aria-label="Next">
