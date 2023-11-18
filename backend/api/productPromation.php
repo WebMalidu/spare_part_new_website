@@ -1,11 +1,11 @@
 <?php
 
 // Include necessary files
-require_once("../../backend/model/database_driver.php");
-require_once("../../backend/model/response_sender.php");
-require_once("../../backend/model/fileSearch.php");
-require_once("../../backend/model/RequestHandler.php");
-require_once("../../backend/model/SessionManager.php");
+require_once("../model/database_driver.php");
+require_once("../model/response_sender.php");
+require_once("../model/fileSearch.php");
+require_once("../model/RequestHandler.php");
+require_once("../model/SessionManager.php");
 
 // Create a response object
 $responseObject = new stdClass();
@@ -13,8 +13,8 @@ $responseObject->status = 'failed';
 
 // Check if the request is a POST method
 if (!RequestHandler::isPostMethod()) {
-     $responseObject->error = "Invalid request";
-     response_sender::sendJson($responseObject);
+    $responseObject->error = "Invalid request";
+    response_sender::sendJson($responseObject);
 }
 
 
@@ -29,11 +29,11 @@ $selectQuery = "SELECT *
                JOIN `category_item` ci ON vp.category_item_category_item_id=ci.category_item_id
                JOIN `parts_status` ps ON vp.parts_status_parts_status_id=ps.parts_status_id
                JOIN `brand` br ON vp.brand_brand_id=br.brand_id
-               WHERE pp.`product_promotion_status_p_promotion_status_id` = ?";
+               WHERE pp.`product_promotion_status_p_promotion_status_id` = 1";
 
 
 // Execute the SQL query and bind user ID as a parameter
-$searchResult = $database_driver->execute_query($selectQuery, 'i', array(1));
+$searchResult = $database_driver->query($selectQuery);
 
 
 
@@ -58,7 +58,7 @@ $rows = [];
 $imageUrls = [];
 
 // Fetch all rows from the result and store them in the 'rows' array
-while ($row = $searchResult['result']->fetch_assoc()) {
+while ($row = $searchResult->fetch_assoc()) {
     $rows[] = $row;
 
     $fileName = strval($row['promotion_id']);
@@ -82,8 +82,3 @@ $responseObject->imageUrls = $imageUrls;
 
 // Send the JSON response using the 'response_sender' class
 response_sender::sendJson($responseObject);
-
-
-
-
-

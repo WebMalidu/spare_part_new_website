@@ -35,6 +35,7 @@ if (!isset($_GET["category_item_id"])) {
     <script defer src="js/bootstrap.bundle.js"></script>
     <script defer src="js/script.js"></script>
     <script defer src="js/slider.js"></script>
+    <script defer src="js/vehicleFetchData.js"></script>
     <script defer src="js/product.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </head>
@@ -51,81 +52,46 @@ if (!isset($_GET["category_item_id"])) {
             <!-- side bar section 1 -->
             <div class="cp-side-bar-s1">
                 <div class="cp-side-bar-s1-content">
-                    <span class="alg-text-h3 alg-bolder alg-text-light m-4">Orgin</span>
+                    <span class="alg-text-h3 alg-bolder alg-text-light m-4">Stock</span>
+                    <div class="d-flex flex-row justify-content-center gap-4 py-2">
+                        <div class="d-flex flex-column gap-2" id="stockInputContainer">
+                            <input class="form-check-input" for="inStock" id="productStatusCheckbox1" checked value="1" name="stockCheckbox" type="radio">
+                            <input class="form-check-input" for="outOfStock" id="productStatusCheckbox2" name="stockCheckbox" type="radio" value="2">
+                        </div>
+                        <div class="d-flex flex-column  gap-2" id="stockNameContainer">
+                            <span class="alg-text-h3 alg-text-light" for="inStock">In a Stock</span>
+                            <span class="alg-text-h3 alg-text-light" for="outOfStock">Out of Stock</span>
+                        </div>
+                    </div>
+                    <hr class="alg-text-light" style="border-top: 3px solid ;">
+                </div>
+            </div>
+            <div class="cp-side-bar-s1">
+                <div class="cp-side-bar-s1-content">
+                    <span class="alg-text-h3 alg-bolder alg-text-light m-4">Origin</span>
                     <div class="d-flex flex-row justify-content-center gap-4 py-2">
                         <div class="d-flex flex-column gap-2">
-                            <input class="form-check-input" type="checkbox">
-                            <input class="form-check-input" type="checkbox">
+                            <input class="form-check-input " name="originCheckbox" id="originCheckbox1" for="brandNew" checked type="radio" value="1">
+                            <input class="form-check-input" name="originCheckbox" id="originCheckbox2" for="used" type="radio" value="2">
                         </div>
-                        <div class="d-flex flex-column  gap-2">
-                            <span class="alg-text-h3 alg-text-light">Aftermarket (30)</span>
-                            <span class="alg-text-h3 alg-text-light">OEM (6)</span>
+                        <div class="d-flex flex-column  gap-2" id="originNameContainer">
+                            <span class="alg-text-h3 alg-text-light" for="brandNew">Brand new</span>
+                            <span class="alg-text-h3 alg-text-light" for="used">Used</span>
                         </div>
                     </div>
                     <hr class="alg-text-light" style="border-top: 3px solid ;">
                 </div>
             </div>
-            <!-- side bar section 2 -->
-            <div class="cp-side-bar-s2">
-                <div class="cp-side-bar-s2-content">
-                    <span class="alg-text-h3 alg-bolder alg-text-light m-4">Garage</span>
-                    <div class="d-flex flex-column  gap-4 p-3">
-                        <select class="cp-side-bar-s2-checkbox alg-text-h3 alg-text-blue alg-rounded-small" name="" id="">
-                            <option class="" value="" disabled selected>select the maker</option>
-                            <option value="">test 1</option>
-                            <option value="">test 2</option>
-                            <option value="">test 3</option>
-                        </select>
-                        <select class="cp-side-bar-s2-checkbox alg-text-h3 alg-text-blue alg-rounded-small" name="" id="">
-                            <option value="" disabled selected>select model</option>
-                            <option value="">test 4</option>
-                            <option value="">test 5</option>
-                            <option value="">test 6</option>
-                        </select>
-                        <select class="cp-side-bar-s2-checkbox alg-text-h3 alg-text-blue alg-rounded-small" name="" id="">
-                            <option value="" disabled selected>manufacturing year</option>
-                            <option value="">test 4</option>
-                            <option value="">test 5</option>
-                            <option value="">test 6</option>
-                        </select>
-                        <select class="cp-side-bar-s2-checkbox alg-text-h3 alg-text-blue alg-rounded-small" name="" id="">
-                            <option value="" disabled selected>select modification</option>
-                            <option value="">test 4</option>
-                            <option value="">test 5</option>
-                            <option value="">test 6</option>
-                        </select>
-                    </div>
-                    <hr class="alg-text-light" style="border-top: 3px solid ;">
-                </div>
-            </div>
-            <!-- side bar section 3 -->
             <div class="cp-side-bar-s3">
                 <div class="cp-side-bar-s3-content">
                     <span class="alg-text-h3 alg-bolder alg-text-light m-4">Product Brand</span>
                     <div class="d-flex flex-row justify-content-center py-2 gap-4">
-                        <div class="d-flex flex-column justify-content-around gap-2">
-                            <input class="form-check-input" type="checkbox">
-                            <input class="form-check-input" type="checkbox">
-                            <input class="form-check-input" type="checkbox">
-                            <input class="form-check-input" type="checkbox">
-                            <input class="form-check-input" type="checkbox">
-                            <input class="form-check-input" type="checkbox">
-                            <input class="form-check-input" type="checkbox">
-                            <input class="form-check-input" type="checkbox">
-                            <input class="form-check-input" type="checkbox">
-                            <input class="form-check-input" type="checkbox">
+                        <div class="d-flex flex-column justify-content-around gap-2" id="brandCheckBoxContainer">
+                            <!-- container goes here -->
+
                         </div>
-                        <div class="d-flex flex-column justify-content-around gap-2">
-                            <span class="alg-text-h3 alg-text-light">BRANDO (30)</span>
-                            <span class="alg-text-h3 alg-text-light">BLUE PRINT (06)</span>
-                            <span class="alg-text-h3 alg-text-light">CONTITECH (06)</span>
-                            <span class="alg-text-h3 alg-text-light">FENNER (6)</span>
-                            <span class="alg-text-h3 alg-text-light">GATES (6)</span>
-                            <span class="alg-text-h3 alg-text-light">HELICORD (6)</span>
-                            <span class="alg-text-h3 alg-text-light">HONDA (6)</span>
-                            <span class="alg-text-h3 alg-text-light">HUTCHINSON (6)</span>
-                            <span class="alg-text-h3 alg-text-light">MITSOBOSHI (6)</span>
-                            <span class="alg-text-h3 alg-text-light">OPTIBELT (6)</span>
+                        <div class="d-flex flex-column justify-content-around gap-2" id="brandCheckBoxNameContainer">
+                            <!-- container goes here -->
                         </div>
 
                     </div>
@@ -135,11 +101,9 @@ if (!isset($_GET["category_item_id"])) {
             <!-- side bar section 4 -->
             <div class="cp-side-bar-s3">
                 <div class="p-3">
-                    <select class="cp-side-bar-s2-checkbox alg-text-h3 alg-text alg-rounded-small w-100" name="" id="">
-                        <option value="" disabled selected>select by category</option>
-                        <option value="">category 1</option>
-                        <option value="">category 2</option>
-                        <option value="">category 3</option>
+                    <select class="cp-side-bar-s2-checkbox alg-text-h3 alg-text alg-rounded-small w-100" name="" id="categoryContainer">
+                        <option value="0" disabled selected>select by category</option>
+                        <!-- container goes here -->
                     </select>
                 </div>
             </div>
@@ -295,16 +259,16 @@ if (!isset($_GET["category_item_id"])) {
                 <div class="pt-4">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
-                            <li class="page-item">
+                            <li class="page-item" id="previous">
                                 <a class="page-link" href="#" aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
                                     <span class="sr-only">Previous</span>
                                 </a>
                             </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
+                            <span class="d-flex" id="paginationContainer">
+                                <!-- pagination goes here -->
+                            </span>
+                            <li class="page-item" id="next">
                                 <a class="page-link" href="#" aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
                                     <span class="sr-only">Next</span>
@@ -320,14 +284,14 @@ if (!isset($_GET["category_item_id"])) {
         </div>
     </div>
 
-    <!-- garage Modal -->
-    <div class="modal fade modal-xl" id="garage" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <!-- vehicle select Modal -->
+    <div class="modal fade modal-xl" id="vhSelectModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 
 
             <div class="modal-content">
                 <div class="modal-header alg-bg-light-blue">
-                    <span class="modal-title alg-text-h2 alg-text-dark-blue fw-bold mx-3" id="staticBackdropLabel">Category section</span>
+                    <span class="modal-title alg-text-h2 alg-text-dark-blue fw-bold mx-3" id="staticBackdropLabel">Vehicle section</span>
                     <button type="button" class="border-0 alg-bg-light-blue" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-square-fill fs-2"></i></button>
                 </div>
 
@@ -335,29 +299,8 @@ if (!isset($_GET["category_item_id"])) {
 
 
                     <div class="p-4">
-                        <div class="col-12 d-flex justify-content-center flex-wrap">
-                            <?php
-                            for ($x = 0; $x < 5; $x++) {
-                            ?>
-                                <div class="alg-shadow py-2 garage-card">
-                                    <div class="d-flex flex-column">
-                                        <div class="d-flex justify-content-end gap-2 px-2">
-                                            <span><i class="bi bi-trash3-fill"></i></span>
-                                        </div>
-                                        <div class="d-flex justify-content-center"><img src="resources/image/vehicleModelImages/car.jpg" alt=""></div>
-                                        <div class="d-flex flex-column py-3 px-4 pt-4">
-                                            <span class="alg-text-h3 fw-bold">ddddd</span>
-                                            <span class="alg-text-h3">ttttt</span>
-                                            <span class="alg-text-h3">mmmmm</span>
-                                            <span class="alg-text-h3">jjjj</span>
-                                            <span class="alg-text-h3">Model Year:2006</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php
-                            }
-                            ?>
-
+                        <div class="col-12 d-flex justify-content-center flex-wrap gap-5" id="selectVhMainContainer">
+                            <!-- container goes here -->
                         </div>
                         <!-- <div class="d-flex justify-content-center mt-5 p-3">
                             <button class="se3-btn fw-semibold px-3 p-1 rounded-2 alg-text-h3" id="loadButton">Load More</button>
@@ -369,6 +312,65 @@ if (!isset($_GET["category_item_id"])) {
         </div>
     </div>
 
+
+
+    <!-- garage model -->
+
+    <div class="modal fade" id="garageModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+
+
+            <div class="modal-content">
+                <div class="modal-header alg-bg-light-blue">
+                    <span class="modal-title alg-text-h2 alg-text-dark-blue fw-bold mx-3" id="staticBackdropLabel">My Garage</span>
+                    <button type="button" class="border-0 alg-bg-light-blue" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-square-fill fs-2"></i></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 ">
+                                <div class="searchSection-selectorBox d-flex justify-content-center gap-2 p-3">
+                                    <div class="col-12 d-flex flex-column align-items-center justify-content-lg-center gap-3">
+                                        <div class="w-100">
+                                            <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example" id="vehicleMakerSelector">
+                                                <option selected>Select Maker</option>
+                                            </select>
+                                        </div>
+                                        <div class="w-100">
+                                            <select class="searchSection-selector  form-select form-select-sm alg-shadow" aria-label="Small select example" id="vehicleModelNameSelector">
+                                                <option selected>Select Model</option>
+                                                <!-- details goes here -->
+                                            </select>
+                                        </div>
+                                        <div class="w-100">
+                                            <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example" id="vehicleYearsContainer">
+                                                <option selected>Select Year</option>
+                                                <!-- details goes here -->
+                                            </select>
+                                        </div>
+                                        <div class="w-100">
+                                            <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example" id="modificationLineContainer">
+                                                <option selected>Select Modification</option>
+                                                <!-- details goes here -->
+                                            </select>
+                                        </div>
+                                        <div class="w-100 d-grid">
+                                            <button class="rounded-2 border-0 fw-bold text-light searchSection-butto alg-bg-blue p-2 alg-button-hover" onclick="addCarGarage();">Add your car</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- footer -->
     <?php include("./pages/components/footer.php") ?>
 
@@ -378,3 +380,5 @@ if (!isset($_GET["category_item_id"])) {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
+</html>

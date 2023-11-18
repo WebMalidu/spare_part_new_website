@@ -16,69 +16,110 @@ header("Content-Type: application/json; charset=UTF-8");
 //response object
 $responseObject = new stdClass();
 $responseObject->status = 'failed';
-     
+
 //handle the request
-if (!RequestHandler::isGetMethod()) {
-     $responseObject->error = "invalid request";
-     response_sender::sendJson($responseObject);
-}
+if (RequestHandler::isGetMethod()) {
 
-// validate request
-if (RequestHandler::getMethodHasError("categoryCount")) {
-    $responseObject->error = "Invalid Request";
-    response_sender::sendJson($responseObject);
-}
+     if (isset($_GET['categoryCount']) ? $_GET['categoryCount'] : null) {
 
-// catch inputs
-$categoryCount = (isset($_GET['categoryCount']) ? $_GET['categoryCount'] : null);
+          // catch inputs
+          $categoryCount = (isset($_GET['categoryCount']) ? $_GET['categoryCount'] : null);
 
-//get data base model
-$db = new database_driver();
-$searchQuery = "SELECT * FROM `category` LIMIT $categoryCount";
-$resultSet = $db->query($searchQuery);
+          //get data base model
+          $db = new database_driver();
+          $searchQuery = "SELECT * FROM `category` LIMIT $categoryCount";
+          $resultSet = $db->query($searchQuery);
 
+          //response array 
+          $responseArray = [];
 
-
-//response array 
-$responseArray = [];
-
-// image manager
-$directory = "../../resources/image/categoryImages";
-$fileExtensions = ['png', 'jpeg', 'jpg', 'svg'];
+          // image manager
+          $directory = "../../resources/image/categoryImages";
+          $fileExtensions = ['png', 'jpeg', 'jpg', 'svg'];
 
 
-if ($resultSet->num_rows > 0) {
+          if ($resultSet->num_rows > 0) {
 
-     $groupedResults = []; // Create an array to group results
+               $groupedResults = []; // Create an array to group results
 
-     while ($rowData = $resultSet->fetch_assoc()) {
-          $categoryId = $rowData['category_id']; // Use categoryName instead of category_type
+               while ($rowData = $resultSet->fetch_assoc()) {
+                    $categoryId = $rowData['category_id']; // Use categoryName instead of category_type
 
-          $fileSearch = new FileSearch($directory, $categoryId, $fileExtensions); // Use categoryName as the search parameter
+                    $fileSearch = new FileSearch($directory, $categoryId, $fileExtensions); // Use categoryName as the search parameter
 
-          $searchResults = $fileSearch->search();
+                    $searchResults = $fileSearch->search();
 
-          $resRowDetailObject = new stdClass();
+                    $resRowDetailObject = new stdClass();
 
-          $resRowDetailObject->category_type = $rowData['category'];
-          $resRowDetailObject->category_id = $categoryId; // Use categoryName
+                    $resRowDetailObject->category_type = $rowData['category'];
+                    $resRowDetailObject->category_id = $categoryId; // Use categoryName
 
-          if (is_array($searchResults)) {
-               foreach ($searchResults as $searchResult) {
-                    $resRowDetailObject->category_image = $searchResult;
+                    if (is_array($searchResults)) {
+                         foreach ($searchResults as $searchResult) {
+                              $resRowDetailObject->category_image = $searchResult;
+                         }
+                    } else {
+                         $responseObject->error = $searchResults;
+                         response_sender::sendJson($responseObject);
+                    }
+
+                    array_push($responseArray, $resRowDetailObject);
                }
+               $responseObject->status = 'success';
+               $responseObject->results = $responseArray;
+               response_sender::sendJson($responseObject);
           } else {
-               $responseObject->error = $searchResults;
+               $responseObject->error = 'no row data';
                response_sender::sendJson($responseObject);
           }
+     } else {
 
-          array_push($responseArray, $resRowDetailObject);
+          //get data base model
+          $db = new database_driver();
+          $searchQuery = "SELECT * FROM `category`";
+          $resultSet = $db->query($searchQuery);
+
+          //response array 
+          $responseArray = [];
+
+          // image manager
+          $directory = "../../resources/image/categoryImages";
+          $fileExtensions = ['png', 'jpeg', 'jpg', 'svg'];
+
+
+          if ($resultSet->num_rows > 0) {
+
+               $groupedResults = []; // Create an array to group results
+
+               while ($rowData = $resultSet->fetch_assoc()) {
+                    $categoryId = $rowData['category_id']; // Use categoryName instead of category_type
+
+                    $fileSearch = new FileSearch($directory, $categoryId, $fileExtensions); // Use categoryName as the search parameter
+
+                    $searchResults = $fileSearch->search();
+
+                    $resRowDetailObject = new stdClass();
+
+                    $resRowDetailObject->category_type = $rowData['category'];
+                    $resRowDetailObject->category_id = $categoryId; // Use categoryName
+
+                    if (is_array($searchResults)) {
+                         foreach ($searchResults as $searchResult) {
+                              $resRowDetailObject->category_image = $searchResult;
+                         }
+                    } else {
+                         $responseObject->error = $searchResults;
+                         response_sender::sendJson($responseObject);
+                    }
+
+                    array_push($responseArray, $resRowDetailObject);
+               }
+               $responseObject->status = 'success';
+               $responseObject->results = $responseArray;
+               response_sender::sendJson($responseObject);
+          } else {
+               $responseObject->error = 'no row data';
+               response_sender::sendJson($responseObject);
+          }
      }
-     $responseObject->status = 'success';
-     $responseObject->results = $responseArray;
-     response_sender::sendJson($responseObject);
-} else {
-     $responseObject->error = 'no row data';
-     response_sender::sendJson($responseObject);
 }
-

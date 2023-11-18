@@ -179,13 +179,13 @@ CREATE TABLE `invoice` (
   `pay_total_amout` double NOT NULL,
   `shipping_price` double NOT NULL,
   `order_id` varchar(12) NOT NULL,
-  `invoice_status_id_invoice_status_id` int NOT NULL,
+  `invoice_status_invoice_status_id` int NOT NULL,
   `user_user_id` int NOT NULL,
   `delivery_date` date NOT NULL,
   PRIMARY KEY (`invoice_id`),
-  KEY `fk_invoice_invoice_status_id1_idx` (`invoice_status_id_invoice_status_id`),
   KEY `fk_invoice_user1_idx` (`user_user_id`),
-  CONSTRAINT `fk_invoice_invoice_status_id1` FOREIGN KEY (`invoice_status_id_invoice_status_id`) REFERENCES `invoice_status_id` (`invoice_status_id`),
+  KEY `fk_invoice_invoice_status_id1_idx` (`invoice_status_invoice_status_id`) USING BTREE,
+  CONSTRAINT `fk_invoice_invoice_status_id1` FOREIGN KEY (`invoice_status_invoice_status_id`) REFERENCES `invoice_status` (`invoice_status_id`),
   CONSTRAINT `fk_invoice_user1` FOREIGN KEY (`user_user_id`) REFERENCES `user` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -228,13 +228,13 @@ LOCK TABLES `invoice_item` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `invoice_status_id`
+-- Table structure for table `invoice_status`
 --
 
-DROP TABLE IF EXISTS `invoice_status_id`;
+DROP TABLE IF EXISTS `invoice_status`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `invoice_status_id` (
+CREATE TABLE `invoice_status` (
   `invoice_status_id` int NOT NULL AUTO_INCREMENT,
   `invoice_status` varchar(45) NOT NULL,
   PRIMARY KEY (`invoice_status_id`)
@@ -242,12 +242,12 @@ CREATE TABLE `invoice_status_id` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `invoice_status_id`
+-- Dumping data for table `invoice_status`
 --
 
-LOCK TABLES `invoice_status_id` WRITE;
-/*!40000 ALTER TABLE `invoice_status_id` DISABLE KEYS */;
-/*!40000 ALTER TABLE `invoice_status_id` ENABLE KEYS */;
+LOCK TABLES `invoice_status` WRITE;
+/*!40000 ALTER TABLE `invoice_status` DISABLE KEYS */;
+/*!40000 ALTER TABLE `invoice_status` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -314,7 +314,7 @@ CREATE TABLE `my_garaj` (
   KEY `fk_my_garaj_vehicle_models_has_modification_line1_idx` (`vehicle_models_has_modification_line_mdu_id`),
   CONSTRAINT `fk_my_garaj_user1` FOREIGN KEY (`user_user_id`) REFERENCES `user` (`user_id`),
   CONSTRAINT `fk_my_garaj_vehicle_models_has_modification_line1` FOREIGN KEY (`vehicle_models_has_modification_line_mdu_id`) REFERENCES `vehicle_models_has_modification_line` (`mdu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -323,7 +323,7 @@ CREATE TABLE `my_garaj` (
 
 LOCK TABLES `my_garaj` WRITE;
 /*!40000 ALTER TABLE `my_garaj` DISABLE KEYS */;
-INSERT INTO `my_garaj` VALUES (12,1,7);
+INSERT INTO `my_garaj` VALUES (15,2,5),(16,2,11),(17,2,5),(18,1,7);
 /*!40000 ALTER TABLE `my_garaj` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -397,7 +397,7 @@ CREATE TABLE `product_promotion` (
   CONSTRAINT `fk_product_promotion_product_promotion_status1` FOREIGN KEY (`product_promotion_status_p_promotion_status_id`) REFERENCES `product_promotion_status` (`p_promotion_status_id`),
   CONSTRAINT `fk_product_promotion_user1` FOREIGN KEY (`user_user_id`) REFERENCES `user` (`user_id`),
   CONSTRAINT `fk_product_promotion_vehicle_parts1` FOREIGN KEY (`vehicle_parts_parts_id`) REFERENCES `vehicle_parts` (`parts_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -406,6 +406,7 @@ CREATE TABLE `product_promotion` (
 
 LOCK TABLES `product_promotion` WRITE;
 /*!40000 ALTER TABLE `product_promotion` DISABLE KEYS */;
+INSERT INTO `product_promotion` VALUES (3,'2023-10-27','2023-10-27',1,1,'20%','pp_305615');
 /*!40000 ALTER TABLE `product_promotion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -708,7 +709,7 @@ CREATE TABLE `vehicle_parts` (
 
 LOCK TABLES `vehicle_parts` WRITE;
 /*!40000 ALTER TABLE `vehicle_parts` DISABLE KEYS */;
-INSERT INTO `vehicle_parts` VALUES ('pp_305615','Timing Belt',1,2,'This Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the  a sample vehicle part.','2023-10-27',1,12000,1,1,'CTI_259049',7),('pp_614213','Compressor Assembly',1,10,'This Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the  a sample vehicle part.','2023-10-27',1,10000,1,1,'CTI_058074',6),('pp_634662','Tensioner Pulley, Timing Belt',1,3,'This Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the  a sample vehicle part.','2023-10-27',1,20000,1,1,'CTI_259049',7),('pp_640889','AXLE COMPREAR',1,2,'This Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the  a sample vehicle part.','2023-10-27',1,15000,1,1,'CTI_259049',7);
+INSERT INTO `vehicle_parts` VALUES ('pp_238401','Belt Pulley Crankshaft',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-15',1,3500,1,1,'CTI_037070',7),('pp_305615','Timing Belt',1,2,'This Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the  a sample vehicle part.','2023-10-27',1,12000,1,1,'CTI_259049',7),('pp_409876','Pully Water Pump',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-15',1,4500,1,1,'CTI_037070',7),('pp_436267','PULLEY',1,6,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-15',1,5540,1,1,'CTI_393963',7),('pp_476009','Pully Altenator',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-15',1,5088,1,1,'CTI_393963',7),('pp_572589','AXLE REAR',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-16',1,8070,1,1,'CTI_289000',7),('pp_614213','Compressor Assembly',2,10,'This Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the  a sample vehicle part.','2023-10-27',1,10000,1,3,'CTI_058074',6),('pp_634662','Tensioner Pulley, Timing Belt',1,3,'This Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the  a sample vehicle part.','2023-10-27',1,20000,1,2,'CTI_259049',7),('pp_640889','AXLE COMPREAR',2,2,'This Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the  a sample vehicle part.','2023-10-27',1,15000,2,1,'CTI_259049',7),('pp_646734','Rear Lip Spoiler',1,4,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-16',1,2103,1,1,'CTI_405059',7),('pp_690426','CASE - DOCUMENTS',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s ','2023-11-16',1,783,1,1,'CTI_424893',7),('pp_695954','Front Brake Pad Set',1,5,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s ','2023-11-16',1,3200,1,1,'CTI_711056',7),('pp_750710','Control Valve',1,2,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-16',1,6255,1,1,'CTI_241679',7),('pp_850216','Magnetic Clutch, Compressor',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-16',1,1712,1,1,'CTI_029685',7),('pp_879921','Pulley Crankshaft',1,4,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-15',1,1755,1,1,'CTI_363112',7),('pp_893601','HINGE A - HOOD RH',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s ','2023-11-16',1,1788,1,1,'CTI_524894',7),('pp_906712','Compressor Assembly',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-16',1,23000,1,1,'CTI_058074',7),('pp_907082','250 ML-OIL-AC COMPRESSOR',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-16',1,1850,1,1,'CTI_991271',7),('pp_972621','Clutch Disc',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s ','2023-11-16',1,4500,1,1,'CTI_644447',7),('pp_973221','Combination Pully',1,2,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-15',1,2565,1,1,'CTI_363112',7);
 /*!40000 ALTER TABLE `vehicle_parts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -797,4 +798,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-27 22:26:37
+-- Dump completed on 2023-11-16 12:45:52

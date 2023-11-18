@@ -215,19 +215,19 @@
 .alg-bg-category {
   /* background-color: #00447b; */
   /* box-shadow: 10px 10px 5px rgb(166, 216, 233); */
-  width:210px;
-  height:220px;
+  width: 210px;
+  height: 220px;
 }
 
 .alg-bg-category-item {
-  width:210px;
-  height:275px;
+  width: 210px;
+  height: 275px;
 }
 
 /* category item */
-.categ-itm-sec{
-  min-height:140px;
- }
+.categ-itm-sec {
+  min-height: 140px;
+}
 
 .alg-text-blue {
   color: #0261ae;
@@ -339,18 +339,46 @@
 
 /* category */
 
+/* .swiper {
+  width: 100%;
+  height: 100%;
+} */
+
+.swiperCategory .swiper-wrapper {
+  /* text-align: center; */
+  font-size: 148px;
+  /* background: red; */
+  /* display: flex; */
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.swiperCategory .swiper-slide {
+  /* text-align: center; */
+  /* font-size: 18px;
+  background: red; */
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.swiperCategory .swiper-slide img {
+  /* display: block; */
+  /* width: 100%;
+  height: 100%; */
+  /* object-fit: cover; */
+}
+
+
 .se3-btn {
   /* border: 3px solid#0261ae; */
   /* background-color: transparent; */
   border: none;
   background-color: #0261ae;
   color: white;
-  transition: 1.4s ease;
+  transition: 0.7s ease;
 }
 
-.se3-btn:hover {
-  transform: scale(1.05);
-}
 
 /* Brand we trust section  */
 h5 {
@@ -549,12 +577,12 @@ h5 {
   object-fit: cover;
 }
 
-.spv-s1-right-logo {
+/* .spv-s1-right-logo {
   width: 60px;
   height: 60px;
   background-image: url(../resources/image/singleViewPage/nissan.png);
   background-size: cover;
-}
+} */
 
 .spv-s1-review-img {
   width: 120px;
@@ -581,9 +609,6 @@ h5 {
 }
 
 /* section 2 featured product */
-.spv-s2-heading {
-  /* margin-left: 150px; */
-}
 
 .spv-s2-container {
   width: 180px;
@@ -692,6 +717,36 @@ h5 {
   padding: 40px;
 }
 
+/* cart shipping details section */
+.cart-shipping-lg-input {
+  width: 500px;
+  height: 30px;
+}
+
+.cart-shipping-sm-input {
+  width: 242px;
+  height: 30px;
+}
+
+.cart-shipping-button {
+  width: 100px;
+}
+
+.cart-shipping-button-save {
+  border-color: var(--blue);
+}
+
+.cart-shipping-button-save:hover {
+  background-color: var(--blue);
+  color: white;
+
+}
+
+.categ-itm-sec {
+  min-height: 140px;
+  width: 210px;
+}
+
 @keyframes myfirst {
   from {
     opacity: 0.7;
@@ -765,14 +820,26 @@ h5 {
   }
 
   .alg-bg-category-item {
-    width:210px;
-    height:275px;
+    width: 210px;
+    height: 275px;
   }
-  
+
   /* category item */
-  .categ-itm-sec{
-    min-height:140px;
-   }
+  .categ-itm-sec {
+    min-height: 140px;
+  }
+
+  /* cart shipping details section */
+  .cart-shipping-lg-input {
+    width: 400px;
+    height: 30px;
+  }
+
+  .cart-shipping-sm-input {
+    width: 192px;
+    height: 30px;
+  }
+
 }
 
 @media (max-width: 900px) {
@@ -784,6 +851,7 @@ h5 {
   .cp-right-box .swiper {
     width: 600px;
   }
+
 }
 
 @media (max-width: 768px) {
@@ -970,14 +1038,14 @@ h5 {
   }
 
   .alg-bg-category-item {
-    width:210px;
-    height:275px;
+    width: 210px;
+    height: 275px;
   }
-  
+
   /* category item */
-  .categ-itm-sec{
-    min-height:140px;
-   }
+  .categ-itm-sec {
+    min-height: 140px;
+  }
 }
 
 @media (max-width: 725px) {
@@ -1102,14 +1170,25 @@ h5 {
   }
 
   .alg-bg-category-item {
-    width:210px;
-    height:230px;
+    width: 210px;
+    height: 230px;
   }
-  
+
   /* category item */
-  .categ-itm-sec{
-    min-height:100px;
-   }
+  .categ-itm-sec {
+    min-height: 100px;
+  }
+
+  /* cart shipping details section */
+  .cart-shipping-lg-input {
+    width: 300px;
+    height: 30px;
+  }
+
+  .cart-shipping-sm-input {
+    width: 142px;
+    height: 30px;
+  }
 }
 
 @media (max-width: 426px) {
@@ -1260,6 +1339,17 @@ h5 {
   .privacy-section {
     padding: 30px;
   }
+
+  /* cart shipping details section */
+  .cart-shipping-lg-input {
+    width: 230px;
+    height: 30px;
+  }
+
+  .cart-shipping-sm-input {
+    width: 108px;
+    height: 30px;
+  }
 }
 
 
@@ -1281,6 +1371,11 @@ h5 {
 /* flating social meadi */
 .f-social-media {
   z-index: 2;
+}
+
+/* toast message */
+.toast-mess {
+  z-index: 100;
 }
 
 @media (max-width: 320px) {
@@ -1327,6 +1422,12 @@ h5 {
   /* privacy section */
   .privacy-section {
     padding: 20px;
+  }
+
+  /* cart shipping details section */
+  .cart-shipping-sm-input {
+    width: 99px;
+    height: 30px;
   }
 }
 
@@ -1400,6 +1501,7 @@ h5 {
   color: white;
 }
 
+
 /* category item section page */
 .watchlist-hover .watchlist-hovr {
   color: white;
@@ -1408,4 +1510,3 @@ h5 {
 .watchlist-hover:hover .watchlist-hovr {
   color: #0261ae;
 }
-

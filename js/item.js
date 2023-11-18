@@ -64,3 +64,8 @@
 //           });
 // }
 
+const ctobj = new category();
+const ct = await ctobj.categoryLoad();
+
+console.log(ct);
+

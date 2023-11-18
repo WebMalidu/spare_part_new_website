@@ -27,22 +27,22 @@ if ($access->isLoggedIn()) {
                <div class="d-lg-flex d-none gap-4 batta-font-lite">
                     <div class="p-1 fs-5 d-flex  gap-5 ps-2 pe-2 text-white fw-bold">
                          <div class="header-link">
-                              <a class="nav-link" href="index.php">Home</a>
+                              <a class="nav-link alg-button-header-hover" href="index.php">Home</a>
                          </div>
-                         <div class="header-link">
-                              <a class="nav-link" href="./category.php">Category</a>
+                         <div class="header-link ">
+                              <a class="nav-link alg-button-header-hover" href="./category.php">Category</a>
                          </div>
-                         <div class="header-link">
-                              <a class="nav-link" href="contactUs.php">Contact Us</a>
+                         <div class="header-link ">
+                              <a class="nav-link alg-button-header-hover" href="contactUs.php">Contact Us</a>
                          </div>
-                         <div class="header-link">
-                              <a class="nav-link" href="garage.php">My Garage</a>
+                         <div class="header-link ">
+                              <a class="nav-link alg-button-header-hover" href="garage.php">My Garage</a>
                          </div>
 
                     </div>
                     <div class="header-link fs-5 d-flex justify-content-between gap-4 p-1 ps-4 pe-5 text-white">
-                         <a href="#watchlist" onclick="openWatchlistModel()"><i class="bi bi-heart-fill text-white"></i></a>
-                         <a href="#cart" onclick="openCartModel();"><i class="bi bi-cart-fill text-white"></i></a>
+                         <a href="#watchlist" class="alg-button-header-hover" onclick="openWatchlistModel()"><i class="bi bi-heart-fill text-white"></i></a>
+                         <a href="#cart" class="alg-button-header-hover" onclick="openCartModel();"><i class="bi bi-cart-fill text-white"></i></a>
 
 
 
@@ -56,7 +56,7 @@ if (isset($loggedUserData) && isset($loggedUserData["email"])) {
 <?php
 } else {
 ?>
-    <a href="#login" onclick="openLoginModel();"><i class="bi bi-person-circle text-white"></i></a>
+    <a href="#login" class="alg-button-header-hover" onclick="openLoginModel();"><i class="bi bi-person-circle text-white"></i></a>
 <?php
 }
 ?>
@@ -198,12 +198,43 @@ if (isset($loggedUserData) && isset($loggedUserData["email"])) {
                          }
                          ?>
 
-                         <div class="d-flex justify-content-end col-12 mt-4">
-                              <div class="col-12 col-md-5 col-lg-3 text-center bg-white alg-text-h3 pt-1 pb-3 rounded-1 alg-shadow">
-                                   <span class="fw-bold">Order Summery</span>
+                         <div class="cart-shipping-main d-flex flex-column flex-lg-row justify-content-between p-lg-3  col-12 mt-4 gap-3">
+                              <div class="d-flex flex-column col-12  col-lg-8 gap-2 align-items-md-center">
+                                   <div class="alg-text-h2 alg-text-blue alg-bold text-center">Shipping Details</div>
+                                   <div class="w-100 d-flex d-flex justify-content-center">
+                                        <input class="W-100 cart-shipping-lg-input alg-rounded-small  border-primary" type="text" value="username">
+                                   </div>
+                                   <div class="w-100 d-flex gap-3 justify-content-center">
+                                        <input class="cart-shipping-sm-input alg-rounded-small  border-primary"  type="text" value="phone number">
+                                        <input class="cart-shipping-sm-input alg-rounded-small  border-primary"  type="text" value="postal code">
+                                   </div>
+                                   <div class="w-100 d-fle d-flex justify-content-center">
+                                        <input class="cart-shipping-lg-input alg-rounded-small  border-primary" type="text" value="address line 1">
+                                   </div>
+                                   <div class="w-100 d-flex d-flex justify-content-center">
+                                        <input class="cart-shipping-lg-input alg-rounded-small  border-primary" type="text" value="address line 2">
+                                   </div>
+                                   <div class="w-100  d-flex gap-3 justify-content-center">
+                                        <input class="cart-shipping-sm-input alg-rounded-small  border-primary"  type="text" value="city">
+                                        <input  class="cart-shipping-sm-input alg-rounded-small  border-primary" type="text" value="district">
+                                   </div>
+                                   <div class="w-100 d-flex d-flex justify-content-center">
+                                        <input class="cart-shipping-lg-input alg-rounded-small  border-primary" type="text" value="province">
+                                   </div>
+                                   <div class="d-flex justify-content-center gap-2">
+                                        <input class="cart-shipping-button alg-rounded-small alg-text-light alg-text-h3 alg-bg-blue alg-button-search-hover p-2 border-0" type="submit" value="Edit">
+                                        <input class="cart-shipping-button alg-rounded-small cart-shipping-button-save alg-text-h3 cart-shipping-button" type="submit" value="Save">
+                                   </div>
+                              </div>
+                              <div class="cart-ordering-main d-flex flex-column col-12  col-lg-3 text-center bg-white alg-text-h3 pt-1 pb-3 rounded-1 alg-shadow gap-3">
+                                   <span class="alg-text-h2 alg-text-blue fw-bold">Order Summery</span>
                                    <div class="d-flex justify-content-between mx-3 pb-1 pt-1">
                                         <span>Sub Total(5)</span>
                                         <span class="fw-bold">LKR 65000.00</span>
+                                   </div>
+                                   <div class="d-flex justify-content-between mx-3">
+                                        <span class="">Discount</span>
+                                        <span class="fw-bold">LKR 0.00</span>
                                    </div>
                                    <div class="d-flex justify-content-between border-bottom border-2 pb-1 mx-3">
                                         <span>Shipping Price</span>
@@ -213,8 +244,8 @@ if (isset($loggedUserData) && isset($loggedUserData["email"])) {
                                         <span class="fw-bold">Total</span>
                                         <span class="fw-bold">LKR 65360.00</span>
                                    </div>
-                                   <div class="d-grid mx-4 mt-3">
-                                        <button class="alg-bg-green border-0 rounded-1 text-white fw-bolder">Proceed To Checkout</button>
+                                   <div class="d-grid mx-4 mt-5">
+                                        <button class="alg-bg-blue  alg-text-h3 alg-button-hover border-0 rounded-1 text-white p-1 fw-bolder">Proceed To Checkout</button>
                                    </div>
                               </div>
                          </div>
@@ -398,25 +429,7 @@ if (isset($loggedUserData) && isset($loggedUserData["email"])) {
                                    <span class="alg-text-h2 fw-bold">Password Reset</span>
                                    <p class="alg-text-h3 text-black-50">We sent a code to abc@gmail.com</p>
 
-                                   <div class="text-start">
-                                        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                   
+                                   <div class="text-start">                                
                                         <span class="alg-text-h3 fw-semibold">Verification code</span>
                                         <span class="alg-text-h3 fw-semibold" id="verificationSendingTimeRunner">30</span>
                                         <input type="text" id="verification_code" class="ALG-model-input alg-text-h3 form-control rounded-3" placeholder="code" />

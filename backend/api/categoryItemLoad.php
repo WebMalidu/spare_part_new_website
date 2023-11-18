@@ -24,7 +24,7 @@ if (!RequestHandler::isGetMethod()) {
 }
 
 //check method 
-if (!isset($_GET['category_id']) && !isset($_GET['itemCount'])) {
+if (!isset($_GET['category_id']) && !isset($_GET['count'])) {
      $responseObject->error = 'Access denied';
      response_sender::sendJson($responseObject);
 }
@@ -35,20 +35,20 @@ $count = $_GET['count'];
 
 //get data base model
 $db = new database_driver();
-$searchQueryAll = "SELECT * FROM `category_item` WHERE `category_category_id`=?";
-$resultSets = $db->execute_query($searchQueryAll, 's', array($categoryId));
+$searchQueryAll = "SELECT * FROM `category_item` WHERE `category_category_id`='" . $categoryId . "' ";
+$resultSets = $db->query($searchQueryAll);
 
-$num = $resultSets['result']->num_rows;
+$num = $resultSets->num_rows;
 $perPageCount = 12;
 $pageCount = 0;
 
-$pageCount = ceil($num/$perPageCount);  
+$pageCount = ceil($num / $perPageCount);
 $responseObject->countPage = $pageCount;
 
-$pageOffset = $perPageCount*$count;
+$pageOffset = $perPageCount * $count;
 
-$searchQuery = "SELECT * FROM `category_item` WHERE `category_category_id`=? LIMIT $perPageCount OFFSET $pageOffset";
-$resultSet = $db->execute_query($searchQuery, 's', array($categoryId));
+$searchQuery = "SELECT * FROM `category_item` WHERE `category_category_id`='" . $categoryId . "' LIMIT " . $perPageCount . " OFFSET " . $pageOffset;
+$resultSet = $db->query($searchQuery);
 
 //response array 
 $responseArray = [];
@@ -58,11 +58,11 @@ $directory = "../../resources/image/categoryItemImages";
 $fileExtensions = ['png', 'jpeg', 'jpg', 'svg'];
 
 
-if ($resultSet['result']->num_rows > 0) {
+if ($resultSet->num_rows > 0) {
 
      $groupedResults = []; // Create an array to group results
 
-     while ($rowData = $resultSet['result']->fetch_assoc()) {
+     while ($rowData = $resultSet->fetch_assoc()) {
           $categoryItemId = $rowData['category_item_id']; // Use categoryName instead of category_type
 
           $fileSearch = new FileSearch($directory, $categoryItemId, $fileExtensions); // Use categoryName as the search parameter

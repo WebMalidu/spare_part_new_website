@@ -117,6 +117,7 @@ class AdvancedSearchEngine
 
     public function searchRelatedProductCatalog($vehiclePartsOriginId, $vehiclePartsStatusId, $vehicleModelId, $vehicleCategoryItemId)
     {
+
         $query = "SELECT `user`.`full_name`,`vehicle_parts`.*,`parts_status`.*,`brand`.*,`vehicle_models`.*,`category_item`.*,`category`.*,`vehicle_year`.*,`vehicle_type`.*,`generation`.*,`modification_line`.*,`makers`.*,`vehicle_names`.* 
         FROM `vehicle_parts` INNER JOIN `parts_origin` ON `vehicle_parts`.`parts_origin_origin_id`=`parts_origin`.`origin_id`
         INNER JOIN `parts_status` ON `vehicle_parts`.`parts_status_parts_status_id`=`parts_status`.`parts_status_id`
@@ -132,9 +133,10 @@ class AdvancedSearchEngine
         INNER JOIN `modification_line` ON `vehicle_models_has_modification_line`.`modification_line_mod_id`=`modification_line`.`mod_id`
         INNER JOIN `vehicle_names` ON `vehicle_models`.`vehicle_names_vh_name_id`=`vehicle_names`.`vh_name_id`
         INNER JOIN `makers` ON `vehicle_names`.`makers_makers_id`=`makers`.`makers_id`
-        WHERE `parts_origin_origin_id`=? AND `parts_status_parts_status_id`=? AND `category_item_category_item_id`=? AND `vehicle_models_has_modification_line_mdu_id`=?";
-        $resultResponse = $this->database->execute_query($query, "ssss", [$vehiclePartsOriginId, $vehiclePartsStatusId, $vehicleCategoryItemId, $vehicleModelId]);
-        $resultSet = $resultResponse["result"];
+        WHERE `parts_origin_origin_id`='" . $vehiclePartsOriginId . "' AND `parts_status_parts_status_id`='" . $vehiclePartsStatusId . "' AND `category_item_category_item_id`='" . $vehicleCategoryItemId . "' AND `vehicle_models_has_modification_line_mdu_id`='" . $vehicleModelId . "'";
+        $resultSet = $this->database->query($query);
+
+
 
         $responseRowArray = [];
         // $resRowDetailObject = new stdClass();
@@ -236,16 +238,12 @@ class AdvancedSearchEngine
         INNER JOIN `modification_line` ON `vehicle_models_has_modification_line`.`modification_line_mod_id`=`modification_line`.`mod_id`
         INNER JOIN `vehicle_names` ON `vehicle_models`.`vehicle_names_vh_name_id`=`vehicle_names`.`vh_name_id`
         INNER JOIN `makers` ON `vehicle_names`.`makers_makers_id`=`makers`.`makers_id`
-        WHERE `parts_id`=? ";
+        WHERE `parts_id`='" . $parts_id . "' ";
 
         //get result
-        $responseData = $this->database->execute_query($query, 's', array($parts_id));
-        $resultSet = $responseData["result"];
+        $resultSet = $this->database->query($query);
 
         $responseRowArray = [];
-
-        $savePath = "../../resources/image/partsImages";
-        $fileExtensions = ['png', 'jpeg', 'jpg'];
 
         for ($i = 0; $i < $resultSet->num_rows; $i++) {
             // generate output

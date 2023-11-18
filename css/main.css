@@ -150,12 +150,28 @@
 }
 
 /* hover */
-.alg-button-hover {
-  transition: 1.2s ease;
+/* hero seection search */
+.alg-button-search-hover:hover{
+  background-color: #077cdb;
+}
+.alg-button-search-hover:active{
+  transform: scale(1.02);
+}
+/* header hover */
+.alg-button-header-hover:hover{
+  transform: scale(1.06);
+}
+
+.alg-button-hover{
+  transition: 0.7s ease;
+}
+.alg-button-hover:active {
+  transform: translateY(5px);
 }
 
 .alg-button-hover:hover {
-  transform: scale(1.04);
+  /* transform: scale(1.04); */
+  background-color: #077cdb;
 }
 
 .alg-card-hover {
@@ -380,25 +396,4 @@
     width: 50px;
     height: 40px;
   }
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: var(--white);
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: var(--tan);
-  border-radius: 20px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: var(--gold);
 }

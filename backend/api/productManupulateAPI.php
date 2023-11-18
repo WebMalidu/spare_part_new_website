@@ -23,6 +23,16 @@ $searchEngine = new AdvancedSearchEngine();
 
 $db = new database_driver();
 
+// pagenation
+// $num = $resultSets->num_rows;
+// $perPageCount = 12;
+// $pageCount = 0;
+
+// $pageCount = ceil($num / $perPageCount);
+// $responseObject->countPage = $pageCount;
+
+// $pageOffset = $perPageCount * $count;
+
 //handle the request
 //single product load and all product load 
 //you want to parse GET method
@@ -35,18 +45,9 @@ if (RequestHandler::isGetMethod()) {
      if (isset($_GET['vh_model_has_id']) && isset($_GET['vh_category_item_id'])) {
           $vehicleModelId = $_GET['vh_model_has_id'];
           $vehicleCategoryItemId = $_GET['vh_category_item_id'];
-          $vehiclePartsOriginId = isset($_GET['vh_origin_id']) ? $_GET['vh_origin_id'] : null;
-          $vehiclePartsStatusId = isset($_GET['vh_status_id']) ? $_GET['vh_status_id'] : null;
-
-
-          //if we not parse the value then get the default value
-          if ($vehiclePartsOriginId === null || empty($vehiclePartsOriginId)) {
-               $vehiclePartsOriginId = '1';
-          }
-
-          if ($vehiclePartsStatusId === null || empty($vehiclePartsStatusId)) {
-               $vehiclePartsStatusId = '1';
-          }
+          $vehiclePartsOriginId = $_GET['vh_origin_id'];
+          $vehiclePartsStatusId = $_GET['vh_status_id'];
+          // $count = $_GET['count'];
 
           //advance sigle product load 
           $responseDataArray = $searchEngine->searchRelatedProductCatalog($vehiclePartsOriginId, $vehiclePartsStatusId, $vehicleModelId, $vehicleCategoryItemId);
@@ -79,7 +80,6 @@ if (RequestHandler::isGetMethod()) {
           $responseObject->status = "success";
           $responseObject->result = $responseDataArray;
           response_sender::sendJson($responseObject);
-          
      } else {
           // we can load all product in this
           $result = $searchEngine->searchAllProduct();

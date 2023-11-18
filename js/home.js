@@ -1,5 +1,4 @@
-SERVER_URL = "http://localhost:9001/";
-
+SERVER_URL = "";
 document.addEventListener("DOMContentLoaded", () => {
     promotionLoder();
     loadCategory();
@@ -11,10 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let imgpromo;
 function promotionLoder() {
-    console.log("hi");
 
     // Send the data to the server using Fetch
-    fetch("../../backend/api//productPromation.php", {
+    fetch(SERVER_URL + "backend/api/productPromation.php", {
         method: "POST",
     })
         .then((response) => response.json())
@@ -60,7 +58,7 @@ function promotionLoder() {
 }
 
 function promotionsingle(promovalue) {
-    console.log(promovalue);
+    // console.log(promovalue);
     // Regular expression pattern to match a number
     // Split the URL by '/' and get the last part
     const parts = promovalue.split("/");
@@ -72,7 +70,7 @@ function promotionsingle(promovalue) {
 
     // Convert the number to an integer
     const parsedNumber = parseInt(number, 10);
-console.log(parsedNumber)
+    console.log(parsedNumber)
     const requestDataObject = {
         promotionId: parsedNumber,
     };
@@ -88,14 +86,14 @@ console.log(parsedNumber)
             // preform an action on response
             let response = JSON.parse(request.responseText);
             if (response.status == "success") {
-               // window.location.href = 'http://localhost:9001/frontend/singlePageView.php'; // Replace 'another_page.html' with the URL you want to navigate to
+                // window.location.href = 'http://localhost:9001/frontend/singlePageView.php'; // Replace 'another_page.html' with the URL you want to navigate to
             } else {
                 console.log(response.error);
             }
             console.log(request.responseText);
         }
     };
-    request.open("POST", "../../backend/api/promotionSingleLoad.php", true);
+    request.open("POST", SERVER_URL + "../backend/api/promotionSingleLoad.php", true);
     request.send(form);
 }
 
@@ -106,11 +104,13 @@ document.getElementById("loadButton").addEventListener("click", () => {
     loadCategory();
 });
 
+let categoryDataSet;
+
 function loadCategory() {
     // fetch request
     fetch(
         SERVER_URL +
-        "../../backend/api/categoriesLoad.php?categoryCount=" +
+        "backend/api/categoriesLoad.php?categoryCount=" +
         categoryCount,
         {
             method: "GET",
@@ -127,8 +127,11 @@ function loadCategory() {
         })
         .then((data) => {
             const categoryContainer = document.getElementById("categoryContainer");
+            categoryDataSet = data;
+
 
             if (data.status == "success") {
+                // Toast.toastLoad("error",data.status);
                 categoryContainer.innerHTML = "";
                 data.results.forEach((element) => {
                     categoryContainer.innerHTML += `
@@ -140,19 +143,9 @@ function loadCategory() {
                  </div>
                  </a>
                  </div>`
-                    //  let categoryId = document.body.dataset.category;
+              });
 
-
-                    // // Attach a click event listener
-                    // categoryDiv.onclick = function() {
-                    //     loadCategoryItem(element.category_id);
-                    // };
-
-
-                    // categoryContainer.appendChild(categoryDiv);
-                });
-
-            } // categoryContainer.appendChild(categoryDiv);
+            } 
         });
 }
 
@@ -203,44 +196,52 @@ const modificationContainer = document.getElementById('vhModelLineContainer');
 
 makersSelector.addEventListener('change', () => {
 
-    //get maker id
-    const makerId = makersSelector.value;
 
-    vehicleDataFetch().then((data) => {
-        const vhNames = data.vehicleNamesData;
-
-        vehicleModelNameSelector.innerHTML = "";
-        vehicleYearsContainer.innerHTML = "";
-        modificationContainer.innerHTML = "";
-
-        if (vhNames.status === 'success') {
-            //get a variable
-            const result = vhNames.results;
-
-            vehicleModelNameSelector.innerHTML +=
-                `<option selected>Select Model</option>`;
-
-            vehicleYearsContainer.innerHTML +=
-                `<option selected>Select Year</option>`;
-
-            modificationContainer.innerHTML +=
-                `<option selected>Select Modification</option>`;
-            //result filter and map 
-            result.filter((res) => res.makers_makers_id === makerId).map((rs2) => {
-                //create a new model selection
-                const makerNameOption = document.createElement('option');
-                makerNameOption.textContent = rs2.vh_name;
-                makerNameOption.value = rs2.vh_name_id;
-                vehicleModelNameSelector.appendChild(makerNameOption);
-            });
-
-        } else {
-            console.log(vhModel.error);
-        }
+    vehicleModelNameSelector.innerHTML +=
+        `<option selected>Loading.....</option>`;
 
 
+    setTimeout(() => {
+        //get maker id
+        const makerId = makersSelector.value;
 
-    })
+        vehicleDataFetch().then((data) => {
+            const vhNames = data.vehicleNamesData;
+
+            vehicleModelNameSelector.innerHTML = "";
+            vehicleYearsContainer.innerHTML = "";
+            modificationContainer.innerHTML = "";
+
+            if (vhNames.status === 'success') {
+                //get a variable
+                const result = vhNames.results;
+
+                vehicleModelNameSelector.innerHTML +=
+                    `<option selected>Select Model</option>`;
+                vehicleYearsContainer.innerHTML +=
+                    `<option selected>Select Year</option>`;
+
+                modificationContainer.innerHTML +=
+                    `<option selected>Select Modification</option>`;
+                //result filter and map 
+                result.filter((res) => res.makers_makers_id === makerId).map((rs2) => {
+                    //create a new model selection
+                    const makerNameOption = document.createElement('option');
+                    makerNameOption.textContent = rs2.vh_name;
+                    makerNameOption.value = rs2.vh_name_id;
+                    vehicleModelNameSelector.appendChild(makerNameOption);
+                });
+
+            } else {
+                console.log(vhModel.error);
+            }
+
+
+
+        })
+    }, 1000);
+
+
 
 });
 
@@ -249,59 +250,67 @@ makersSelector.addEventListener('change', () => {
 //select related date in a car model
 vehicleModelNameSelector.addEventListener('change', async () => {
 
-    const vehicleNameId = vehicleModelNameSelector.value;
-
-    const data = await vehicleDataFetch();
-
-    vehicleYearsContainer.innerHTML = "";
-    modificationContainer.innerHTML = "";
-
-    if (data && data.vehicleModelData) {
-        //vehicleModelData exists and is not undefined
-
-        const vehicleModelData = data.vehicleModelData;
-
-        if (vehicleModelData.status === 'success') {
-
-            vehicleYearsContainer.innerHTML +=
-                `<option selected>Select Year</option>`;
-
-            modificationContainer.innerHTML +=
-                `<option selected>Select Modification</option>`;
-
-            //get a variable
-            const result = vehicleModelData.results;
-
-            // filtering and mapping 
-            const yearId = result.filter((res) => res.vehicle_names_id === vehicleNameId).map((rs2) => rs2.model_year_id);
+    vehicleYearsContainer.innerHTML +=
+        `<option selected>Loading.....</option>`;
 
 
-            //vehicale years table data
-            const resultDate = data.vehicleYearsData;
+    setTimeout(async () => {
+        const vehicleNameId = vehicleModelNameSelector.value;
 
-            if (resultDate.status === 'success') {
-                const results = resultDate.result;
+        const data = await vehicleDataFetch();
 
-                yearId.forEach((element) => {
-                    // console.log(element);
-                    results.filter((res) => res.vehicle_year_Id === element).map((res2) => {
-                        const makerYearsOption = document.createElement('option');
-                        makerYearsOption.textContent = res2.year;
-                        makerYearsOption.value = res2.vehicle_year_Id;
-                        vehicleYearsContainer.appendChild(makerYearsOption);
+        vehicleYearsContainer.innerHTML = "";
+        modificationContainer.innerHTML = "";
+
+        if (data && data.vehicleModelData) {
+            //vehicleModelData exists and is not undefined
+
+            const vehicleModelData = data.vehicleModelData;
+
+            if (vehicleModelData.status === 'success') {
+
+                vehicleYearsContainer.innerHTML +=
+                    `<option selected>Select Year</option>`;
+
+                modificationContainer.innerHTML +=
+                    `<option selected>Select Modification</option>`;
+
+                //get a variable
+                const result = vehicleModelData.results;
+
+                // filtering and mapping 
+                const yearId = result.filter((res) => res.vehicle_names_id === vehicleNameId).map((rs2) => rs2.model_year_id);
+
+
+                //vehicale years table data
+                const resultDate = data.vehicleYearsData;
+
+                if (resultDate.status === 'success') {
+                    const results = resultDate.result;
+
+                    yearId.forEach((element) => {
+                        // console.log(element);
+                        results.filter((res) => res.vehicle_year_Id === element).map((res2) => {
+                            const makerYearsOption = document.createElement('option');
+                            makerYearsOption.textContent = res2.year;
+                            makerYearsOption.value = res2.vehicle_year_Id;
+                            vehicleYearsContainer.appendChild(makerYearsOption);
+                        });
+
+
                     });
-
-
-                });
+                }
+            } else {
+                console.log(vhModel.error);
             }
         } else {
-            console.log(vhModel.error);
-        }
-    } else {
-        //vehicleModelData does not exist or is undefined
+            //vehicleModelData does not exist or is undefined
 
-        console.log('vehicleModelData does not exist or is undefined');
-    }
+            console.log('vehicleModelData does not exist or is undefined');
+        }
+    }, 1000);
+
+
 });
 
 
@@ -312,76 +321,168 @@ let vehicleModelId;
 
 vehicleYearsContainer.addEventListener('change', async () => {
 
-    const vehicleYearId = vehicleYearsContainer.value;
-    // const makerId = makersSelector.value;
-    const nameId = vehicleModelNameSelector.value;
-
-    const data = await vehicleDataFetch();
-
-    modificationContainer.innerHTML = "";
-
-    if (data && data.vehicleModelData) {
-
-        const vehicleModelData = data.vehicleModelData;
-
-        if (vehicleModelData.status === 'success') {
-
-            modificationContainer.innerHTML = "";
-
-            const result = vehicleModelData.results;
-
-            const relatedModelId = result.filter((res) => res.model_year_id === vehicleYearId && res.vehicle_names_id === nameId).map((res2) => res2.model_id);
+    modificationContainer.innerHTML +=
+        `<option selected>Loading.....</option>`;
 
 
-            vehicleModelId = relatedModelId[0];
+    setTimeout(async () => {
+        const vehicleYearId = vehicleYearsContainer.value;
+        // const makerId = makersSelector.value;
+        const nameId = vehicleModelNameSelector.value;
 
-            const vehicleModelModificationData = data.vehicleModelModificationData;
+        const data = await vehicleDataFetch();
 
-            if (vehicleModelModificationData.status === 'success') {
+        modificationContainer.innerHTML = "";
+
+        if (data && data.vehicleModelData) {
+
+            const vehicleModelData = data.vehicleModelData;
+
+            if (vehicleModelData.status === 'success') {
 
                 modificationContainer.innerHTML = "";
 
-                const resultModification = vehicleModelModificationData.results;
+                const result = vehicleModelData.results;
 
-                const vhModificationId = resultModification.filter((resModification) => resModification.vh_model_id === relatedModelId[0]).map((resModification2) => resModification2.vh_modification_id);
+                const relatedModelId = result.filter((res) => res.model_year_id === vehicleYearId && res.vehicle_names_id === nameId).map((res2) => res2.model_id);
 
-                const vehicleModificationModificationData = data.vehicleModificationLineData;
 
-                if (vehicleModificationModificationData.status === 'success') {
+                vehicleModelId = relatedModelId[0];
 
+                const vehicleModelModificationData = data.vehicleModelModificationData;
+
+                if (vehicleModelModificationData.status === 'success') {
+
+                    modificationContainer.innerHTML = "";
+
+                    const resultModification = vehicleModelModificationData.results;
+
+                    const vhModificationId = resultModification.filter((resModification) => resModification.vh_model_id === relatedModelId[0]).map((resModification2) => resModification2.vh_modification_id);
+
+                    const vehicleModificationModificationData = data.vehicleModificationLineData;
+
+                    if (vehicleModificationModificationData.status === 'success') {
+
+                        modificationContainer.innerHTML +=
+                            `<option selected>Select Modification</option>`;
+
+                        const resultModLineData = vehicleModificationModificationData.result;
+
+                        vhModificationId.forEach((element) => {
+                            resultModLineData.filter((resModFilter) => resModFilter.mod_id === element).map((resModFilterNew) => {
+                                const makerModLineOption = document.createElement('option');
+                                makerModLineOption.textContent = resModFilterNew.mod;
+                                makerModLineOption.value = resModFilterNew.mod_id;
+                                modificationContainer.appendChild(makerModLineOption);
+                            });
+                        });
+
+                    }
+
+
+                } else {
+                    modificationContainer.innerHTML = "";
                     modificationContainer.innerHTML +=
                         `<option selected>Select Modification</option>`;
 
-                    const resultModLineData = vehicleModificationModificationData.result;
-
-                    vhModificationId.forEach((element) => {
-                        resultModLineData.filter((resModFilter) => resModFilter.mod_id === element).map((resModFilterNew) => {
-                            const makerModLineOption = document.createElement('option');
-                            makerModLineOption.textContent = resModFilterNew.mod;
-                            makerModLineOption.value = resModFilterNew.mod_id;
-                            modificationContainer.appendChild(makerModLineOption);
-                        });
-                    });
-
+                    console.log("vehicle modification has table loading error");
                 }
 
-
             } else {
-                modificationContainer.innerHTML = "";
-                modificationContainer.innerHTML +=
-                    `<option selected>Select Modification</option>`;
-
-                console.log("vehicle modification has table loading error");
+                console.log("vehicle model loading error");
             }
 
         } else {
-            console.log("vehicle model loading error");
+            console.log('array dost exist');
         }
+    }, 1000);
 
-    } else {
-        console.log('array dost exist');
-    }
+
 
 });
 
+
+
+
+//onclick and save vehicle model
+//insert my garage for this data
+async function addCarGarage() {
+    const modificationId = modificationContainer.value;
+
+    const data = await vehicleDataFetch();
+
+    if (data && data.vehicleModelModificationData) {
+        const vhModificationData = data.vehicleModelModificationData;
+
+        //check condition and modification
+        if (vhModificationData.status === 'success') {
+            const result = vhModificationData.results;
+
+            //filter and get new array
+            const relatedModelHasId = result.filter((res) => res.vh_model_id === vehicleModelId && res.vh_modification_id === modificationId).map((newRes) => newRes.vh_mdu_id);
+
+            //call save function
+            dataAddingForGarage(relatedModelHasId[0]);
+
+
+        } else {
+            console.log(vhModificationData.error);
+        }
+
+    } else {
+        console.log('vehicleModelModificationData does not exist or is undefined');
+    }
+}
+
+
+
+
+//data add to garage
+async function dataAddingForGarage(modelHasId) {
+    try {
+        const form = new FormData();
+        form.append('modelHasId', modelHasId);
+
+        const garageResponse = await fetch(SERVER_URL + 'backend/api/garageAPI.php', {
+            method: 'POST',
+            body: form
+        });
+        garageData = await garageResponse.json();
+        //then get now response manege
+        garageData.status === 'success' ? categoryLoad() : console.log(garageData.error);
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+// category load
+let categoryLoadModel;
+function categoryLoad() {
+
+    categoryLoadModel = new bootstrap.Modal("#categoryLoad");
+    categoryLoadModel.show();
+
+    const categoryContainer = document.getElementById('categoryContaine');
+    categoryContainer.innerHTML = "";
+    if (categoryDataSet.status === 'success') {
+
+        categoryDataSet.results.map((item) => {
+            categoryContainer.innerHTML += `
+                            <div class="col-6 col-md-4 col-lg-2 alg-bg-category alg-shadow mb-1 rounded mt-3 mx-4 px-3 alg-card-hover">
+                                <a href="category.php?category_id=${item.category_id}" class="text-decoration-none">
+                                    <div class="d-flex flex-column align-items-center">
+                                        <img src="${item.category_image}" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
+                                        <span class="mt-1 p-3 fw-bold text-whit pb-5 alg-text-h3">${item.category_type}</span>
+                                    </div>
+                                </a>
+                            </div>
+            `;
+        });
+
+    }
+
+
+}
 

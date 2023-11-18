@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BATTA</title>
+    <title>BATTALK</title>
     <link rel="icon" href="resources/image/home/engineImage.png" />
 
     <!-- Link Swiper's CSS -->
@@ -32,6 +32,7 @@
     <script defer src="js/slider.js"></script>
     <script defer src="js/vehicleFetchData.js"></script>
     <script defer src="js/home.js"></script>
+    <script defer src="js/toast.js"></script>
 
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
@@ -53,7 +54,7 @@
                     <div class="pb-3 pb-lg-0 pt-5">
                         <div class="hr-s1-search d-flex align-items-center pt-5">
                             <input type="text" class="col-10 col-lg-11 hr-se1-input px-3 p-2 hr-s1-rl mt-5" placeholder="Search here......" />
-                            <div class="col-2 col-lg-1 d-flex justify-content-center p-2 align-items-center hr-s1-rr alg-bg-blue mt-5"><i class="bi bi-search text-white"></i></div>
+                            <div class="col-2 col-lg-1 d-flex justify-content-center p-2 align-items-center hr-s1-rr alg-bg-blue mt-5 alg-button-search-hover"><i class="bi bi-search text-white"></i></div>
                         </div>
                     </div>
                     <div class="hr-s1-paragraph d-flex flex-column">
@@ -61,7 +62,7 @@
                         <div class="col-12 hr-bd-parah m-0">
                             <div class=" row pb-md-3 pb-lg-0  p-0 gap-2 gap-md-0 gap-lg-0 pt-3 pt-md-0 pt-lg-0 pb-5">
                                 <div class="hr-s1-button col-12 col-md-6 col-lg-6 d-grid hr-bd-btn pb-2 pb-md-0">
-                                    <button class="main-btn-1 alg-bg-blue rounded-1 alg-text-h3 alg-button-hover fw-bold">ADD CAR</button>
+                                    <button class="main-btn-1 alg-bg-blue rounded-1 alg-text-h3 alg-button-hover fw-bold" onclick="toastLoad();">ADD CAR</button>
                                 </div>
                                 <div class="hr-s1-button col-12 col-md-6  col-lg-6  d-grid hr-bd-btn">
                                     <button class="main-btn-2 rounded-1 alg-text-h3 text-white">Learn More</button>
@@ -74,6 +75,9 @@
         </div>
     </section>
 
+    <!-- toast message -->
+    <div id="toastContainer"></div>
+
     <!-- social media links section -->
     <div class="d-flex justify-content-end py-4 align-items-center text-white">
         <div class="d-flex flex-column gap-2 fs-5 position-fixed alg-cursor alg-bg-blue p-2 rounded-2 f-social-media">
@@ -85,6 +89,7 @@
     </div>
     </div>
 
+    
     <!-- offer section -->
     <section class="offerSection py-2 py-lg-4" style="position: relative; z-index: 1;">
         <div class="container pb-5">
@@ -103,10 +108,6 @@
                         <div class="splide__track">
                             <ul class="splide__list" id="promotion_list">
                                 <!-- Your slide items for the 'splide-promotion' slider go here -->
-
-
-
-
                                 <!-- Add more slides as needed -->
                             </ul>
                         </div>
@@ -114,41 +115,24 @@
 
                 </div>
 
-
-
-
-
-
-
             </div>
 
 
-<div id="slider-promo">
-            <div class="splide-promotion" style="margin-left: 2%;margin-top:4%">
-    <div class="splide__track">
-        <ul class="splide__list" id="promotion_list">
-            <!-- Your slide items for the 'splide-promotion' slider go here -->
-          
-          
-            
-            
+            <div id="slider-promo">
+                <div class="splide-promotion" style="margin-left: 2%;margin-top:4%">
+                    <div class="splide__track">
+                        <ul class="splide__list" id="promotion_list">
+                            <!-- Your slide items for the 'splide-promotion' slider go here -->
+                            <!-- Add more slides as needed -->
+                        </ul>
+                    </div>
+                </div>
 
-            <!-- Add more slides as needed -->
-        </ul>
-    </div>
-</div>
-
-</div>
-
-
-
-
-
-
-            
+            </div>
         </div>
     </section>
 
+ 
     <!-- search section -->
     <section class="w-100 searchSectio alg-bg-light-blue bg-n py-2 py-lg-5">
         <div class="container searchSection-mainContainer pb-5">
@@ -163,7 +147,7 @@
                 <div class="col-12 d-flex flex-column flex-lg-row align-items-center justify-content-lg-center gap-3">
                     <div class="w-100">
                         <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example" id="vhMakerContainer">
-                            <option selected>Select Maker</option>
+                            <option selected>Select Mekar</option>
                         </select>
                     </div>
                     <div class="w-100">
@@ -182,7 +166,7 @@
                         </select>
                     </div>
                     <div class="w-100 d-grid">
-                        <button class="rounded-2 border-0 fw-bold text-light searchSection-butto alg-bg-blue p-2 alg-button-hover" onclick="categoryLoad();">SEARCH PARTS </button>
+                        <button class="rounded-2 border-0 fw-bold text-light searchSection-butto alg-bg-blue p-2 alg-button-hover" onclick="addCarGarage();">SEARCH PARTS </button>
                     </div>
                 </div>
             </div>
@@ -202,11 +186,11 @@
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-12 d-flex justify-content-center flex-wrap gap-2 gap-lg-3" id="categoryContainer">
-
+                    <!-- contant goes here -->
 
                 </div>
                 <div class="d-flex justify-content-center mt-5 p-3">
-                    <button class="se3-btn fw-semibold px-3 p-1 rounded-2 alg-text-h3" id="loadButton">Load More</button>
+                    <button class="se3-btn fw-semibold px-3 p-1 rounded-2 alg-text-h3 alg-button-hover" id="loadButton">Load More</button>
                 </div>
 
             </div>
@@ -411,26 +395,8 @@
 
                     <div class="p-4">
                         <div class="col-12 d-flex justify-content-center flex-wrap" id="categoryContaine">
-                            <?php
-                            for ($x = 0; $x < 15; $x++) {
-                            ?>
-                                <div class="col-6 col-md-4 col-lg-2 alg-bg-category alg-shadow mb-1 rounded mt-3 mx-4 px-3 alg-card-hover">
-                                    <a href="category.php?category_id=${element.category_id}" class="text-decoration-none">
-                                        <div class="d-flex flex-column align-items-center">
-                                            <img src="${element.category_image}" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
-                                            <span class="mt-1 p-3 fw-bold text-whit pb-5 alg-text-h3">${element.category_type}</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            <?php
-                            }
-                            ?>
-
+                            <!-- content goes here -->
                         </div>
-                        <!-- <div class="d-flex justify-content-center mt-5 p-3">
-                            <button class="se3-btn fw-semibold px-3 p-1 rounded-2 alg-text-h3" id="loadButton">Load More</button>
-                        </div> -->
-
                     </div>
                 </div>
             </div>
