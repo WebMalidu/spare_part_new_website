@@ -359,11 +359,12 @@ function addWatchlist(part_id) {
       // preform an action on response
       let response = JSON.parse(request.responseText);
       if (response.status == "success") {
-        alert("successfully added item to watchlist");
+        Toast.toastLoad("success","successfully added item to watchlist");
+        // alert("successfully added item to watchlist");
         loadWatchList();
       } else {
         console.log(response.error);
-        
+        Toast.toastLoad("error","WatchList adding failed");
       }
       console.log(request.responseText);
     }
