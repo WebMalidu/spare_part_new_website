@@ -32,6 +32,8 @@
     <script defer src="js/slider.js"></script>
     <script defer src="js/vehicleFetchData.js"></script>
     <script defer src="js/home.js"></script>
+    <script defer src="js/product.js"></script>
+
     <script defer src="js/toast.js"></script>
 
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
