@@ -233,7 +233,7 @@ const uncheckedBrandSearch = (brandId) => {
       productCatalogContainer.innerHTML += `
           <div class="col-6 col-md-4 col-lg-2 alg-shadow mb-1 alg-bg-category-item rounded mt-3 mx-4 px alg-card-hover watchlist-hover" onclick="garageModel();">
              <a href="singlePageView.php?parts_id=${element.parts_id}&vh_category_item_id=${element.category_item_category_item_id}&vh_model_id=${element.vehicle_models_has_modification_line_mdu_id}" class="text-decoration-none">
-                 <div class="d-flex flex-column align-items-center justify-content-center">
+                 <div class="d-flex flex-column align-items-center justify-content-center" style="z-index: -10;">
                      <span class="align-self-end"><i class="bi bi-heart-fill  watchlist-hovr" onmouseover="addWatchlist('${element.parts_id}')"></i></span>
                      <img src="resources/image/partsImages/partsId=${element.parts_id}_categoryItemId=${element.category_item_category_item_id}_image=1.jpg" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
                      <div class="d-flex flex-column profile-bg-gradient p-3 rounded categ-itm-sec">
@@ -713,6 +713,7 @@ async function dataAddingForGarage(modelHasId) {
 //watchlist add
 
 function addWatchlist(part_id) {
+     alert("done")
   const requestDataObject = {
     parts_id: part_id,
   };
@@ -728,10 +729,12 @@ function addWatchlist(part_id) {
       // preform an action on response
       let response = JSON.parse(request.responseText);
       if (response.status == "success") {
-        alert("successfully added item to watchlist");
+          Toast.toastLoad("success","successfully added item to watchlist");
+     //    alert("successfully added item to watchlist");
       } else {
         console.log(response.error);
-        alert("WatchList adding failed");
+        Toast.toastLoad("error","WatchList adding failed");
+     //    alert("WatchList adding failed");
       }
       console.log(request.responseText);
     }
@@ -739,3 +742,4 @@ function addWatchlist(part_id) {
   request.open("POST", "../backend/api/watchListAdd.php", true);
   request.send(form);
 }
+

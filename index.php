@@ -52,7 +52,7 @@
     <section class="main-img mb-3">
         <div class="ma-img-overlay">
             <div class="container">
-                <div class="d-flex col-lg-6 flex-column gap-lg-5  justify-content-end justify-content-md-center justify-content-lg-center alg-lp-hero">
+                <div class="d-flex col-lg-6 flex-column gap-lg-5 justify-content-end justify-content-md-center justify-content-lg-center alg-lp-hero">
                     <div class="pb-3 pb-lg-0 pt-5">
                         <div class="hr-s1-search d-flex align-items-center pt-5">
                             <input type="text" class="col-10 col-lg-11 hr-se1-input px-3 p-2 hr-s1-rl mt-5" placeholder="Search here......" />
@@ -67,7 +67,7 @@
                                     <button class="main-btn-1 alg-bg-blue rounded-1 alg-text-h3 alg-button-hover fw-bold" onclick="toastLoad();">ADD CAR</button>
                                 </div>
                                 <div class="hr-s1-button col-12 col-md-6  col-lg-6  d-grid hr-bd-btn">
-                                    <button class="main-btn-2 rounded-1 alg-text-h3 text-white">Learn More</button>
+                                    <button class="main-btn-2 rounded-1 alg-text-h3 text-white" onclick="check2();">Learn More</button>
                                 </div>
                             </div>
                         </div>

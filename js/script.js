@@ -301,7 +301,8 @@ function loadWatchList() {
         
       } else {
         console.log(response.error);
-        alert("WatchList adding failed");
+        // alert("WatchList adding failed");
+        Toast.toastLoad("error","WatchList adding failed");
       }
       console.log(request.responseText);
     }
@@ -329,7 +330,8 @@ function watchListDelete(w_id){
         loadWatchList()        
       } else {
         console.log(response.error);
-        alert("WatchList adding failed");
+        // alert("WatchList adding failed");
+        Toast.toastLoad("error","WatchList adding failed");
       }
       console.log(request.responseText);
     }
