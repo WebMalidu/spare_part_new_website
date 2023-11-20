@@ -361,7 +361,7 @@ function addWatchlist(part_id) {
         loadWatchList();
       } else {
         console.log(response.error);
-        alert("WatchList adding failed");
+        
       }
       console.log(request.responseText);
     }

@@ -140,7 +140,7 @@ const loadProductCatalog = async (
                                         <span class="alg-text-p text-white-50">${miniDescription}</span>
                                     </div>
                                 </div>
-                                <h1>hibs</h1>
+                              
                             </a>
                         </div>
                     `;
