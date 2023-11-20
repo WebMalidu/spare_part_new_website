@@ -247,7 +247,7 @@ class First15Words {
 
 
 
-
+//watchlist section
 
 //Load WatchList
 
@@ -337,5 +337,37 @@ function watchListDelete(w_id){
     }
   };
   request.open("POST", "../backend/api/watchListDelete.php", true);
+  request.send(form);
+}
+
+
+
+function addWatchlist(part_id) {
+  const requestDataObject = {
+    parts_id: part_id,
+  };
+  console.log("hi")
+
+  // store data in a form
+  let form = new FormData();
+  form.append("watchListData", JSON.stringify(requestDataObject));
+
+  // send the data to server
+  let request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState == 4) {
+      // preform an action on response
+      let response = JSON.parse(request.responseText);
+      if (response.status == "success") {
+        alert("successfully added item to watchlist");
+        loadWatchList();
+      } else {
+        console.log(response.error);
+        
+      }
+      console.log(request.responseText);
+    }
+  };
+  request.open("POST", "../backend/api/watchListAdd.php", true);
   request.send(form);
 }
