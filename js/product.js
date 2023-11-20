@@ -708,34 +708,5 @@ async function dataAddingForGarage(modelHasId) {
   }
 }
 
-//watchList condition
 
-//watchlist add
 
-function addWatchlist(part_id) {
-  const requestDataObject = {
-    parts_id: part_id,
-  };
-
-  // store data in a form
-  let form = new FormData();
-  form.append("watchListData", JSON.stringify(requestDataObject));
-
-  // send the data to server
-  let request = new XMLHttpRequest();
-  request.onreadystatechange = function () {
-    if (request.readyState == 4) {
-      // preform an action on response
-      let response = JSON.parse(request.responseText);
-      if (response.status == "success") {
-        alert("successfully added item to watchlist");
-      } else {
-        console.log(response.error);
-        alert("WatchList adding failed");
-      }
-      console.log(request.responseText);
-    }
-  };
-  request.open("POST", "../backend/api/watchListAdd.php", true);
-  request.send(form);
-}
