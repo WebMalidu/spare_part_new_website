@@ -40,6 +40,7 @@ if (!isset($_GET["parts_id"], $_GET['vh_category_item_id'], $_GET['vh_model_id']
     <script defer src="js/slider.js"></script>
     <script defer src="js/singleProduct.js"></script>
     <script defer src="./js/product.js"></script>
+    <script defer src="js/toast.js"></script>
 
 
 </head>
@@ -146,7 +147,7 @@ if (!isset($_GET["parts_id"], $_GET['vh_category_item_id'], $_GET['vh_model_id']
             <div class="swiperCategory swiper single-product-Swiper">
                 <div class="swiper-wrapper pt-2 pb-2" id="productSliders">
                     <!-- slider goes here -->
-                   
+
                 </div>
             </div>
         </section>
@@ -167,6 +168,8 @@ if (!isset($_GET["parts_id"], $_GET['vh_category_item_id'], $_GET['vh_model_id']
         </div>
     </section>
 
+    <!-- toast container -->
+    <div id="toastContainer"></div>
     <!-- footer -->
     <?php include("./pages/components/footer.php") ?>
 
