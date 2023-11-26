@@ -22,7 +22,7 @@ $db = new database_driver();
 
 if (RequestHandler::isGetMethod()) {
      //load vehicle  model table 
-     $searchQuery = "SELECT * FROM `vehicle_names`";
+     $searchQuery = "SELECT * FROM `vehicle_names` INNER JOIN `makers` ON `vehicle_names`.`makers_makers_id`=`makers`.`makers_id`";
      $resultSet = $db->query($searchQuery);
 
      //response array 
@@ -35,12 +35,12 @@ if (RequestHandler::isGetMethod()) {
                $resRowDetailObject = new stdClass();
 
                $resRowDetailObject->vh_name_id = $rowData['vh_name_id'];
+               $resRowDetailObject->makers_name = $rowData['name'];
                $resRowDetailObject->vh_name = $rowData['vh_name'];
-               $resRowDetailObject->makers_makers_id = $rowData['makers_makers_id'];
 
                array_push($responseArray, $resRowDetailObject);
           }
-          
+
           $responseObject->status = 'success';
           $responseObject->results = $responseArray;
           response_sender::sendJson($responseObject);

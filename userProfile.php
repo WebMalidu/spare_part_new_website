@@ -7,8 +7,8 @@
     <title>BATTA user profile</title>
     <link rel="icon" href="resources/image/home/engineImage.png" />
 
-   <!-- Link Swiper's CSS -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <!-- splide -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.0.9/dist/css/splide.min.css">
     <!-- css -->
@@ -27,6 +27,7 @@
     <!-- js -->
     <script defer src="js/bootstrap.bundle.js"></script>
     <script defer src="js/script.js"></script>
+    <script defer src="js/toast.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 </head>
@@ -123,7 +124,7 @@
         </div>
 
 
-<!-- password model -->
+        <!-- password model -->
         <div class="modal fade" id="passwordModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 
@@ -162,6 +163,9 @@
             </div>
         </div>
     </section>
+
+    <!-- toast container -->
+    <div id="toastContainer"></div>
     <?php include("./pages/components/footer.php") ?>
 </body>
 

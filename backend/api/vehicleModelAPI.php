@@ -124,7 +124,11 @@ if (RequestHandler::isGetMethod()) {
           }
      } else {
           //load vehicle  model table 
-          $searchQuery = "SELECT * FROM `vehicle_models`";
+          $searchQuery = "SELECT * FROM `vehicle_models` 
+          INNER JOIN `vehicle_type` ON `vehicle_type`.`vehicle_type_id`=`vehicle_models`.`vehicle_type_vehicle_type_id`
+          INNER JOIN `vehicle_year` ON `vehicle_year`.`vehicle_year_Id`=`vehicle_models`.`vehicle_year_vehicle_year_Id`
+          INNER JOIN `generation` ON `generation`.`generation_id`=`vehicle_models`.`generation_generation_id`
+          INNER JOIN `vehicle_names` ON `vehicle_names`.`vh_name_id`=`vehicle_models`.`vehicle_names_vh_name_id`";
           $resultSet = $db->query($searchQuery);
 
           //response array 
@@ -143,11 +147,11 @@ if (RequestHandler::isGetMethod()) {
 
                     $resRowDetailObject = new stdClass();
 
-                    $resRowDetailObject->model_type_id = $rowData['vehicle_type_vehicle_type_id'];
-                    $resRowDetailObject->model_year_id = $rowData['vehicle_year_vehicle_year_Id'];
-                    $resRowDetailObject->model_generation_id = $rowData['generation_generation_id'];
-                    $resRowDetailObject->vehicle_names_id = $rowData['vehicle_names_vh_name_id'];
                     $resRowDetailObject->model_id = $model_id;
+                    $resRowDetailObject->vehicle_names = $rowData['vh_name'];
+                    $resRowDetailObject->model_type = $rowData['vehicale'];
+                    $resRowDetailObject->model_year = $rowData['year'];
+                    $resRowDetailObject->model_generation = $rowData['generation'];
 
                     if (is_array($searchResults)) {
                          foreach ($searchResults as $searchResult) {
@@ -214,7 +218,7 @@ if (RequestHandler::isPostMethod()) {
           `vehicle_type_vehicle_type_id`=? AND `vehicle_year_vehicle_year_Id`=? 
           AND `generation_generation_id`=? AND `vehicle_names_id`=?";
 
-          $result = $db->execute_query($searchData, 'iiii', array($ad_vehicle_type_id, $ad_vehicle_year_id, $ad_generation_id,$ad_model_name_id));
+          $result = $db->execute_query($searchData, 'iiii', array($ad_vehicle_type_id, $ad_vehicle_year_id, $ad_generation_id, $ad_model_name_id));
 
           //get by result
           if ($result['result']->num_rows > 0) {
@@ -242,7 +246,7 @@ if (RequestHandler::isPostMethod()) {
                     if (move_uploaded_file($_FILES['ad_model_img']['tmp_name'], $savePath . $newImageName)) {
                          // insert data this table
                          $InsertQuery = "INSERT INTO `vehicle_models` (`model_id`,`vehicle_type_vehicle_type_id`,`vehicle_year_vehicle_year_Id`,`generation_generation_id`,`vehicle_names_id`) VALUES (?,?,?,?,?)";
-                         $db->execute_query($InsertQuery, 'sssss', array($modelId,$ad_vehicle_type_id, $ad_vehicle_year_id, $ad_generation_id, $ad_model_name_id));
+                         $db->execute_query($InsertQuery, 'sssss', array($modelId, $ad_vehicle_type_id, $ad_vehicle_year_id, $ad_generation_id, $ad_model_name_id));
 
 
                          $responseObject->status = 'success';
