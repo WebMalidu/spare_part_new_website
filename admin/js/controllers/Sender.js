@@ -2,7 +2,8 @@
 //version - 1.0.0 (still development)
 //MDN reference JS OOP
 
-SERVER_URL = "http://localhost:9001/";
+// SERVER_URL = "http://localhost:9001/";
+SERVER_URL = "";
 
 class Sender {
 

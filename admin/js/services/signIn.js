@@ -1,3 +1,4 @@
+SERVER_URL = "";
 const ALG = new DashboardComponents();
 
 //fetch request sending model
@@ -35,7 +36,7 @@ async function signIn() {
        if (response.status === 'success') {
               ALG.openToast("Success", "Let's Go", ALG.getCurrentTime(), "bi-heart", "Success");
               setTimeout(() => {
-                     window.location.href = "http://localhost:9001/admin/dashboard.php"
+                     window.location.href = SERVER_URL + "admin/dashboard.php"
                      // window.location.reload();
               }, 1500);
        } else {
