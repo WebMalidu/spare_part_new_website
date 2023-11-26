@@ -28,6 +28,7 @@
     <script defer src="js/script.js"></script>
     <script defer src="js/vehicleFetchData.js"></script>
     <script defer src="js/garage.js"></script>
+    <script defer src="js/toast.js"></script>
 </head>
 
 <body style="min-height: 100vh;">
@@ -107,6 +108,9 @@
                 </div>
             </div>
         </div>
+        <script defer src="js/toast.js"></script>
+        <!-- toast container -->
+        <div id="toastContainer"></div>
     </div>
     <!-- footer -->
     <?php include("./pages/components/footer.php") ?>

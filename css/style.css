@@ -1505,8 +1505,10 @@ h5 {
 /* category item section page */
 .watchlist-hover .watchlist-hovr {
   color: white;
+  z-index:1000;
 }
 
 .watchlist-hover:hover .watchlist-hovr {
   color: #0261ae;
+  z-index:1000;
 }

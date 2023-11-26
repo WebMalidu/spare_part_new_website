@@ -60,4 +60,23 @@ class FileSearch
 
           return $results;
      }
+     public function saveImages($imageDataUrls, $filePath, $fileExtension,$fileName) {
+          if (!is_dir($filePath)) {
+              mkdir($filePath, 0755, true); // Create the directory if it doesn't exist
+          }
+  
+          foreach ($imageDataUrls as $index => $dataUrl) {
+              // Generate a unique filename using a timestamp and index
+              $imageName ="$fileName.$fileExtension";
+              $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $dataUrl));
+  
+              // Save the image to the specified file path
+              $imagePath = $filePath . '/' . $imageName;
+              if (file_put_contents($imagePath, $imageData)) {
+                  echo "Image saved: $imagePath\n";
+              } else {
+                  echo "Failed to save image: $imagePath\n";
+              }
+          }
+      }
 }

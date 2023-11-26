@@ -88,6 +88,7 @@ function featureLoader() {
     autoplay: true,
     snap: true,
     arrows: false,
+
     perPage: 4,
     pagination: false,
     gap: 100, // Set the gap between slides to 20 pixels (adjust as needed)

@@ -181,3 +181,10 @@ const loadProductCatalog = async (modelHasId, categoryItemId) => {
     console.log(error);
   }
 };
+
+
+
+
+
+//add to cart
+

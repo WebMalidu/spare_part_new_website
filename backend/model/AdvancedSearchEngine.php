@@ -117,6 +117,7 @@ class AdvancedSearchEngine
 
     public function searchRelatedProductCatalog($vehiclePartsOriginId, $vehiclePartsStatusId, $vehicleModelId, $vehicleCategoryItemId)
     {
+
         $query = "SELECT `user`.`full_name`,`vehicle_parts`.*,`parts_status`.*,`brand`.*,`vehicle_models`.*,`category_item`.*,`category`.*,`vehicle_year`.*,`vehicle_type`.*,`generation`.*,`modification_line`.*,`makers`.*,`vehicle_names`.* 
         FROM `vehicle_parts` INNER JOIN `parts_origin` ON `vehicle_parts`.`parts_origin_origin_id`=`parts_origin`.`origin_id`
         INNER JOIN `parts_status` ON `vehicle_parts`.`parts_status_parts_status_id`=`parts_status`.`parts_status_id`
@@ -134,6 +135,7 @@ class AdvancedSearchEngine
         INNER JOIN `makers` ON `vehicle_names`.`makers_makers_id`=`makers`.`makers_id`
         WHERE `parts_origin_origin_id`='" . $vehiclePartsOriginId . "' AND `parts_status_parts_status_id`='" . $vehiclePartsStatusId . "' AND `category_item_category_item_id`='" . $vehicleCategoryItemId . "' AND `vehicle_models_has_modification_line_mdu_id`='" . $vehicleModelId . "'";
         $resultSet = $this->database->query($query);
+
 
 
         $responseRowArray = [];

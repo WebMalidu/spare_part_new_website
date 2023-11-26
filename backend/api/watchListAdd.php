@@ -31,7 +31,6 @@ $userData = $userCheckSession->getUserData();
 
 // Decode the POST data to get the promotion ID
 $watchListData = json_decode($_POST['watchListData']);
-$qty=$watchListData->qty;
 $partId=$watchListData->parts_id;
 
 
@@ -39,7 +38,7 @@ $database_driver=new database_driver();
 
 $insertQuery="INSERT INTO `watchlist`(`user_user_id`,`vehicle_parts_parts_id`) VALUES (?,?)";
 $parms=array($userData['user_id'],$partId);
-$result=$database_driver->execute_query($insertQuery,'ii',$parms);
+$result=$database_driver->execute_query($insertQuery,'is',$parms);
 
 
 if (!$result['stmt']->affected_rows > 0) {
@@ -47,6 +46,6 @@ if (!$result['stmt']->affected_rows > 0) {
     response_sender::sendJson($responseObject);
 }
 
-$responseObject->status="sucess";
+$responseObject->status="success";
 response_sender::sendJson($responseObject);
 

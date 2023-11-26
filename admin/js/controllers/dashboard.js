@@ -77,10 +77,10 @@ class DashboardComponents {
   }
 
   // main navigation panel content arranger
-  mainNavigationController(
+  async mainNavigationController(
     navigationPanelId,
     mainContainerId,
-    callback = () => {},
+    callback = async () => {},
     passdownCallback = () => {}
   ) {
     this.mainNavigationBtns = document
@@ -88,30 +88,33 @@ class DashboardComponents {
       .querySelectorAll(".main-navigation-panel-btn");
 
     this.mainNavigationBtns.forEach((element) => {
-      element.addEventListener("click", () => {
+      element.addEventListener("click", async () => {
         const requestedPanel = element.dataset.algmainnavigationpanel;
         const requestedPaneltitle = element.dataset.algmainnavigationpaneltitle;
 
-        this.loadMainPanel(
+        await this.loadMainPanel(
           requestedPanel,
           mainContainerId,
           requestedPaneltitle,
-          passdownCallback
+          passdownCallback(requestedPanel)
         );
       });
     });
-
     // callback
-    callback();
+    await callback();
   }
 
-  loadMainPanel(requestedPanel, mainContainerId, title, callback = () => {}) {
+  async loadMainPanel(
+    requestedPanel,
+    mainContainerId,
+    title,
+    callback = () => {}
+  ) {
     const mainContainer = document.getElementById(mainContainerId);
     const mainContainerTitle = document.getElementById(
       "mainContentContainerTitle"
     );
-
-    fetch("components/mainNavigationPanels/" + requestedPanel + ".php", {
+    await fetch("components/mainNavigationPanels/" + requestedPanel + ".php", {
       method: "GET",
     })
       .then((response) => response.text())
@@ -120,13 +123,8 @@ class DashboardComponents {
 
         mainContainer.innerHTML = "";
         mainContainer.innerHTML = data;
-
         // callback
-        try {
-          callback();
-        } catch (error) {
-          console.log("error");
-        }
+        callback();
       });
   }
 
@@ -471,6 +469,90 @@ class DashboardComponents {
   }
 
   // utility
+
+  async requestHandler(
+    requestUrl,
+    method = "GET",
+    dataSet,
+    callback = () => {},
+    preventDefault = false,
+    test = false
+  ) {
+    const url = new URL(requestUrl);
+
+    const options = {
+      method: method,
+    };
+
+    // data setter
+    if (method === "GET") {
+      if (dataSet.parameters) {
+        dataSet.parameters.forEach((element) => {
+          url.searchParams.append(element.key, element.value);
+        });
+      }
+    } else if (method === "POST") {
+      if (options.body) {
+        options.body = dataSet.body;
+      }
+    }
+
+    let headerContentType = "";
+    switch (dataSet.reqType) {
+      case "json":
+        headerContentType = "application/json";
+        break;
+
+      case "html":
+        headerContentType = "text/html; charset=utf-8";
+        break;
+
+      case "form":
+        headerContentType = "multipart/form-data";
+        break;
+
+      case "text":
+        headerContentType = "text/plain";
+        break;
+
+      default:
+        headerContentType = "text/plain";
+        break;
+    }
+    options.headers = {
+      "Content-Type": headerContentType,
+    };
+
+    return await fetch(url.toString(), options)
+      .then((response) => {
+        if (response.ok) {
+          if (test) {
+            return response.text();
+          }else {
+            return response.json();
+          }
+        } else {
+          throw new Error(`Request failed with status ${response.status}`);
+        }
+      })
+      .then((data) => {
+        if (data.status === "success") {
+          if (!preventDefault) {
+            alert(data.status);
+          }
+
+          return callback(data.results);
+        } else if (data.status === "failed") {
+          console.log(data.error);
+          return null;
+        } else {
+          console.log(data);
+          return null;
+        }
+      })
+      .catch((error) => console.error(error));
+  }
+
   async imageFileToDataURL(file, callback) {
     const reader = new FileReader();
 
@@ -498,83 +580,4 @@ class DashboardComponents {
   }
 }
 
-// test
-//
-//
-//
-//
-//
-//
-// const ALG = new DashboardComponents();
-// test
-//
-//
-//
-//
-//
-// loadProducts();
-// function loadProducts(
-//   searchTerm = "",
-//   category = "",
-//   orderBy = "price",
-//   orderDirection = "high to low",
-//   limit = 10
-// ) {
-//   fetch("http://localhost:9001/" + "backend/api/load_category_api.php", {
-//     method: "GET", // HTTP request method
-//     headers: {
-//       "Content-Type": "application/json", // Request headers
-//     },
-//   })
-//     .then((response) => {
-//       if (!response.ok) {
-//         throw new Error(`HTTP error! Status: ${response.status}`);
-//       }
-//       return response.json(); // Parse the response body as JSON
-//     })
-//     .then((data) => {
-//       // Handle the JSON data received from the API
-//       if (data.status == "success") {
-//         const table = ALG.createTable(data.results);
-//         ALG.renderComponent("tableContainer", table);
 
-//         setTimeout(() => {
-//           ALG.openModel("Hellow World", ALG.createList(data.results));
-//         }, 2000);
-
-//         setTimeout(() => {
-//           ALG.closeModel();
-//         }, 5000);
-
-//         setTimeout(() => {
-//           ALG.openToast(
-//             "something",
-//             "<h1>Who AM I</h1>",
-//             "01:20:37",
-//             "bi-emoji-wink-fill"
-//           );
-//         }, 7000);
-//       } else if (data.status == "failed") {
-//         console.log(data.error);
-//       } else {
-//         console.log(data);
-//       }
-//     })
-//     .catch((error) => {
-//       // Handle errors that occur during the Fetch request
-//       console.error("Fetch error:", error);
-//     });
-// }
-
-// const testButon = document.createElement("button");
-// testButon.innerHTML = "somethign";
-// ALG.openToast("Who is this toast", testButon, "01:20:37", "bi-emoji-wink-fill");
-// setTimeout(() => {
-//   testButon.innerHTML = "betterword";
-//   ALG.openToast(
-//     "Who is this toast",
-//     testButon,
-//     "01:20:37",
-//     "bi-emoji-wink-fill"
-//   );
-// }, 2333);
