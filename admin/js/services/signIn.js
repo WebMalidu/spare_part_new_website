@@ -32,11 +32,11 @@ async function signIn() {
               return;
        }
 
-       const response = await requestSender.dataIUD(form, "admin/api/adminSignInProcess.php");
+       const response = await requestSender.dataIUD(form, "api/adminSignInProcess.php");
        if (response.status === 'success') {
               ALG.openToast("Success", "Let's Go", ALG.getCurrentTime(), "bi-heart", "Success");
               setTimeout(() => {
-                     window.location.href = SERVER_URL + "admin/dashboard.php"
+                     window.location.href = SERVER_URL + "dashboard.php"
                      // window.location.reload();
               }, 1500);
        } else {
