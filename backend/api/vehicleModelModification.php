@@ -22,7 +22,8 @@ $db = new database_driver();
 
 if (RequestHandler::isGetMethod()) {
      //load vehicle  model table 
-     $searchQuery = "SELECT * FROM `vehicle_models_has_modification_line`";
+     $searchQuery = "SELECT * FROM `vehicle_models_has_modification_line` INNER JOIN `modification_line` ON `modification_line`.`mod_id`=`vehicle_models_has_modification_line`.`modification_line_mod_id`
+     INNER JOIN `vehicle_models`ON `vehicle_models`.`model_id`=`vehicle_models_has_modification_line`.`vehicle_models_model_id` ";
      $resultSet = $db->query($searchQuery);
 
      //response array 
@@ -34,9 +35,9 @@ if (RequestHandler::isGetMethod()) {
 
                $resRowDetailObject = new stdClass();
 
-               $resRowDetailObject->vh_model_id = $rowData['vehicle_models_model_id'];
-               $resRowDetailObject->vh_modification_id = $rowData['modification_line_mod_id'];
                $resRowDetailObject->vh_mdu_id = $rowData['mdu_id'];
+               $resRowDetailObject->vh_model_id = $rowData['vehicle_models_model_id'];
+               $resRowDetailObject->vh_modification_line = $rowData['mod'];
 
                array_push($responseArray, $resRowDetailObject);
           }

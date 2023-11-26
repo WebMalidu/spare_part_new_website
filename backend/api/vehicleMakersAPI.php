@@ -229,8 +229,8 @@ if (RequestHandler::isGetMethod()) {
 
                $resRowDetailObject = new stdClass();
 
-               $resRowDetailObject->maker_name = $rowData['name'];
                $resRowDetailObject->maker_id = $makers_id; // Use categoryName
+               $resRowDetailObject->maker_name = $rowData['name'];
 
                if (is_array($searchResults)) {
                     foreach ($searchResults as $searchResult) {
