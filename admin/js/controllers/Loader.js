@@ -12,42 +12,42 @@ class Loader {
 
        //load modification lines
        async LoadModificationLine() {
-              const modificationDataResponse = await this.dataSender.dataLoad("backend/api/vehicleModificationAPI.php");
+              const modificationDataResponse = await this.dataSender.dataLoad("api/vehicleModificationAPI.php");
               return modificationDataResponse;
        }
        //load vehicleTypes
        async LoadVehicleType() {
-              const vehicleTypeDataResponse = await this.dataSender.dataLoad("backend/api/vehicleTypeAPI.php");
+              const vehicleTypeDataResponse = await this.dataSender.dataLoad("api/vehicleTypeAPI.php");
               return vehicleTypeDataResponse;
        }
        //load vehicle years
        async LoadVehicleYears() {
-              const vehicleYearsDataResponse = await this.dataSender.dataLoad("backend/api/vehicleDateAPI.php");
+              const vehicleYearsDataResponse = await this.dataSender.dataLoad("api/vehicleDateAPI.php");
               return vehicleYearsDataResponse;
        }
        //load vehicle generation
        async LoadVehicleGeneration() {
-              const vehicleYearsDataResponse = await this.dataSender.dataLoad("backend/api/vehicleGenarationAPI.php");
+              const vehicleYearsDataResponse = await this.dataSender.dataLoad("api/vehicleGenarationAPI.php");
               return vehicleYearsDataResponse;
        }
        //load vehicle names
        async LoadVehicleName() {
-              const vehicleNamesDataResponse = await this.dataSender.dataLoad("backend/api/vehicleNames.php");
+              const vehicleNamesDataResponse = await this.dataSender.dataLoad("api/vehicleNames.php");
               return vehicleNamesDataResponse;
        }
        //load vehicle makers
        async LoadVehicleMakers() {
-              const vehicleMakersDataResponse = await this.dataSender.dataLoad("backend/api/vehicleMakersAPI.php");
+              const vehicleMakersDataResponse = await this.dataSender.dataLoad("api/vehicleMakersAPI.php");
               return vehicleMakersDataResponse;
        }
        //load vehicle models
        async LoadVehicleModels() {
-              const vehicleModelsDataResponse = await this.dataSender.dataLoad("backend/api/vehicleModelAPI.php");
+              const vehicleModelsDataResponse = await this.dataSender.dataLoad("api/vehicleModelAPI.php");
               return vehicleModelsDataResponse;
        }
        //load vehicle models has modification line
        async LoadVehicleModelsModificationLine() {
-              const vehicleModelsModificationLineDataResponse = await this.dataSender.dataLoad("backend/api/vehicleModelModification.php");
+              const vehicleModelsModificationLineDataResponse = await this.dataSender.dataLoad("api/vehicleModelModification.php");
               return vehicleModelsModificationLineDataResponse;
        }
 

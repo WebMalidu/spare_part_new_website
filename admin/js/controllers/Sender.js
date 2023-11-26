@@ -3,7 +3,7 @@
 //MDN reference JS OOP
 
 // SERVER_URL = "http://localhost:9001/";
-SERVER_URL = "https://batta.lk/";
+SERVER_URL = "https://batta.lk/backend/";
 
 class Sender {
 
