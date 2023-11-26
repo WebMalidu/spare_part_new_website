@@ -31,15 +31,15 @@ $userData = $userCheckSession->getUserData();
 
 // Decode the POST data to get the promotion ID
 $cartData = json_decode($_POST['cartData']);
-$qty=$cartData->qty;
 $partId=$cartData->parts_id;
+
 
 
 $database_driver=new database_driver();
 
 $insertQuery="INSERT INTO `cart`(`qty`,`user_user_id`,`vehicle_parts_parts_id`) VALUES (?,?,?)";
-$parms=array($qty,$userData['user_id'],$partId);
-$result=$database_driver->execute_query($insertQuery,'iii',$parms);
+$parms=array(1,$userData['user_id'],$partId);
+$result=$database_driver->execute_query($insertQuery,'iis',$parms);
 
 
 if (!$result['stmt']->affected_rows > 0) {
@@ -47,6 +47,6 @@ if (!$result['stmt']->affected_rows > 0) {
     response_sender::sendJson($responseObject);
 }
 
-$responseObject->status="sucess";
-response_sender::sendJson($responseObject);
 
+$responseObject->status="success";
+response_sender::sendJson($responseObject);

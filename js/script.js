@@ -346,7 +346,6 @@ function addWatchlist(part_id) {
   const requestDataObject = {
     parts_id: part_id,
   };
-  console.log("hi")
 
   // store data in a form
   let form = new FormData();
@@ -359,8 +358,9 @@ function addWatchlist(part_id) {
       // preform an action on response
       let response = JSON.parse(request.responseText);
       if (response.status == "success") {
-        Toast.toastLoad("success","successfully added item to watchlist");
-        // alert("successfully added item to watchlist");
+         alert("successfully added item to watchlist");
+  console.log("hi")
+
         loadWatchList();
       } else {
         console.log(response.error);
@@ -370,5 +370,34 @@ function addWatchlist(part_id) {
     }
   };
   request.open("POST", "../backend/api/watchListAdd.php", true);
+  request.send(form);
+}
+
+function addCart(part_id) {
+  const requestDataObject = {
+    parts_id: part_id,
+  };
+  console.log("cart add")
+
+  // store data in a form
+  let form = new FormData();
+  form.append("cartData", JSON.stringify(requestDataObject));
+
+  // send the data to server
+  let request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState == 4) {
+      // preform an action on response
+      let response = JSON.parse(request.responseText);
+      if (response.status == "success") {
+         alert("successfully added item to watchlist");
+      } else {
+        console.log(response.error);
+        Toast.toastLoad("error","WatchList adding failed");
+      }
+      console.log(request.responseText);
+    }
+  };
+  request.open("POST", "../backend/api/cartAdding.php", true);
   request.send(form);
 }
