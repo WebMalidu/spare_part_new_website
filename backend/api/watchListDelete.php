@@ -31,7 +31,7 @@ $userData = $userCheckSession->getUserData();
 
 // Decode the POST data to get the promotion ID
 $watchListData = json_decode($_POST['watchListData']);
-$w_id=$watchListData->w_id;
+$w_id=$watchListData->watchlistId;
 
 
 
@@ -46,5 +46,5 @@ if (!$result['stmt']->affected_rows > 0) {
 }
 
 
-$responseObject->status="sucess";
+$responseObject->status="success";
 response_sender::sendJson($responseObject);

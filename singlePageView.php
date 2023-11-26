@@ -39,7 +39,8 @@ if (!isset($_GET["parts_id"], $_GET['vh_category_item_id'], $_GET['vh_model_id']
     <script defer src="js/script.js"></script>
     <script defer src="js/slider.js"></script>
     <script defer src="js/singleProduct.js"></script>
-    <script defer src="js/product.js"></script>
+    <script defer src="./js/product.js"></script>
+    <script defer src="js/toast.js"></script>
 
 
 </head>
@@ -132,7 +133,7 @@ if (!isset($_GET["parts_id"], $_GET['vh_category_item_id'], $_GET['vh_model_id']
                 </div>
                 <div>
                     <button class="spv-s1-right-button border-0 alg-bg-green alg-text-light alg-rounded-small spv-s1-right-button1 alg-text-h3">Add to Card</button>
-                    <button class="spv-s1-right-button alg-rounded-small border-5 alg-text-green spv-s1-right-button2 alg-text-h3">Add Watchlist</button>
+                    <button class="spv-s1-right-button alg-rounded-small border-5 alg-text-green spv-s1-right-button2 alg-text-h3" onclick="addWatchlist('<?php echo htmlspecialchars($_GET['parts_id']); ?>')">Add Watchlist</button>
                 </div>
             </div>
         </section>
@@ -146,7 +147,7 @@ if (!isset($_GET["parts_id"], $_GET['vh_category_item_id'], $_GET['vh_model_id']
             <div class="swiperCategory swiper single-product-Swiper">
                 <div class="swiper-wrapper pt-2 pb-2" id="productSliders">
                     <!-- slider goes here -->
-                   
+
                 </div>
             </div>
         </section>
@@ -167,6 +168,8 @@ if (!isset($_GET["parts_id"], $_GET['vh_category_item_id'], $_GET['vh_model_id']
         </div>
     </section>
 
+    <!-- toast container -->
+    <div id="toastContainer"></div>
     <!-- footer -->
     <?php include("./pages/components/footer.php") ?>
 

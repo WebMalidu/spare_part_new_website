@@ -96,7 +96,7 @@ if ($_FILES['category_image']['error'] === 0) {
      } else {
           $responseObject->error = 'Invalid file type';
           response_sender::sendJson($responseObject);
-     }
+      }
 } else {
      $responseObject->error = 'No image uploaded';
      response_sender::sendJson($responseObject);

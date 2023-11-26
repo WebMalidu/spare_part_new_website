@@ -36,6 +36,7 @@ if (!isset($_GET["category_id"])) {
     <script defer src="js/script.js"></script>
     <script defer src="js/slider.js"></script>
     <script defer src="js/categoryItem.js"></script>
+    <script defer src="js/toast.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </head>
 
@@ -45,7 +46,7 @@ if (!isset($_GET["category_id"])) {
 
     <!-- content  of page -->
     <div class="cp-main-box d-flex flex-row">
-        
+
         <!-- right box section(image slider part) -->
         <div class="cp-right-box  w-100">
             <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
@@ -72,7 +73,7 @@ if (!isset($_GET["category_id"])) {
                 <!-- pagination section boostrap -->
                 <div class="pt-4">
                     <nav aria-label="Page navigation example">
-                        <ul class="pagination" >
+                        <ul class="pagination">
                             <li class="page-item" id="previous">
                                 <a class="page-link" href="#" aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
@@ -93,8 +94,8 @@ if (!isset($_GET["category_id"])) {
                 </div>
             </div>
 
-
-
+            <!-- toast container -->
+            <div id="toastContainer"></div>
         </div>
     </div>
 
