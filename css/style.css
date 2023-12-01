@@ -369,7 +369,6 @@
   /* object-fit: cover; */
 }
 
-
 .se3-btn {
   /* border: 3px solid#0261ae; */
   /* background-color: transparent; */
@@ -378,7 +377,6 @@
   color: white;
   transition: 0.7s ease;
 }
-
 
 /* Brand we trust section  */
 h5 {
@@ -690,8 +688,6 @@ h5 {
   gap: 40px;
 }
 
-
-
 /* footer */
 .footer-mainBox {
   flex-direction: row;
@@ -739,12 +735,53 @@ h5 {
 .cart-shipping-button-save:hover {
   background-color: var(--blue);
   color: white;
-
 }
 
 .categ-itm-sec {
   min-height: 140px;
   width: 210px;
+}
+
+/* multvendo Registration page css */
+.mrp-mainbox {
+  width: 100%;
+  /* height: 100vh; */
+}
+.mrp-box {
+  width: 900px;
+  margin-top: 50px;
+}
+.mrp-input-box {
+  /* padding: 20px; */
+}
+.mrp-input {
+  width: 700px;
+  height: 40px;
+  border-style: double;
+  border-color: var(--blue);
+  background-color: var(--light-blue);
+}
+.mrp-input-small {
+  width: 320px;
+  height: 40px;
+  border-style: double;
+  border-color: var(--blue);
+  background-color: var(--light-blue);
+}
+.mrp-button {
+  width: 100px;
+  height: 30px;
+  background-color: white;
+  border-color: var(--blue);
+  border-style: double;
+}
+.mrp-contact-box {
+  gap: 60px;
+}
+
+.mrp-button:active {
+  box-shadow: 0 3px #a2a2a2;
+  transform: translateY(3px);
 }
 
 @keyframes myfirst {
@@ -760,7 +797,6 @@ h5 {
 }
 
 @media (max-width: 1200px) {
-
   /* spv section right button */
   .spv-s1-right-button {
     width: 120px;
@@ -839,7 +875,22 @@ h5 {
     width: 192px;
     height: 30px;
   }
-
+  /* multvendoregister css */
+  .mrp-box {
+    width: 600px;
+    margin-top: 50px;
+  }
+  .mrp-input {
+    width: 400px;
+    height: 40px;
+  }
+  .mrp-input-small {
+    width: 180px;
+    height: 40px;
+  }
+  .mrp-contact-box {
+    gap: 40px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -851,7 +902,6 @@ h5 {
   .cp-right-box .swiper {
     width: 600px;
   }
-
 }
 
 @media (max-width: 768px) {
@@ -1049,7 +1099,6 @@ h5 {
 }
 
 @media (max-width: 725px) {
-
   /* contact US */
   /* section 3 */
   .cu-s3-container {
@@ -1079,10 +1128,30 @@ h5 {
   .main-img {
     background-image: url("../resources/image/home/main_img610.png");
   }
+  /* multvendoregister css */
+  .mrp-box {
+    width: 400px;
+    margin-top: 50px;
+  }
+  .mrp-input {
+    width: 300px;
+    height: 32px;
+  }
+  .mrp-input-small {
+    width: 300px;
+    height: 32px;
+  }
+  .mrp-contact-box {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .mrp-button {
+    width: 100px;
+    height: 28px;
+  }
 }
 
 @media (max-width: 576px) {
-
   /* Why Choose Us section */
   .WCU-s1-sBox {
     height: 200px;
@@ -1192,7 +1261,6 @@ h5 {
 }
 
 @media (max-width: 426px) {
-
   /* Why Choose Us section */
   .WCU-s1-sBox {
     height: 150px;
@@ -1350,8 +1418,24 @@ h5 {
     width: 108px;
     height: 30px;
   }
+/* multivendoRegister page css */
+  .mrp-box {
+    width: 300px;
+    margin-top: 50px;
+  }
+  .mrp-input {
+    width: 250px;
+    height: 32px;
+  }
+  .mrp-input-small {
+    width: 250px;
+    height: 32px;
+  }
+  .mrp-button {
+    width: 80px;
+    height: 25px;
+  }
 }
-
 
 /* my garage section */
 
@@ -1379,8 +1463,6 @@ h5 {
 }
 
 @media (max-width: 320px) {
-
-
   /* Why Choose Us section */
   .WCU-s1-image {
     height: 40px;
@@ -1400,13 +1482,11 @@ h5 {
     width: 220px;
     position: relative;
     height: 350px;
-
   }
 
   /* footer */
 
   .footer-img-box {
-
     gap: 15px;
   }
 
@@ -1440,8 +1520,10 @@ h5 {
 }
 
 .profile-bg-gradient {
-  background: var(--gradiant-1,
-      linear-gradient(107deg, #00447b 26.4%, #036fc8 81.38%));
+  background: var(
+    --gradiant-1,
+    linear-gradient(107deg, #00447b 26.4%, #036fc8 81.38%)
+  );
 }
 
 .profile-img {
@@ -1457,8 +1539,10 @@ h5 {
 }
 
 .header-bg {
-  background: var(--gradiant-1,
-      linear-gradient(107deg, #00447b 26.4%, #036fc8 81.38%));
+  background: var(
+    --gradiant-1,
+    linear-gradient(107deg, #00447b 26.4%, #036fc8 81.38%)
+  );
 }
 
 /* cart section */
@@ -1501,14 +1585,13 @@ h5 {
   color: white;
 }
 
-
 /* category item section page */
 .watchlist-hover .watchlist-hovr {
   color: white;
-  z-index:1000;
+  z-index: 1000;
 }
 
 .watchlist-hover:hover .watchlist-hovr {
   color: #0261ae;
-  z-index:1000;
+  z-index: 1000;
 }
