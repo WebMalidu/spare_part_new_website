@@ -42,6 +42,9 @@
   background-color: #fff;
   color: #e6dcdc;
 }
+.hp-box{
+  gap: 30px;
+}
 
 .m-header {
   /* background-color: rgba(0, 64, 116, 0.35); */
@@ -802,6 +805,9 @@ h5 {
     width: 120px;
     height: 30px;
   }
+}
+@media (max-width: 1200px) {
+
 }
 
 @media (max-width: 992px) {
