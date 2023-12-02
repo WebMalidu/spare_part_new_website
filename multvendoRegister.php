@@ -103,7 +103,7 @@
             <div class="d-flex flex-column pt-4">
                 <span class="alg-text-h3 alg-text-blue">Email Address</span>
                 <div class="mrp-input-box pt-1">
-                    <input class="mrp-input  alg-rounded-small alg-shadow" type="text">
+                    <input class="mrp-input  alg-rounded-small alg-shadow" type="email">
                 </div>
             </div>
             <div class="p-4">

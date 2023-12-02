@@ -25,7 +25,7 @@ if ($access->isLoggedIn()) {
                </div>
                <!-- navigation -->
                <div class="d-lg-flex d-none gap-4 batta-font-lite">
-                    <div class="p-1 fs-5 d-flex  gap-5 ps-2 pe-2 text-white fw-bold">
+                    <div class="hp-box p-1 fs-5 d-flex ps-2 pe-2 text-white fw-bold">
                          <div class="header-link">
                               <a class="nav-link alg-button-header-hover" href="index.php">Home</a>
                          </div>
@@ -33,16 +33,18 @@ if ($access->isLoggedIn()) {
                               <a class="nav-link alg-button-header-hover" href="./category.php">Category</a>
                          </div>
                          <div class="header-link ">
-                              <a class="nav-link alg-button-header-hover" href="contactUs.php">Contact Us</a>
-                         </div>
-                         <div class="header-link ">
                               <a class="nav-link alg-button-header-hover" href="garage.php">My Garage</a>
                          </div>
-
-                    </div>
-                    <div class="header-link fs-5 d-flex justify-content-between gap-4 p-1 ps-4 pe-5 text-white">
-                         <a href="#watchlist" class="alg-button-header-hover" onclick="openWatchlistModel()"><i class="bi bi-heart-fill text-white"></i></a>
-                         <a href="#cart" class="alg-button-header-hover" onclick="openCartModel();"><i class="bi bi-cart-fill text-white"></i></a>
+                         <div class="header-link ">
+                              <a class="nav-link alg-button-header-hover" href="multvendoRegister.php">Are You Seller</a>
+                         </div>
+                         
+                              
+                         </div>
+                         <div class="header-link fs-5 d-flex justify-content-between gap-4 p-1 ps-4 pe-5 text-white">
+                              <a class="nav-link alg-button-header-hover" href="contactUs.php"><i class="fa-solid fa-address-book text-white"></i></a>
+                              <a href="#cart" class="alg-button-header-hover" onclick="openCartModel();"><i class="bi bi-cart-fill text-white"></i></a>
+                              <a href="#watchlist" class="alg-button-header-hover" onclick="openWatchlistModel()"><i class="bi bi-heart-fill text-white"></i></a>
 
 
 
@@ -111,6 +113,12 @@ if (isset($loggedUserData) && isset($loggedUserData["email"])) {
                     <div class="modal-line d-flex gap-3 align-items-center">
                          <!-- <i class="fa-solid fa-circle-info"></i> -->
                          <a href="garage.php" class=" nav-model-heading text-decoration-none alg-text-dark-blue">My Garage</a>
+                    </div>
+                    <hr style="color: black;">
+
+                    <div class="modal-line d-flex gap-3 align-items-center">
+                         <!-- <i class="fa-solid fa-circle-info"></i> -->
+                         <a href="multvendoRegister.php" class=" nav-model-heading text-decoration-none alg-text-dark-blue">Are You Seller</a>
                     </div>
                     <hr style="color: black;">
 
