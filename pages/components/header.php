@@ -38,6 +38,9 @@ if ($access->isLoggedIn()) {
                          <div class="header-link ">
                               <a class="nav-link alg-button-header-hover" href="garage.php">My Garage</a>
                          </div>
+                         <div class="header-link ">
+                              <a class="nav-link alg-button-header-hover" href="multvendoRegister.php">Are You Seller</a>
+                         </div>
 
                     </div>
                     <div class="header-link fs-5 d-flex justify-content-between gap-4 p-1 ps-4 pe-5 text-white">
@@ -111,6 +114,12 @@ if (isset($loggedUserData) && isset($loggedUserData["email"])) {
                     <div class="modal-line d-flex gap-3 align-items-center">
                          <!-- <i class="fa-solid fa-circle-info"></i> -->
                          <a href="garage.php" class=" nav-model-heading text-decoration-none alg-text-dark-blue">My Garage</a>
+                    </div>
+                    <hr style="color: black;">
+
+                    <div class="modal-line d-flex gap-3 align-items-center">
+                         <!-- <i class="fa-solid fa-circle-info"></i> -->
+                         <a href="multvendoRegister.php" class=" nav-model-heading text-decoration-none alg-text-dark-blue">Are You Seller</a>
                     </div>
                     <hr style="color: black;">
 
