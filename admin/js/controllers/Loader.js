@@ -50,5 +50,10 @@ class Loader {
               const vehicleModelsModificationLineDataResponse = await this.dataSender.dataLoad("backend/api/vehicleModelModification.php");
               return vehicleModelsModificationLineDataResponse;
        }
+       //load vehicle parts
+       async LoadVehiclePartsLoad() {
+              const vehiclePartsResponse = await this.dataSender.dataLoad("backend/api/productManupulateAPI.php");
+              return vehiclePartsResponse;
+       }
 
 }

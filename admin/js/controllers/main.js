@@ -1,6 +1,9 @@
 // framework initiate
 const ALG = new DashboardComponents();
 
+// //DB data loader
+const dataLoader = new Loader();
+
 document.addEventListener("DOMContentLoaded", async () => {
   const mainPanelContentLoad = async (panel) => {
     switch (panel) {
@@ -20,7 +23,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         break;
 
       case "productPanel":
-        // toggleProductSection('product');
+        toggleProductSection('product');
         console.log(panel);
         break;
 
@@ -156,6 +159,51 @@ const loadModelLine = async () => {
   return modificationLine.error
 }
 
+//load all vehicle parts
+const vehicleView = async () => {
+  const resVhParts = await dataLoader.LoadVehiclePartsLoad();
+  console.log(resVhParts);
+
+
+  const vehiclePartsArr = [];
+
+  if (resVhParts.status === "success") {
+    resVhParts.result.map((res) => {
+
+      const editButton = `<button class="fw-bolder btn alg-btn-pill" onclick="openMakerEditModel(${res.result.parts_id})">Edit</button>`;
+
+      vehiclePartsArr.push({
+        "Parts Id": res.result.parts_id,
+        "Title": res.result.title,
+        "Added Date": res.result.addedd_date,
+        "Seller Name": res.result.full_name,
+        "Price": res.result.price,
+        "Shipping Price": res.result.shipping_price,
+        "Brand Name": res.result.brand_name,
+        "Category": res.result.category,
+        "Category Item": res.result.category_item_name,
+        "Product Description": res.result.description,
+        "Quantity": res.result.qty,
+        "Vehicle Name": res.result.vh_name,
+        "Vehicle Type": res.result.vehicale,
+        "Vehicle Year": res.result.year,
+        "Generation": res.result.generation,
+        "Modification Line": res.result.mod,
+        "Status": res.result.status,
+        "Image": res.images[0]
+          ? `<img src="../../resources/image/partsImages/${res.images[0]}" class="alg-list-cell-image"  />`
+          : "Empty",
+        "Edit": editButton,
+      });
+
+
+    })
+
+    return vehiclePartsArr
+  }
+
+
+}
 
 //vehicle section toggle
 const toggleVehicleSection = async (sec) => {
@@ -177,5 +225,25 @@ const toggleVehicleSection = async (sec) => {
   sec === "models" ? ALG.addTableToContainer("modelsViewSection", loadModel, [200, 200, 200, 200, 200, 150]) : null;
   sec === "modelLines" ? ALG.addTableToContainer("modelLinesViewSection", loadModelLine, [200, 200, 200, 150]) : null;
 
-  
+
 }
+
+//product section toggle
+const toggleProductSection = async (productSection) => {
+  const sections = document.getElementById('productSectionsContainer').childNodes;
+
+  for (var i = 0; i < sections.length; i++) {
+    if (sections[i].nodeType === Node.ELEMENT_NODE) {
+      sections[i].classList.remove("d-block");
+      sections[i].classList.add("d-none");
+    }
+  }
+
+  const selectedSection = document.getElementById(productSection + "Section");
+  selectedSection.classList.add("d-block");
+  selectedSection.classList.remove("d-none");
+
+  productSection === 'productView' ? ALG.addTableToContainer("productViewSection", vehicleView, [200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 300, 200]) : null;
+  // productSection === 'productAdd' ? ALG.addTableToContainer("productViewSection",vehicleView) : null;
+
+};
