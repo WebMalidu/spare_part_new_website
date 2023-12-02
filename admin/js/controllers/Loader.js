@@ -52,7 +52,7 @@ class Loader {
        }
        //load vehicle parts
        async LoadVehiclePartsLoad() {
-              const vehiclePartsResponse = await this.dataSender.dataLoad("backend/api/productManupulateAPI.php");
+              const vehiclePartsResponse = await this.dataSender.dataLoad("api/productManupulateAPI.php");
               return vehiclePartsResponse;
        }
 
