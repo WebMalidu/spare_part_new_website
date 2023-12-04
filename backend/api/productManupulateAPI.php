@@ -92,16 +92,16 @@ if (RequestHandler::isGetMethod()) {
 
 
      //get user into the session
-     // $userCheckSession = new SessionManager();
-     // if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
-     //      $responseObject->error = 'Please Login';
-     //      response_sender::sendJson($responseObject);
-     // }
+     $userCheckSession = new SessionManager('alg006_admin');
+     if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
+          $responseObject->error = 'Please Login';
+          response_sender::sendJson($responseObject);
+     }
 
      // $userData = $userCheckSession->getUserData();
      // $userId = $userData['user_id'];
-
      $userId = 1;
+
 
      //data insert Update Delete
      //data insert parameters
@@ -119,6 +119,7 @@ if (RequestHandler::isGetMethod()) {
           $ad_brand_id = $insertData->ad_brand_id;
           $ad_model_id = $insertData->ad_model_id;
           $ad_category_id = $insertData->ad_category_id;
+          $shipping_price = $insertData->shipping_price;
 
           //data validation
           $validateReadyObject = (object) [
@@ -133,7 +134,8 @@ if (RequestHandler::isGetMethod()) {
                     (object) ["datakey" => "model", "value" => $ad_model_id],
                ],
                "price" => [
-                    (object) ["datakey" => "price", "value" => $ad_price]
+                    (object) ["datakey" => "price", "value" => $ad_price],
+                    (object) ["datakey" => "shipping price", "value" => $shipping_price],
                ],
                "text_255" => [
                     (object) ["datakey" => "description", "value" => $ad_description]
@@ -156,11 +158,11 @@ if (RequestHandler::isGetMethod()) {
           $partsId = 'pp_' . str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
 
           // search first the product already have this product
-          $searchProduct = "SELECT * FROM `vehicle_parts` WHERE  `title`=? AND `user_user_id`=? AND `brand_brand_id`=? AND `vehicle_models_has_modification_line_mdu_id`=? AND `category_item_category_item_id`=?";
-          $result = $db->execute_query($searchProduct, 'siiis', array($ad_title, $userId, $ad_brand_id, $ad_model_id, $ad_category_id));
+          $searchProduct = "SELECT * FROM `vehicle_parts` WHERE  `title`='" . $ad_title . "' AND `user_user_id`='" . $userId . "' AND `brand_brand_id`='" . $ad_brand_id . "' AND `vehicle_models_has_modification_line_mdu_id`='" . $ad_model_id . "' AND `category_item_category_item_id`='" . $ad_category_id . "'";
+          $result = $db->query($searchProduct);
 
           //if 1 result code exit
-          if ($result['result']->num_rows > 0) {
+          if ($result->num_rows > 0) {
                $responseObject->error = "oops! this product already added";
                response_sender::sendJson($responseObject);
           }
@@ -171,10 +173,10 @@ if (RequestHandler::isGetMethod()) {
 
           //query
           $query = "INSERT INTO `vehicle_parts` 
-          (`parts_id`,`title`,`parts_origin_origin_id`,`qty`,`description`,`addedd_date`,`user_user_id`,`price`,`parts_status_parts_status_id`,`brand_brand_id`,`category_item_category_item_id`,`vehicle_models_has_modification_line_mdu_id`)
-          VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+          (`parts_id`,`title`,`parts_origin_origin_id`,`qty`,`description`,`addedd_date`,`user_user_id`,`price`,`parts_status_parts_status_id`,`brand_brand_id`,`category_item_category_item_id`,`vehicle_models_has_modification_line_mdu_id`,`shipping_price`)
+          VALUES ('" . $partsId . "','" . $ad_title . "','" . $ad_origin_id . "','" . $ad_qty . "','" . $ad_description . "','" . $currentDate . "','" . $userId . "','" . $ad_price . "','1','" . $ad_brand_id . "','" . $ad_category_id . "','" . $ad_model_id . "','" . $shipping_price . "')";
           //insert data
-          $db->execute_query($query, 'ssssssssssss', array($partsId, $ad_title, $ad_origin_id, $ad_qty, $ad_description, $currentDate, $userId, $ad_price, '1', $ad_brand_id, $ad_category_id, $ad_model_id));
+          $db->query($query);
 
           // // parts images Upload
           $imageArray = $insertData->ad_parts_img;
@@ -209,7 +211,6 @@ if (RequestHandler::isGetMethod()) {
 
 
           $responseObject->status = "success";
-          $responseObject->result = $insertData;
           response_sender::sendJson($responseObject);
 
 

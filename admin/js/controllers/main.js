@@ -205,6 +205,103 @@ const vehicleView = async () => {
 
 }
 
+
+//load vehicle origin
+const loadVehicleOrigin = async () => {
+
+  let productOrgin = document.getElementById('sectionOrigin');
+
+  const vhOriginRes = await dataLoader.LoadVehiclePartsOrin();
+
+  productOrgin.innerHTML = "";
+  productOrgin.innerHTML += `<option value="0">Select Origin</option>`;
+
+  if (vhOriginRes.status === "success") {
+    vhOriginRes.result.map((res) => {
+      let option = document.createElement('option');
+      option.value = res.origin_id;
+      option.textContent = res.origin;
+      productOrgin.appendChild(option);
+    });
+  } else {
+    console.log(vhOriginRes.error);
+  }
+
+}
+
+//load vehicle brand
+const loadVehicleBrand = async () => {
+
+  let productBrand = document.getElementById('productBrand');
+
+  const vhBrandRes = await dataLoader.LoadVehicleBrand();
+
+  productBrand.innerHTML = "";
+  productBrand.innerHTML += `<option value="0">Select Brand</option>`;
+
+  if (vhBrandRes.status === "success") {
+    vhBrandRes.result.map((res) => {
+      let option = document.createElement('option');
+      option.value = res.brand_id;
+      option.textContent = res.brand_name;
+      productBrand.appendChild(option);
+    });
+  } else {
+    console.log(vhBrandRes.error);
+  }
+
+}
+
+//load vehicle category items
+const loadVehicleCategoryItem = async () => {
+
+  let productCategoryItem = document.getElementById('productCategoryItem');
+
+  const productCategoryItemRes = await dataLoader.LoadVehicleCategoryItem();
+  console.log(productCategoryItemRes);
+
+  productCategoryItem.innerHTML = "";
+  productCategoryItem.innerHTML += `<option value="0">Select Category Item</option>`;
+
+  if (productCategoryItemRes.status === "success") {
+    productCategoryItemRes.result.map((res) => {
+      let option = document.createElement('option');
+      option.value = res.category_item_id;
+      option.textContent = res.category_item_name;
+      productCategoryItem.appendChild(option);
+    });
+  } else {
+    console.log(productCategoryItemRes.error);
+  }
+
+}
+
+//load modification line
+const loadModificationLine = async () => {
+  let productModelLine = document.getElementById('productModelLine');
+
+  const productModificationLineRes = await dataLoader.LoadVehicleModelsModificationLine();
+  console.log(productModificationLineRes);
+
+  productModelLine.innerHTML = "";
+  productModelLine.innerHTML += `<option value="0">Select Modification Line</option>`;
+
+  if (productModificationLineRes.status === "success") {
+    productModificationLineRes.results.map((res) => {
+      let option = document.createElement('option');
+      option.value = res.mdu_id;
+      option.textContent = [res.vh_name, res.mod, res.vehicale, res.generation, res.year];
+      // option.textContent = res.mod;
+      productModelLine.appendChild(option);
+    });
+  } else {
+    console.log(productModificationLineRes.error);
+  }
+}
+
+
+
+
 //vehicle section toggle
 const toggleVehicleSection = async (sec) => {
   const sections = document.getElementById("vhMakerSectionsContainer").childNodes;
@@ -244,6 +341,12 @@ const toggleProductSection = async (productSection) => {
   selectedSection.classList.remove("d-none");
 
   productSection === 'productView' ? ALG.addTableToContainer("productViewSection", vehicleView, [200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 300, 200]) : null;
-  // productSection === 'productAdd' ? ALG.addTableToContainer("productViewSection",vehicleView) : null;
+
+  if (productSection === 'productAdd') {
+    loadVehicleOrigin();
+    loadVehicleBrand();
+    loadVehicleCategoryItem();
+    loadModificationLine();
+  }
 
 };
