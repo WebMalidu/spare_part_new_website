@@ -27,6 +27,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.log(panel);
         break;
 
+      case "promotionPanel":
+        togglePromotionSection('promotion');
+        console.log(panel);
+        break;
+
       default:
         console.log(panel);
         break;
@@ -300,6 +305,26 @@ const loadModificationLine = async () => {
 }
 
 
+//malindu *********************************
+//vehicle promotion section toggle
+const togglePromotionSection = async (promotionSections) => {
+  const sections = document.getElementById('productPromotionContainer').childNodes;
+
+  for (var i = 0; i < sections.length; i++) {
+    if (sections[i].nodeType === Node.ELEMENT_NODE) {
+      sections[i].classList.remove("d-block");
+      sections[i].classList.add("d-none");
+    }
+  }
+
+  const selectedSection = document.getElementById(promotionSections + "Section");
+  selectedSection.classList.add("d-block");
+  selectedSection.classList.remove("d-none");
+
+
+  promotionSections === "promotionView" ? ALG.addTableToContainer('promotionViewSection', loadMakers, [360, 350, 150]) : null;
+
+}
 
 
 //vehicle section toggle
