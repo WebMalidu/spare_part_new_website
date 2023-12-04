@@ -25,7 +25,7 @@ function clearAllInput() {
 
 async function addProduct(event) {
 
-       event.target.disabled = true;
+       // event.target.disabled = true;
 
        //get all request data
        let productTitle = document.getElementById('productTitleInputField').value;
@@ -83,7 +83,7 @@ async function addProduct(event) {
               ALG.openToast("Error", addProductResponse.error, ALG.getCurrentTime(), "bi-heart", "Error");
        }
 
-       event.target.disabled = false;
+       // event.target.disabled = false;
 }
 
 
