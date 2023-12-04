@@ -55,5 +55,20 @@ class Loader {
               const vehiclePartsResponse = await this.dataSender.dataLoad("api/productManupulateAPI.php");
               return vehiclePartsResponse;
        }
+       //load parts origin
+       async LoadVehiclePartsOrin() {
+              const vehiclePartsOriginResponse = await this.dataSender.dataLoad("backend/api/vehicleOriginLoad.php");
+              return vehiclePartsOriginResponse;
+       }
+       //load vehicle brand
+       async LoadVehicleBrand() {
+              const vehicleBrandResponse = await this.dataSender.dataLoad("backend/api/relatedBrandLoad.php");
+              return vehicleBrandResponse;
+       }
+       //load vehicle category items
+       async LoadVehicleCategoryItem() {
+              const vehicleCategoryItemResponse = await this.dataSender.dataLoad("backend/api/categoryItemLoadAll.php");
+              return vehicleCategoryItemResponse;
+       }
 
 }

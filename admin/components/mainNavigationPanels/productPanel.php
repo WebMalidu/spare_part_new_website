@@ -13,5 +13,61 @@
               <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small overflow-auto flex-grow-1" id="productViewSection">
 
               </div>
+              <div class="p-2  h-100 d-none alg-bg-light alg-rounded-small overflow-auto flex-grow-1" id="productAddSection">
+                     <div class="w-100">
+                            <label class="form-label" for="productTitleInputField">Product Title</label>
+                            <input type="text" id="productTitleInputField" class="form-control">
+                     </div>
+                     <div class="w-100">
+                            <label class="form-label">Product Origin</label>
+                            <select id="sectionOrigin" class="form-select">
+                                   <!-- option goes here -->
+                            </select>
+                     </div>
+                     <div class="w-100">
+                            <label class="form-label" for="productQty">Product QTY</label>
+                            <input type="number" id="productQty" class="form-control" min="1">
+                     </div>
+                     <div class="w-100">
+                            <label class="form-label" for="productDescriptionInputField">Product Description</label>
+                            <textarea type="text" id="productDescriptionInputField" class="form-control" rows="5"></textarea>
+                     </div>
+                     <div class="w-100">
+                            <label class="form-label" for="productPrice">Product Price</label>
+                            <input type="text" id="productPrice" class="form-control"></input>
+                     </div>
+                     <div class="w-100">
+                            <label class="form-label" for="productBrand">Brand</label>
+                            <select id="productBrand" class="form-select">
+                                   <!-- option goes here -->
+                            </select>
+                     </div>
+                     <div class="w-100">
+                            <label class="form-label" for="productCategoryItem">Category Item</label>
+                            <select id="productCategoryItem" class="form-select">
+                                   <!-- option goes here -->
+                            </select>
+                     </div>
+                     <div class="w-100">
+                            <label class="form-label" for="productModelLine">Model Line</label>
+                            <select id="productModelLine" class="form-select">
+                                   <!-- option goes here -->
+                            </select>
+                     </div>
+                     <div class="w-100">
+                            <label class="form-label" for="productShippingPrice">Shipping Price</label>
+                            <input type="text" id="productShippingPrice" class="form-control"></input>
+                     </div>
+                     <div class="w-100 m-0 d-flex flex-column overflow-auto">
+                            <div class="w-100">
+                                   <label class="form-label" for="addProductImageInput">Add Product Image</label>
+                                   <input alt="Product Image Not Selected" onchange="previewProductListImages(event)" class="alg-rounded-mid form-control w-100" placeholder="Select a product image" type="file" accept="image" multiple id="productItemImageInput">
+                                   <div class="my-2 p-1 rounded-1 product-items d-flex" id="productItemImagePreviewContainer"></div>
+                            </div>
+                     </div>
+                     <div class="w-100">
+                            <button onclick="addProduct(event)" class="my-4 w-100 alg-btn-pill">Add Product</button>
+                     </div>
+              </div>
        </div>
 </section>

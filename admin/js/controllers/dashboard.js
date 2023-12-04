@@ -35,7 +35,7 @@ class DashboardComponents {
               resolve(compressedDataURL);
             });
           },
-          "image/jpeg",
+          "image/jpg",
           quality
         );
       };
@@ -80,8 +80,8 @@ class DashboardComponents {
   async mainNavigationController(
     navigationPanelId,
     mainContainerId,
-    callback = async () => {},
-    passdownCallback = () => {}
+    callback = async () => { },
+    passdownCallback = () => { }
   ) {
     this.mainNavigationBtns = document
       .getElementById(navigationPanelId)
@@ -108,7 +108,7 @@ class DashboardComponents {
     requestedPanel,
     mainContainerId,
     title,
-    callback = () => {}
+    callback = () => { }
   ) {
     const mainContainer = document.getElementById(mainContainerId);
     const mainContainerTitle = document.getElementById(
@@ -255,11 +255,11 @@ class DashboardComponents {
 
     toastIcon
       ? (document.getElementById("toastIcon").classList = [
-          "bi",
-          toastIcon,
-          "text-dark",
-          "mx-1",
-        ])
+        "bi",
+        toastIcon,
+        "text-dark",
+        "mx-1",
+      ])
       : null;
 
     this.toastBootstrap.show();
@@ -450,7 +450,7 @@ class DashboardComponents {
 
   async addListToContainer(
     id,
-    callback = async () => {},
+    callback = async () => { },
     collumnLengths = null
   ) {
     const listData = await callback();
@@ -460,7 +460,7 @@ class DashboardComponents {
 
   async addTableToContainer(
     id,
-    callback = async () => {},
+    callback = async () => { },
     collumnLengths = null
   ) {
     const tableData = await callback();
@@ -474,7 +474,7 @@ class DashboardComponents {
     requestUrl,
     method = "GET",
     dataSet,
-    callback = () => {},
+    callback = () => { },
     preventDefault = false,
     test = false
   ) {
@@ -528,7 +528,7 @@ class DashboardComponents {
         if (response.ok) {
           if (test) {
             return response.text();
-          }else {
+          } else {
             return response.json();
           }
         } else {
