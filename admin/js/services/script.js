@@ -26,9 +26,8 @@ function clearAllInput() {
 async function addProduct(event) {
 
 
-       alert('ok');
 
-       // event.target.disabled = true;
+       event.target.disabled = true;
 
        //get all request data
        let productTitle = document.getElementById('productTitleInputField').value;
@@ -74,7 +73,7 @@ async function addProduct(event) {
        const formData = new FormData();
        formData.append("insertData", sendData);
 
-       const addProductResponse = await dataSend.dataIUD(formData, 'backend/api/productManupulateAPI.php');
+       const addProductResponse = await dataSend.dataIUD(formData, 'api/productManupulateAPI.php');
 
        if (addProductResponse.status === "success") {
               ALG.openToast("Success", "Product Adding Success", ALG.getCurrentTime(), "bi-heart", "Success");
@@ -86,7 +85,7 @@ async function addProduct(event) {
               ALG.openToast("Error", addProductResponse.error, ALG.getCurrentTime(), "bi-heart", "Error");
        }
 
-       // event.target.disabled = false;
+       event.target.disabled = false;
 }
 
 
