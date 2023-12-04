@@ -25,6 +25,9 @@ function clearAllInput() {
 
 async function addProduct(event) {
 
+
+       alert('ok');
+
        // event.target.disabled = true;
 
        //get all request data
