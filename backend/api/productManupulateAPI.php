@@ -98,9 +98,9 @@ if (RequestHandler::isGetMethod()) {
           response_sender::sendJson($responseObject);
      }
 
-     $userData = $userCheckSession->getUserData();
-     $userId = $userData['user_id'];
-     // $userId = 1;
+     // $userData = $userCheckSession->getUserData();
+     // $userId = $userData['user_id'];
+     $userId = 1;
 
 
      //data insert Update Delete
