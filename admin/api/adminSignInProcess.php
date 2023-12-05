@@ -33,6 +33,7 @@ $search_quary = "SELECT * FROM `admin` WHERE `mobile`='" . $mobile . "' AND `pas
 $db_response = $db->query($search_quary);
 
 
+
 if ($db_response->num_rows == 1) {
     $row = $db_response->fetch_assoc();
 
