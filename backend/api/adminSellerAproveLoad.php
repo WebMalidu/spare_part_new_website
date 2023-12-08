@@ -1,11 +1,9 @@
 <?php
-// Include necessary files for database connection and response handling
 require_once("../../backend/model/database_driver.php");
 require_once("../../backend/model/response_sender.php");
 require_once("../../backend/model/fileSearch.php");
 require_once("../../backend/model/RequestHandler.php");
 require_once("../../backend/model/SessionManager.php");
-
 // Create an object to store the response data
 $responseObject = new stdClass();
 $responseObject->status = 'failed';
@@ -46,8 +44,9 @@ $selectQuery = "SELECT *
                FROM `user` ur
                JOIN `user_type` ut ON ur.user_type_user_type_id = ut.user_type_id
                JOIN `user_status` us ON ur.user_status_u_status_id=us.u_status_id
-               WHERE ur.`admin_admin_id`!=?";
-$result=$database_driver->execute_query($selectQuery,'i',[1]);
+               JOIN `admin` ad ON ur.admin_admin_id=ad.admin_id
+               WHERE ur.`user_type_user_type_id`=?";
+$result=$database_driver->execute_query($selectQuery,'i',[4]);
 
 // Initialize an array to store all rows and image URLs
 $rows = [];
@@ -72,7 +71,7 @@ while ($row = $result['result']->fetch_assoc()) {
 }
 
 // Set the 'status' property of the response object to the 'rows' array
-$responseObject->status = "suess";
+$responseObject->status = "success";
 $responseObject->data = $rows;
 $responseObject->imageUrls = $imageUrls;
 

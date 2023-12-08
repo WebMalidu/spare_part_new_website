@@ -8,10 +8,49 @@
     </div>
     <div class="p-2 col-9 flex-grow-1 text-dark" id="productPromotionContainer">
         <div class="p-2 h-100 d-block alg-bg-light alg-rounded-small overflow-auto flex-grow-1">
-            👈 Please Select a section...
+
         </div>
         <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small overflow-auto flex-grow-1" id="promotionViewSection">
 
         </div>
+        <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small overflow-auto flex-grow-1" id="promotionAddSection">
+            <div class=" d-flex justify-content-between mt-3">
+                <div>
+                    <label class="form-label" for="productTitleInputField">Start date</label>
+                    <input type="date" id="promoStartDate" class="form-control">
+                </div>
+                <div>
+                    <label class="form-label" for="productTitleInputField">End Date</label>
+                    <input type="date" id="promoEndDate" class="form-control w-100">
+                </div>
+
+
+            </div>
+            <div class="w-100 ">
+                <label class="form-label mt-3">Product Name</label>
+                <select id="promotionTitle" class="form-select">
+                    <!-- option goes here -->
+
+                </select>
+            </div>
+            <div class="w-100">
+                <div>
+                    <label class="form-label mt-3"" for=" productTitleInputField">Discount Precentage</label>
+                    <input type="number" id="promoPrecentage" class="form-control w-100 ">
+                </div>
+            </div>
+            <div class="w-100 m-0 d-flex flex-column overflow-auto">
+                <div class="w-100">
+                    <label class="form-label mt-3" for="addProductImageInput">Add Product Image</label>
+                    <input alt="Product Image Not Selected" onchange="previewProductListImages(event)" class="alg-rounded-mid form-control w-100" placeholder="Select a product image" type="file" accept="image" id="promotionImage">
+                    <div class="my-2 p-1 rounded-1 product-items d-flex" id="productItemImagePreviewContainer"></div>
+                </div>
+            </div>
+            <div class="w-100">
+                <button onclick="promoAdd()" class="my-4 w-100 alg-btn-pill">Add Promotion</button>
+            </div>
+        </div>
+
+
     </div>
 </section>

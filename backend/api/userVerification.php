@@ -20,7 +20,6 @@ if (!isset($_GET['email'])) {
     $email = base64_decode($encrpt_email);
     $first_name = base64_decode($first_name);
     $sqlDateFormat = date('Y-m-d');
-    echo($sqlDateFormat);
 
     $db=new database_driver();
 
@@ -46,9 +45,9 @@ $hash = $passwordEncryptor['hash'];
 $salt = $passwordEncryptor['salt'];
 
 
-    $insertQuery="INSERT INTO `user`(`user_type_user_type_id`,`full_name`,`email`,`password_hash`,`password_salt`,`register_date`,`user_status_u_status_id`) VALUES (?,?,?,?,?,?,?) ";
-    $parms=array(1,$first_name,$email,$hash,$salt,$sqlDateFormat,1);
-    $result1=$db->execute_query($insertQuery,'isssssi',$parms);
+    $insertQuery="INSERT INTO `user`(`user_type_user_type_id`,`full_name`,`email`,`password_hash`,`password_salt`,`register_date`,`user_status_u_status_id`,`admin_admin_id`) VALUES (?,?,?,?,?,?,?,?) ";
+    $parms=array(1,$first_name,$email,$hash,$salt,$sqlDateFormat,1,1);
+    $result1=$db->execute_query($insertQuery,'isssssii',$parms);
 
    
 

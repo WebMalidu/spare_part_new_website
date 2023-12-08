@@ -53,7 +53,7 @@ $imageUrls = [];
 // Loop through the query results and retrieve image URLs
 while ($row = $searchResult['result']->fetch_assoc()) {
     $rows[] = $row;
-    $fileName = strval($row['promotion_id']);
+    $fileName = strval($row['vehicle_parts_parts_id']);
     $fileSearch = new FileSearch($directory, $fileName, $fileExtensions);
     $results = $fileSearch->search();
 

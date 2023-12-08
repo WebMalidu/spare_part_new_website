@@ -5,7 +5,12 @@ require_once("../model/database_driver.php");
 require_once("../model/response_sender.php");
 require_once("../model/fileSearch.php");
 require_once("../model/RequestHandler.php");
+require_once("../model/AdvancedSearchEngine.php");
+require_once("../model/data_validator.php");
 require_once("../model/SessionManager.php");
+require_once("../model/passwordEncryptor.php");
+
+
 
 // Create a response object
 $responseObject = new stdClass();
@@ -13,11 +18,19 @@ $responseObject->status = 'failed';
 
 // Check if the request is a POST method
 if (!RequestHandler::isPostMethod()) {
-    $responseObject->error = "Invalid request";
-    response_sender::sendJson($responseObject);
+     $responseObject->error = "Invalid request";
+     response_sender::sendJson($responseObject);
 }
 
+// Check if the user is logged in
+$userCheckSession = new SessionManager();
+if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
+     $responseObject->error = 'Please Login';
+     response_sender::sendJson($responseObject);
+}
 
+// Get user data
+$userData = $userCheckSession->getUserData();
 
 
 $database_driver = new database_driver();
@@ -29,11 +42,11 @@ $selectQuery = "SELECT *
                JOIN `category_item` ci ON vp.category_item_category_item_id=ci.category_item_id
                JOIN `parts_status` ps ON vp.parts_status_parts_status_id=ps.parts_status_id
                JOIN `brand` br ON vp.brand_brand_id=br.brand_id
-               WHERE pp.`product_promotion_status_p_promotion_status_id` = 1";
+               WHERE pp.`user_user_id` = ?";
 
 
 // Execute the SQL query and bind user ID as a parameter
-$searchResult = $database_driver->query($selectQuery);
+$searchResult = $database_driver->execute_query($selectQuery, 'i', array($userData['user_id']));
 
 
 
@@ -58,10 +71,11 @@ $rows = [];
 $imageUrls = [];
 
 // Fetch all rows from the result and store them in the 'rows' array
-while ($row = $searchResult->fetch_assoc()) {
+while ($row = $searchResult['result']->fetch_assoc()) {
     $rows[] = $row;
 
-    $fileName = strval($row['vehicle_parts_parts_id']);    // Create an instance of the FileSearch class
+    $fileName = strval($row['promotion_id']);
+    // Create an instance of the FileSearch class
     $fileSearch = new FileSearch($directory, $fileName, $fileExtensions);
 
     // Perform the search

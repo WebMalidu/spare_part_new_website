@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   loadWatchList();
- 
 });
 
 if (document.URL.endsWith("/index.php")) {
@@ -110,8 +109,6 @@ function goBackToSignIn() {
   signUpModel.hide();
   signInModel.show();
 }
-
-
 
 // profile section toggle
 
@@ -228,24 +225,20 @@ function signIn() {
 }
 
 class First15Words {
-
   // constructor(inputString){
 
   // }
 
- static getFirst15Words(inputString) {
-       // Split the input string into an array of words using whitespace as the delimiter
-       const wordsArray = inputString.split(/\s+/);
-       // Take the first 20 elements from the array using the slice method
-       const first20WordsArray = wordsArray.slice(0, 8);
-       // Join the first 20 words back together into a new string using whitespace as a separator
-       const resultString = first20WordsArray.join(" ");
-       return resultString;
+  static getFirst15Words(inputString) {
+    // Split the input string into an array of words using whitespace as the delimiter
+    const wordsArray = inputString.split(/\s+/);
+    // Take the first 20 elements from the array using the slice method
+    const first20WordsArray = wordsArray.slice(0, 8);
+    // Join the first 20 words back together into a new string using whitespace as a separator
+    const resultString = first20WordsArray.join(" ");
+    return resultString;
   }
-
 }
-
-
 
 //watchlist section
 
@@ -254,18 +247,17 @@ class First15Words {
 function loadWatchList() {
   // send the data to server
   let request = new XMLHttpRequest();
-  let watchListConatiner=document.getElementById('WatchListContainer')
+  let watchListConatiner = document.getElementById("WatchListContainer");
   request.onreadystatechange = function () {
     if (request.readyState == 4) {
       // preform an action on response
       let response = JSON.parse(request.responseText);
       if (response.status == "success") {
-        let data=response.data;
-        watchListConatiner.innerHTML='';
-        
+        let data = response.data;
+        watchListConatiner.innerHTML = "";
 
-        data.forEach(item => {
-          watchListConatiner.innerHTML +=`<div class="col-12 d-flex justify-content-center align-items-center gap-5 pb-3">
+        data.forEach((item) => {
+          watchListConatiner.innerHTML += `<div class="col-12 d-flex justify-content-center align-items-center gap-5 pb-3">
         <div class="col-5 col-lg-2 d-flex flex-column flex-lg-row justify-content-center bg-white ct-div-size alg-shadow rounded-1">
              <img src="resources/image/home/engineImage.png" class="crt_itm_img img-fluid my-auto mx-auto" alt="item_img" />
              <div class="col-12 d-flex flex-row d-lg-none d-block justify-content-around gap-5 pt-3">
@@ -296,13 +288,12 @@ function loadWatchList() {
              </div>
         </div>
         
-        </div>`
-      });
-        
+        </div>`;
+        });
       } else {
         console.log(response.error);
         // alert("WatchList adding failed");
-        Toast.toastLoad("error","WatchList adding failed");
+        Toast.toastLoad("error", "WatchList adding failed");
       }
       console.log(request.responseText);
     }
@@ -310,7 +301,7 @@ function loadWatchList() {
   request.open("POST", "../backend/api/watchListLoad.php", true);
   request.send();
 }
-function watchListDelete(w_id){
+function watchListDelete(w_id) {
   const requestDataObject = {
     watchlistId: w_id,
   };
@@ -327,11 +318,11 @@ function watchListDelete(w_id){
       let response = JSON.parse(request.responseText);
       if (response.status == "success") {
         alert("successfully deleted");
-        loadWatchList()        
+        loadWatchList();
       } else {
         console.log(response.error);
         // alert("WatchList adding failed");
-        Toast.toastLoad("error","WatchList adding failed");
+        Toast.toastLoad("error", "WatchList adding failed");
       }
       console.log(request.responseText);
     }
@@ -339,8 +330,6 @@ function watchListDelete(w_id){
   request.open("POST", "../backend/api/watchListDelete.php", true);
   request.send(form);
 }
-
-
 
 function addWatchlist(part_id) {
   const requestDataObject = {
@@ -358,13 +347,13 @@ function addWatchlist(part_id) {
       // preform an action on response
       let response = JSON.parse(request.responseText);
       if (response.status == "success") {
-         alert("successfully added item to watchlist");
-  console.log("hi")
+        alert("successfully added item to watchlist");
+        console.log("hi");
 
         loadWatchList();
       } else {
         console.log(response.error);
-        Toast.toastLoad("error","WatchList adding failed");
+        Toast.toastLoad("error", "WatchList adding failed");
       }
       console.log(request.responseText);
     }
@@ -377,7 +366,7 @@ function addCart(part_id) {
   const requestDataObject = {
     parts_id: part_id,
   };
-  console.log("cart add")
+  console.log("cart add");
 
   // store data in a form
   let form = new FormData();
@@ -390,14 +379,89 @@ function addCart(part_id) {
       // preform an action on response
       let response = JSON.parse(request.responseText);
       if (response.status == "success") {
-         alert("successfully added item to watchlist");
+        alert("successfully added item to watchlist");
       } else {
         console.log(response.error);
-        Toast.toastLoad("error","WatchList adding failed");
+        Toast.toastLoad("error", "WatchList adding failed");
       }
       console.log(request.responseText);
     }
   };
   request.open("POST", "../backend/api/cartAdding.php", true);
+  request.send(form);
+}
+
+//multi vendor registation
+
+function multiVendorRegistation() {
+  const name = document.getElementById("name").value;
+  const address = document.getElementById("Adress").value;
+  const businessName = document.getElementById("bName").value;
+  const brNumber = document.getElementById("br").value;
+  const businessAddress = document.getElementById("bAdress").value;
+  const businessContact = document.getElementById("bContact").value;
+  const privateContact = document.getElementById("bPrivate").value;
+  const emailAddress = document.getElementById("bEmail").value;
+  const password = document.getElementById("bPAssword").value;
+
+  const requestDataObject = {
+    name: name,
+    address: address,
+    business_name: businessName,
+    br_number: brNumber,
+    business_address: businessAddress,
+    business_contact: businessContact,
+    private_contact: privateContact,
+    email_address: emailAddress,
+    password: password,
+  };
+  console.log(requestDataObject)
+  console.log("multi vendor add");
+  
+    // Regular expressions for phone number and email validation
+    const phoneRegex = /^\d{10}$/; // Validates a 10-digit phone number
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Validates an email address
+
+// Verify phone number and email using regex
+const isPhoneNumberValid = phoneRegex.test(businessContact);
+const isPhoneNumberValidtwo = phoneRegex.test(privateContact);
+
+const isEmailValid = emailRegex.test(emailAddress);
+
+if (!isPhoneNumberValid) {
+    alert('Please enter a valid 10-digit phone number.');
+    return; // Prevent further execution if phone number is invalid
+}
+if (!isPhoneNumberValidtwo) {
+  alert('Please enter a valid 10-digit phone number.');
+  return; // Prevent further execution if phone number is invalid
+}
+
+if (!isEmailValid) {
+    alert('Please enter a valid email address.');
+    return; // Prevent further execution if email is invalid
+}
+
+  // store data in a form
+  let form = new FormData();
+  form.append("mData", JSON.stringify(requestDataObject));
+
+  // send the data to server
+  let request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState == 4) {
+      // preform an action on response
+      let response = JSON.parse(request.responseText);
+      if (response.status == "success") {
+        alert("Please Check your Email");
+      } else {
+        alert("Registaton Failed");
+
+        console.log(response.error);
+      }
+      console.log(request.responseText);
+    }
+  };
+  request.open("POST", "../backend/api/adminSignUp.php", true);
   request.send(form);
 }

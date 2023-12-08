@@ -9,6 +9,8 @@
 require_once("../../backend/model/database_driver.php");
 require_once("../../backend/model/response_sender.php");
 require_once("../../backend/model/SessionManager.php");
+require_once("../../backend/model/passwordEncryptor.php");
+
 
 // headers
 header("Content-Type: application/json; charset=UTF-8");
@@ -23,26 +25,66 @@ if (!isset($_POST['password']) || !isset($_POST['mobile'])) {
     response_sender::sendJson($responseObject);
 }
 
-$mobile = $_POST["mobile"];
+$email = $_POST["mobile"];
 $password = $_POST["password"];
 
-// db connection
-$db = new database_driver();
-
-$search_quary = "SELECT * FROM `admin` WHERE `mobile`='" . $mobile . "' AND `password`='" . $password . "'";
-$db_response = $db->query($search_quary);
 
 
 
-if ($db_response->num_rows == 1) {
-    $row = $db_response->fetch_assoc();
 
-    $userAccess = new SessionManager("alg006_admin");
-    $userAccess->login($row);
 
-    $responseObject->status = "success";
+
+
+
+
+
+
+
+
+//gather data from database
+$database_driver = new database_driver();
+$query = "SELECT * FROM `user` WHERE email = ?";
+$result = $database_driver->execute_query($query, 's', [$email]);
+
+
+// Fetch the row from the result
+$row = $result['result']->fetch_assoc();
+
+if ($result['result']->num_rows > 0) {
+} else {
+
+    // no row data
+    $responseObject->error = "You are not admin please Sign Up";
+    response_sender::sendJson($responseObject);
+}
+// Extract the data values
+$userEmail = $row['email'];
+$password_hash = $row['password_hash'];
+$password_salt = $row['password_salt'];
+
+//check acess by comparing
+if (!PasswordHashVerifier::isValid($password, $password_salt, $password_hash)) {
+    $responseObject->error = "incorrect password";
+    response_sender::sendJson($responseObject);
+};
+
+if ($row['admin_admin_id'] == 1) {
+    $responseObject->status = 'failed';
     response_sender::sendJson($responseObject);
 }
 
-$responseObject->status = 'failed';
+
+//create a session
+$UseerAccess = new SessionManager();
+$UseerAccess->login($row);
+
+
+
+
+
+
+
+
+
+$responseObject->status = "success";
 response_sender::sendJson($responseObject);
