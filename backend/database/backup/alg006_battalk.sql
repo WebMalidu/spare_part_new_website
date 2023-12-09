@@ -242,6 +242,10 @@ CREATE TABLE `invoice_item` (
   `vh_parts_name` varchar(45) NOT NULL,
   `vh_parts_id` varchar(20) NOT NULL,
   `invoice_invoice_id` varchar(15) NOT NULL,
+  `vh_model` varchar(45) NOT NULL,
+  `vh_type` varchar(45) NOT NULL,
+  `vh_name` varchar(45) NOT NULL,
+  `vh_model_line` varchar(45) NOT NULL,
   PRIMARY KEY (`invoice_item_id`),
   KEY `fk_invoice_item_invoice1_idx` (`invoice_invoice_id`),
   CONSTRAINT `fk_invoice_item_invoice1` FOREIGN KEY (`invoice_invoice_id`) REFERENCES `invoice` (`invoice_id`)
@@ -829,4 +833,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-09 21:53:56
+-- Dump completed on 2023-12-09 22:21:50
