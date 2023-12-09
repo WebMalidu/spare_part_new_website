@@ -152,6 +152,7 @@ function signUp() {
   let form = new FormData();
   form.append("signUpData", JSON.stringify(requestDataObject));
 
+  alert("Please Wait Few Seconds")
   // send the data to server
   let request = new XMLHttpRequest();
   request.onreadystatechange = function () {
@@ -159,8 +160,9 @@ function signUp() {
       // preform an action on response
       let response = JSON.parse(request.responseText);
       if (response.status == "success") {
-        alert("please Check Your email");
+        alert("Please Check Your email");
       } else {
+        alert("Sign Up failed Please check your data")
         console.log("Sign Up failed Please check your data");
       }
       console.log(request.responseText);
@@ -216,6 +218,7 @@ function signIn() {
         window.location.reload();
       } else {
         console.log(response.error);
+        alert("Sign In Failed")
       }
       console.log(request.responseText);
     }
@@ -293,7 +296,6 @@ function loadWatchList() {
       } else {
         console.log(response.error);
         // alert("WatchList adding failed");
-        Toast.toastLoad("error", "WatchList adding failed");
       }
       console.log(request.responseText);
     }
@@ -321,8 +323,7 @@ function watchListDelete(w_id) {
         loadWatchList();
       } else {
         console.log(response.error);
-        // alert("WatchList adding failed");
-        Toast.toastLoad("error", "WatchList adding failed");
+         alert("WatchList adding failed");
       }
       console.log(request.responseText);
     }
@@ -348,12 +349,10 @@ function addWatchlist(part_id) {
       let response = JSON.parse(request.responseText);
       if (response.status == "success") {
         alert("successfully added item to watchlist");
-        console.log("hi");
 
         loadWatchList();
       } else {
         console.log(response.error);
-        Toast.toastLoad("error", "WatchList adding failed");
       }
       console.log(request.responseText);
     }
@@ -382,7 +381,6 @@ function addCart(part_id) {
         alert("successfully added item to watchlist");
       } else {
         console.log(response.error);
-        Toast.toastLoad("error", "WatchList adding failed");
       }
       console.log(request.responseText);
     }
@@ -445,6 +443,8 @@ if (!isEmailValid) {
   // store data in a form
   let form = new FormData();
   form.append("mData", JSON.stringify(requestDataObject));
+
+  alert("Please Wait Few Seconds")
 
   // send the data to server
   let request = new XMLHttpRequest();
