@@ -68,7 +68,7 @@ if (!PasswordHashVerifier::isValid($password, $password_salt, $password_hash)) {
     response_sender::sendJson($responseObject);
 };
 
-if ($row['admin_admin_id'] == 1) {
+if ($row['admin_admin_id'] == 2) {
     $responseObject->status = 'failed';
     response_sender::sendJson($responseObject);
 }

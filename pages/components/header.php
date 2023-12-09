@@ -1,5 +1,5 @@
 <?php
-require_once("SessionManager.php");
+require_once("./backend/model/SessionManager.php");
 
 $loggedUserData = null;
 $access = new SessionManager();
