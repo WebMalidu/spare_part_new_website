@@ -46,3 +46,52 @@ if (RequestHandler::isGetMethod()) {
           response_sender::sendJson($responseObject);
      }
 }
+
+if (RequestHandler::isPostMethod()) {
+
+     if (isset($_POST['ad_vhName'], $_POST['ad_vh_maker_id'])) {
+
+          if (empty($_POST['ad_vhName'])) {
+               $responseObject->error = 'Please enter vehicle name';
+               response_sender::sendJson($responseObject);
+          }
+
+          if ($_POST['ad_vh_maker_id'] === 0 || $_POST['ad_vh_maker_id'] === null) {
+               $responseObject->error = 'Please select vehicle maker';
+               response_sender::sendJson($responseObject);
+          }
+
+          //search already exists
+          $searchQuery = "SELECT * FROM `vehicle_names` WHERE `vh_name`='" . $_POST['ad_vhName'] . "' AND `makers_makers_id`='" . $_POST['ad_vh_maker_id'] . "'";
+          $result = $db->query($searchQuery);
+
+          if ($result->num_rows > 0) {
+               $responseObject->error = 'this vehicle name is already have';
+               response_sender::sendJson($responseObject);
+          }
+
+          //add vhNames
+          $insertQuery = "INSERT INTO `vehicle_names` (`vh_name`,`makers_makers_id`) VALUES ('" . $_POST['ad_vhName'] . "','" . $_POST['ad_vh_maker_id'] . "')";
+          $db->query($insertQuery);
+
+          $responseObject->status = 'success';
+          response_sender::sendJson($responseObject);
+     }
+
+     if (isset($_POST['del_name_id'])) {
+
+          $vhNameId = $_POST['del_name_id'];
+
+
+          try {
+
+               $deleteQuery = "DELETE FROM `vehicle_names` WHERE `vh_name_id` = '" . $vhNameId . "'";
+               $db->query($deleteQuery);
+               $responseObject->status = 'success';
+               response_sender::sendJson($responseObject);
+          } catch (mysqli_sql_exception $ex) {
+               $responseObject->error = "Cannot delete this vehicle maker because it is still being used by a vehicle model";
+               response_sender::sendJson($responseObject);
+          }
+     }
+}

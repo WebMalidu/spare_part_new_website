@@ -12,10 +12,37 @@
         <div class="p-2 h-100 d-block alg-bg-light alg-rounded-small overflow-auto flex-grow-1">
             👈 Please Select a section...
         </div>
-        <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small overflow-auto flex-grow-1" id="makersViewSection">
-
+        <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small" id="makersViewSection">
+            <div class="w-100 d-flex flex-column gap-2 alg-text-white">
+                <div class="w-100 alg-rounded-mid alg-bg-dark p-2 d-flex gap-3">
+                    <input class="alg-rounded-mid form-control w-75" placeholder="add a new Makers" type="text" id="addMakersInput"><button class="p-0 justify-content-center align-items-center w-25 alg-btn-pill" onclick="addMakers(event)"><span class="d-none d-md-block">Add</span><i class="bi bi-plus d-block d-md-none"></i></button>
+                </div>
+                <div class="w-100 overflow-auto alg-bg-light p-2 alg-rounded-mid" id="makersTable">
+                    Loading....
+                </div>
+            </div>
         </div>
-        <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small overflow-auto flex-grow-1" id="namesViewSection">
+        <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small" id="namesViewSection">
+            <div class="w-100 d-flex flex-column gap-2 alg-text-white">
+                <div class="alg-bg-dark d-flex flex-column flex-lg-row p-3 p-lg-3 gap-3 gap-lg-4  alg-rounded-mid justify-content-between align-content-center">
+                    <div class="col-12 col-lg-3">
+                        <select class="form-select" id="vhMakersSelector">
+                            <option>select maker</option>
+                            <!-- makers goes here -->
+                        </select>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <input class="alg-rounded-mid form-control" placeholder="add a new vehicle Name" type="text" id="addNamesInput">
+                    </div>
+                    <div class="col-12 col-lg-3">
+                        <button class="alg-btn-pill" onclick="addNames(event)"><span class="d-none d-md-block">Add</span><i class="bi bi-plus d-block d-md-none"></i></button>
+                    </div>
+
+                </div>
+                <div class="w-100 overflow-auto alg-bg-light p-2 alg-rounded-mid" id="namesTable">
+                    Loading....
+                </div>
+            </div>
 
         </div>
         <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small overflow-auto flex-grow-1" id="modelsViewSection">

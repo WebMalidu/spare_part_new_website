@@ -23,10 +23,16 @@ DROP TABLE IF EXISTS `admin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `admin` (
-  `mobile` varchar(10) NOT NULL DEFAULT '',
-  `password` varchar(45) NOT NULL,
-  PRIMARY KEY (`mobile`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `admin_id` int NOT NULL AUTO_INCREMENT,
+  `adresss` varchar(150) DEFAULT NULL,
+  `buisness_name` varchar(45) DEFAULT NULL,
+  `br_number` varchar(45) DEFAULT NULL,
+  `buisness_address` varchar(45) DEFAULT NULL,
+  `private_contact` varchar(45) DEFAULT NULL,
+  `busineess_conatact` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`admin_id`),
+  UNIQUE KEY `admin_id_UNIQUE` (`admin_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +41,7 @@ CREATE TABLE `admin` (
 
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES ('0778525149','12345');
+INSERT INTO `admin` VALUES (1,NULL,NULL,NULL,NULL,NULL,NULL),(23,'220.4 Megahawaratat','battaa','kapuwatta','5678','1234567890','kapuwatta'),(26,'utyuuu','ujjfjfj','gfhhfh','5678','1234567890','kapuwatta'),(27,'utyuuu','ujjfjfj','gfhhfh','5678','d5656354342','fgfgdf'),(28,'123/4 Gonawala Road Kelaniya','Magan.Lk','344As12','No Adress','0913380234','0712345678');
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -80,7 +86,7 @@ CREATE TABLE `cart` (
   KEY `fk_cart_vehicle_parts1_idx` (`vehicle_parts_parts_id`),
   CONSTRAINT `fk_cart_user1` FOREIGN KEY (`user_user_id`) REFERENCES `user` (`user_id`),
   CONSTRAINT `fk_cart_vehicle_parts1` FOREIGN KEY (`vehicle_parts_parts_id`) REFERENCES `vehicle_parts` (`parts_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -199,7 +205,6 @@ DROP TABLE IF EXISTS `invoice`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `invoice` (
   `invoice_id` varchar(15) NOT NULL,
-  `order_date` date NOT NULL,
   `pay_total_amout` double NOT NULL,
   `shipping_price` double NOT NULL,
   `order_id` varchar(12) NOT NULL,
@@ -232,13 +237,18 @@ DROP TABLE IF EXISTS `invoice_item`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `invoice_item` (
   `invoice_item_id` int NOT NULL AUTO_INCREMENT,
-  `order_id` varchar(12) NOT NULL,
-  `vehicle_parts_parts_id` varchar(12) NOT NULL,
   `qty` int NOT NULL,
   `total_item_price` double NOT NULL,
+  `vh_parts_name` varchar(45) NOT NULL,
+  `vh_parts_id` varchar(20) NOT NULL,
+  `invoice_invoice_id` varchar(15) NOT NULL,
+  `vh_model` varchar(45) NOT NULL,
+  `vh_type` varchar(45) NOT NULL,
+  `vh_name` varchar(45) NOT NULL,
+  `vh_model_line` varchar(45) NOT NULL,
   PRIMARY KEY (`invoice_item_id`),
-  KEY `fk_invoice_item_vehicle_parts1_idx` (`vehicle_parts_parts_id`),
-  CONSTRAINT `fk_invoice_item_vehicle_parts1` FOREIGN KEY (`vehicle_parts_parts_id`) REFERENCES `vehicle_parts` (`parts_id`)
+  KEY `fk_invoice_item_invoice1_idx` (`invoice_invoice_id`),
+  CONSTRAINT `fk_invoice_item_invoice1` FOREIGN KEY (`invoice_invoice_id`) REFERENCES `invoice` (`invoice_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -294,7 +304,7 @@ CREATE TABLE `makers` (
 
 LOCK TABLES `makers` WRITE;
 /*!40000 ALTER TABLE `makers` DISABLE KEYS */;
-INSERT INTO `makers` VALUES ('Mk_345841','BMW'),('Mk_452681','Toyota'),('Mk_743868','Honda'),('Mk_942865','Benz');
+INSERT INTO `makers` VALUES ('Mk_240226','Nissan '),('Mk_345841','BMW'),('Mk_452681','Toyota'),('Mk_559046','Tata'),('Mk_743868','Honda'),('Mk_942865','Benz');
 /*!40000 ALTER TABLE `makers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -421,7 +431,7 @@ CREATE TABLE `product_promotion` (
   CONSTRAINT `fk_product_promotion_product_promotion_status1` FOREIGN KEY (`product_promotion_status_p_promotion_status_id`) REFERENCES `product_promotion_status` (`p_promotion_status_id`),
   CONSTRAINT `fk_product_promotion_user1` FOREIGN KEY (`user_user_id`) REFERENCES `user` (`user_id`),
   CONSTRAINT `fk_product_promotion_vehicle_parts1` FOREIGN KEY (`vehicle_parts_parts_id`) REFERENCES `vehicle_parts` (`parts_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -430,7 +440,6 @@ CREATE TABLE `product_promotion` (
 
 LOCK TABLES `product_promotion` WRITE;
 /*!40000 ALTER TABLE `product_promotion` DISABLE KEYS */;
-INSERT INTO `product_promotion` VALUES (3,'2023-10-27','2023-10-27',1,1,'20%','pp_305615');
 /*!40000 ALTER TABLE `product_promotion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -499,11 +508,9 @@ CREATE TABLE `shipping_details` (
   `district_district_id` int NOT NULL,
   `city` varchar(45) NOT NULL,
   PRIMARY KEY (`shipping_details_id`),
-  KEY `fk_shipping_details_province1_idx` (`province_province_id`),
   KEY `fk_shipping_details_user1_idx` (`user_user_id`),
   KEY `fk_shipping_details_district1_idx` (`district_district_id`),
   CONSTRAINT `fk_shipping_details_district1` FOREIGN KEY (`district_district_id`) REFERENCES `district` (`district_id`),
-  CONSTRAINT `fk_shipping_details_province1` FOREIGN KEY (`province_province_id`) REFERENCES `province` (`province_id`),
   CONSTRAINT `fk_shipping_details_user1` FOREIGN KEY (`user_user_id`) REFERENCES `user` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -534,12 +541,15 @@ CREATE TABLE `user` (
   `register_date` date NOT NULL,
   `confomation_code` int NOT NULL DEFAULT '0',
   `user_status_u_status_id` int NOT NULL,
+  `admin_admin_id` int NOT NULL,
   PRIMARY KEY (`user_id`),
   KEY `fk_user_user_type_idx` (`user_type_user_type_id`),
   KEY `fk_user_user_status1_idx` (`user_status_u_status_id`),
+  KEY `fk_user_admin1_idx` (`admin_admin_id`),
+  CONSTRAINT `fk_user_admin1` FOREIGN KEY (`admin_admin_id`) REFERENCES `admin` (`admin_id`),
   CONSTRAINT `fk_user_user_status1` FOREIGN KEY (`user_status_u_status_id`) REFERENCES `user_status` (`u_status_id`),
   CONSTRAINT `fk_user_user_type` FOREIGN KEY (`user_type_user_type_id`) REFERENCES `user_type` (`user_type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -548,7 +558,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,2,'Kamal Silva','kamal@gmail.com','Qwer123$%','Qwer123$%','2023-09-10',0,1),(2,1,'Sunil Ayya','sunil@gmail.com','Qwer123$%','Qwer123$%','2023-09-10',0,1);
+INSERT INTO `user` VALUES (1,2,'Kamal Silva','kamal@gmail.com','Qwer123$%','Qwer123$%','2023-09-10',0,1,0),(2,5,'Sunil Ayya','sunil@gmail.com','Qwer123$%','Qwer123$%','2023-09-10',0,1,27),(3,2,'kaviska','kaviska525@gmail.com','7c0230f93a00bb043168efa2a78d7f2e787bed999f86a8ef29cb227b49b55bb6','688c93af927f0b379b4b8371e7acdf68','2023-12-05',0,1,1),(8,2,'kaviska','testfor179@gmail.com','cae5293f43d47776ab974e7354141bd85044fa06ed202043dbe098331245297f','1260a0ef0a3339d4eafcabb31986e630','2023-12-07',0,1,1),(9,5,'kasun','kasun@gmmail.com','cae5293f43d47776ab974e7354141bd85044fa06ed202043dbe098331245297f','1260a0ef0a3339d4eafcabb31986e630','2023-12-07',0,1,26),(10,5,'Udara Madushan','udaramadushan525@gmail.com','bdfd45c2198ed0191f76e81fdffcca63ea14eebe4680c4296927931187a35087','5b0a74c1340567c4d5c87893db797f1d','2023-12-08',0,1,28);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -587,7 +597,7 @@ CREATE TABLE `user_type` (
   `user_type_id` int NOT NULL AUTO_INCREMENT,
   `type` varchar(45) NOT NULL,
   PRIMARY KEY (`user_type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -596,7 +606,7 @@ CREATE TABLE `user_type` (
 
 LOCK TABLES `user_type` WRITE;
 /*!40000 ALTER TABLE `user_type` DISABLE KEYS */;
-INSERT INTO `user_type` VALUES (1,'user'),(2,'seller');
+INSERT INTO `user_type` VALUES (1,'user'),(2,'admin'),(3,'seller'),(4,'pending_seller'),(5,'blocked_Seller');
 /*!40000 ALTER TABLE `user_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -678,7 +688,7 @@ CREATE TABLE `vehicle_names` (
   PRIMARY KEY (`vh_name_id`),
   KEY `fk_vehicle_names_makers1_idx` (`makers_makers_id`),
   CONSTRAINT `fk_vehicle_names_makers1` FOREIGN KEY (`makers_makers_id`) REFERENCES `makers` (`makers_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -687,7 +697,7 @@ CREATE TABLE `vehicle_names` (
 
 LOCK TABLES `vehicle_names` WRITE;
 /*!40000 ALTER TABLE `vehicle_names` DISABLE KEYS */;
-INSERT INTO `vehicle_names` VALUES (5,'Prius','Mk_452681'),(6,'Vitz','Mk_452681'),(7,'BMW i8','Mk_345841'),(8,'BMW x-200','Mk_345841'),(9,'Benz GLA 250 SUV','Mk_942865'),(10,'Benz GLB 250 SUV','Mk_942865'),(11,'Honda Vezel','Mk_743868'),(12,'Honda Grace','Mk_743868'),(13,'Honda Civic','Mk_743868'),(14,'Axio','Mk_452681');
+INSERT INTO `vehicle_names` VALUES (5,'Prius','Mk_452681'),(6,'Vitz','Mk_452681'),(7,'BMW i8','Mk_345841'),(8,'BMW x-200','Mk_345841'),(9,'Benz GLA 250 SUV','Mk_942865'),(10,'Benz GLB 250 SUV','Mk_942865'),(11,'Honda Vezel','Mk_743868'),(12,'Honda Grace','Mk_743868'),(13,'Honda Civic','Mk_743868'),(14,'Axio','Mk_452681'),(17,'Allion','Mk_452681'),(18,'Tata Cab','Mk_559046');
 /*!40000 ALTER TABLE `vehicle_names` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -734,7 +744,7 @@ CREATE TABLE `vehicle_parts` (
 
 LOCK TABLES `vehicle_parts` WRITE;
 /*!40000 ALTER TABLE `vehicle_parts` DISABLE KEYS */;
-INSERT INTO `vehicle_parts` VALUES ('pp_045434','dadas',2,2,'dasdasd','2023-12-04',1,300,1,1,'CTI_644447',4,200),('pp_191241','belt cool',1,2,'best prodt','2023-12-04',1,2444,1,1,'CTI_259049',6,200),('pp_238401','Belt Pulley Crankshaft',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-15',1,3500,1,1,'CTI_037070',7,0),('pp_305615','Timing Belt',1,2,'This Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the  a sample vehicle part.','2023-10-27',1,12000,1,1,'CTI_259049',7,0),('pp_334576','dadas',1,3,'eqweqwacsdvxcv','2023-12-04',1,2000,1,1,'CTI_644447',10,2000),('pp_409876','Pully Water Pump',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-15',1,4500,1,1,'CTI_037070',7,0),('pp_436267','PULLEY',1,6,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-15',1,5540,1,1,'CTI_393963',7,0),('pp_476009','Pully Altenator',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-15',1,5088,1,1,'CTI_393963',7,0),('pp_504419','compressor',1,2,'good product assembling','2023-12-04',1,2006,1,1,'CTI_058074',11,200),('pp_572589','AXLE REAR',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-16',1,8070,1,1,'CTI_289000',7,0),('pp_614213','Compressor Assembly',2,10,'This Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the  a sample vehicle part.','2023-10-27',1,10000,1,3,'CTI_058074',6,0),('pp_634662','Tensioner Pulley, Timing Belt',1,3,'This Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the  a sample vehicle part.','2023-10-27',1,20000,1,2,'CTI_259049',7,0),('pp_640889','AXLE COMPREAR',2,2,'This Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the  a sample vehicle part.','2023-10-27',1,15000,2,1,'CTI_259049',7,0),('pp_646734','Rear Lip Spoiler',1,4,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-16',1,2103,1,1,'CTI_405059',7,0),('pp_675575','Belt',1,2,'dsdsadasdasd','2023-12-04',1,2888,1,1,'CTI_644447',10,4000),('pp_690426','CASE - DOCUMENTS',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s ','2023-11-16',1,783,1,1,'CTI_424893',7,0),('pp_695954','Front Brake Pad Set',1,5,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s ','2023-11-16',1,3200,1,1,'CTI_711056',7,0),('pp_720435','Belt Black',1,22,'dfghdfgfdg','2023-12-04',1,2000,1,1,'CTI_259049',6,200),('pp_750710','Control Valve',1,2,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-16',1,6255,1,1,'CTI_241679',7,0),('pp_771035','kkdasdsa',1,2332,'aasasdasd','2023-12-04',1,4433,1,1,'CTI_644447',10,3434),('pp_785550','dasd',1,33,'wdasdad','2023-12-04',1,399,1,1,'CTI_644447',4,66565),('pp_802569','dad',1,2,'sadsa','2023-12-04',1,4000,1,1,'CTI_644447',6,35454),('pp_850216','Magnetic Clutch, Compressor',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-16',1,1712,1,1,'CTI_029685',7,0),('pp_879921','Pulley Crankshaft',1,4,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-15',1,1755,1,1,'CTI_363112',7,0),('pp_888873','sdasd',1,300,'fsdfdsf','2023-12-04',1,54531,1,2,'CTI_644447',11,2000),('pp_890174','dasdsa',1,3,'dasdasd','2023-12-04',1,2000,1,1,'CTI_644447',10,3000),('pp_893601','HINGE A - HOOD RH',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s ','2023-11-16',1,1788,1,1,'CTI_524894',7,0),('pp_906712','Compressor Assembly',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-16',1,23000,1,1,'CTI_058074',7,0),('pp_907082','250 ML-OIL-AC COMPRESSOR',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-16',1,1850,1,1,'CTI_991271',7,0),('pp_972621','Clutch Disc',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s ','2023-11-16',1,4500,1,1,'CTI_644447',7,0),('pp_973221','Combination Pully',1,2,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-15',1,2565,1,1,'CTI_363112',7,0),('pp_978309','gdasgklldasd',1,3,'ggshjdhdfh','2023-12-04',1,2000,1,2,'CTI_363112',10,300),('pp_987271','dsdads',2,3,'ewqeqwd','2023-12-04',1,3000,1,1,'CTI_711056',10,2346);
+INSERT INTO `vehicle_parts` VALUES ('pp_045434','dadas',2,2,'dasdasd','2023-12-04',1,300,1,1,'CTI_644447',4,200),('pp_238401','Belt Pulley Crankshaft',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-15',1,3500,1,1,'CTI_037070',7,0),('pp_305615','Timing Belt',1,2,'This Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the  a sample vehicle part.','2023-10-27',1,12000,1,1,'CTI_259049',7,0),('pp_334576','dadas',1,3,'eqweqwacsdvxcv','2023-12-04',1,2000,1,1,'CTI_644447',10,2000),('pp_409876','Pully Water Pump',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-15',1,4500,1,1,'CTI_037070',7,0),('pp_436267','PULLEY',1,6,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-15',1,5540,1,1,'CTI_393963',7,0),('pp_476009','Pully Altenator',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-15',1,5088,1,1,'CTI_393963',7,0),('pp_504419','compressor',1,2,'good product assembling','2023-12-04',1,2006,1,1,'CTI_058074',11,200),('pp_572589','AXLE REAR',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-16',1,8070,1,1,'CTI_289000',7,0),('pp_614213','Compressor Assembly',2,10,'This Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the  a sample vehicle part.','2023-10-27',1,10000,1,3,'CTI_058074',6,0),('pp_634662','Tensioner Pulley, Timing Belt',1,3,'This Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the  a sample vehicle part.','2023-10-27',1,20000,1,2,'CTI_259049',7,0),('pp_646734','Rear Lip Spoiler',1,4,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-16',1,2103,1,1,'CTI_405059',7,0),('pp_690426','CASE - DOCUMENTS',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s ','2023-11-16',1,783,1,1,'CTI_424893',7,0),('pp_695954','Front Brake Pad Set',1,5,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s ','2023-11-16',1,3200,1,1,'CTI_711056',7,0),('pp_720435','Belt Black',1,22,'dfghdfgfdg','2023-12-04',1,2000,1,1,'CTI_259049',6,200),('pp_750710','Control Valve',1,2,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-16',1,6255,1,1,'CTI_241679',7,0),('pp_771035','kkdasdsa',1,2332,'aasasdasd','2023-12-04',1,4433,1,1,'CTI_644447',10,3434),('pp_785550','dasd',1,33,'wdasdad','2023-12-04',1,399,1,1,'CTI_644447',4,66565),('pp_802569','dad',1,2,'sadsa','2023-12-04',1,4000,1,1,'CTI_644447',6,35454),('pp_850216','Magnetic Clutch, Compressor',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-16',1,1712,1,1,'CTI_029685',7,0),('pp_879921','Pulley Crankshaft',1,4,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-15',1,1755,1,1,'CTI_363112',7,0),('pp_888873','sdasd',1,300,'fsdfdsf','2023-12-04',1,54531,1,2,'CTI_644447',11,2000),('pp_890174','dasdsa',1,3,'dasdasd','2023-12-04',1,2000,1,1,'CTI_644447',10,3000),('pp_893601','HINGE A - HOOD RH',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s ','2023-11-16',1,1788,1,1,'CTI_524894',7,0),('pp_906712','Compressor Assembly',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-16',1,23000,1,1,'CTI_058074',7,0),('pp_907082','250 ML-OIL-AC COMPRESSOR',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-16',1,1850,1,1,'CTI_991271',7,0),('pp_972621','Clutch Disc',1,3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s ','2023-11-16',1,4500,1,1,'CTI_644447',7,0),('pp_973221','Combination Pully',1,2,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s','2023-11-15',1,2565,1,1,'CTI_363112',7,0),('pp_987271','dsdads',2,3,'ewqeqwd','2023-12-04',1,3000,1,1,'CTI_711056',10,2346);
 /*!40000 ALTER TABLE `vehicle_parts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -802,7 +812,7 @@ CREATE TABLE `watchlist` (
   KEY `fk_watchlist_vehicle_parts1_idx` (`vehicle_parts_parts_id`),
   CONSTRAINT `fk_watchlist_user1` FOREIGN KEY (`user_user_id`) REFERENCES `user` (`user_id`),
   CONSTRAINT `fk_watchlist_vehicle_parts1` FOREIGN KEY (`vehicle_parts_parts_id`) REFERENCES `vehicle_parts` (`parts_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -823,4 +833,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-05 10:23:47
+-- Dump completed on 2023-12-09 22:21:50

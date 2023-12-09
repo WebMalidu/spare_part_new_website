@@ -118,6 +118,129 @@ function previewProductListImages(event) {
 }
 
 
+//delete product
+async function openVhPartDeleteModel(parts_id) {
+       ALG.openModel("Product Remove Model", "Do you want to delete this product ?", `<button  class="alg-btn-pill" data-bs-dismiss="modal" aria-label="Close" onclick="removeProduct('${parts_id}')">Yes</button>`);
+
+}
+
+//delete product process
+const removeProduct = async (parts_id) => {
+
+
+       const formData = new FormData();
+       formData.append("del_parts_id", parts_id);
+
+       const productRemoveResponse = await dataSend.dataIUD(formData, 'backend/api/productManupulateAPI.php');
+
+
+       if (productRemoveResponse.status === 'success') {
+              ALG.openToast("Success", "Product delete success", ALG.getCurrentTime(), "bi-heart", "Success");
+              setTimeout(() => {
+                     window.location.reload();
+              }, 1000);
+
+
+       } else {
+              ALG.openToast("Error", productRemoveResponse.error, ALG.getCurrentTime(), "bi-heart", "Error");
+       }
+};
+
+//vehicle makers adding
+const addMakers = async (event) => {
+       const vehicleMaker = document.getElementById("addMakersInput").value;
+
+       if (vehicleMaker === 'undefined' || vehicleMaker === null || vehicleMaker.trim().length === 0) {
+              ALG.openToast("Error", "Empty maker name", ALG.getCurrentTime(), "bi-heart", "Error");
+              return;
+       }
+
+       event.target.disabled = true;
+
+       const formData = new FormData();
+       formData.append("ad_makers_name", vehicleMaker);
+
+       const dataResponse = await dataSend.dataIUD(formData, "backend/api/vehicleMakersAPI.php");
+       if (dataResponse.status === 'success') {
+              ALG.openToast("Success", "Maker adding success", ALG.getCurrentTime(), "bi-heart", "Success");
+              setTimeout(() => {
+                     loadMakers;
+              }, 1000);
+       } else {
+              ALG.openToast("Error", dataResponse.error, ALG.getCurrentTime(), "bi-heart", "Error");
+       }
+
+       event.target.disabled = false;
+
+};
+//remove makers
+
+const openMakerDeleteModel = async (makers_id) => {
+       ALG.openModel("Vehicle Remove Model", "Do you want to delete this Vehicle Maker ?", `<button  class="alg-btn-pill" data-bs-dismiss="modal" aria-label="Close" onclick="removeMakers('${makers_id}')">Yes</button>`);
+};
+
+const removeMakers = async (makers_id) => {
+       const formData = new FormData();
+       formData.append('del_maker_id', makers_id);
+
+       const responseMakers = await dataSend.dataIUD(formData, 'backend/api/vehicleMakersAPI.php');
+       if (responseMakers.status === 'success') {
+              ALG.openToast("Success", "Maker remove success", ALG.getCurrentTime(), "bi-heart", "Success");
+              setTimeout(() => {
+                     loadMakers;
+              }, 1000);
+       } else {
+              ALG.openToast("Error", responseMakers.error, ALG.getCurrentTime(), "bi-heart", "Error");
+       }
+};
+
+
+//vehicles names adding
+const addNames = async (e) => {
+       const vhName = document.getElementById("addNamesInput").value;
+       const vhMakerId = document.getElementById('vhMakersSelector').value;
+
+       e.target.disabled = true;
+
+       const formData = new FormData();
+       formData.append('ad_vhName', vhName);
+       formData.append('ad_vh_maker_id', vhMakerId);
+
+       const responseNames = await dataSend.dataIUD(formData, 'backend/api/vehicleNames.php');
+       if (responseNames.status === 'success') {
+              ALG.openToast("Success", "vehicle names adding success", ALG.getCurrentTime(), "bi-heart", "Success");
+
+              //clear input fields
+              document.getElementById("addNamesInput").value = "";
+              document.getElementById('vhMakersSelector').value = 0;
+       } else {
+              ALG.openToast("Error", responseNames.error, ALG.getCurrentTime(), "bi-heart", "Error");
+       }
+
+       e.target.disabled = false;
+}
+
+
+//vehicle names remove
+const openNamesDeleteModel = async (name_id) => {
+       ALG.openModel("Vehicle names remove", "Do you want to delete this vehicle name?", `<button  class="alg-btn-pill" data-bs-dismiss="modal" aria-label="Close" onclick="removeNames('${name_id}')">Yes</button>`);
+}
+
+const removeNames = async (name_id) => {
+       const formData = new FormData();
+       formData.append('del_name_id', name_id);
+
+       const responseNames = await dataSend.dataIUD(formData, 'backend/api/vehicleNames.php');
+       if (responseNames.status === 'success') {
+              ALG.openToast("Success", "Vehicle name remove success", ALG.getCurrentTime(), "bi-heart", "Success");
+
+       } else {
+              ALG.openToast("Error", responseNames.error, ALG.getCurrentTime(), "bi-heart", "Error");
+       }
+};
+
+
+
 
 
 
