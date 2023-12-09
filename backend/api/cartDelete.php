@@ -46,5 +46,5 @@ if (!$result['stmt']->affected_rows > 0) {
 }
 
 
-$responseObject->status="sucess";
+$responseObject->status="success";
 response_sender::sendJson($responseObject);
