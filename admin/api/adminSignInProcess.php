@@ -68,14 +68,15 @@ if (!PasswordHashVerifier::isValid($password, $password_salt, $password_hash)) {
     response_sender::sendJson($responseObject);
 };
 
-if ($row['admin_admin_id'] == 2) {
+
+if ($row['user_type_user_type_id'] != 2) {
     $responseObject->status = 'failed';
     response_sender::sendJson($responseObject);
 }
 
 
 //create a session
-$UseerAccess = new SessionManager();
+$UseerAccess = new SessionManager("alg006_admin");
 $UseerAccess->login($row);
 
 
