@@ -277,19 +277,54 @@ if (RequestHandler::isGetMethod()) {
           //get variables
           $partsDelId = $_POST['del_parts_id'];
 
+          //delete from cart
+          $deleteRelatedProductCart = "SELECT * FROM `cart` WHERE `vehicle_parts_parts_id`='" . $partsDelId . "'";
+          $resultCart = $db->query($deleteRelatedProductCart);
+
+          if ($resultCart->num_rows > 0) {
+               while ($row = $resultCart->fetch_assoc()) {
+                    $deleteProductFromCart = "DELETE FROM `cart` WHERE `cart_id`='" . $row['cart_id'] . "'";
+                    $db->query($deleteProductFromCart);
+               }
+          }
+
+          //delete from watchlist
+          $deleteRelatedProductWatchlist = "SELECT * FROM `watchlist` WHERE `vehicle_parts_parts_id`='" . $partsDelId . "'";
+          $resultWatchlist = $db->query($deleteRelatedProductWatchlist);
+
+          if ($resultWatchlist->num_rows > 0) {
+               while ($row = $resultWatchlist->fetch_assoc()) {
+                    $deleteProductFromWatchlist = "DELETE FROM `watchlist` WHERE `w_id`='" . $row['w_id'] . "'";
+                    $db->query($deleteProductFromWatchlist);
+               }
+          }
+
+
+          //delete from promotion
+          $deleteRelatedProductPromotion = "SELECT * FROM `product_promotion` WHERE `vehicle_parts_parts_id`='" . $partsDelId . "'";
+          $resultPromotion = $db->query($deleteRelatedProductPromotion);
+
+          if ($resultPromotion->num_rows > 0) {
+               while ($row = $resultPromotion->fetch_assoc()) {
+                    $deleteProductFromPromotion = "DELETE FROM `product_promotion` WHERE `promotion_id`='" . $row['promotion_id'] . "'";
+                    $db->query($deleteProductFromPromotion);
+               }
+          }
+
+
 
           //search this product first
-          $searchQuery = "SELECT * FROM `vehicle_parts` WHERE `parts_id`=? AND `user_user_id`=?";
-          $result = $db->execute_query($searchQuery, 'si', array($partsDelId, $userId));
+          $searchQuery = "SELECT * FROM `vehicle_parts` WHERE `parts_id`='" . $partsDelId . "' AND `user_user_id`='" . $userId . "'";
+          $result = $db->query($searchQuery);
 
-          if ($result['result']->num_rows === 0) {
+          if ($result->num_rows === 0) {
                $responseObject->error = "no product";
                response_sender::sendJson($responseObject);
           }
 
           //delete parts
-          $deleteQuery = "DELETE FROM `vehicle_parts` WHERE `parts_id`=?";
-          $db->execute_query($deleteQuery, 's', array($partsDelId));
+          $deleteQuery = "DELETE FROM `vehicle_parts` WHERE `parts_id`='" . $partsDelId . "'";
+          $db->query($deleteQuery);
           $responseObject->status = "success";
           response_sender::sendJson($responseObject);
      } else {

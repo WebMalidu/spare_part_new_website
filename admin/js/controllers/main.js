@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         break;
 
       case "userPannel":
-         toggleUserSection('user');
+        toggleUserSection('user');
         console.log(panel);
         break;
 
@@ -91,17 +91,46 @@ const loadMakers = async () => {
 
   if (makers.status === "success") {
     makers.results.map((res) => {
-      const editButton = `<button class="fw-bolder btn alg-btn-pill" onclick="openMakerEditModel(${res.maker_id})">Edit</button>`;
+      const editButton = `<button class="fw-bolder btn alg-btn-pill" onclick="openMakerEditModel('${res.makers_id}')">Edit</button>`;
+      const removeButton = `<button class="fw-bolder ms-1 btn alg-btn-pill" onclick="openMakerDeleteModel('${res.makers_id}')">Remove</button>`;
       makersList.push({
-        "Maker Id": res.maker_id,
-        "Maker Name": res.maker_name,
-        Edit: editButton,
+        "Maker Id": res.makers_id,
+        "Maker Name": res.name,
+        Edit: [editButton, removeButton]
       });
     });
     return makersList;
   }
   return makers.error;
 };
+
+//maker for vehicle adding
+const addMakersForVehicleNamesPanel = async () => {
+
+  const selector = document.getElementById('vhMakersSelector');
+
+  const makers = await dataLoader.LoadVehicleMakers();
+  selector.innerHTML = "";
+
+
+  if (makers.status === "success") {
+
+    selector.innerHTML += `<option value="0" >select maker</option>`;
+
+    makers.results.map((result) => {
+
+      const option = document.createElement('option');
+      option.value = result.makers_id;
+      option.textContent = result.name;
+      selector.appendChild(option);
+    });
+
+  } else {
+    console.log(makers.error);
+  }
+
+}
+
 
 //load vehicles names
 const loadNames = async () => {
@@ -111,11 +140,12 @@ const loadNames = async () => {
   if (names.status === "success") {
     names.results.map((res) => {
       const editButton = `<button class="fw-bolder btn alg-btn-pill" onclick="openMakerEditModel(${res.vh_name_id})">Edit</button>`;
+      const removeButton = `<button class="fw-bolder btn ms-1 alg-btn-pill" onclick="openNamesDeleteModel('${res.vh_name_id}')">Remove</button>`;
       nameList.push({
         Id: res.vh_name_id,
         Maker: res.makers_name,
         Name: res.vh_name,
-        Edit: editButton,
+        Edit: [editButton, removeButton],
       });
     });
     return nameList;
@@ -174,7 +204,8 @@ const vehicleView = async () => {
 
   if (resVhParts.status === "success") {
     resVhParts.result.map((res) => {
-      const editButton = `<button class="fw-bolder btn alg-btn-pill" onclick="openMakerEditModel(${res.result.parts_id})">Edit</button>`;
+      const editButton = `<button class="fw-bolder btn alg-btn-pill" onclick="openVhPartEditModel('${res.result.parts_id}')">Edit</button>`;
+      const deleteButton = `<button class="fw-bolder btn alg-btn-pill ms-2" onclick="openVhPartDeleteModel('${res.result.parts_id}')">Remove</button>`;
 
       vehiclePartsArr.push({
         "Parts Id": res.result.parts_id,
@@ -197,7 +228,8 @@ const vehicleView = async () => {
         Image: res.images[0]
           ? `<img src="../../resources/image/partsImages/${res.images[0]}" class="alg-list-cell-image"  />`
           : "Empty",
-        Edit: editButton,
+        Edit: [editButton, deleteButton]
+
       });
     });
 
@@ -321,10 +353,10 @@ const togglePromotionSection = async (promotionSections) => {
 
   promotionSections === "promotionView"
     ? ALG.addTableToContainer(
-        "promotionViewSection",
-        loadPromo,
-        [300, 300, 150,150,100,150]
-      )
+      "promotionViewSection",
+      loadPromo,
+      [300, 300, 150, 150, 100, 150]
+    )
     : null;
 
   if (promotionSections === "promotionAdd") {
@@ -354,18 +386,18 @@ const toggleUserSection = async (userSections) => {
 
   userSections === "userView"
     ? ALG.addTableToContainer(
-        "userViewSection",
-        loadApprovedUser,
-        [300, 300,300,300,300, 300,300,300,150]
-      )
+      "userViewSection",
+      loadApprovedUser,
+      [300, 300, 300, 300, 300, 300, 300, 300, 150]
+    )
     : null;
-    
-    userSections === "userApprove"
+
+  userSections === "userApprove"
     ? ALG.addTableToContainer(
-        "userApproveSection",
-        SellerApprove,
-        [300, 300,300,300,300, 300,300,300,150]
-      )
+      "userApproveSection",
+      SellerApprove,
+      [300, 300, 300, 300, 300, 300, 300, 300, 150]
+    )
     : null;
 };
 //vehicle section toggle
@@ -386,28 +418,30 @@ const toggleVehicleSection = async (sec) => {
   selectedSection.classList.remove("d-none");
 
   sec === "makers"
-    ? ALG.addTableToContainer("makersViewSection", loadMakers, [360, 350, 150])
+    ? ALG.addTableToContainer("makersTable", loadMakers, [360, 350, 220])
     : null;
-  sec === "names"
-    ? ALG.addTableToContainer(
-        "namesViewSection",
-        loadNames,
-        [200, 200, 200, 150]
-      )
-    : null;
+  if (sec === "names") {
+    ALG.addTableToContainer(
+      "namesTable",
+      loadNames,
+      [200, 200, 200, 220]
+    );
+
+    addMakersForVehicleNamesPanel();
+  }
   sec === "models"
     ? ALG.addTableToContainer(
-        "modelsViewSection",
-        loadModel,
-        [200, 200, 200, 200, 200, 150]
-      )
+      "modelsViewSection",
+      loadModel,
+      [200, 200, 200, 200, 200, 150]
+    )
     : null;
   sec === "modelLines"
     ? ALG.addTableToContainer(
-        "modelLinesViewSection",
-        loadModelLine,
-        [200, 200, 200, 150]
-      )
+      "modelLinesViewSection",
+      loadModelLine,
+      [200, 200, 200, 150]
+    )
     : null;
 };
 
@@ -430,13 +464,13 @@ const toggleProductSection = async (productSection) => {
 
   productSection === "productView"
     ? ALG.addTableToContainer(
-        "productViewSection",
-        vehicleView,
-        [
-          200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
-          200, 200, 200, 300, 200,
-        ]
-      )
+      "productViewSection",
+      vehicleView,
+      [
+        200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+        200, 200, 200, 300, 225
+      ]
+    )
     : null;
 
   if (productSection === "productAdd") {
@@ -473,14 +507,14 @@ function promoAdd() {
   var start = document.getElementById('promoStartDate').value;
   var end = document.getElementById('promoEndDate').value;
   var percentage = document.getElementById('promoPrecentage').value;
-  var image= document.getElementById('promotionImage').files[0];
+  var image = document.getElementById('promotionImage').files[0];
 
-  
+
 
 
 
   const requestDataObject = {
-    parts_id: String(title), 
+    parts_id: String(title),
     start_date: String(start),
     end_date: String(end),
     discount: String(percentage),
@@ -501,11 +535,11 @@ function promoAdd() {
       if (response.status == "success") {
         ALG.openToast("Success", "promotion Adding Success", ALG.getCurrentTime(), "bi-heart", "Success");
         document.getElementById('promotionTitle').value = '';
-document.getElementById('promoStartDate').value = '';
-document.getElementById('promoEndDate').value = '';
-document.getElementById('promoPrecentage').value = '';
-document.getElementById('promotionImage').value = ''; // Clear input type file
-        
+        document.getElementById('promoStartDate').value = '';
+        document.getElementById('promoEndDate').value = '';
+        document.getElementById('promoPrecentage').value = '';
+        document.getElementById('promotionImage').value = ''; // Clear input type file
+
 
       } else {
         ALG.openToast("error", "promotion Adding Failed", ALG.getCurrentTime(), "bi-heart", "Failed");
@@ -515,7 +549,7 @@ document.getElementById('promotionImage').value = ''; // Clear input type file
   };
   request.open("POST", "../backend/api/promationAdding.php", true);
   request.send(form);
-  
+
 }
 
 
@@ -531,7 +565,7 @@ const loadPromo = () => {
     request.onreadystatechange = function () {
       if (request.readyState === 4) {
         let response = JSON.parse(request.responseText);
-console.log(response)
+        console.log(response)
         if (response.status === "success") {
           if (Array.isArray(response.data)) {
             response.data.forEach((res) => {
@@ -539,9 +573,9 @@ console.log(response)
               promoList.push({
                 "Part Name": res.title,
                 "Brand Name": res.brand_name,
-                "Start Date":res.addedd_date,
-                "End Date":res.end_date,
-                "Disscount":res.discount+'%',
+                "Start Date": res.addedd_date,
+                "End Date": res.end_date,
+                "Disscount": res.discount + '%',
 
                 Edit: editButton,
               });
@@ -570,8 +604,8 @@ function deletePromo(promotion_id) {
   console.log(promotion_id)
 
   const requestDataObject = {
-    promotion_id: promotion_id, 
-    
+    promotion_id: promotion_id,
+
   };
 
   // store data in a form
@@ -590,7 +624,7 @@ function deletePromo(promotion_id) {
         ALG.addTableToContainer(
           "promotionViewSection",
           loadPromo,
-          [300, 300, 150,150,100,150]
+          [300, 300, 150, 150, 100, 150]
         )
 
       } else {
@@ -601,7 +635,7 @@ function deletePromo(promotion_id) {
   };
   request.open("POST", "../backend/api/promotionDelete.php", true);
   request.send(form);
-  
+
 }
 
 
@@ -618,7 +652,7 @@ const loadApprovedUser = () => {
     request.onreadystatechange = function () {
       if (request.readyState === 4) {
         let response = JSON.parse(request.responseText);
-console.log(response)
+        console.log(response)
         if (response.status === "success") {
           if (Array.isArray(response.data)) {
             response.data.forEach((res) => {
@@ -626,13 +660,13 @@ console.log(response)
               userList.push({
                 "Full Name": res.full_name,
                 "Email": res.email,
-                "BR Number":res.br_number,
-                "Contact Number":res.private_contact,
-                "Business Cotact":res.busineess_conatact,
-                "Business Adress":res.busineess_conatact,
-                "Business Name":res.buisness_name,
-                "Adress":res.adresss,
-               
+                "BR Number": res.br_number,
+                "Contact Number": res.private_contact,
+                "Business Cotact": res.busineess_conatact,
+                "Business Adress": res.busineess_conatact,
+                "Business Name": res.buisness_name,
+                "Adress": res.adresss,
+
 
                 Edit: editButton,
               });
@@ -669,7 +703,7 @@ const SellerApprove = () => {
     request.onreadystatechange = function () {
       if (request.readyState === 4) {
         let response = JSON.parse(request.responseText);
-console.log(response)
+        console.log(response)
         if (response.status === "success") {
           if (Array.isArray(response.data)) {
             response.data.forEach((res) => {
@@ -677,13 +711,13 @@ console.log(response)
               userList.push({
                 "Full Name": res.full_name,
                 "Email": res.email,
-                "BR Number":res.br_number,
-                "Contact Number":res.private_contact,
-                "Business Cotact":res.busineess_conatact,
-                "Business Adress":res.busineess_conatact,
-                "Business Name":res.buisness_name,
-                "Adress":res.adresss,
-               
+                "BR Number": res.br_number,
+                "Contact Number": res.private_contact,
+                "Business Cotact": res.busineess_conatact,
+                "Business Adress": res.busineess_conatact,
+                "Business Name": res.buisness_name,
+                "Adress": res.adresss,
+
 
                 Edit: editButton,
               });
@@ -709,10 +743,10 @@ console.log(response)
 
 //delete Seller
 
-function deleteSeller(userId){
+function deleteSeller(userId) {
   const requestDataObject = {
-    userId: userId, 
-    
+    userId: userId,
+
   };
 
   // store data in a form
@@ -731,7 +765,7 @@ function deleteSeller(userId){
         ALG.addTableToContainer(
           "userViewSection",
           SellerApprove,
-          [300, 300, 150,150,100,150]
+          [300, 300, 150, 150, 100, 150]
         )
 
       } else {
@@ -742,15 +776,15 @@ function deleteSeller(userId){
   };
   request.open("POST", "../backend/api/adminSellerBlock.php", true);
   request.send(form);
-  
+
 }
 
 
 
-function approveSellerProcess(userId){
+function approveSellerProcess(userId) {
   const requestDataObject = {
-    userId: userId, 
-    
+    userId: userId,
+
   };
 
   console.log("seller approved")
@@ -771,7 +805,7 @@ function approveSellerProcess(userId){
         ALG.addTableToContainer(
           "userApproveSection",
           SellerApprove,
-          [300, 300, 150,150,100,150]
+          [300, 300, 150, 150, 100, 150]
         )
 
       } else {
@@ -781,5 +815,5 @@ function approveSellerProcess(userId){
     }
   };
   request.open("POST", "../backend/api/adminSellerApprove.php", true);
-  request.send(form); 
+  request.send(form);
 }
