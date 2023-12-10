@@ -36,15 +36,12 @@ $userData = $userCheckSession->getUserData();
 $database_driver=new database_driver();
 
 $selectQuery = "SELECT *
-               FROM `cart` ct
-               JOIN `vehicle_parts` vp ON ct.vehicle_parts_parts_id = vp.parts_id
-               JOIN `parts_origin` po ON vp.parts_origin_origin_id=po.origin_id
-               JOIN `category_item` ci ON vp.category_item_category_item_id=ci.category_item_id
-               JOIN `parts_status` ps ON vp.parts_status_parts_status_id=ps.parts_status_id
-               JOIN `brand` br ON vp.brand_brand_id=br.brand_id
-               LEFT JOIN `product_promotion` pp ON vp.parts_id = pp.vehicle_parts_parts_id
+               FROM `shipping_details` sd
+               JOIN `district` dt ON sd.district_district_id=dt.district_id
+               JOIN `province` pt ON sd.province_province_id=pt.province_id
 
-               WHERE ct.`user_user_id` = ?";
+              
+               WHERE sd.`user_user_id` = ?";
 $result=$database_driver->execute_query($selectQuery,'i',array($userData['user_id']));
 
 $rows=[];
