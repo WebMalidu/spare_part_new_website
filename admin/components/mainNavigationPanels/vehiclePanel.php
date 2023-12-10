@@ -45,8 +45,41 @@
             </div>
 
         </div>
-        <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small overflow-auto flex-grow-1" id="modelsViewSection">
+        <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small" id="modelsViewSection">
+            <div class="d-flex flex-column">
+                <div class="d-flex flex-column flex-lg-row gap-2 p-2">
+                    <select class="form-select" id="vhNamesSelector">
+                        <!-- option goes here -->
+                    </select>
 
+                    <select class="form-select" id="vhTypeSelector">
+                        <!-- option -->
+                    </select>
+                </div>
+
+                <div class="d-flex flex-column flex-lg-row gap-2 p-2">
+                    <select class="form-select" id="vhYearSelector">
+                        <!-- option -->
+                    </select>
+
+                    <select class="form-select" id="vhGenerationSelector">
+                        <!-- option -->
+                    </select>
+                </div>
+
+                <div class="d-flex flex-column p-2">
+                    <label class="form-label" for="addProductImageInput">Add model image</label>
+                    <input alt="Vehicle image not upload" type="file"  id="vehicleImagesInput" class="form-control" onchange="vhModelImagePreview(event);" />
+                    <div class="my-2 p-1 rounded-1 product-items d-flex justify-content-center align-content-center" id="modeImagePreviewContainer"></div>
+                </div>
+                <div class="w-100 p-1">
+                    <button onclick="addModel(event)" class="my-4 w-100 alg-btn-pill">Add Model</button>
+                </div>
+            </div>
+
+            <div class="w-100 overflow-auto alg-bg-light p-2 alg-rounded-mid" id="modelTable">
+                Loading....
+            </div>
         </div>
         <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small overflow-auto flex-grow-1" id="modelLinesViewSection">
 

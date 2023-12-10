@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", async () => { });
 // product adding setup 
 let productImages = [];
 
+// vehicle model images
+let vehicleModelImage = [];
 
 function clearAllInput() {
        document.getElementById('productTitleInputField').value = "";
@@ -86,6 +88,48 @@ async function addProduct(event) {
        event.target.disabled = false;
 }
 
+//upload vehicle models 
+async function addVehicleModels(event) {
+       event.target.disabled = true;
+
+       //get all request data
+       let vhNamesSelector = document.getElementById('vhNamesSelector').value;
+       let vhTypeSelector = document.getElementById('vhTypeSelector').value;
+       let vhYearSelector = document.getElementById('vhYearSelector').value;
+       let vhGenerationSelector = document.getElementById('vhGenerationSelector').value;
+
+       // image handle
+       let tempDataUrlArray = [];
+
+       for (let index = 0; index < vehicleModelImage.length; index++) {
+              try {
+                     const element = vehicleModelImage[index];
+
+                     const imageDataUrl = await ALG.compressImageFromDataUrl(element);
+                     tempDataUrlArray.push(imageDataUrl);
+              } catch (error) {
+                     console.error("error : " + error);
+              }
+       }
+       vehicleModelImage = tempDataUrlArray;
+
+
+       const formData = new FormData();
+       formData.append('ad_vehicle_name_id', vhNamesSelector);
+       formData.append('ad_vehicle_type_id', vhTypeSelector);
+       formData.append('ad_vehicle_year_Id', vhYearSelector);
+       formData.append('ad_generation_id', vhGenerationSelector);
+       formData.append('ad_model_img', vehicleModelImage);
+
+       const vehicleModelResponse = await dataSend.dataIUD(formData, 'backend/api/vehicleModelAPI.php');
+       if (vehicleModelResponse.status === 'success') {
+
+       } else {
+              console.log(vehicleModelResponse.error);
+       }
+
+}
+
 
 
 //product images preview 
@@ -115,6 +159,36 @@ function previewProductListImages(event) {
 
 
        }
+}
+
+//vehicle model images preview load
+function vhModelImagePreview(event) {
+
+       const imgPreview = document.getElementById('modeImagePreviewContainer');
+       imgPreview.innerHTML = "";
+
+       const files = event.target.files;
+
+       for (const key in files) {
+
+              if (Object.hasOwnProperty.call(files, key)) {
+                     let read = new FileReader();
+
+                     read.onload = (e) => {
+                            let img = document.createElement('img');
+                            const dataURL = e.target.result;
+                            img.classList.add('preview-thumb', 'w-25', 'h-25', 'rounded', 'p-3');
+                            img.src = dataURL;
+                            vehicleModelImage.push(dataURL);
+                            imgPreview.appendChild(img);
+                     }
+
+                     read.readAsDataURL(files[key]);
+              }
+
+
+       }
+
 }
 
 
