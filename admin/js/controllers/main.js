@@ -331,7 +331,113 @@ const loadModificationLine = async () => {
   }
 };
 
-//malindu *********************************
+//load vehicle model section data form selectors
+const loadVehicleNamesFormModeSection = async () => {
+
+  const vhNameSelector = document.getElementById('vhNamesSelector');
+
+  const vhNamesResponse = await dataLoader.LoadVehicleName();
+
+
+  vhNameSelector.innerHTML = "";
+
+  if (vhNamesResponse.status === 'success') {
+
+    vhNameSelector.innerHTML += ` <option value="0" >Select Vehicle Names</option>`;
+
+    vhNamesResponse.results.map((res) => {
+
+      const option = document.createElement('option');
+      option.value = res.vh_name_id;
+      option.textContent = res.vh_name;
+
+      vhNameSelector.appendChild(option);
+    });
+
+  }
+
+};
+//load vehicle type section data form selectors
+const loadVehicleTypeFormModeSection = async () => {
+
+  const vhTypeSelector = document.getElementById('vhTypeSelector');
+
+  const vhTypeResponse = await dataLoader.LoadVehicleType();
+
+  vhTypeSelector.innerHTML = "";
+
+  if (vhTypeResponse.status === 'success') {
+
+    vhTypeSelector.innerHTML += ` <option value="0" >Select Vehicle Type</option>`;
+
+    vhTypeResponse.result.map((res) => {
+
+      const option = document.createElement('option');
+      option.value = res.vehicle_type_id;
+      option.textContent = res.vehicale;
+
+      vhTypeSelector.appendChild(option);
+    });
+
+  }
+
+};
+//load vehicle Year section data form selectors
+const loadVehicleYearFormModeSection = async () => {
+
+  const vhYearSelector = document.getElementById('vhYearSelector');
+
+  const vhYearResponse = await dataLoader.LoadVehicleYears();
+
+  vhYearSelector.innerHTML = "";
+
+  if (vhYearResponse.status === 'success') {
+
+    vhYearSelector.innerHTML += ` <option value="0" >Select Vehicle Year</option>`;
+
+    vhYearResponse.result.map((res) => {
+
+      const option = document.createElement('option');
+      option.value = res.vehicle_year_Id;
+      option.textContent = res.year;
+
+      vhYearSelector.appendChild(option);
+    });
+
+  }
+
+};
+//load vehicle Year section data form selectors
+const loadVehicleGenerationFormModeSection = async () => {
+
+  const vhGenerationSelector = document.getElementById('vhGenerationSelector');
+
+  const vhGenerationResponse = await dataLoader.LoadVehicleGeneration();
+
+
+  vhGenerationSelector.innerHTML = "";
+
+  if (vhGenerationResponse.status === 'success') {
+
+    vhGenerationSelector.innerHTML += ` <option value="0">Select Vehicle Generation</option>`;
+
+    vhGenerationResponse.result.map((res) => {
+
+      const option = document.createElement('option');
+      option.value = res.generation_id;
+      option.textContent = res.generation;
+
+      vhGenerationSelector.appendChild(option);
+    });
+
+  }
+
+};
+
+
+
+
+//Malindu *********************************
 //vehicle promotion section toggle
 const togglePromotionSection = async (promotionSections) => {
   const sections = document.getElementById(
@@ -429,13 +535,20 @@ const toggleVehicleSection = async (sec) => {
 
     addMakersForVehicleNamesPanel();
   }
-  sec === "models"
-    ? ALG.addTableToContainer(
-      "modelsViewSection",
+
+  if (sec === "models") {
+    ALG.addTableToContainer(
+      "modelTable",
       loadModel,
       [200, 200, 200, 200, 200, 150]
-    )
-    : null;
+    );
+    loadVehicleNamesFormModeSection();
+    loadVehicleTypeFormModeSection();
+    loadVehicleYearFormModeSection();
+    loadVehicleGenerationFormModeSection();
+  }
+
+
   sec === "modelLines"
     ? ALG.addTableToContainer(
       "modelLinesViewSection",
