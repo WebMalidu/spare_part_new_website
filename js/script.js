@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   loadWatchList();
+  cartLoad()
 });
 
 if (document.URL.endsWith("/index.php")) {
@@ -262,7 +263,7 @@ function loadWatchList() {
         data.forEach((item) => {
           watchListConatiner.innerHTML += `<div class="col-12 d-flex justify-content-center align-items-center gap-5 pb-3">
         <div class="col-5 col-lg-2 d-flex flex-column flex-lg-row justify-content-center bg-white ct-div-size alg-shadow rounded-1">
-             <img src="resources/image/home/engineImage.png" class="crt_itm_img img-fluid my-auto mx-auto" alt="item_img" />
+             <img src="resources/image/partsImages/partsId=${item.parts_id}_categoryItemId=${item.category_item_id}_image=1.jpg" class="crt_itm_img img-fluid my-auto mx-auto" alt="item_img" />
              <div class="col-12 d-flex flex-row d-lg-none d-block justify-content-around gap-5 pt-3">
                   <div><input type="checkbox" /></div>
                   <div><i class="bi bi-trash-fill"></i></div>
@@ -379,6 +380,7 @@ function addCart(part_id) {
       let response = JSON.parse(request.responseText);
       if (response.status == "success") {
         alert("successfully added item to watchlist");
+        cartLoad()
       } else {
         console.log(response.error);
       }
@@ -463,5 +465,98 @@ if (!isEmailValid) {
     }
   };
   request.open("POST", "../backend/api/adminSignUp.php", true);
+  request.send(form);
+}
+
+
+//cart Load
+
+function cartLoad(){
+  console.log("cart")
+  let request = new XMLHttpRequest();
+  let cartContainer = document.getElementById("cartContainer");
+  request.onreadystatechange = function () {
+    if (request.readyState == 4) {
+      // preform an action on response
+      let response = JSON.parse(request.responseText);
+      if (response.status == "success") {
+        let data = response.data;
+        console.log(data)
+        cartContainer.innerHTML = "";
+
+        data.forEach((item) => {
+          cartContainer.innerHTML += `<div class="col-12 d-flex justify-content-center align-items-center gap-5 pb-3">
+          <div class="col-5 col-lg-2 d-flex flex-column flex-lg-row justify-content-center bg-white ct-div-size alg-shadow rounded-1">
+               <img src="resources/image/partsImages/partsId=${item.parts_id}_categoryItemId=${item.category_item_id}_image=1.jpg" class="crt_itm_img img-fluid my-auto mx-auto" alt="item_img" />
+               <div class="col-12 d-flex flex-row d-lg-none d-block justify-content-around gap-5 pt-3">
+                    <div><input type="checkbox" /></div>
+                    <div><i class="bi bi-trash-fill"></i></div>
+               </div>
+          </div>
+          
+          <div class="row col-6 col-lg-8 col-lg-9 py-1 bg-white ct-div-size alg-shadow rounded-1 d-flex justify-content-lg-between align-items-lg-center">
+               <div class="col-12 col-lg-3 d-flex flex-column alg-text-h3 gap-1 gap-lg-2">
+                    <span class="fw-bold lh-1 alg-text-blue">Break Cable<br /><span class="fw-normal text-black">(Brand New)</span></span>
+                    <span class="text-black-50">Brand : <span class="alg-text-blue"> &nbsp;&nbsp;&nbsp;&nbsp;${item.brand_name}</span></span>
+                    <span class="text-black-50">Name : <span class="alg-text-blue"> &nbsp;&nbsp;&nbsp;&nbsp;${item.title}</span></span>
+                    <span class="text-black-50">Sold By : <span class="alg-text-blue"> &nbsp;&nbsp;${item.full_name}</span></< /span>
+               </div>
+               <div class="col-12 col-lg-4 d-flex gap-3 gap-lg-5 alg-text-h3 mt-3">
+                    <div>
+                         <span class="fw-bold">${item.price}</span><br />
+                         <span class="alg-bg-dark-blue p-1 rounded-1 text-white alg-text-h3">-20%</span>
+                    </div>
+                    <div>
+                         <span class="text-decoration-line-through">LKR 2599.00</span>
+                    </div>
+               </div>
+               <div class="col-12 col-lg-1 d-flex flex-row d-none d-lg-block flex-lg-column  justify-content-lg-between gap-lg-5">
+                    <div class="pb-4"><input type="checkbox" /></div>
+                    <div class="pt-5"><i class="bi bi-trash-fill" onclick="cartDelete(${item.cart_id})"></i></div>
+               </div>
+          </div>
+          
+          </div>`;
+        });
+      } else {
+        console.log(response.error);
+        // alert("WatchList adding failed");
+      }
+      console.log(request.responseText);
+    }
+  };
+  request.open("POST", "../backend/api/cartLoad.php", true);
+  request.send(); 
+}
+
+
+
+function cartDelete(cartId){
+  const requestDataObject = {
+    cart_id: cartId,
+  };
+  console.log('deleted')
+
+  // store data in a form
+  let form = new FormData();
+  form.append("cartData", JSON.stringify(requestDataObject));
+
+  // send the data to server
+  let request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState == 4) {
+      // preform an action on response
+      let response = JSON.parse(request.responseText);
+      if (response.status == "success") {
+        alert("successfully deleted");
+        cartLoad();
+      } else {
+        console.log(response.error);
+         alert("Cart Delete failed");
+      }
+      console.log(request.responseText);
+    }
+  };
+  request.open("POST", "../backend/api/cartDelete.php", true);
   request.send(form);
 }
