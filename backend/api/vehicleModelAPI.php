@@ -216,7 +216,7 @@ if (RequestHandler::isPostMethod()) {
           //check already have this model
           $searchData = "SELECT * FROM `vehicle_models` WHERE 
           `vehicle_type_vehicle_type_id`='" . $ad_vehicle_type_id . "' AND `vehicle_year_vehicle_year_Id`='" . $ad_vehicle_year_id . "' 
-          AND `generation_generation_id`='" . $ad_generation_id . "' AND `vehicle_names_id`='" . $ad_model_name_id . "'";
+          AND `generation_generation_id`='" . $ad_generation_id . "' AND `vehicle_names_vh_name_id`='" . $ad_model_name_id . "'";
 
           $result = $db->query($searchData);
 
@@ -253,7 +253,7 @@ if (RequestHandler::isPostMethod()) {
 
           //insert data for database
           // insert data this table
-          $InsertQuery = "INSERT INTO `vehicle_models` (`model_id`,`vehicle_type_vehicle_type_id`,`vehicle_year_vehicle_year_Id`,`generation_generation_id`,`vehicle_names_id`) 
+          $InsertQuery = "INSERT INTO `vehicle_models` (`model_id`,`vehicle_type_vehicle_type_id`,`vehicle_year_vehicle_year_Id`,`generation_generation_id`,`vehicle_names_vh_name_id`) 
           VALUES ('" . $modelId . "','" . $ad_vehicle_type_id . "','" . $ad_vehicle_year_id . "','" . $ad_generation_id . "','" . $ad_model_name_id . "')";
           $db->query($InsertQuery);
 

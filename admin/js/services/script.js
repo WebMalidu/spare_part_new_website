@@ -89,7 +89,7 @@ async function addProduct(event) {
 }
 
 //upload vehicle models 
-async function addVehicleModels(event) {
+async function addModel(event) {
        event.target.disabled = true;
 
        //get all request data
@@ -107,6 +107,7 @@ async function addVehicleModels(event) {
 
                      const imageDataUrl = await ALG.compressImageFromDataUrl(element);
                      tempDataUrlArray.push(imageDataUrl);
+                     
               } catch (error) {
                      console.error("error : " + error);
               }
@@ -122,11 +123,18 @@ async function addVehicleModels(event) {
        formData.append('ad_model_img', vehicleModelImage);
 
        const vehicleModelResponse = await dataSend.dataIUD(formData, 'backend/api/vehicleModelAPI.php');
+      
        if (vehicleModelResponse.status === 'success') {
+              ALG.openToast("Success", "Vehicle model adding success", ALG.getCurrentTime(), "bi-heart", "Success");
+              setTimeout(() => {
+                     window.location.reload();
+              }, 1000);
 
        } else {
-              console.log(vehicleModelResponse.error);
+              ALG.openToast("Error", vehicleModelResponse.error, ALG.getCurrentTime(), "bi-heart", "Error");
        }
+
+       event.target.disabled = false;
 
 }
 
