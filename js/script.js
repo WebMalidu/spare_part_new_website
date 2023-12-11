@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   loadWatchList();
   cartLoad()
+  loadShippingDetails()
 });
 
 if (document.URL.endsWith("/index.php")) {
@@ -379,7 +380,7 @@ function addCart(part_id) {
       // preform an action on response
       let response = JSON.parse(request.responseText);
       if (response.status == "success") {
-        alert("successfully added item to watchlist");
+        alert("successfully added item to cart");
         cartLoad()
       } else {
         console.log(response.error);
@@ -470,6 +471,12 @@ if (!isEmailValid) {
 
 
 //cart Load
+//cart global variable
+
+let subtotal=0;
+let discount=0;
+let shippinPrice=0;
+
 
 function cartLoad(){
   console.log("cart")
@@ -517,7 +524,21 @@ function cartLoad(){
           </div>
           
           </div>`;
+        // Increment subtotal by the price of the current item
+    subtotal += parseFloat(item.price);
+    discount += item.discount ? parseFloat(item.discount*item.price/100) : 0;
+    
+
+    // Update discount only if item.discount exists
+    shippinPrice += item.shipping_price ? parseFloat(item.shipping_price) : 0;
+    console.log(item.parts_id , item.shipping_price)
+         
+
+          
         });
+        payingdisplay(discount,subtotal,shippinPrice)
+
+
       } else {
         console.log(response.error);
         // alert("WatchList adding failed");
@@ -559,4 +580,168 @@ function cartDelete(cartId){
   };
   request.open("POST", "../backend/api/cartDelete.php", true);
   request.send(form);
+}
+
+//subtatotal adding
+
+function payingdisplay(discount,subtatotal,shippinPrice) {
+
+  console.log(discount)
+  console.log(subtotal) 
+
+  let orderContainer=document.getElementById('ordercontaiber');
+  orderContainer.innerHTML=`
+  <span class="alg-text-h2 alg-text-blue fw-bold">Order Summery</span>
+  <div class="d-flex justify-content-between mx-3 pb-1 pt-1">
+       <span>Sub Total(5)</span>
+       <span class="fw-bold" id="subTotal">LKR ${subtatotal}</span>
+  </div>
+  <div class="d-flex justify-content-between mx-3">
+       <span class="">Discount</span>
+       <span class="fw-bold" id="disscount">LKR ${discount}</span>
+  </div>
+  <div class="d-flex justify-content-between border-bottom border-2 pb-1 mx-3">
+       <span>Shipping Price</span>
+       <span class="fw-bold" id="shippingprice">LKR ${shippinPrice}</span>
+  </div>
+  <div class="d-flex justify-content-between mx-3">
+       <span class="fw-bold">Total</span>
+       <span class="fw-bold" id="total">LKR ${subtatotal+shippinPrice-discount}</span>
+  </div>
+  <div class="d-grid mx-4 mt-5">
+       <button class="alg-bg-blue  alg-text-h3 alg-button-hover border-0 rounded-1 text-white p-1 fw-bolder" onclick="checkOut()">Proceed To Checkout</button>
+  </div>
+  `
+}
+
+function shippingDetails(){
+  var username = document.getElementById('usernameInput').value;
+var phoneNumber = document.getElementById('phoneNumberInput').value;
+var postalCode = document.getElementById('postalCodeInput').value;
+var addressLine1 = document.getElementById('addressLine1Input').value;
+var addressLine2 = document.getElementById('addressLine2Input').value;
+var city = document.getElementById('cityInput').value;
+var district = document.getElementById('districtInput').value;
+var province = document.getElementById('provinceInput').value;
+
+console.log(district,province,city)
+
+const requestDataObject = {
+    username: username,
+    phoneNumber: phoneNumber,
+    postalCode: postalCode,
+    addressLine1: addressLine1,
+    addressLine2: addressLine2,
+    city: city,
+    district: district,
+    province: province
+};
+console.log('deleted')
+console.log(requestDataObject)
+
+// store data in a form
+let form = new FormData();
+form.append("shippingData", JSON.stringify(requestDataObject));
+
+// send the data to server
+let request = new XMLHttpRequest();
+request.onreadystatechange = function () {
+  if (request.readyState == 4) {
+    // preform an action on response
+    let response = JSON.parse(request.responseText);
+    if (response.status == "success") {
+      alert("successfully data added");
+    } else {
+      console.log(response.error);
+       alert("data adding Failes please check input ");
+    }
+    console.log(request.responseText);
+  }
+};
+request.open("POST", "../backend/api/shippingDetailsAdd.php", true);
+request.send(form);
+}
+
+function loadShippingDetails(){
+  console.log("shipping Details loaded")
+  var username = document.getElementById('usernameInput');
+  var phoneNumber = document.getElementById('phoneNumberInput');
+  var postalCode = document.getElementById('postalCodeInput');
+  var addressLine1 = document.getElementById('addressLine1Input');
+  var addressLine2 = document.getElementById('addressLine2Input');
+  var city = document.getElementById('cityInput');
+  var district = document.getElementById('districtInput');
+  var province = document.getElementById('provinceInput');
+
+
+// send the data to server
+let request = new XMLHttpRequest();
+request.onreadystatechange = function () {
+  if (request.readyState == 4) {
+    // preform an action on response
+    let response = JSON.parse(request.responseText);
+    let data=response.data[0]
+    if (response.status == "success") {
+      console.log(data.name)
+      username.value = data.user_name;
+      phoneNumber.value=data.mobile;
+      postalCode.value=data.postal_code
+      addressLine1.value=data.address_line_1
+      city.value=data.city
+      addressLine2.value=data.address_line_2
+      province.selectedIndex =data.province_province_id
+      district.selectedIndex=data.district_district_id
+    
+
+    } else {
+      console.log(response.error);
+    }
+    console.log(request.responseText);
+  }
+};
+request.open("POST", "../backend/api/shippingDetailsLod.php", true);
+request.send();
+  
+
+}
+
+function checkOut(){
+ let total=document.getElementById('total').textContent
+ let subTotal=document.getElementById('subTotal').textContent
+ let disscount=document.getElementById('disscount').textContent
+ let shippingprice=document.getElementById('shippingprice').textContent
+
+
+ console.log("checkOut")
+
+const requestDataObject = {
+  total: total,
+  shipping: shippingprice,
+  
+};
+console.log('deleted')
+console.log(requestDataObject)
+
+// store data in a form
+let form = new FormData();
+form.append("checkOutData", JSON.stringify(requestDataObject));
+
+// send the data to server
+let request = new XMLHttpRequest();
+request.onreadystatechange = function () {
+  if (request.readyState == 4) {
+    // preform an action on response
+    let response = JSON.parse(request.responseText);
+    if (response.status == "success") {
+      alert("successfully data added");
+    } else {
+      console.log(response.error);
+       alert("data adding Failes please check input ");
+    }
+    console.log(request.responseText);
+  }
+};
+request.open("POST", "../backend/api/checkOutProcess.php", true);
+request.send(form);
+
 }
