@@ -46,7 +46,7 @@
 
         </div>
         <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small" id="modelsViewSection">
-            <div class="d-flex flex-column">
+            <div class="d-flex flex-column alg-bg-dark">
                 <div class="d-flex flex-column flex-lg-row gap-2 p-2">
                     <select class="form-select" id="vhNamesSelector">
                         <!-- option goes here -->
@@ -69,7 +69,7 @@
 
                 <div class="d-flex flex-column p-2">
                     <label class="form-label" for="addProductImageInput">Add model image</label>
-                    <input alt="Vehicle image not upload" type="file"  id="vehicleImagesInput" class="form-control" onchange="vhModelImagePreview(event);" />
+                    <input alt="Vehicle image not upload" type="file" id="vehicleImagesInput" class="form-control" onchange="vhModelImagePreview(event);" />
                     <div class="my-2 p-1 rounded-1 product-items d-flex justify-content-center align-content-center" id="modeImagePreviewContainer"></div>
                 </div>
                 <div class="w-100 p-1">
@@ -81,8 +81,28 @@
                 Loading....
             </div>
         </div>
-        <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small overflow-auto flex-grow-1" id="modelLinesViewSection">
+        <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small overflow-auto  gap-2 flex-grow-1" id="modelLinesViewSection">
+
+            <div class="d-flex flex-column alg-bg-dark alg-rounded-small p-2 pt-2">
+                <div class="d-flex justify-content-between gap-2 p-2">
+                    <select class="form-select" id="vhModelSelector">
+                        <!-- option -->
+                    </select>
+
+                    <select class="form-select" id="vhModelLineSelector">
+                        <!-- option -->
+                    </select>
+
+                </div>
+
+                <button class="my-4 w-100 alg-btn-pill" onclick="addVhModelLine(event);">Add Model Line</button>
+            </div>
+
+            <div class="w-100 overflow-auto alg-bg-light p-2 alg-rounded-mid" id="modelLinesTableContainer">
+                Loading....
+            </div>
 
         </div>
+    </div>
     </div>
 </section>

@@ -107,7 +107,7 @@ async function addModel(event) {
 
                      const imageDataUrl = await ALG.compressImageFromDataUrl(element);
                      tempDataUrlArray.push(imageDataUrl);
-                     
+
               } catch (error) {
                      console.error("error : " + error);
               }
@@ -123,7 +123,7 @@ async function addModel(event) {
        formData.append('ad_model_img', vehicleModelImage);
 
        const vehicleModelResponse = await dataSend.dataIUD(formData, 'backend/api/vehicleModelAPI.php');
-      
+
        if (vehicleModelResponse.status === 'success') {
               ALG.openToast("Success", "Vehicle model adding success", ALG.getCurrentTime(), "bi-heart", "Success");
               setTimeout(() => {
@@ -138,6 +138,30 @@ async function addModel(event) {
 
 }
 
+//open vehicle model delete model
+function openModelDeleteModel(model_id) {
+       ALG.openModel("Vehicle Model Delete", "Do you want to delete this vehicle model ?", `<button  class="alg-btn-pill" data-bs-dismiss="modal" aria-label="Close" onclick="removeModel('${model_id}')">Yes</button>`);
+}
+
+//delete vehicle model
+const removeModel = async (model_id) => {
+       const formData = new FormData();
+       formData.append("del_model_id", model_id);
+
+       const modelResponse = await dataSend.dataIUD(formData, 'backend/api/vehicleModelAPI.php');
+
+       if (modelResponse.status === 'success') {
+
+              ALG.openToast("Success", "Vehicle model delete success", ALG.getCurrentTime(), "bi-heart", "Success");
+              setTimeout(() => {
+                     window.location.reload();
+              }, 1000);
+
+       } else {
+              ALG.openToast("Error", modelResponse.error, ALG.getCurrentTime(), "bi-heart", "Error");
+       }
+
+};
 
 
 //product images preview 
@@ -318,6 +342,50 @@ const removeNames = async (name_id) => {
 
        } else {
               ALG.openToast("Error", responseNames.error, ALG.getCurrentTime(), "bi-heart", "Error");
+       }
+};
+
+//add vehicle modification lines
+const addVhModelLine = async (e) => {
+
+       e.target.disabled = true;
+
+       const modelSelector = document.getElementById('vhModelSelector').value;
+       const vhModelLineSelector = document.getElementById('vhModelLineSelector').value;
+
+       const formData = new FormData();
+       formData.append("ad_model_id", modelSelector);
+       formData.append("ad_model_line_id", vhModelLineSelector);
+
+       const modelLineResponse = await dataSend.dataIUD(formData, 'backend/api/vehicleModelModification.php');
+       if (modelLineResponse.status === 'success') {
+              ALG.openToast("Success", "Vehicle model line added success", ALG.getCurrentTime(), "bi-heart", "Success");
+
+       } else {
+              ALG.openToast("Error", modelLineResponse.error, ALG.getCurrentTime(), "bi-heart", "Error");
+       }
+       e.target.disabled = false;
+};
+
+//remove model line
+const openModelLineRemoveModel = async (mdu_id) => {
+       ALG.openModel("Vehicle modification line remove",
+              "Do you want to delete this vehicle modification line?",
+              `<button  class="alg-btn-pill" data-bs-dismiss="modal" aria-label="Close" onclick="removeModificationLine('${mdu_id}')">Yes</button>`);
+};
+
+const removeModificationLine = async (mdu_id) => {
+
+       const formData = new FormData();
+       formData.append("del_model_line_id", mdu_id);
+
+       const modelLineResponse = await dataSend.dataIUD(formData, 'backend/api/vehicleModelModification.php');
+       console.log(modelLineResponse);
+       if (modelLineResponse.status === 'success') {
+              ALG.openToast("Success", "Vehicle model line delete success", ALG.getCurrentTime(), "bi-heart", "Success");
+
+       } else {
+              ALG.openToast("Error", modelLineResponse.error, ALG.getCurrentTime(), "bi-heart", "Error");
        }
 };
 

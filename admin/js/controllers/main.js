@@ -156,18 +156,22 @@ const loadNames = async () => {
 //load vehicles model
 const loadModel = async () => {
   const models = await dataLoader.LoadVehicleModels();
+  console.log(models);
   const modelsList = [];
 
   if (models.status === "success") {
     models.results.map((res) => {
-      const editButton = `<button class="fw-bolder btn alg-btn-pill" onclick="openMakerEditModel(${res.model_id})">Edit</button>`;
+      const editButton = `<button class="fw-bolder btn alg-btn-pill" onclick="openModelEditModel('${res.model_id}')">Edit</button>`;
+      const deleteButton = `<button class="ms-1 fw-bolder btn alg-btn-pill" onclick="openModelDeleteModel('${res.model_id}')">Remove</button>`;
       modelsList.push({
         Id: res.model_id,
         Name: res.vehicle_names,
         Type: res.model_type,
         Year: res.model_year,
         Generation: res.model_generation,
-        Edit: editButton,
+        Image: res.model_image ? `<img src="${res.model_image}" class="alg-list-cell-image"  />`
+          : "Empty",
+        Edit: [editButton, deleteButton],
       });
     });
     return modelsList;
@@ -181,13 +185,20 @@ const loadModelLine = async () => {
   const modificationLineList = [];
 
   if (modificationLine.status === "success") {
+
+    console.log(modificationLine);
+
     modificationLine.results.map((res) => {
-      const editButton = `<button class="fw-bolder btn alg-btn-pill" onclick="openMakerEditModel(${res.vh_mdu_id})">Edit</button>`;
+      const editButton = `<button class="fw-bolder btn alg-btn-pill" onclick="openModelLineEditModel('${res.mdu_id}')">Edit</button>`;
+      const removeButton = `<button class="ms-1 fw-bolder btn alg-btn-pill" onclick="openModelLineRemoveModel('${res.mdu_id}')">Remove</button>`;
       modificationLineList.push({
-        "Modification Line Id": res.vh_mdu_id,
-        "Model Id": res.vh_model_id,
-        "Modification Line": res.vh_modification_line,
-        Edit: editButton,
+        "Modification Line Id": res.mdu_id,
+        "Model Id": res.model_id,
+        "Vehicle Name": res.vh_name,
+        "Vehicle Year": res.year,
+        "Vehicle Generation": res.generation,
+        "Modification Line": res.mod,
+        Edit: [editButton, removeButton]
       });
     });
     return modificationLineList;
@@ -434,6 +445,45 @@ const loadVehicleGenerationFormModeSection = async () => {
 
 };
 
+//load vehicle model for selector
+const vhModelLoader = async () => {
+  const vhModelsResponse = await dataLoader.LoadVehicleModels();
+  const vhModelSelector = document.getElementById('vhModelSelector');
+  vhModelSelector.innerHTML = "";
+
+  if (vhModelsResponse.status === 'success') {
+
+    vhModelSelector.innerHTML += `<option value="0">Select Vehicle Model</option>`;
+
+    vhModelsResponse.results.map((res) => {
+      const option = document.createElement('option');
+      option.value = res.model_id
+      option.textContent = [res.vehicle_names, res.model_type, res.model_year, res.model_generation,];
+      vhModelSelector.appendChild(option);
+    });
+  }
+
+};
+
+//load vehicle modification for selector
+const vhModification = async () => {
+  const vhModificationResponse = await dataLoader.LoadModificationLine();
+  const vhModelLineSelector = document.getElementById('vhModelLineSelector');
+  vhModelLineSelector.innerHTML = "";
+
+  if (vhModificationResponse.status === 'success') {
+    vhModelLineSelector.innerHTML += `<option value="0">Select Vehicle Modification Line</option>`;
+
+    vhModificationResponse.result.map((res) => {
+      const option = document.createElement('option');
+      option.value = res.mod_id
+      option.textContent = res.mod;
+      vhModelLineSelector.appendChild(option);
+    });
+  }
+
+};
+
 
 
 
@@ -540,7 +590,7 @@ const toggleVehicleSection = async (sec) => {
     ALG.addTableToContainer(
       "modelTable",
       loadModel,
-      [200, 200, 200, 200, 200, 150]
+      [200, 200, 200, 200, 200, 300, 220]
     );
     loadVehicleNamesFormModeSection();
     loadVehicleTypeFormModeSection();
@@ -549,13 +599,16 @@ const toggleVehicleSection = async (sec) => {
   }
 
 
-  sec === "modelLines"
-    ? ALG.addTableToContainer(
-      "modelLinesViewSection",
+  if (sec === "modelLines") {
+    ALG.addTableToContainer(
+      "modelLinesTableContainer",
       loadModelLine,
-      [200, 200, 200, 150]
-    )
-    : null;
+      [200, 200, 200, 200, 200, 200, 220]
+    );
+    vhModelLoader();
+    vhModification();
+  }
+
 };
 
 //product section toggle
