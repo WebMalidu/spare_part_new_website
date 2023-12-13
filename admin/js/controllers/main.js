@@ -484,6 +484,51 @@ const vhModification = async () => {
 
 };
 
+//load vehicle category for product selection
+const loadCategory = async () => {
+
+  const selector = document.getElementById('categorySelector');
+
+  const categoryRes = await dataLoader.LoadVehicleCategory();
+  console.log(categoryRes);
+
+  if (categoryRes.status === 'success') {
+    categoryRes.results.map((res) => {
+      const option = document.createElement('option');
+      option.value = res.category_id
+      option.textContent = res.category_type
+      selector.appendChild(option);
+    });
+  } else {
+    console.log(categoryRes.error);
+  }
+};
+
+//load vehicle category items (catalogs)
+const loadCategoryItems = async () => {
+  const categoryItemRes = await dataLoader.LoadVehicleCategoryItem();
+  const categoryItems = [];
+  console.log(categoryItemRes);
+
+  if (categoryItemRes.status === 'success') {
+    categoryItemRes.result.map((res) => {
+      const editButton = `<button class="fw-bolder btn alg-btn-pill" onclick="openVhCategoryItemsEditModel('${res.category_item_id}')">Edit</button>`;
+      const deleteButton = `<button class="fw-bolder btn alg-btn-pill ms-2" onclick="openVhCategoryItemsDeleteModel('${res.category_item_id}')">Remove</button>`;
+
+      categoryItems.push({
+        "Catalog Id": res.category_item_id,
+        "Category Name": res.category,
+        "Catalog Name(category item)": res.category_item_name,
+        "Edit": [editButton, deleteButton]
+      });
+
+    });
+
+    return categoryItems;
+  }
+
+};
+
 
 
 
@@ -613,6 +658,7 @@ const toggleVehicleSection = async (sec) => {
 
 //product section toggle
 const toggleProductSection = async (productSection) => {
+
   const sections = document.getElementById(
     "productSectionsContainer"
   ).childNodes;
@@ -627,6 +673,12 @@ const toggleProductSection = async (productSection) => {
   const selectedSection = document.getElementById(productSection + "Section");
   selectedSection.classList.add("d-block");
   selectedSection.classList.remove("d-none");
+
+  if (productSection === "catalogView") {
+    loadCategory();
+    ALG.addTableToContainer("productCatalogTable", loadCategoryItems, [200, 230, 230, 220]);
+  }
+
 
   productSection === "productView"
     ? ALG.addTableToContainer(
@@ -645,10 +697,13 @@ const toggleProductSection = async (productSection) => {
     loadVehicleCategoryItem();
     loadModificationLine();
   }
+
+
 };
 
+
 //load vehicle origin
-const loadPromotionParts = async () => {
+async function loadPromotionParts() {
   let promotionTitle = document.getElementById("promotionTitle");
 
   const vhOriginRes = await dataLoader.LoadVehiclePartsLoad();
@@ -666,7 +721,7 @@ const loadPromotionParts = async () => {
   } else {
     console.log(vhOriginRes.error);
   }
-};
+}
 
 function promoAdd() {
   var title = document.getElementById('promotionTitle').value;
