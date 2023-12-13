@@ -174,7 +174,7 @@ if (RequestHandler::isGetMethod()) {
      }
 }
 
-//vehicle model add , update
+//vehicle model add , update , delete
 if (RequestHandler::isPostMethod()) {
 
      // chekcing is user logging
@@ -216,7 +216,7 @@ if (RequestHandler::isPostMethod()) {
           //check already have this model
           $searchData = "SELECT * FROM `vehicle_models` WHERE 
           `vehicle_type_vehicle_type_id`='" . $ad_vehicle_type_id . "' AND `vehicle_year_vehicle_year_Id`='" . $ad_vehicle_year_id . "' 
-          AND `generation_generation_id`='" . $ad_generation_id . "' AND `vehicle_names_id`='" . $ad_model_name_id . "'";
+          AND `generation_generation_id`='" . $ad_generation_id . "' AND `vehicle_names_vh_name_id`='" . $ad_model_name_id . "'";
 
           $result = $db->query($searchData);
 
@@ -253,15 +253,12 @@ if (RequestHandler::isPostMethod()) {
 
           //insert data for database
           // insert data this table
-          $InsertQuery = "INSERT INTO `vehicle_models` (`model_id`,`vehicle_type_vehicle_type_id`,`vehicle_year_vehicle_year_Id`,`generation_generation_id`,`vehicle_names_id`) 
+          $InsertQuery = "INSERT INTO `vehicle_models` (`model_id`,`vehicle_type_vehicle_type_id`,`vehicle_year_vehicle_year_Id`,`generation_generation_id`,`vehicle_names_vh_name_id`) 
           VALUES ('" . $modelId . "','" . $ad_vehicle_type_id . "','" . $ad_vehicle_year_id . "','" . $ad_generation_id . "','" . $ad_model_name_id . "')";
           $db->query($InsertQuery);
 
           $responseObject->status = 'success';
           response_sender::sendJson($responseObject);
-
-
-          
      } else if (isset($_POST['up_model_id'], $_POST['up_model_name'], $_POST['up_type_id'], $_POST['up_vehicle_year_Id'], $_POST['up_generation_id'], $_POST['up_modification_line_mod_id'], $_POST['up_makers_id'])) {
 
           //gets all request one by one variables
@@ -359,6 +356,36 @@ if (RequestHandler::isPostMethod()) {
                }
           } else {
                $responseObject->error = 'Image does not exist.';
+               response_sender::sendJson($responseObject);
+          }
+     } elseif (isset($_POST['del_model_id'])) {
+
+          $deleteModelId =  $_POST['del_model_id'];
+
+          //search image
+          $fileSearch = new FileSearch($directory, $deleteModelId, $fileExtensions); // Use model image parameters
+          $imagePath = $fileSearch->search();
+
+          $relatedImage = $imagePath[0];
+
+          //delete image
+          if ($relatedImage) {
+               if (unlink($relatedImage)) {
+                    try {
+
+                         $deleteQuery = "DELETE FROM `vehicle_models` WHERE `model_id`='" . $deleteModelId . "'";
+                         $db->query($deleteQuery);
+
+                         $responseObject->status = 'success';
+                         response_sender::sendJson($responseObject);
+                    } catch (mysqli_sql_exception $ex) {
+
+                         $responseObject->error = "Cannot delete this vehicle model still exists in vehicle model line";
+                         response_sender::sendJson($responseObject);
+                    }
+               }
+          } else {
+               $responseObject->error = 'Image not found';
                response_sender::sendJson($responseObject);
           }
      }
