@@ -170,7 +170,7 @@ function signUp() {
         alert("Sign Up failed Please check your data");
         console.log("Sign Up failed Please check your data");
       }
-      console.log(request.responseText);
+      //console.log(request.responseText);
     }
   };
   request.open("POST", "../backend/api/signUp.php", true);
@@ -191,7 +191,7 @@ function logOut() {
       } else {
         console.log(response.status);
       }
-      console.log(request.responseText);
+     // console.log(request.responseText);
     }
   };
   request.open("POST", "../backend/api/signOut.php", true);
@@ -201,7 +201,7 @@ function logOut() {
 function signIn() {
   const signInemail = document.getElementById("signInemail").value;
   const signInpassword = document.getElementById("signInpassword").value;
-  console.log(signInemail);
+  //console.log(signInemail);
 
   const requestDataObject = {
     email: signInemail,
@@ -225,7 +225,7 @@ function signIn() {
         console.log(response.error);
         alert("Sign In Failed");
       }
-      console.log(request.responseText);
+      //console.log(request.responseText);
     }
   };
   request.open("POST", "../backend/api/signIn.php", true);
@@ -302,7 +302,7 @@ function loadWatchList() {
         console.log(response.error);
         // alert("WatchList adding failed");
       }
-      console.log(request.responseText);
+      //console.log(request.responseText);
     }
   };
   request.open("POST", "../backend/api/watchListLoad.php", true);
@@ -330,7 +330,7 @@ function watchListDelete(w_id) {
         console.log(response.error);
         alert("WatchList adding failed");
       }
-      console.log(request.responseText);
+      //console.log(request.responseText);
     }
   };
   request.open("POST", "../backend/api/watchListDelete.php", true);
@@ -370,7 +370,7 @@ function addCart(part_id) {
   const requestDataObject = {
     parts_id: part_id,
   };
-  console.log("cart add");
+  //console.log("cart add");
 
   // store data in a form
   let form = new FormData();
@@ -388,7 +388,7 @@ function addCart(part_id) {
       } else {
         console.log(response.error);
       }
-      console.log(request.responseText);
+      //console.log(request.responseText);
     }
   };
   request.open("POST", "../backend/api/cartAdding.php", true);
@@ -419,8 +419,8 @@ function multiVendorRegistation() {
     email_address: emailAddress,
     password: password,
   };
-  console.log(requestDataObject);
-  console.log("multi vendor add");
+ // console.log(requestDataObject);
+  //console.log("multi vendor add");
 
   // Regular expressions for phone number and email validation
   const phoneRegex = /^\d{10}$/; // Validates a 10-digit phone number
@@ -463,9 +463,9 @@ function multiVendorRegistation() {
       } else {
         alert("Registaton Failed");
 
-        console.log(response.error);
+        //console.log(response.error);
       }
-      console.log(request.responseText);
+      //console.log(request.responseText);
     }
   };
   request.open("POST", "../backend/api/adminSignUp.php", true);
@@ -489,7 +489,7 @@ function cartLoad() {
       let response = JSON.parse(request.responseText);
       if (response.status == "success") {
         let data = response.data;
-        console.log(data);
+        //console.log(data);
         cartContainer.innerHTML = "";
 
         data.forEach((item) => {
@@ -534,14 +534,14 @@ function cartLoad() {
           shippinPrice += item.shipping_price
             ? parseFloat(item.shipping_price)
             : 0;
-          console.log(item.parts_id, item.shipping_price);
+          //console.log(item.parts_id, item.shipping_price);
         });
         payingdisplay(discount, subtotal, shippinPrice);
       } else {
-        console.log(response.error);
+        //console.log(response.error);
         // alert("WatchList adding failed");
       }
-      console.log(request.responseText);
+      //console.log(request.responseText);
     }
   };
   request.open("POST", "../backend/api/cartLoad.php", true);
@@ -714,7 +714,7 @@ function loadShippingDetails() {
       } else {
         console.log(response.error);
       }
-      console.log(request.responseText);
+      //console.log(request.responseText);
     }
   };
   request.open("POST", "../backend/api/shippingDetailsLod.php", true);
@@ -728,15 +728,15 @@ function checkOut() {
   let disscount = document.getElementById("disscount").textContent;
   let shippingprice = document.getElementById("shippingprice").textContent;
 
-  console.log(total.replace("LKR ", ""));
-  console.log("checkOut");
+  //console.log(total.replace("LKR ", ""));
+  //console.log("checkOut");
 
   const requestDataObject = {
     total: total,
     shipping: shippingprice,
   };
-  console.log("deleted");
-  console.log(requestDataObject);
+ // console.log("deleted");
+  //console.log(requestDataObject);
 
   // store data in a form
   let form = new FormData();
@@ -754,7 +754,7 @@ function checkOut() {
         console.log(response.error);
         alert("data adding Failes please check input ");
       }
-      console.log(request.responseText);
+     // console.log(request.responseText);
     }
   };
   request.open("POST", "../backend/api/checkOutProcess.php", true);
@@ -766,14 +766,14 @@ function paymentProcess() {
 
   
 
-  console.log(total.replace("LKR ", ""));
-  console.log("checkOut");
+  //console.log(total.replace("LKR ", ""));
+  //console.log("checkOut");
 
   const requestDataObject = {
     total: total.replace("LKR ", ""),
   }
-  console.log("deleted");
-  console.log(requestDataObject);
+  //console.log("deleted");
+ // console.log(requestDataObject);
 
   // store data in a form
   let form = new FormData();
@@ -791,7 +791,7 @@ function paymentProcess() {
         alert(response.error)
         console.log(response.error);
       }
-      console.log(request.responseText);
+     // console.log(request.responseText);
     }
   };
   request.open("POST", "./payment.php", true);
