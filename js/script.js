@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   loadWatchList();
-  cartLoad()
-  loadShippingDetails()
+  cartLoad();
+  loadShippingDetails();
 });
 
 if (document.URL.endsWith("/index.php")) {
@@ -142,19 +142,22 @@ function signUp() {
   const signUpname = document.getElementById("signUpname").value;
   const signUppassword = document.getElementById("signUppassword").value;
   const signUpCpassword = document.getElementById("signUpCpassword").value;
+  const signUplastName = document.getElementById("signUplastName").value;
+
 
   const requestDataObject = {
     email: SignUpemail,
     password: signUppassword,
     cpassword: signUppassword,
     firstName: signUpname,
+    lastname:signUplastName
   };
 
   // store data in a form
   let form = new FormData();
   form.append("signUpData", JSON.stringify(requestDataObject));
 
-  alert("Please Wait Few Seconds")
+  alert("Please Wait Few Seconds");
   // send the data to server
   let request = new XMLHttpRequest();
   request.onreadystatechange = function () {
@@ -164,7 +167,7 @@ function signUp() {
       if (response.status == "success") {
         alert("Please Check Your email");
       } else {
-        alert("Sign Up failed Please check your data")
+        alert("Sign Up failed Please check your data");
         console.log("Sign Up failed Please check your data");
       }
       console.log(request.responseText);
@@ -220,7 +223,7 @@ function signIn() {
         window.location.reload();
       } else {
         console.log(response.error);
-        alert("Sign In Failed")
+        alert("Sign In Failed");
       }
       console.log(request.responseText);
     }
@@ -325,7 +328,7 @@ function watchListDelete(w_id) {
         loadWatchList();
       } else {
         console.log(response.error);
-         alert("WatchList adding failed");
+        alert("WatchList adding failed");
       }
       console.log(request.responseText);
     }
@@ -381,7 +384,7 @@ function addCart(part_id) {
       let response = JSON.parse(request.responseText);
       if (response.status == "success") {
         alert("successfully added item to cart");
-        cartLoad()
+        cartLoad();
       } else {
         console.log(response.error);
       }
@@ -416,38 +419,38 @@ function multiVendorRegistation() {
     email_address: emailAddress,
     password: password,
   };
-  console.log(requestDataObject)
+  console.log(requestDataObject);
   console.log("multi vendor add");
-  
-    // Regular expressions for phone number and email validation
-    const phoneRegex = /^\d{10}$/; // Validates a 10-digit phone number
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Validates an email address
 
-// Verify phone number and email using regex
-const isPhoneNumberValid = phoneRegex.test(businessContact);
-const isPhoneNumberValidtwo = phoneRegex.test(privateContact);
+  // Regular expressions for phone number and email validation
+  const phoneRegex = /^\d{10}$/; // Validates a 10-digit phone number
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Validates an email address
 
-const isEmailValid = emailRegex.test(emailAddress);
+  // Verify phone number and email using regex
+  const isPhoneNumberValid = phoneRegex.test(businessContact);
+  const isPhoneNumberValidtwo = phoneRegex.test(privateContact);
 
-if (!isPhoneNumberValid) {
-    alert('Please enter a valid 10-digit phone number.');
+  const isEmailValid = emailRegex.test(emailAddress);
+
+  if (!isPhoneNumberValid) {
+    alert("Please enter a valid 10-digit phone number.");
     return; // Prevent further execution if phone number is invalid
-}
-if (!isPhoneNumberValidtwo) {
-  alert('Please enter a valid 10-digit phone number.');
-  return; // Prevent further execution if phone number is invalid
-}
+  }
+  if (!isPhoneNumberValidtwo) {
+    alert("Please enter a valid 10-digit phone number.");
+    return; // Prevent further execution if phone number is invalid
+  }
 
-if (!isEmailValid) {
-    alert('Please enter a valid email address.');
+  if (!isEmailValid) {
+    alert("Please enter a valid email address.");
     return; // Prevent further execution if email is invalid
-}
+  }
 
   // store data in a form
   let form = new FormData();
   form.append("mData", JSON.stringify(requestDataObject));
 
-  alert("Please Wait Few Seconds")
+  alert("Please Wait Few Seconds");
 
   // send the data to server
   let request = new XMLHttpRequest();
@@ -469,17 +472,15 @@ if (!isEmailValid) {
   request.send(form);
 }
 
-
 //cart Load
 //cart global variable
 
-let subtotal=0;
-let discount=0;
-let shippinPrice=0;
+let subtotal = 0;
+let discount = 0;
+let shippinPrice = 0;
 
-
-function cartLoad(){
-  console.log("cart")
+function cartLoad() {
+  console.log("cart");
   let request = new XMLHttpRequest();
   let cartContainer = document.getElementById("cartContainer");
   request.onreadystatechange = function () {
@@ -488,7 +489,7 @@ function cartLoad(){
       let response = JSON.parse(request.responseText);
       if (response.status == "success") {
         let data = response.data;
-        console.log(data)
+        console.log(data);
         cartContainer.innerHTML = "";
 
         data.forEach((item) => {
@@ -506,12 +507,11 @@ function cartLoad(){
                     <span class="fw-bold lh-1 alg-text-blue">Break Cable<br /><span class="fw-normal text-black">(Brand New)</span></span>
                     <span class="text-black-50">Brand : <span class="alg-text-blue"> &nbsp;&nbsp;&nbsp;&nbsp;${item.brand_name}</span></span>
                     <span class="text-black-50">Name : <span class="alg-text-blue"> &nbsp;&nbsp;&nbsp;&nbsp;${item.title}</span></span>
-                    <span class="text-black-50">Sold By : <span class="alg-text-blue"> &nbsp;&nbsp;${item.full_name}</span></< /span>
                </div>
                <div class="col-12 col-lg-4 d-flex gap-3 gap-lg-5 alg-text-h3 mt-3">
                     <div>
-                         <span class="fw-bold">${item.price}</span><br />
-                         <span class="alg-bg-dark-blue p-1 rounded-1 text-white alg-text-h3">-20%</span>
+                         LKR.<span class="fw-bold">${item.price}</span><br />
+                         <span class="alg-bg-dark-blue p-1 rounded-1 text-white alg-text-h3">${item.discount}</span>
                     </div>
                     <div>
                          <span class="text-decoration-line-through">LKR 2599.00</span>
@@ -524,21 +524,19 @@ function cartLoad(){
           </div>
           
           </div>`;
-        // Increment subtotal by the price of the current item
-    subtotal += parseFloat(item.price);
-    discount += item.discount ? parseFloat(item.discount*item.price/100) : 0;
-    
+          // Increment subtotal by the price of the current item
+          subtotal += parseFloat(item.price);
+          discount += item.discount
+            ? parseFloat(((item.discount * item.price) / 100).toFixed(1))
+            : 0;
 
-    // Update discount only if item.discount exists
-    shippinPrice += item.shipping_price ? parseFloat(item.shipping_price) : 0;
-    console.log(item.parts_id , item.shipping_price)
-         
-
-          
+          // Update discount only if item.discount exists
+          shippinPrice += item.shipping_price
+            ? parseFloat(item.shipping_price)
+            : 0;
+          console.log(item.parts_id, item.shipping_price);
         });
-        payingdisplay(discount,subtotal,shippinPrice)
-
-
+        payingdisplay(discount, subtotal, shippinPrice);
       } else {
         console.log(response.error);
         // alert("WatchList adding failed");
@@ -547,16 +545,14 @@ function cartLoad(){
     }
   };
   request.open("POST", "../backend/api/cartLoad.php", true);
-  request.send(); 
+  request.send();
 }
 
-
-
-function cartDelete(cartId){
+function cartDelete(cartId) {
   const requestDataObject = {
     cart_id: cartId,
   };
-  console.log('deleted')
+  console.log("deleted");
 
   // store data in a form
   let form = new FormData();
@@ -573,7 +569,7 @@ function cartDelete(cartId){
         cartLoad();
       } else {
         console.log(response.error);
-         alert("Cart Delete failed");
+        alert("Cart Delete failed");
       }
       console.log(request.responseText);
     }
@@ -584,13 +580,12 @@ function cartDelete(cartId){
 
 //subtatotal adding
 
-function payingdisplay(discount,subtatotal,shippinPrice) {
+function payingdisplay(discount, subtatotal, shippinPrice) {
+  console.log(discount);
+  console.log(subtotal);
 
-  console.log(discount)
-  console.log(subtotal) 
-
-  let orderContainer=document.getElementById('ordercontaiber');
-  orderContainer.innerHTML=`
+  let orderContainer = document.getElementById("ordercontaiber");
+  orderContainer.innerHTML = `
   <span class="alg-text-h2 alg-text-blue fw-bold">Order Summery</span>
   <div class="d-flex justify-content-between mx-3 pb-1 pt-1">
        <span>Sub Total(5)</span>
@@ -606,27 +601,47 @@ function payingdisplay(discount,subtatotal,shippinPrice) {
   </div>
   <div class="d-flex justify-content-between mx-3">
        <span class="fw-bold">Total</span>
-       <span class="fw-bold" id="total">LKR ${subtatotal+shippinPrice-discount}</span>
+       <span class="fw-bold" id="total">LKR ${
+         subtatotal + shippinPrice - discount
+       }</span>
   </div>
   <div class="d-grid mx-4 mt-5">
-       <button class="alg-bg-blue  alg-text-h3 alg-button-hover border-0 rounded-1 text-white p-1 fw-bolder" onclick="checkOut()">Proceed To Checkout</button>
+       <button class="alg-bg-blue  alg-text-h3 alg-button-hover border-0 rounded-1 text-white p-1 fw-bolder" onclick="paymentProcess()">Proceed To Checkout</button>
   </div>
-  `
+  `;
 }
 
-function shippingDetails(){
-  var username = document.getElementById('usernameInput').value;
-var phoneNumber = document.getElementById('phoneNumberInput').value;
-var postalCode = document.getElementById('postalCodeInput').value;
-var addressLine1 = document.getElementById('addressLine1Input').value;
-var addressLine2 = document.getElementById('addressLine2Input').value;
-var city = document.getElementById('cityInput').value;
-var district = document.getElementById('districtInput').value;
-var province = document.getElementById('provinceInput').value;
+function shippingDetails() {
+  var username = document.getElementById("usernameInput").value;
+  var phoneNumber = document.getElementById("phoneNumberInput").value;
+  var postalCode = document.getElementById("postalCodeInput").value;
+  var addressLine1 = document.getElementById("addressLine1Input").value;
+  var addressLine2 = document.getElementById("addressLine2Input").value;
+  var city = document.getElementById("cityInput").value;
+  var district = document.getElementById("districtInput").value;
+  var province = document.getElementById("provinceInput").value;
 
-console.log(district,province,city)
+ 
+  if (
+    username.trim() === '' ||
+    phoneNumber.trim() === '' ||
+    postalCode.trim() === '' ||
+    addressLine1.trim() === '' ||
+    city.trim() === '' ||
+    district === '0' ||  // Assuming '0' is an invalid selection
+    province === '0'     // Assuming '0' is an invalid selection
+  ){
+    alert('Please fill inputs');
+    return;
+  }
+  if(!validatePhoneNumber(phoneNumber)){
+    alert('please enter validate phone number')
+    return
+  }
+  phoneNumber='+94' + phoneNumber.substring(1);
+  console.log(district, province, city);
 
-const requestDataObject = {
+  const requestDataObject = {
     username: username,
     phoneNumber: phoneNumber,
     postalCode: postalCode,
@@ -634,114 +649,151 @@ const requestDataObject = {
     addressLine2: addressLine2,
     city: city,
     district: district,
-    province: province
-};
-console.log('deleted')
-console.log(requestDataObject)
+    province: province,
+  };
+  console.log("deleted");
+  console.log(requestDataObject);
 
-// store data in a form
-let form = new FormData();
-form.append("shippingData", JSON.stringify(requestDataObject));
+  // store data in a form
+  let form = new FormData();
+  form.append("shippingData", JSON.stringify(requestDataObject));
 
-// send the data to server
-let request = new XMLHttpRequest();
-request.onreadystatechange = function () {
-  if (request.readyState == 4) {
-    // preform an action on response
-    let response = JSON.parse(request.responseText);
-    if (response.status == "success") {
-      alert("successfully data added");
-    } else {
-      console.log(response.error);
-       alert("data adding Failes please check input ");
+  // send the data to server
+  let request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState == 4) {
+      // preform an action on response
+      let response = JSON.parse(request.responseText);
+      if (response.status == "success") {
+        alert("successfully data added");
+      } else {
+        console.log(response.error);
+        alert("data adding Failes please check input ");
+      }
+      console.log(request.responseText);
     }
-    console.log(request.responseText);
-  }
-};
-request.open("POST", "../backend/api/shippingDetailsAdd.php", true);
-request.send(form);
+  };
+  request.open("POST", "../backend/api/shippingDetailsAdd.php", true);
+  request.send(form);
+}
+function validatePhoneNumber(phoneNumber) {
+  const phonePattern = /^\d{10}$/; // Matches 10 digits only
+  return phonePattern.test(phoneNumber);
+}
+  // Check if the number starts with '0' (assuming Sri Lankan format)
+ 
+
+function loadShippingDetails() {
+  console.log("shipping Details loaded");
+  var username = document.getElementById("usernameInput");
+  var phoneNumber = document.getElementById("phoneNumberInput");
+  var postalCode = document.getElementById("postalCodeInput");
+  var addressLine1 = document.getElementById("addressLine1Input");
+  var addressLine2 = document.getElementById("addressLine2Input");
+  var city = document.getElementById("cityInput");
+  var district = document.getElementById("districtInput");
+  var province = document.getElementById("provinceInput");
+
+  // send the data to server
+  let request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState == 4) {
+      // preform an action on response
+      let response = JSON.parse(request.responseText);
+      let data = response.data[0];
+      if (response.status == "success") {
+        console.log(data.name);
+        username.value = data.user_name;
+        phoneNumber.value = data.mobile;
+        postalCode.value = data.postal_code;
+        addressLine1.value = data.address_line_1;
+        city.value = data.city;
+        addressLine2.value = data.address_line_2;
+        province.selectedIndex = data.province_province_id;
+        district.selectedIndex = data.district_district_id;
+      } else {
+        console.log(response.error);
+      }
+      console.log(request.responseText);
+    }
+  };
+  request.open("POST", "../backend/api/shippingDetailsLod.php", true);
+  request.send();
 }
 
-function loadShippingDetails(){
-  console.log("shipping Details loaded")
-  var username = document.getElementById('usernameInput');
-  var phoneNumber = document.getElementById('phoneNumberInput');
-  var postalCode = document.getElementById('postalCodeInput');
-  var addressLine1 = document.getElementById('addressLine1Input');
-  var addressLine2 = document.getElementById('addressLine2Input');
-  var city = document.getElementById('cityInput');
-  var district = document.getElementById('districtInput');
-  var province = document.getElementById('provinceInput');
+function checkOut() {
+  let total = document.getElementById("total").textContent;
 
+  let subTotal = document.getElementById("subTotal").textContent;
+  let disscount = document.getElementById("disscount").textContent;
+  let shippingprice = document.getElementById("shippingprice").textContent;
 
-// send the data to server
-let request = new XMLHttpRequest();
-request.onreadystatechange = function () {
-  if (request.readyState == 4) {
-    // preform an action on response
-    let response = JSON.parse(request.responseText);
-    let data=response.data[0]
-    if (response.status == "success") {
-      console.log(data.name)
-      username.value = data.user_name;
-      phoneNumber.value=data.mobile;
-      postalCode.value=data.postal_code
-      addressLine1.value=data.address_line_1
-      city.value=data.city
-      addressLine2.value=data.address_line_2
-      province.selectedIndex =data.province_province_id
-      district.selectedIndex=data.district_district_id
-    
+  console.log(total.replace("LKR ", ""));
+  console.log("checkOut");
 
-    } else {
-      console.log(response.error);
+  const requestDataObject = {
+    total: total,
+    shipping: shippingprice,
+  };
+  console.log("deleted");
+  console.log(requestDataObject);
+
+  // store data in a form
+  let form = new FormData();
+  form.append("checkOutData", JSON.stringify(requestDataObject));
+
+  // send the data to server
+  let request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState == 4) {
+      // preform an action on response
+      let response = JSON.parse(request.responseText);
+      if (response.status == "success") {
+        alert("successfully data added");
+      } else {
+        console.log(response.error);
+        alert("data adding Failes please check input ");
+      }
+      console.log(request.responseText);
     }
-    console.log(request.responseText);
-  }
-};
-request.open("POST", "../backend/api/shippingDetailsLod.php", true);
-request.send();
-  
-
+  };
+  request.open("POST", "../backend/api/checkOutProcess.php", true);
+  request.send(form);
 }
 
-function checkOut(){
- let total=document.getElementById('total').textContent
- let subTotal=document.getElementById('subTotal').textContent
- let disscount=document.getElementById('disscount').textContent
- let shippingprice=document.getElementById('shippingprice').textContent
+function paymentProcess() {
+  let total=document.getElementById('total').textContent
 
-
- console.log("checkOut")
-
-const requestDataObject = {
-  total: total,
-  shipping: shippingprice,
   
-};
-console.log('deleted')
-console.log(requestDataObject)
 
-// store data in a form
-let form = new FormData();
-form.append("checkOutData", JSON.stringify(requestDataObject));
+  console.log(total.replace("LKR ", ""));
+  console.log("checkOut");
 
-// send the data to server
-let request = new XMLHttpRequest();
-request.onreadystatechange = function () {
-  if (request.readyState == 4) {
-    // preform an action on response
-    let response = JSON.parse(request.responseText);
-    if (response.status == "success") {
-      alert("successfully data added");
-    } else {
-      console.log(response.error);
-       alert("data adding Failes please check input ");
-    }
-    console.log(request.responseText);
+  const requestDataObject = {
+    total: total.replace("LKR ", ""),
   }
-};
-request.open("POST", "../backend/api/checkOutProcess.php", true);
-request.send(form);
+  console.log("deleted");
+  console.log(requestDataObject);
 
+  // store data in a form
+  let form = new FormData();
+  form.append("checkOutData", JSON.stringify(requestDataObject));
+
+  // send the data to server
+  let request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState == 4) {
+      // preform an action on response
+      let response = JSON.parse(request.responseText);
+      if (response.status == "success") {
+        window.location.href = response.data;
+      } else {
+        alert(response.error)
+        console.log(response.error);
+      }
+      console.log(request.responseText);
+    }
+  };
+  request.open("POST", "./payment.php", true);
+  request.send(form);
 }

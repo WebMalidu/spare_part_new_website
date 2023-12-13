@@ -44,7 +44,7 @@ $decrypt_email=$signUpData->email;
 $decrypt_password=$signUpData->password;
 $conform_password=$signUpData->cpassword;
 $first_name=$signUpData->firstName;
-
+$last_name=$signUpData->lastname;
 
 
 
@@ -52,9 +52,9 @@ $first_name=$signUpData->firstName;
 $email = base64_encode($decrypt_email);
 $password = base64_encode($decrypt_password);
 $first_name = base64_encode($first_name);
+$last_name=base64_encode($last_name);
 
-
-$login_link =  $_SERVER['HTTP_HOST'] . "/backend/api/userVerification.php?email={$email}&password={$password}&first_name={$first_name}";
+$login_link =  $_SERVER['HTTP_HOST'] . "/backend/api/userVerification.php?email={$email}&password={$password}&first_name={$first_name}&last_name={$last_name}";
 $body = '<p>Click below to verify </p> <br> http://' . $login_link;
 
 
