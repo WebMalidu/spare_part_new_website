@@ -283,11 +283,10 @@ function loadWatchList() {
              </div>
              <div class="col-12 col-lg-4 d-flex gap-3 gap-lg-5 alg-text-h3 mt-3">
                   <div>
-                       <span class="fw-bold">${item.price}</span><br />
-                       <span class="alg-bg-dark-blue p-1 rounded-1 text-white alg-text-h3">-20%</span>
+                       LKR &nbsp;<span class="fw-bold">${item.price}</span>.00<br />
+                       <span class="alg-bg-dark-blue p-1 rounded-1 text-white alg-text-h3">${item.discount || 0}%</span>
                   </div>
                   <div>
-                       <span class="text-decoration-line-through">LKR 2599.00</span>
                   </div>
              </div>
              <div class="col-12 col-lg-1 d-flex flex-row d-none d-lg-block flex-lg-column  justify-content-lg-between gap-lg-5">
@@ -385,6 +384,7 @@ function addCart(part_id) {
       if (response.status == "success") {
         alert("successfully added item to cart");
         cartLoad();
+        location.reload()
       } else {
         console.log(response.error);
       }
@@ -510,11 +510,10 @@ function cartLoad() {
                </div>
                <div class="col-12 col-lg-4 d-flex gap-3 gap-lg-5 alg-text-h3 mt-3">
                     <div>
-                         LKR.<span class="fw-bold">${item.price}</span><br />
-                         <span class="alg-bg-dark-blue p-1 rounded-1 text-white alg-text-h3">${item.discount}</span>
-                    </div>
+                         LKR.<span class="fw-bold">${item.price}</span>.00<br />
+                         <span class="alg-bg-dark-blue p-1 rounded-1 text-white alg-text-h3">${item.discount || 0}%</span>
+                         </div>
                     <div>
-                         <span class="text-decoration-line-through">LKR 2599.00</span>
                     </div>
                </div>
                <div class="col-12 col-lg-1 d-flex flex-row d-none d-lg-block flex-lg-column  justify-content-lg-between gap-lg-5">
