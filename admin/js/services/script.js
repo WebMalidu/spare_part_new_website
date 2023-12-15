@@ -8,8 +8,6 @@ document.addEventListener("DOMContentLoaded", async () => { });
 // product adding setup 
 let productImages = [];
 
-// vehicle model images
-let vehicleModelImage = [];
 
 function clearAllInput() {
        document.getElementById('productTitleInputField').value = "";
@@ -80,6 +78,7 @@ async function addProduct(event) {
        formData.append("insertData", sendData);
 
        const addProductResponse = await dataSend.dataIUD(formData, 'backend/api/productManupulateAPI.php');
+       console.log(addProductResponse);
 
        if (addProductResponse.status === "success") {
               ALG.openToast("Success", "Product Adding Success", ALG.getCurrentTime(), "bi-heart", "Success");
@@ -103,22 +102,8 @@ async function addModel(event) {
        let vhTypeSelector = document.getElementById('vhTypeSelector').value;
        let vhYearSelector = document.getElementById('vhYearSelector').value;
        let vhGenerationSelector = document.getElementById('vhGenerationSelector').value;
+       let vehicleModelImage = document.getElementById('vehicleImagesInput').files[0];
 
-       // image handle
-       let tempDataUrlArray = [];
-
-       for (let index = 0; index < vehicleModelImage.length; index++) {
-              try {
-                     const element = vehicleModelImage[index];
-
-                     const imageDataUrl = await ALG.compressImageFromDataUrl(element);
-                     tempDataUrlArray.push(imageDataUrl);
-
-              } catch (error) {
-                     console.error("error : " + error);
-              }
-       }
-       vehicleModelImage = tempDataUrlArray;
 
 
        const formData = new FormData();
@@ -217,7 +202,6 @@ function vhModelImagePreview(event) {
                             const dataURL = e.target.result;
                             img.classList.add('preview-thumb', 'w-25', 'h-25', 'rounded', 'p-3');
                             img.src = dataURL;
-                            vehicleModelImage.push(dataURL);
                             imgPreview.appendChild(img);
                      }
 
@@ -237,6 +221,24 @@ async function addCatalog(e) {
        const categorySelector = document.getElementById('categorySelector').value;
        const categoryItemName = document.getElementById('categoryItemName').value;
        const categoryItemImageInput = document.getElementById('categoryItemImageInput').files[0];
+
+       if (document.getElementById('categorySelector').value === "undefined") {
+              ALG.openToast("Warning", "Please select the category", ALG.getCurrentTime(), "bi-heart", "Error");
+              e.target.disabled = false;
+              return
+       }
+
+       if (document.getElementById('categoryItemName').value === "") {
+              ALG.openToast("Warning", "Please enter the catalog name", ALG.getCurrentTime(), "bi-heart", "Error");
+              e.target.disabled = false;
+              return
+       }
+
+       if (categoryItemImageInput === undefined || categoryItemImageInput === null) {
+              ALG.openToast("Warning", "Please enter the catalog image", ALG.getCurrentTime(), "bi-heart", "Error");
+              e.target.disabled = false;
+              return
+       }
 
        const formData = new FormData();
        formData.append('category_id', categorySelector);
@@ -287,6 +289,30 @@ function categoryItemImageChange(event) {
 
 }
 
+//delete product catalog
+async function openVhCategoryItemsDeleteModel(category_item_id) {
+       ALG.openModel("Product Catalog Remove Model", "Do you want to delete this product catalog ?", `<button  class="alg-btn-pill" data-bs-dismiss="modal" aria-label="Close" onclick="removeCategoryItem('${category_item_id}')">Yes</button>`);
+}
+
+const removeCategoryItem = async (category_item_id) => {
+       const formData = new FormData();
+       formData.append("category_item_id", category_item_id);
+
+       const categoryItemRes = await dataSend.dataIUD(formData, 'backend/api/categoryItemDelete.php');
+
+       if (categoryItemRes.status === 'success') {
+              ALG.openToast("Success", "Product catalog delete success", ALG.getCurrentTime(), "bi-heart", "Success");
+              setTimeout(() => {
+                     window.location.reload();
+              }, 1000);
+       } else {
+              ALG.openToast("Error", categoryItemRes.error, ALG.getCurrentTime(), "bi-heart", "Error");
+       }
+
+};
+
+
+
 //delete product
 async function openVhPartDeleteModel(parts_id) {
        ALG.openModel("Product Remove Model", "Do you want to delete this product ?", `<button  class="alg-btn-pill" data-bs-dismiss="modal" aria-label="Close" onclick="removeProduct('${parts_id}')">Yes</button>`);
@@ -301,7 +327,6 @@ const removeProduct = async (parts_id) => {
        formData.append("del_parts_id", parts_id);
 
        const productRemoveResponse = await dataSend.dataIUD(formData, 'backend/api/productManupulateAPI.php');
-
 
        if (productRemoveResponse.status === 'success') {
               ALG.openToast("Success", "Product delete success", ALG.getCurrentTime(), "bi-heart", "Success");

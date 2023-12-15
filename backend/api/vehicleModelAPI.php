@@ -184,13 +184,13 @@ if (RequestHandler::isPostMethod()) {
      //      response_sender::sendJson($responseObject);
      // }
 
-     if (isset($_POST['ad_vehicle_type_id'], $_POST['ad_vehicle_year_Id'], $_POST['ad_generation_id'], $_POST['ad_vehicle_name_id'], $_POST['ad_model_img'])) {
+     if (isset($_POST['ad_vehicle_type_id'], $_POST['ad_vehicle_year_Id'], $_POST['ad_generation_id'], $_POST['ad_vehicle_name_id'], $_FILES['ad_model_img'])) {
           //get all data in a variables 
           $ad_model_name_id = $_POST['ad_vehicle_name_id'];
           $ad_vehicle_type_id = $_POST['ad_vehicle_type_id'];
           $ad_vehicle_year_id = $_POST['ad_vehicle_year_Id'];
           $ad_generation_id = $_POST['ad_generation_id'];
-          $ad_model_img = $_POST['ad_model_img'];
+          $ad_model_img = $_FILES['ad_model_img'];
 
           // data validation
           $dataToValidate = [
@@ -226,39 +226,42 @@ if (RequestHandler::isPostMethod()) {
                response_sender::sendJson($responseObject);
           }
 
-          //next  add data our database table
-          //generate vahicle makers Ids
-          $modelId = 'MOD_' . str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
+          if ($_FILES['ad_model_img']['error'] === 0) {
+               $allowImageExtension = ['png', 'jpg', 'jpeg', 'svg'];
+               $fileExtension = strtolower(pathinfo($_FILES['ad_model_img']['name'], PATHINFO_EXTENSION));
 
-          $value = $ad_model_img[0];
 
-          //image add and data insert
-          if ($value) {
-               // files manage 
-               // Remove the "data:image/jpeg;base64," part to get the base64 data
-               $base64Data = substr($value, strpos($value, ',') + 1);
+               if (in_array($fileExtension, $allowImageExtension)) {
 
-               $binaryData = base64_decode($base64Data);
-               $fileExtension = ".jpg";
+                    //next  add data our database table
+                    //generate vahicle makers Ids
+                    $modelId = 'MOD_' . str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
 
-               //file save path and file name create
-               $newImageName = $modelId . $fileExtension;
+                    // Define the destination directory
+                    $savePath = "../../resources/image/vehicleModelImages/";
+                    $newImageName = $modelId .  ".jpg";
 
-               // Save the image to a file
-               file_put_contents($savePath . $newImageName, $binaryData);
+
+                    if (move_uploaded_file($_FILES['ad_model_img']['tmp_name'], $savePath . $newImageName)) {
+                         // insert data this table
+                         $InsertQuery = "INSERT INTO `vehicle_models` (`model_id`,`vehicle_type_vehicle_type_id`,`vehicle_year_vehicle_year_Id`,`generation_generation_id`,`vehicle_names_vh_name_id`) 
+                         VALUES ('" . $modelId . "','" . $ad_vehicle_type_id . "','" . $ad_vehicle_year_id . "','" . $ad_generation_id . "','" . $ad_model_name_id . "')";
+                         $db->query($InsertQuery);
+
+                         $responseObject->status = 'success';
+                         response_sender::sendJson($responseObject);
+                    } else {
+                         $responseObject->error = 'Failed to save the image';
+                         response_sender::sendJson($responseObject);
+                    }
+               } else {
+                    $responseObject->error = 'Invalid file type';
+                    response_sender::sendJson($responseObject);
+               }
           } else {
-               $responseObject->error = "upload one or more images";
+               $responseObject->error = 'No image upload';
                response_sender::sendJson($responseObject);
           }
-
-          //insert data for database
-          // insert data this table
-          $InsertQuery = "INSERT INTO `vehicle_models` (`model_id`,`vehicle_type_vehicle_type_id`,`vehicle_year_vehicle_year_Id`,`generation_generation_id`,`vehicle_names_vh_name_id`) 
-          VALUES ('" . $modelId . "','" . $ad_vehicle_type_id . "','" . $ad_vehicle_year_id . "','" . $ad_generation_id . "','" . $ad_model_name_id . "')";
-          $db->query($InsertQuery);
-
-          $responseObject->status = 'success';
-          response_sender::sendJson($responseObject);
      } else if (isset($_POST['up_model_id'], $_POST['up_model_name'], $_POST['up_type_id'], $_POST['up_vehicle_year_Id'], $_POST['up_generation_id'], $_POST['up_modification_line_mod_id'], $_POST['up_makers_id'])) {
 
           //gets all request one by one variables
@@ -368,24 +371,25 @@ if (RequestHandler::isPostMethod()) {
 
           $relatedImage = $imagePath[0];
 
-          //delete image
-          if ($relatedImage) {
-               if (unlink($relatedImage)) {
-                    try {
 
-                         $deleteQuery = "DELETE FROM `vehicle_models` WHERE `model_id`='" . $deleteModelId . "'";
-                         $db->query($deleteQuery);
+          try {
 
-                         $responseObject->status = 'success';
-                         response_sender::sendJson($responseObject);
-                    } catch (mysqli_sql_exception $ex) {
-
-                         $responseObject->error = "Cannot delete this vehicle model still exists in vehicle model line";
-                         response_sender::sendJson($responseObject);
-                    }
+               if (!$relatedImage) {
+                    $responseObject->error = "image not found";
+                    response_sender::sendJson($responseObject);
                }
-          } else {
-               $responseObject->error = 'Image not found';
+
+               $deleteQuery = "DELETE FROM `vehicle_models` WHERE `model_id`='" . $deleteModelId . "'";
+               $db->query($deleteQuery);
+
+               //delete image
+               unlink($relatedImage);
+               $responseObject->status = 'success';
+               response_sender::sendJson($responseObject);
+
+               
+          } catch (mysqli_sql_exception $ex) {
+               $responseObject->error = "Cannot delete this vehicle model still exists in vehicle model line";
                response_sender::sendJson($responseObject);
           }
      }

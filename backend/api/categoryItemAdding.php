@@ -81,15 +81,18 @@ if ($_FILES['category_item_image']['error'] === 0) {
 
      if (in_array($fileExtension, $allowImageExtension)) {
 
+
+
           // Define the destination directory
           $savePath = "../../resources/image/categoryItemImages/";
-          $newImageName = $categoryItemId .  "." . $fileExtension;
+          $newImageName = $categoryItemId .  ".jpg";
 
 
           if (move_uploaded_file($_FILES['category_item_image']['tmp_name'], $savePath . $newImageName)) {
                // data insert
-               $insertCategory = "INSERT INTO `category_item` (`category_item_id`,`category_item_name`,`category_category_id`) VALUES (?,?,?)";
-               $db->execute_query($insertCategory, 'sss', array($categoryItemId, $category_item_name, $categoryId));
+               $insertCategory = "INSERT INTO `category_item` (`category_item_id`,`category_item_name`,`category_category_id`) 
+               VALUES ('" . $categoryItemId . "','" . $category_item_name . "','" . $categoryId . "')";
+               $db->query($insertCategory);
 
                $responseObject->status = 'success';
                response_sender::sendJson($responseObject);
