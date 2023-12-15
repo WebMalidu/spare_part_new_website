@@ -12,13 +12,18 @@
                      👈 Please Select a section...
               </div>
               <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small overflow-auto flex-grow-1" id="catalogViewSection">
-                     <div class="d-flex flex-column p-2">
-                            <div class="d-flex flex-row gap-2">
+                     <div class="d-flex flex-column p-2 alg-bg-dark alg-rounded-small">
+                            <div class="d-flex flex-row gap-2 pt-2">
                                    <select class="form-select" id="categorySelector">
                                           <option>Select Category</option>
                                    </select>
 
-                                   <input type="text" class="form-control" placeholder="Enter new catalog (category item)" />
+                                   <input type="text" class="form-control" placeholder="Enter new catalog name" id="categoryItemName"/>
+                            </div>
+                            <div class="d-flex flex-column">
+                                   <label class="form-label">Catalog Image</label>
+                                   <input class="alg-rounded-mid form-control w-100" placeholder="Select a catalog image" type="file" accept="image" onchange="categoryItemImageChange(event);" id="categoryItemImageInput" />
+                                   <div class="my-2 p-1 rounded-1 product-items d-flex justify-content-center" id="categoryItemImagePreviewContainer"></div>
                             </div>
                             <button class="my-4 w-100 alg-btn-pill" onclick="addCatalog(event);">Add Catalog</button>
                      </div>

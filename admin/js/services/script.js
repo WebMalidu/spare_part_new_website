@@ -24,6 +24,12 @@ function clearAllInput() {
        document.getElementById('productItemImagePreviewContainer').innerHTML = "";
 }
 
+function clearCatalogInput() {
+       document.getElementById('categorySelector').value = 0;
+       document.getElementById('categoryItemName').value = "";
+       document.getElementById('categoryItemImageInput').innerHTML = "";
+}
+
 
 async function addProduct(event) {
 
@@ -223,6 +229,63 @@ function vhModelImagePreview(event) {
 
 }
 
+//product catalog adding
+async function addCatalog(e) {
+
+       e.target.disabled = true;
+
+       const categorySelector = document.getElementById('categorySelector').value;
+       const categoryItemName = document.getElementById('categoryItemName').value;
+       const categoryItemImageInput = document.getElementById('categoryItemImageInput').files[0];
+
+       const formData = new FormData();
+       formData.append('category_id', categorySelector);
+       formData.append('category_item_name', categoryItemName);
+       formData.append('category_item_image', categoryItemImageInput);
+
+       const categoryItemResponse = await dataSend.dataIUD(formData, 'backend/api/categoryItemAdding.php');
+
+       if (categoryItemResponse.status === 'success') {
+              ALG.openToast("Success", "Vehicle category item adding success", ALG.getCurrentTime(), "bi-heart", "Success");
+              clearCatalogInput();
+              setTimeout(() => {
+                     window.location.reload();
+              }, 1000);
+       } else {
+              ALG.openToast("Error", categoryItemResponse.error, ALG.getCurrentTime(), "bi-heart", "Error");
+       }
+
+       e.target.disabled = false;
+}
+
+//catalog image preview
+function categoryItemImageChange(event) {
+
+       const imgPreview = document.getElementById('categoryItemImagePreviewContainer');
+       imgPreview.innerHTML = "";
+
+       const files = event.target.files;
+
+       for (const key in files) {
+
+              if (Object.hasOwnProperty.call(files, key)) {
+                     let read = new FileReader();
+
+                     read.onload = (e) => {
+                            let img = document.createElement('img');
+                            const dataURL = e.target.result;
+                            img.classList.add('preview-thumb', 'w-50', 'h-50', 'rounded', 'p-3');
+                            img.src = dataURL;
+                            imgPreview.appendChild(img);
+                     }
+
+                     read.readAsDataURL(files[key]);
+              }
+
+
+       }
+
+}
 
 //delete product
 async function openVhPartDeleteModel(parts_id) {
