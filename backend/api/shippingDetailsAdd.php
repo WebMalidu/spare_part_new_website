@@ -41,11 +41,14 @@ $district = $shippingData->district;
 $province = $shippingData->province;
 
 
+
+
 $database_driver=new database_driver();
 
 $insertQuery="INSERT INTO `shipping_details`(`address_line_1`,`address_line_2`,`mobile`,`postal_code`,`user_name`,`user_user_id`,`district_district_id`,`city`,`province_province_id`) VALUES (?,?,?,?,?,?,?,?,?)";
 $parms=array($addressLine1,$addressLine2,$phoneNumber,$postalCode,$username,$userData['user_id'],$district,$city,$province);
 $result=$database_driver->execute_query($insertQuery,'sssssiisi',$parms);
+
 
 
 if (!$result['stmt']->affected_rows > 0) {

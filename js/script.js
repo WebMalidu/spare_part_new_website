@@ -606,7 +606,7 @@ function payingdisplay(discount, subtatotal, shippinPrice) {
        }</span>
   </div>
   <div class="d-grid mx-4 mt-5">
-       <button class="alg-bg-blue  alg-text-h3 alg-button-hover border-0 rounded-1 text-white p-1 fw-bolder" onclick="paymentProcess()">Proceed To Checkout</button>
+       <button class="alg-bg-blue  alg-text-h3 alg-button-hover border-0 rounded-1 text-white p-1 fw-bolder" onclick="checkOut();paymentProcess();">Proceed To Checkout</button>
   </div>
   `;
 }
@@ -702,7 +702,7 @@ function loadShippingDetails() {
       let response = JSON.parse(request.responseText);
       let data = response.data[0];
       if (response.status == "success") {
-        console.log(data.name);
+        //console.log(data.name);
         username.value = data.user_name;
         phoneNumber.value = data.mobile;
         postalCode.value = data.postal_code;
@@ -724,12 +724,12 @@ function loadShippingDetails() {
 function checkOut() {
   let total = document.getElementById("total").textContent;
 
-  let subTotal = document.getElementById("subTotal").textContent;
-  let disscount = document.getElementById("disscount").textContent;
+  //let subTotal = document.getElementById("subTotal").textContent;
+  //let disscount = document.getElementById("disscount").textContent;
   let shippingprice = document.getElementById("shippingprice").textContent;
 
   //console.log(total.replace("LKR ", ""));
-  //console.log("checkOut");
+  console.log("checkOut");
 
   const requestDataObject = {
     total: total,

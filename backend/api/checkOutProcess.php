@@ -40,7 +40,7 @@ $randomLetter = chr(rand(65, 90)); // ASCII values for uppercase letters (A-Z)
 $randomNumber = str_pad(rand(0, 9999), 4, '0', STR_PAD_LEFT);
 
 // Construct the unique ID in the specified format
-$invoiceId = "invoiceId_" . $randomLetter . $randomNumber;
+//$invoiceId = "invoiceId_" . $randomLetter . $randomNumber;
 $orderId = "orderId_" . $randomLetter . $randomNumber;
 
 
@@ -56,11 +56,12 @@ if (!$result['result']->num_rows > 0) {
     $responseObject->error="Please Fill Shipping Details";
     response_sender::sendJson($responseObject);
 }
-$insertQuery="INSERT INTO `invoice`(`pay_total_amout`,`shipping_price`,`order_id`,`invoice_status_invoice_status_id`,`user_user_id`,`delivery_date`,`invoice_id`) VALUES (?,?,?,?,?,?,?)";
-$result=$database_driver->execute_query($insertQuery,'sssiiss',array($total,$shipping,$orderId,1,$userData['user_id'],'Not Set',$invoiceId));
+$insertQuery="INSERT INTO `invoice`(`pay_total_amout`,`shipping_price`,`order_id`,`invoice_status_invoice_status_id`,`user_user_id`,`delivery_date`) VALUES (?,?,?,?,?,?)";
+$result=$database_driver->execute_query($insertQuery,'sssiis',array($total,$shipping,$orderId,2,$userData['user_id'],'Not Set'));
 
-
-// ... (previous code remains the same) ...
+$selectQuery = "SELECT * FROM `invoice` ORDER BY invoice_id DESC LIMIT 1";
+$resulInvoice = $database_driver->query($selectQuery);
+$rowInvoice = $resulInvoice->fetch_assoc();
 
 $selectQuery = "SELECT *
                FROM `cart` ct
@@ -84,7 +85,7 @@ if ($result['result']->num_rows > 0) {
 
         // Insert each row into the `invoice_item` table
         $insertQuery = "INSERT INTO `invoice_item`(`qty`, `total_item_price`, `vh_parts_name`, `vh_parts_id`, `invoice_invoice_id`) VALUES (?,?,?,?,?)";
-        $insertResult = $database_driver->execute_query($insertQuery, 'iisss', array(1, $row['price'], $row['title'], $row['parts_id'], $invoiceId));
+        $insertResult = $database_driver->execute_query($insertQuery, 'iissi', array(1, $row['price'], $row['title'], $row['parts_id'], $rowInvoice['invoice_id']));
 
         
     }
