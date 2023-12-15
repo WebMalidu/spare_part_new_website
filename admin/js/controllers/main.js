@@ -31,6 +31,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         togglePromotionSection("promotion");
         console.log(panel);
         break;
+      
+      case "orderPanel":
+        toggleOrderSection("order");
+        console.log(panel);
+        break
 
       default:
         console.log(panel);
@@ -564,6 +569,36 @@ const togglePromotionSection = async (promotionSections) => {
     loadPromotionParts();
   }
 };
+//orderSection
+
+const toggleOrderSection = async (orderSections) => {
+  const sections = document.getElementById(
+    "orderContainer"
+  ).childNodes;
+
+  for (var i = 0; i < sections.length; i++) {
+    if (sections[i].nodeType === Node.ELEMENT_NODE) {
+      sections[i].classList.remove("d-block");
+      sections[i].classList.add("d-none");
+    }
+  }
+
+  const selectedSection = document.getElementById(
+    orderSections + "Section"
+  );
+  selectedSection.classList.add("d-block");
+  selectedSection.classList.remove("d-none");
+
+  orderSections === "orderView"
+  ? ALG.addTableToContainer(
+    "orderViewSection",
+    orderLoad,
+    [300, 300, 150, 150, 300, 300,300,150,150,150,150,150]
+  )
+  : null;
+  
+};
+
 
 
 const toggleUserSection = async (userSections) => {
@@ -1037,4 +1072,100 @@ function approveSellerProcess(userId) {
   };
   request.open("POST", "../backend/api/adminSellerApprove.php", true);
   request.send(form);
+}
+
+//order section request
+function order(){
+  console.log("order loaded")
+}
+
+const orderLoad = () => {
+  return new Promise((resolve, reject) => {
+    const orderList = [];
+
+    console.log("order loaded");
+
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+      if (request.readyState === 4) {
+        let response = JSON.parse(request.responseText);
+        console.log(response)
+        if (response.status === "success") {
+          console.log(response.data)
+          if (Array.isArray(response.data)) {
+            response.data.forEach((res) => {
+              const editButton = `<button class="fw-bolder btn alg-btn-pill" onclick="clearOrder(${res.invoice_id})">Approve</button>`;
+              orderList.push({
+                "Part Name": res.vh_parts_name,
+                "Seller Name": res.full_name,
+                "Price": res.price,
+                "Order Id": res.order_id,
+                "Total Price For User Order": res.pay_total_amout,
+                "Adress Line 1": res.address_line_1,
+                "Adress Line 2": res.address_line_2,
+                "Mobile": res.mobile,
+                "USer Name": res.user_name,
+                "Postal Code": res.postal_code,
+                "City": res.city,
+
+
+
+                Edit: editButton,
+              });
+            });
+
+            resolve(orderList); // Resolve the Promise with promoList
+          } else {
+            ALG.openToast("error", "Invalid data format", ALG.getCurrentTime(), "bi-heart", "Failed");
+            console.error("Invalid data format. Expected an array in 'data' property:", response);
+            reject(new Error("Invalid data format"));
+          }
+        } else {
+          ALG.openToast("error", "Promotion load failed", ALG.getCurrentTime(), "bi-heart", "Failed");
+          reject(new Error("Promotion load failed"));
+        }
+      }
+    };
+
+    request.open("POST", "../backend/api/adminOrderLoad.php", true);
+    request.send();
+  });
+};
+
+
+function clearOrder(id){
+  const requestDataObject = {
+    invoiceId: id,
+
+  };
+
+  console.log("order cleared")
+
+  // store data in a form
+  let form = new FormData();
+  form.append("adminData", JSON.stringify(requestDataObject));
+
+
+  // send the data to server
+  let request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState == 4) {
+      // preform an action on response
+      let response = JSON.parse(request.responseText);
+      if (response.status == "success") {
+        ALG.openToast("Success", "user Approved Success", ALG.getCurrentTime(), "bi-heart", "Success");
+        ALG.addTableToContainer(
+          "orderViewSection",
+          orderLoad,
+          [300, 300, 150, 150, 300, 300,300,150,150,150,150,150]
+          )
+
+      } else {
+        ALG.openToast("error", "User Approved Failed", ALG.getCurrentTime(), "bi-heart", "Failed");
+      }
+      console.log(request.responseText);
+    }
+  };
+  request.open("POST", "../backend/api/adminOrderClear.php", true);
+  request.send(form); 
 }

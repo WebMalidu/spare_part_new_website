@@ -68,7 +68,7 @@ if (!$resultCore['result']->num_rows > 0) {
 
 $rowCore = $resultCore['result']->fetch_assoc();
 
-$firstname = $rowMain['first_name'];
+$firstname = $rowMain['full_name'];
 $lastname = $rowMain['last_name'];
 $email = $rowMain['email'];
 $contact = $rowCore['mobile']; // Ensure phone number format includes country code
