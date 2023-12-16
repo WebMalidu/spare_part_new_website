@@ -23,7 +23,7 @@ else{
                             <?php 
                             }else{
                             ?>
-            <button onclick="togglePromotionSection('promotionViewSeller')" class="alg-btn-pill my-2 w-100"><span class="d-none d-lg-block">Add Promotion</span><i class="bi bi-box d-block d-lg-none"></i></button>
+            <button onclick="togglePromotionSection('promotionViewSeller')" class="alg-btn-pill my-2 w-100"><span class="d-none d-lg-block">View Promotion</span><i class="bi bi-box d-block d-lg-none"></i></button>
 
                             <?php }
                             ?> 

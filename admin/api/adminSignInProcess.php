@@ -69,10 +69,12 @@ if (!PasswordHashVerifier::isValid($password, $password_salt, $password_hash)) {
 };
 
 
-if ($row['user_type_user_type_id'] != 2) {
+if ($row['user_type_user_type_id'] != 2 && $row['user_type_user_type_id'] != 3) {
+    // Code block
     $responseObject->status = 'failed';
     response_sender::sendJson($responseObject);
 }
+
 
 
 //create a session
