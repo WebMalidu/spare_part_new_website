@@ -37,13 +37,10 @@ $promotion_id=$promoData->promotion_id;
 
 $database_driver=new database_driver();
 
-$deleteQuery="DELETE  FROM `product_promotion` WHERE `promotion_id`=?";
-$result=$database_driver->execute_query($deleteQuery,'i',array($promotion_id));
+$deleteQuery="DELETE  FROM `product_promotion` WHERE promotion_id='" . $promotion_id . "'";
+$result=$database_driver->query($deleteQuery);
 
-if (!$result['stmt']->affected_rows > 0) {
-    $responseObject->error = "Data delete failed. " ;
-    response_sender::sendJson($responseObject);
-}
+
 
 
 $responseObject->status="success";

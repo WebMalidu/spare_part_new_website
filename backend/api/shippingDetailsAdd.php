@@ -45,16 +45,16 @@ $province = $shippingData->province;
 
 $database_driver=new database_driver();
 
-$insertQuery="INSERT INTO `shipping_details`(`address_line_1`,`address_line_2`,`mobile`,`postal_code`,`user_name`,`user_user_id`,`district_district_id`,`city`,`province_province_id`) VALUES (?,?,?,?,?,?,?,?,?)";
-$parms=array($addressLine1,$addressLine2,$phoneNumber,$postalCode,$username,$userData['user_id'],$district,$city,$province);
-$result=$database_driver->execute_query($insertQuery,'sssssiisi',$parms);
+// Assuming $addressLine1, $addressLine2, $phoneNumber, $postalCode, $username, $userData['user_id'], $district, $city, and $province contain the respective values needed for insertion.
+
+$insertQuery = "INSERT INTO `shipping_details`(`address_line_1`,`address_line_2`,`mobile`,`postal_code`,`user_name`,`user_user_id`,`district_district_id`,`city`,`province_province_id`) VALUES ('$addressLine1','$addressLine2','$phoneNumber','$postalCode','$username',{$userData['user_id']},'$district','$city',$province)";
+
+$result = $database_driver->query($insertQuery);
 
 
 
-if (!$result['stmt']->affected_rows > 0) {
-    $responseObject->error = "Data adding failed. " . $database->connection->error;
-    response_sender::sendJson($responseObject);
-}
+
+
 
 
 $responseObject->status="success";

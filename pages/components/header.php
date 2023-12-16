@@ -236,7 +236,7 @@ if ($access->isLoggedIn()) {
 
                               </div>
                               <div class="d-flex justify-content-center gap-2">
-                                   <input class="cart-shipping-button alg-rounded-small alg-text-light alg-text-h3 alg-bg-blue alg-button-search-hover p-2 border-0" type="submit" value="Edit">
+                                   <input class="cart-shipping-button alg-rounded-small alg-text-light alg-text-h3 alg-bg-blue alg-button-search-hover p-2 border-0" type="submit" value="Edit" onclick="shippingDetails()">
                                    <input class="cart-shipping-button alg-rounded-small cart-shipping-button-save alg-text-h3 cart-shipping-button" type="submit" value="Save" onclick="shippingDetails()">
                               </div>
                          </div>

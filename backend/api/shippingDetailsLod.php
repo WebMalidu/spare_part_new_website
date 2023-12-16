@@ -41,11 +41,11 @@ $selectQuery = "SELECT *
                JOIN `province` pt ON sd.province_province_id=pt.province_id
 
               
-               WHERE sd.`user_user_id` = ?";
-$result=$database_driver->execute_query($selectQuery,'i',array($userData['user_id']));
+               WHERE sd.user_user_id = '" . $userData['user_id'] . "'";
+$result=$database_driver->query($selectQuery);
 
 $rows=[];
-while ($row = $result['result']->fetch_assoc()) {
+while ($row = $result->fetch_assoc()) {
     $rows[]=$row;
 }
 $responseObject->status="success";

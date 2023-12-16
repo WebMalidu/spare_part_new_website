@@ -27,12 +27,11 @@ $sqlDateFormat = date('Y-m-d');
 $db = new database_driver();
 
 // Check if the email already exists in the database
-$searchQuery = "SELECT email FROM `user` WHERE email = ?";
-$queryResult = $db->execute_query($searchQuery, 's', array($email));
+$searchQuery = "SELECT email FROM `user` WHERE email = '" . $email . "'";
+$queryResult = $db->query($searchQuery);
 
 // Extract the statement and the result from the queryResult array
-$stmt = $queryResult['stmt'];
-$result = $queryResult['result'];
+$result = $queryResult;
 
 // Fetch the row from the result
 if ($result->num_rows > 0) {
@@ -42,10 +41,13 @@ if ($result->num_rows > 0) {
 <?php
     exit;
 }
+// Assuming $address, $private_contact, $business_contact, $business_address, $br_number, $business_name contain the respective values needed for insertion.
 
-$insertQuery = "INSERT INTO `admin`(`adresss`,`private_contact`,`busineess_conatact`,`buisness_address`,`br_number`,`buisness_name`) VALUES (?,?,?,?,?,?) ";
-$parms = array($address,$private_contact,$business_contact,$business_address,$br_number,$business_name);
-$result1 = $db->execute_query($insertQuery, 'ssssss', $parms);
+$insertQuery = "INSERT INTO `admin`(`adresss`,`private_contact`,`busineess_conatact`,`buisness_address`,`br_number`,`buisness_name`) VALUES ('$address','$private_contact','$business_contact','$business_address','$br_number','$business_name')";
+
+$result1 = $db->query($insertQuery);
+
+
 
 
 
@@ -65,19 +67,22 @@ $hash = $passwordEncryptor['hash'];
 $salt = $passwordEncryptor['salt'];
 
 
-$insertQuery = "INSERT INTO `user`(`user_type_user_type_id`,`full_name`,`email`,`password_hash`,`password_salt`,`register_date`,`user_status_u_status_id`,`admin_admin_id`) VALUES (?,?,?,?,?,?,?,?) ";
-$parms = array(4, $name, $email, $hash, $salt, $sqlDateFormat, 1, $row['admin_id']);
-$result1 = $db->execute_query($insertQuery, 'isssssii', $parms);
+// Assuming $name, $email, $hash, $salt, $sqlDateFormat, $row, and $row['admin_id'] contain the respective values needed for insertion.
+
+$insertQuery = "INSERT INTO `user`(`user_type_user_type_id`,`full_name`,`email`,`password_hash`,`password_salt`,`register_date`,`user_status_u_status_id`,`admin_admin_id`) VALUES (4, '{$name}', '{$email}', '{$hash}', '{$salt}', '{$sqlDateFormat}', 1, {$row['admin_id']})";
+
+$result1 = $db->query($insertQuery);
 
 
 
 
-$selectQuery = "SELECT * FROM `user` WHERE email = ?";
-$result2 = $db->execute_query($selectQuery, 's', [$email]);
+
+$selectQuery = "SELECT * FROM `user` WHERE email = '" . $email . "'";
+$result2 = $db->query($selectQuery);
 
 
 // Fetch the row from the result
-$row = $result2['result']->fetch_assoc();
+$row = $result2->fetch_assoc();
 
 
 //create a session

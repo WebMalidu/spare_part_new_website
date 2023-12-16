@@ -60,26 +60,18 @@ if ($row = $searchResult['result']->fetch_assoc()) {
      response_sender::sendJson($responseObject);
 }
 
-// Insert the new promotion data
-$insertQuery = "INSERT INTO `product_promotion`(`start_date`, `end_date`, `product_promotion_status_p_promotion_status_id`, `vehicle_parts_parts_id`, `discount`, `user_user_id`) VALUES (?,?,?,?,?,?)";
-$parms = [$start_date, $end_date, 1, $productId, $discount, $userId];
+// Assuming $start_date, $end_date, $productId, $discount, and $userId contain the respective values needed for insertion.
 
+$insertQuery = "INSERT INTO `product_promotion`(`start_date`, `end_date`, `product_promotion_status_p_promotion_status_id`, `vehicle_parts_parts_id`, `discount`, `user_user_id`) VALUES ('$start_date', '$end_date', 1, '$productId', '$discount', '$userId')";
 
-
-$result = $database_driver->execute_query($insertQuery, 'ssisss', $parms);
-
-// Check if data insertion failed
-if (!$result['stmt']->affected_rows > 0) {
-     $responseObject->error = "Data adding failed. " . $database->connection->error;
-     response_sender::sendJson($responseObject);
-}
+$result = $database_driver->query($insertQuery);
 
 
 
 // Select query to check if the promotion already exists
-$selectQuery = "SELECT * FROM `product_promotion` WHERE `vehicle_parts_parts_id` = ?";
-$searchResult = $database_driver->execute_query($selectQuery, 'i', array($productId));
-$row = $searchResult['result']->fetch_assoc();
+$selectQuery = "SELECT * FROM `product_promotion` WHERE `vehicle_parts_parts_id` = '" . $productId . "'";
+$searchResult = $database_driver->query($selectQuery);
+$row = $searchResult->fetch_assoc();
 
 
 
