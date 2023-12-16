@@ -7,6 +7,7 @@
 
 require_once("database_driver.php");
 require_once("imageSearchEngine.php");
+require_once("fileSearch.php");
 
 class AdvancedSearchEngine
 {
@@ -17,102 +18,52 @@ class AdvancedSearchEngine
         $this->database = new database_driver();
     }
 
-    public function searchProducts($searchTerm = "", $category = "", $orderBy = "", $orderDirection = "", $limit = 10)
+    public function searchProducts($searchTerm)
     {
-        // validate data
-        $searchTermArray = explode(" ", $searchTerm);
 
         // generate query
-        $baseQuery = "SELECT `product_id`, `product_name`, `product_description`, `category_id`, `add_date`, `category_type`, `type` as `product_status`, `qty`, `price` as `item_price`,  `weight`.`id` as `weight_id`, `weight` 
-        FROM `product_item` 
-        INNER JOIN `product` ON `product_item`.`product_product_id`=`product`.`product_id` 
-        INNER JOIN `category` ON `product`.`category_id`=`category`.`id` 
-        INNER JOIN `weight` ON `product_item`.`weight_id`=`weight`.`id` 
-        INNER JOIN `product_status` ON `product_item`.`product_status_id` = `product_status`.`id`  
-        WHERE `product_status`.`type` = 'In a Stock' ";
+        $baseQuery = "SELECT * FROM `category_item` WHERE `category_item_name`  LIKE '" . $searchTerm . "%'";
+        $resultSet = $this->database->query($baseQuery);
+
+        //related images search
+        //response array 
+        $responseArray = [];
+
+        // image manager
+        $directory = "../../resources/image/categoryItemImages";
+        $fileExtensions = ['png', 'jpeg', 'jpg', 'svg'];
 
 
-        // chech for search term
-        $searchTermQuerySection = "";
-        if (isset($searchTerm) && count($searchTermArray)) {
-            $count = 0;
-            foreach ($searchTermArray as $value) {
-                // add term to query
+        if ($resultSet->num_rows > 0) {
 
-                if ($count == 0) {
-                    $searchTermQuerySection = " AND ";
+            while ($rowData = $resultSet->fetch_assoc()) {
+                $categoryItemId = $rowData['category_item_id']; // Use categoryName instead of category_type
+
+                $fileSearch = new FileSearch($directory, $categoryItemId, $fileExtensions); // Use categoryName as the search parameter
+
+                $searchResults = $fileSearch->search();
+
+                $resRowDetailObject = new stdClass();
+
+                $resRowDetailObject->category_Item_type = $rowData['category_item_name'];
+                $resRowDetailObject->category_id = $rowData['category_category_id'];
+                $resRowDetailObject->category_Item_id = $categoryItemId; // Use categoryName
+
+                if (is_array($searchResults)) {
+                    foreach ($searchResults as $searchResult) {
+                        $resRowDetailObject->category_image = $searchResult;
+                    }
                 } else {
-                    $searchTermQuerySection = " OR ";
+                    return $searchResults;
                 }
 
-
-                $searchTermQuerySection .= " ( `product`.`product_name` LIKE '%" . $value . "%' "
-                    . " OR `category`.`category_type` LIKE '%" . $value . "%' "
-                    . " OR `product`.`product_description` LIKE '%" . $value . "%' "
-                    . " OR `weight`.`weight` LIKE '%" . $value . "%' "
-                    . " OR `product_item`.`price` LIKE '%" . $value . "%' ) ";
-                $count++;
+                array_push($responseArray, $resRowDetailObject);
             }
-        }
 
-        // check for category
-        $categoryQuerySection = " AND ";
-        if (isset($category)) {
-            // add category to query
-            $categoryQuerySection .= "  ( `category`.`category_type` LIKE '%" . $category . "%' ) ";
-        }
-
-
-
-        // check for order
-        $orderQuerySection = "";
-        // add order to query
-        if ($orderBy) {
-            switch ($orderBy) {
-                case 'price':
-                    $orderQuerySection .= " ORDER BY `product_item`.`price` ";
-                    break;
-                default:
-                    $orderQuerySection .= " ORDER BY `product`.`product_id` ";
-                    break;
-            }
+            return $responseArray;
         } else {
-            $orderQuerySection .= " ORDER BY `product`.`product_id` ";
+            return "no row data available";
         }
-
-        // check for direction
-        $orderDirectionQuerySection = "";
-        if ($orderDirection) {
-            // add direction to query
-            switch ($orderDirection) {
-                case 'low to high':
-                    $orderDirectionQuerySection .= " ASC ";
-                    break;
-                case 'high to low':
-                    $orderDirectionQuerySection .= " DESC ";
-                    break;
-                default:
-                    $orderDirectionQuerySection .= " ASC ";
-                    break;
-            }
-        } else {
-            $orderDirectionQuerySection .= " ASC ";
-        }
-
-        $limitQuerySection = " LIMIT " . $limit;
-        $finalizedQuery = $baseQuery . $searchTermQuerySection . $categoryQuerySection  . $orderQuerySection . $orderDirectionQuerySection . $limitQuerySection;
-
-        // get item from db
-        $searchResultArray = [];
-        $resultSet =  $this->database->query($finalizedQuery);
-        for ($i = 0; $i < $resultSet->num_rows; $i++) {
-            // generate output
-            $result = $resultSet->fetch_assoc();
-            array_push($searchResultArray, $result);
-        }
-
-        // output
-        return $searchResultArray;
     }
 
     public function searchRelatedProductCatalog($vehiclePartsOriginId, $vehiclePartsStatusId, $vehicleModelId, $vehicleCategoryItemId)

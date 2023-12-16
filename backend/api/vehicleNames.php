@@ -37,6 +37,8 @@ if (RequestHandler::isGetMethod()) {
                $resRowDetailObject->vh_name_id = $rowData['vh_name_id'];
                $resRowDetailObject->makers_name = $rowData['name'];
                $resRowDetailObject->vh_name = $rowData['vh_name'];
+               $resRowDetailObject->makers_makers_id = $rowData['makers_id'];
+               // $resRowDetailObject->vehicle_names_id = $rowData['vh_name_id'];
 
                array_push($responseArray, $resRowDetailObject);
           }

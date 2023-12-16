@@ -39,7 +39,7 @@ if (!isset($_GET["category_item_id"])) {
     <script defer src="js/product.js"></script>
     <script defer src="js/toast.js"></script>
 
-    
+
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </head>
 
@@ -376,7 +376,29 @@ if (!isset($_GET["category_item_id"])) {
     <!-- toast message -->
     <div id="toastContainer"></div>
 
+    <!-- Category Modal -->
+    <div class="modal fade modal-xl" id="categoryLoad" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 
+
+            <div class="modal-content">
+                <div class="modal-header alg-bg-light-blue">
+                    <span class="modal-title alg-text-h2 alg-text-dark-blue fw-bold mx-3" id="staticBackdropLabel">Category section</span>
+                    <button type="button" class="border-0 alg-bg-light-blue" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-square-fill fs-2"></i></button>
+                </div>
+
+                <div class="modal-body alg-bg-light-blue">
+
+
+                    <div class="p-4">
+                        <div class="col-12 d-flex justify-content-center flex-wrap" id="categoryContaine">
+                            <!-- content goes here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- footer -->
     <?php include("./pages/components/footer.php") ?>

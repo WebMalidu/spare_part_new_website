@@ -152,6 +152,8 @@ if (RequestHandler::isGetMethod()) {
                     $resRowDetailObject->model_type = $rowData['vehicale'];
                     $resRowDetailObject->model_year = $rowData['year'];
                     $resRowDetailObject->model_generation = $rowData['generation'];
+                    $resRowDetailObject->vehicle_names_id = $rowData['vh_name_id'];
+                    $resRowDetailObject->model_year_id = $rowData['vehicle_year_Id'];
 
                     if (is_array($searchResults)) {
                          foreach ($searchResults as $searchResult) {
@@ -386,8 +388,6 @@ if (RequestHandler::isPostMethod()) {
                unlink($relatedImage);
                $responseObject->status = 'success';
                response_sender::sendJson($responseObject);
-
-               
           } catch (mysqli_sql_exception $ex) {
                $responseObject->error = "Cannot delete this vehicle model still exists in vehicle model line";
                response_sender::sendJson($responseObject);

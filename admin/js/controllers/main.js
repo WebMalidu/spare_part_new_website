@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         togglePromotionSection("promotion");
         console.log(panel);
         break;
-      
+
       case "orderPanel":
         toggleOrderSection("order");
         console.log(panel);
@@ -519,11 +519,13 @@ const loadCategoryItems = async () => {
     categoryItemRes.result.map((res) => {
       const editButton = `<button class="fw-bolder btn alg-btn-pill" onclick="openVhCategoryItemsEditModel('${res.category_item_id}')">Edit</button>`;
       const deleteButton = `<button class="fw-bolder btn alg-btn-pill ms-2" onclick="openVhCategoryItemsDeleteModel('${res.category_item_id}')">Remove</button>`;
+      const img = `<img src="../../resources/image/categoryItemImages/${res.category_item_id}.jpg" class="alg-list-cell-image"  />`;
 
       categoryItems.push({
         "Catalog Id": res.category_item_id,
         "Category Name": res.category,
         "Catalog Name(category item)": res.category_item_name,
+        "image": img,
         "Edit": [editButton, deleteButton]
       });
 
@@ -601,13 +603,13 @@ const toggleOrderSection = async (orderSections) => {
   selectedSection.classList.remove("d-none");
 
   orderSections === "orderView"
-  ? ALG.addTableToContainer(
-    "orderViewSection",
-    orderLoad,
-    [300, 300, 150, 150, 300, 300,300,150,150,150,150,150]
-  )
-  : null;
-  
+    ? ALG.addTableToContainer(
+      "orderViewSection",
+      orderLoad,
+      [300, 300, 150, 150, 300, 300, 300, 150, 150, 150, 150, 150]
+    )
+    : null;
+
 };
 
 
@@ -722,7 +724,7 @@ const toggleProductSection = async (productSection) => {
 
   if (productSection === "catalogView") {
     loadCategory();
-    ALG.addTableToContainer("productCatalogTable", loadCategoryItems, [200, 230, 230, 220]);
+    ALG.addTableToContainer("productCatalogTable", loadCategoryItems, [200, 230, 230, 230, 220]);
   }
 
 
@@ -1167,7 +1169,7 @@ function approveSellerProcess(userId) {
 }
 
 //order section request
-function order(){
+function order() {
   console.log("order loaded")
 }
 
@@ -1225,7 +1227,7 @@ const orderLoad = () => {
 };
 
 
-function clearOrder(id){
+function clearOrder(id) {
   const requestDataObject = {
     invoiceId: id,
 
@@ -1249,8 +1251,8 @@ function clearOrder(id){
         ALG.addTableToContainer(
           "orderViewSection",
           orderLoad,
-          [300, 300, 150, 150, 300, 300,300,150,150,150,150,150]
-          )
+          [300, 300, 150, 150, 300, 300, 300, 150, 150, 150, 150, 150]
+        )
 
       } else {
         ALG.openToast("error", "User Approved Failed", ALG.getCurrentTime(), "bi-heart", "Failed");
@@ -1259,5 +1261,5 @@ function clearOrder(id){
     }
   };
   request.open("POST", "../backend/api/adminOrderClear.php", true);
-  request.send(form); 
+  request.send(form);
 }

@@ -22,7 +22,7 @@ function promotionLoder() {
 
                 const imageUrls = data.imageUrls;
                 const promotionData = document.getElementById("promotion_list");
-                console.log(imageUrls)
+
 
                 for (let i = 0; i < imageUrls.length; i++) {
                     const li = document.createElement("li");
@@ -50,7 +50,7 @@ function promotionLoder() {
             } else {
                 console.log(data.error);
             }
-            console.log(data);
+
         })
         .catch((error) => {
             console.error("Error:", error);
@@ -58,7 +58,7 @@ function promotionLoder() {
 }
 
 function promotionsingle(promovalue) {
-    // console.log(promovalue);
+
     // Regular expression pattern to match a number
     // Split the URL by '/' and get the last part
     const parts = promovalue.split("/");
@@ -70,7 +70,7 @@ function promotionsingle(promovalue) {
 
     // Convert the number to an integer
     const parsedNumber = parseInt(number, 10);
-    console.log(parsedNumber)
+
     const requestDataObject = {
         promotionId: parsedNumber,
     };
@@ -143,9 +143,9 @@ function loadCategory() {
                  </div>
                  </a>
                  </div>`
-              });
+                });
 
-            } 
+            }
         });
 }
 
@@ -171,8 +171,8 @@ function vehicleMakers() {
         if (vhm.status === 'success') {
             vhm.results.forEach((element) => {
                 const makerOption = document.createElement('option');
-                makerOption.value = element.maker_id;
-                makerOption.textContent = element.maker_name;
+                makerOption.value = element.makers_id;
+                makerOption.textContent = element.name;
                 makersSelector.appendChild(makerOption);
             });
         } else {
@@ -208,6 +208,7 @@ makersSelector.addEventListener('change', () => {
         vehicleDataFetch().then((data) => {
             const vhNames = data.vehicleNamesData;
 
+
             vehicleModelNameSelector.innerHTML = "";
             vehicleYearsContainer.innerHTML = "";
             modificationContainer.innerHTML = "";
@@ -226,6 +227,8 @@ makersSelector.addEventListener('change', () => {
                 //result filter and map 
                 result.filter((res) => res.makers_makers_id === makerId).map((rs2) => {
                     //create a new model selection
+
+
                     const makerNameOption = document.createElement('option');
                     makerNameOption.textContent = rs2.vh_name;
                     makerNameOption.value = rs2.vh_name_id;
@@ -257,6 +260,7 @@ vehicleModelNameSelector.addEventListener('change', async () => {
     setTimeout(async () => {
         const vehicleNameId = vehicleModelNameSelector.value;
 
+
         const data = await vehicleDataFetch();
 
         vehicleYearsContainer.innerHTML = "";
@@ -266,6 +270,7 @@ vehicleModelNameSelector.addEventListener('change', async () => {
             //vehicleModelData exists and is not undefined
 
             const vehicleModelData = data.vehicleModelData;
+
 
             if (vehicleModelData.status === 'success') {
 
@@ -279,18 +284,22 @@ vehicleModelNameSelector.addEventListener('change', async () => {
                 const result = vehicleModelData.results;
 
                 // filtering and mapping 
-                const yearId = result.filter((res) => res.vehicle_names_id === vehicleNameId).map((rs2) => rs2.model_year_id);
+                const yearId = result.filter((res) => res.vehicle_names_id === vehicleNameId).map((rs2) => rs2.model_year);
 
 
                 //vehicale years table data
                 const resultDate = data.vehicleYearsData;
 
+
                 if (resultDate.status === 'success') {
                     const results = resultDate.result;
 
                     yearId.forEach((element) => {
-                        // console.log(element);
-                        results.filter((res) => res.vehicle_year_Id === element).map((res2) => {
+
+                        results.filter((res) => res.year === element).map((res2) => {
+
+
+
                             const makerYearsOption = document.createElement('option');
                             makerYearsOption.textContent = res2.year;
                             makerYearsOption.value = res2.vehicle_year_Id;
@@ -327,7 +336,7 @@ vehicleYearsContainer.addEventListener('change', async () => {
 
     setTimeout(async () => {
         const vehicleYearId = vehicleYearsContainer.value;
-        // const makerId = makersSelector.value;
+        const makerId = makersSelector.value;
         const nameId = vehicleModelNameSelector.value;
 
         const data = await vehicleDataFetch();
@@ -338,18 +347,21 @@ vehicleYearsContainer.addEventListener('change', async () => {
 
             const vehicleModelData = data.vehicleModelData;
 
+
             if (vehicleModelData.status === 'success') {
 
                 modificationContainer.innerHTML = "";
 
                 const result = vehicleModelData.results;
 
-                const relatedModelId = result.filter((res) => res.model_year_id === vehicleYearId && res.vehicle_names_id === nameId).map((res2) => res2.model_id);
 
+                const relatedModelId = result.filter((res) => res.model_year_id === vehicleYearId && res.vehicle_names_id === nameId).map((res2) => res2.model_id);
 
                 vehicleModelId = relatedModelId[0];
 
+
                 const vehicleModelModificationData = data.vehicleModelModificationData;
+
 
                 if (vehicleModelModificationData.status === 'success') {
 
@@ -357,7 +369,8 @@ vehicleYearsContainer.addEventListener('change', async () => {
 
                     const resultModification = vehicleModelModificationData.results;
 
-                    const vhModificationId = resultModification.filter((resModification) => resModification.vh_model_id === relatedModelId[0]).map((resModification2) => resModification2.vh_modification_id);
+                    const vhModificationId = resultModification.filter((resModification) => resModification.vehicle_models_model_id === relatedModelId[0]).map((resModification2) => resModification2.modification_line_mod_id);
+
 
                     const vehicleModificationModificationData = data.vehicleModificationLineData;
 
@@ -376,6 +389,9 @@ vehicleYearsContainer.addEventListener('change', async () => {
                                 modificationContainer.appendChild(makerModLineOption);
                             });
                         });
+
+
+                       
 
                     }
 
@@ -407,19 +423,22 @@ vehicleYearsContainer.addEventListener('change', async () => {
 //onclick and save vehicle model
 //insert my garage for this data
 async function addCarGarage() {
+
     const modificationId = modificationContainer.value;
+
 
     const data = await vehicleDataFetch();
 
     if (data && data.vehicleModelModificationData) {
         const vhModificationData = data.vehicleModelModificationData;
 
+
         //check condition and modification
         if (vhModificationData.status === 'success') {
             const result = vhModificationData.results;
 
             //filter and get new array
-            const relatedModelHasId = result.filter((res) => res.vh_model_id === vehicleModelId && res.vh_modification_id === modificationId).map((newRes) => newRes.vh_mdu_id);
+            const relatedModelHasId = result.filter((res) => res.vehicle_models_model_id === vehicleModelId && res.modification_line_mod_id === modificationId).map((newRes) => newRes.mdu_id);
 
             //call save function
             dataAddingForGarage(relatedModelHasId[0]);
@@ -485,4 +504,54 @@ function categoryLoad() {
 
 
 }
+
+//search vehicles parts directly 
+const vhPartsSearchButton = async () => {
+    let vhCategoryItemName = document.getElementById('vhPartsSearchInput').value;
+
+    const formData = new FormData();
+    formData.append("search_teams", vhCategoryItemName);
+
+    try {
+        const response = await fetch(SERVER_URL + 'backend/api/searchRelatedCategoryItem.php', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error fetching data: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        categoryLoadModel = new bootstrap.Modal("#categoryLoad");
+        categoryLoadModel.show();
+
+        const categoryContainer = document.getElementById('categoryContaine');
+        categoryContainer.innerHTML = "";
+
+        if (data.status === 'success') {
+            data.result.map((item) => {
+                categoryContainer.innerHTML += `
+                                <div class="col-6 col-md-4 col-lg-2 alg-bg-category alg-shadow mb-1 rounded mt-3 mx-4 px-3 alg-card-hover">
+                                    <a href="productCatelog.php?category_item_id=${item.category_Item_id}" class="text-decoration-none">
+                                        <div class="d-flex flex-column align-items-center">
+                                            <img src="${item.category_image}" alt="" class="alg-category-img mt-4 mb-4 img-fluid">
+                                            <span class="mt-1 p-3 fw-bold text-whit pb-5 alg-text-h3">${item.category_Item_type}</span>
+                                        </div>
+                                    </a>
+                                </div>
+                `;
+            });
+        } else if (data.error === "No Product Available") {
+            categoryContainer.innerHTML += `<span class="alg-text-h2 alg-text-dark-blue fw-bold mx-3">No Product Available</span>`;
+
+        } else {
+            console.log(data.error);
+        }
+
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+};
 

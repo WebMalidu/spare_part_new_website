@@ -30,13 +30,10 @@ if ($access->isLoggedIn()) {
                               <a class="nav-link alg-button-header-hover" href="index.php">Home</a>
                          </div>
                          <div class="header-link ">
-                              <a class="nav-link alg-button-header-hover" href="./category.php">Category</a>
-                         </div>
-                         <div class="header-link ">
                               <a class="nav-link alg-button-header-hover" href="garage.php">My Garage</a>
                          </div>
                          <div class="header-link ">
-                              <a class="nav-link alg-button-header-hover" href="multvendoRegister.php">Are You Seller</a>
+                              <a class="nav-link alg-button-header-hover" href="multvendoRegister.php">Become a Seller</a>
                          </div>
 
 
