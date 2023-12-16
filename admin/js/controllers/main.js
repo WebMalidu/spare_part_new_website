@@ -567,8 +567,19 @@ const togglePromotionSection = async (promotionSections) => {
     )
     : null;
 
+    promotionSections === "promotionViewSeller"
+    ? ALG.addTableToContainer(
+      "promotionViewSellerSection",
+      loadPromoSeller,
+      [300, 300, 150, 150, 100, 150]
+    )
+    : null;
+
   if (promotionSections === "promotionAdd") {
     loadPromotionParts();
+  }
+  if (promotionSections === "promotionAddSeller") {
+    loadPromotionPartsSeller();
   }
 };
 //orderSection
@@ -760,6 +771,42 @@ async function loadPromotionParts() {
   }
 }
 
+async function loadPromotionPartsSeller() {
+  console.log("promo seller load")
+  let promotionTitle = document.getElementById("promotionTitle");
+
+  // send the data to server
+  let request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+ 
+ 
+ 
+    if (request.readyState == 4) {
+      // perform an action on response
+      let response = JSON.parse(request.responseText);
+      console.log(response);
+
+      let vhOriginRes = response.data;
+      if (response.status == "success" ) { // Check if vhOriginRes.result is an array
+        vhOriginRes.forEach((res) => { // Use forEach instead of map
+          let option = document.createElement("option");
+          option.value = res.parts_id;
+          option.textContent = res.title;
+          promotionTitle.appendChild(option);
+        });
+      } else {
+        ALG.openToast("error", "User Approved Failed", ALG.getCurrentTime(), "bi-heart", "Failed");
+      }
+      console.log(request.responseText);
+    }
+  };
+  request.open("POST", "../backend/api/partsSellerLoad.php", true);
+  request.send(); 
+}
+
+
+
+
 function promoAdd() {
   var title = document.getElementById('promotionTitle').value;
   var start = document.getElementById('promoStartDate').value;
@@ -853,6 +900,51 @@ const loadPromo = () => {
     };
 
     request.open("POST", "../backend/api/PromotionLoad.php", true);
+    request.send();
+  });
+};
+
+// Function to load promotions asynchronously
+const loadPromoSeller = () => {
+  return new Promise((resolve, reject) => {
+    const promoList = [];
+
+    console.log("promo loaded");
+
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+      if (request.readyState === 4) {
+        let response = JSON.parse(request.responseText);
+        console.log(response)
+        if (response.status === "success") {
+          if (Array.isArray(response.data)) {
+            response.data.forEach((res) => {
+              const editButton = `<button class="fw-bolder btn alg-btn-pill" onclick="deletePromo(${res.promotion_id})">Delete</button>`;
+              promoList.push({
+                "Part Name": res.title,
+                "Brand Name": res.brand_name,
+                "Start Date": res.addedd_date,
+                "End Date": res.end_date,
+                "Disscount": res.discount + '%',
+
+                Edit: editButton,
+              });
+            });
+
+            resolve(promoList); // Resolve the Promise with promoList
+          } else {
+            ALG.openToast("error", "Invalid data format", ALG.getCurrentTime(), "bi-heart", "Failed");
+            console.error("Invalid data format. Expected an array in 'data' property:", response);
+            reject(new Error("Invalid data format"));
+          }
+        } else {
+          ALG.openToast("error", "Promotion load failed", ALG.getCurrentTime(), "bi-heart", "Failed");
+          reject(new Error("Promotion load failed"));
+        }
+      }
+    };
+
+    request.open("POST", "../backend/api/promotionLoadSeller.php", true);
     request.send();
   });
 };

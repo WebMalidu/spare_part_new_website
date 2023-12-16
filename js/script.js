@@ -144,6 +144,41 @@ function signUp() {
   const signUpCpassword = document.getElementById("signUpCpassword").value;
   const signUplastName = document.getElementById("signUplastName").value;
 
+    // Email Validation function
+  function validateEmail(email) {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(String(email).toLowerCase());
+  }
+
+  // Check if email is valid
+  if (!validateEmail(SignUpemail)) {
+    alert("Please enter a valid email address");
+    return;
+  }
+
+  // Check if password and confirm password match
+  if (signUppassword !== signUpCpassword) {
+    alert("Passwords do not match");
+    return;
+  }
+
+  // Function to check if there are spaces between letters
+  function containsSpaces(text) {
+    return /\s/.test(text);
+  }
+
+  // Check if first name contains spaces
+  if (containsSpaces(signUpname)) {
+    alert("First name should not contain spaces between letters");
+    return;
+  }
+
+  // Check if last name contains spaces
+  if (containsSpaces(signUplastName)) {
+    alert("Last name should not contain spaces between letters");
+    return;
+  }
+
 
   const requestDataObject = {
     email: SignUpemail,
