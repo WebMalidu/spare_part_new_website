@@ -311,8 +311,6 @@ if (RequestHandler::isGetMethod()) {
                }
           }
 
-
-
           //search this product first
           $searchQuery = "SELECT * FROM `vehicle_parts` WHERE `parts_id`='" . $partsDelId . "' AND `user_user_id`='" . $userId . "'";
           $result = $db->query($searchQuery);
@@ -322,11 +320,32 @@ if (RequestHandler::isGetMethod()) {
                response_sender::sendJson($responseObject);
           }
 
-          //delete parts
-          $deleteQuery = "DELETE FROM `vehicle_parts` WHERE `parts_id`='" . $partsDelId . "'";
-          $db->query($deleteQuery);
-          $responseObject->status = "success";
-          response_sender::sendJson($responseObject);
+          $resultSet = $result->fetch_assoc();
+          $categoryItemId = $resultSet['category_item_category_item_id'];
+
+          //get all images in a array 
+          $directory = "../../resources/image/partsImages/";
+          $fileExtensions = ['png', 'jpeg', 'jpg'];
+
+          // search single product images
+          //search image
+          $imageSearch = new ImageSearch();
+          $resultImages = $imageSearch->searchImage($directory, $partsDelId, $categoryItemId);
+
+
+          // Add images to the new object if available
+          if (is_array($resultImages)) {
+
+               foreach ($resultImages as $index => $searchResult) {
+                    unlink($directory . $searchResult);
+               }
+
+               //delete parts
+               $deleteQuery = "DELETE FROM `vehicle_parts` WHERE `parts_id`='" . $partsDelId . "'";
+               $db->query($deleteQuery);
+               $responseObject->status = "success";
+               response_sender::sendJson($responseObject);
+          }
      } else {
           $responseObject->status = "Access denied";
           response_sender::sendJson($responseObject);

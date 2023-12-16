@@ -68,8 +68,8 @@
                 </div>
 
                 <div class="d-flex flex-column p-2">
-                    <label class="form-label" for="addProductImageInput">Add model image</label>
-                    <input alt="Vehicle image not upload" type="file" id="vehicleImagesInput" class="form-control" onchange="vhModelImagePreview(event);" />
+                    <label class="form-label text-white" for="addProductImageInput">Add model image</label>
+                    <input alt="Vehicle image not upload" type="file" id="vehicleImagesInput" accept="image/*" class="form-control" onchange="vhModelImagePreview(event);" />
                     <div class="my-2 p-1 rounded-1 product-items d-flex justify-content-center align-content-center" id="modeImagePreviewContainer"></div>
                 </div>
                 <div class="w-100 p-1">
