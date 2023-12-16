@@ -69,14 +69,14 @@ const loadProductCatalog = async (
   try {
     const productResponse = await fetch(
       SERVER_URL +
-        "backend/api/productManupulateAPI.php?vh_model_has_id=" +
-        modelHasId +
-        "&vh_category_item_id=" +
-        categoryItemId +
-        "&vh_status_id=" +
-        stockId +
-        "&vh_origin_id=" +
-        originId
+      "backend/api/productManupulateAPI.php?vh_model_has_id=" +
+      modelHasId +
+      "&vh_category_item_id=" +
+      categoryItemId +
+      "&vh_status_id=" +
+      stockId +
+      "&vh_origin_id=" +
+      originId
     );
     const productResponseData = await productResponse.json();
 
@@ -112,9 +112,8 @@ const loadProductCatalog = async (
 
       for (let x = 0; x <= number - 1; x++) {
         paginationContainer.innerHTML += `
-                        <li class="page-item ${
-                          x == count ? "active" : ""
-                        }" onclick="load(${x});">
+                        <li class="page-item ${x == count ? "active" : ""
+          }" onclick="load(${x});">
                             <a class="page-link" href="#">${x + 1}</a>
                         </li>`;
       }
@@ -454,8 +453,8 @@ function vehicleMakers() {
       if (vhm.status === "success") {
         vhm.results.forEach((element) => {
           const makerOption = document.createElement("option");
-          makerOption.value = element.maker_id;
-          makerOption.textContent = element.maker_name;
+          makerOption.value = element.makers_id;
+          makerOption.textContent = element.name;
           makersSelector.appendChild(makerOption);
         });
       } else {
@@ -609,12 +608,7 @@ vehicleYearsContainer.addEventListener("change", async () => {
 
         const resultModification = vehicleModelModificationData.results;
 
-        const vhModificationId = resultModification
-          .filter(
-            (resModification) =>
-              resModification.vh_model_id === relatedModelId[0]
-          )
-          .map((resModification2) => resModification2.vh_modification_id);
+        const vhModificationId = resultModification.filter((resModification) => resModification.vehicle_models_model_id === relatedModelId[0]).map((resModification2) => resModification2.modification_line_mod_id);
 
         const vehicleModificationModificationData =
           data.vehicleModificationLineData;
@@ -664,13 +658,7 @@ async function addCarGarage() {
       const result = vhModificationData.results;
 
       //filter and get new array
-      const relatedModelHasId = result
-        .filter(
-          (res) =>
-            res.vh_model_id === vehicleModelId &&
-            res.vh_modification_id === modificationId
-        )
-        .map((newRes) => newRes.vh_mdu_id);
+      const relatedModelHasId = result.filter((res) => res.vehicle_models_model_id === vehicleModelId && res.modification_line_mod_id === modificationId).map((newRes) => newRes.mdu_id);
 
       //call save function
       dataAddingForGarage(relatedModelHasId[0]);

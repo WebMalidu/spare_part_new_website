@@ -55,8 +55,8 @@
                 <div class="d-flex col-lg-6 flex-column gap-lg-5 justify-content-end justify-content-md-center justify-content-lg-center alg-lp-hero">
                     <div class="pb-3 pb-lg-0 pt-5">
                         <div class="hr-s1-search d-flex align-items-center pt-5">
-                            <input type="text" class="col-10 col-lg-11 hr-se1-input px-3 p-2 hr-s1-rl mt-5" placeholder="Search here......" />
-                            <div class="col-2 col-lg-1 d-flex justify-content-center p-2 align-items-center hr-s1-rr alg-bg-blue mt-5 alg-button-search-hover"><i class="bi bi-search text-white"></i></div>
+                            <input type="text" class="col-10 col-lg-11 hr-se1-input px-3 p-2 hr-s1-rl mt-5" placeholder="Search here......" id="vhPartsSearchInput" />
+                            <div class="col-2 col-lg-1 d-flex justify-content-center p-2 align-items-center hr-s1-rr alg-bg-blue mt-5 alg-button-search-hover" onclick="vhPartsSearchButton();"><i class="bi bi-search text-white"></i></div>
                         </div>
                     </div>
                     <div class="hr-s1-paragraph d-flex flex-column">
@@ -64,10 +64,12 @@
                         <div class="col-12 hr-bd-parah m-0">
                             <div class=" row pb-md-3 pb-lg-0  p-0 gap-2 gap-md-0 gap-lg-0 pt-3 pt-md-0 pt-lg-0 pb-5">
                                 <div class="hr-s1-button col-12 col-md-6 col-lg-6 d-grid hr-bd-btn pb-2 pb-md-0">
-                                    <button class="main-btn-1 alg-bg-blue rounded-1 alg-text-h3 alg-button-hover fw-bold" onclick="toastLoad();">ADD CAR</button>
+
+                                    <button class="main-btn-1 alg-bg-blue rounded-1 alg-text-h3 alg-button-hover fw-bold"> <a href="http://localhost:9001/garage.php" class="text-decoration-none text-white">ADD CAR</a></button>
+
                                 </div>
                                 <div class="hr-s1-button col-12 col-md-6  col-lg-6  d-grid hr-bd-btn">
-                                    <button class="main-btn-2 rounded-1 alg-text-h3 text-white" onclick="check2();">Learn More</button>
+                                    <button class="main-btn-2 rounded-1 alg-text-h3 text-white"><a href="http://localhost:9001/term&condition.php" class="text-decoration-none text-white">Lear More</a></button>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +93,7 @@
     </div>
     </div>
 
-    
+
     <!-- offer section -->
     <section class="offerSection py-2 py-lg-4" style="position: relative; z-index: 1;">
         <div class="container pb-5">
@@ -134,7 +136,7 @@
         </div>
     </section>
 
- 
+
     <!-- search section -->
     <section class="w-100 searchSectio alg-bg-light-blue bg-n py-2 py-lg-5">
         <div class="container searchSection-mainContainer pb-5">

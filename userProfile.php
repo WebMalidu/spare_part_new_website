@@ -166,6 +166,8 @@
 
     <!-- toast container -->
     <div id="toastContainer"></div>
+
+
     <?php include("./pages/components/footer.php") ?>
 </body>
 
