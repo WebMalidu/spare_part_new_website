@@ -27,17 +27,16 @@ if ($status == 1) {
    $resulInvoice = $database_driver->query($selectQuery);
    $rowInvoice = $resulInvoice->fetch_assoc();
 
-   $updateQuery = "UPDATE `invoice` SET `invoice_status_invoice_status_id` = ? WHERE `user_user_id` = ? && `invoice_id`=?";
-   $parms = [1, $userData['user_id'], $rowInvoice['invoice_id']];
-   $result = $database_driver->execute_query($updateQuery, 'iii', $parms);
 
-   if ($result['stmt']->affected_rows <= 0) {
-      $message = 'Data Adding Failed';
-      $messageClass = 'error'; // CSS class for error messages
-   } else {
+
+  $updateQuery = "UPDATE `invoice` SET `invoice_status_invoice_status_id` = 1 WHERE `user_user_id` = {$userData['user_id']} && `invoice_id` = {$rowInvoice['invoice_id']}";
+
+$result = $database_driver->query($updateQuery);
+
+   
       $message = 'Order Success';
       $messageClass = 'success'; // CSS class for success messages
-   }
+   
 } else {
    $message = 'Payment Unsuccessful. If you have any questions, please contact us.';
    $messageClass = 'error'; // CSS class for error messages
