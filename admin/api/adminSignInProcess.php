@@ -30,33 +30,20 @@ $password = $_POST["password"];
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 //gather data from database
 $database_driver = new database_driver();
-$query = "SELECT * FROM `user` WHERE email = ?";
-$result = $database_driver->execute_query($query, 's', [$email]);
+$query = "SELECT * FROM `user` WHERE email = '" . $email . "'";
+$result = $database_driver->query($query);
 
-
-// Fetch the row from the result
-$row = $result['result']->fetch_assoc();
-
-if ($result['result']->num_rows > 0) {
-} else {
-
+if ($result->num_rows < 1) {
     // no row data
     $responseObject->error = "You are not admin please Sign Up";
     response_sender::sendJson($responseObject);
 }
+// Fetch the row from the result
+$row = $result->fetch_assoc();
+
+
 // Extract the data values
 $userEmail = $row['email'];
 $password_hash = $row['password_hash'];
@@ -75,19 +62,8 @@ if ($row['user_type_user_type_id'] != 2 && $row['user_type_user_type_id'] != 3) 
     response_sender::sendJson($responseObject);
 }
 
-
-
 //create a session
 $UseerAccess = new SessionManager("alg006_admin");
 $UseerAccess->login($row);
-
-
-
-
-
-
-
-
-
 $responseObject->status = "success";
 response_sender::sendJson($responseObject);
