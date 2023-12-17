@@ -151,17 +151,17 @@
                 <div class="col-12 d-flex flex-column flex-lg-row align-items-center justify-content-lg-center gap-3">
                     <div class="w-100">
                         <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example" id="vhMakerContainer">
-                            <option selected>Select Mekar</option>
+                            <option selected>Select Maker</option>
                         </select>
                     </div>
                     <div class="w-100">
                         <select class="searchSection-selector  form-select form-select-sm alg-shadow" aria-label="Small select example" id="vhModelNameContainer">
-                            <option selected>Select Model Line</option>
+                            <option selected>Select Model</option>
                         </select>
                     </div>
                     <div class="w-100">
                         <select class="searchSection-selector form-select form-select-sm alg-shadow" aria-label="Small select example" id="vhYearContainer">
-                            <option selected>Select Car Year</option>
+                            <option selected>Select Year</option>
                         </select>
                     </div>
                     <div class="w-100">

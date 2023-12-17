@@ -17,25 +17,22 @@ header("Content-Type: application/json; charset=UTF-8");
 $responseObject = new stdClass();
 $responseObject->status = 'failed';
 
+// chekcing is user logging
+$userCheckSession = new SessionManager();
+if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
+     $responseObject->error = 'Please Login';
+     response_sender::sendJson($responseObject);
+}
+
+//get user
+$userDataArray = $userCheckSession->getUserData();
+$userId = $userDataArray['user_id'];
 
 // get database
 $db = new database_driver();
 
 //data update delete
 if (RequestHandler::isPostMethod()) {
-
-     // chekcing is user logging
-     // $userCheckSession = new SessionManager();
-     // if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
-     //      $responseObject->error = 'Please Login';
-     //      response_sender::sendJson($responseObject);
-     // }
-
-     // //get user
-     // $userDataArray = $userCheckSession->getUserData();
-     // $userId = $userDataArray['user_id'];
-
-     $userId = 1;
 
      // data adding
      if (isset($_POST['modelHasId'])) {
@@ -90,19 +87,6 @@ if (RequestHandler::isPostMethod()) {
 }
 
 if (RequestHandler::isGetMethod()) {
-
-     // chekcing is user logging
-     // $userCheckSession = new SessionManager();
-     // if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
-     //      $responseObject->error = 'Please Login';
-     //      response_sender::sendJson($responseObject);
-     // }
-
-     // //get user
-     // $userDataArray = $userCheckSession->getUserData();
-     // $userId = $userDataArray['user_id'];
-
-     $userId = 1;
 
      //get current user login id and load user related garage data
      $searchQuery = "SELECT * FROM `my_garaj` 

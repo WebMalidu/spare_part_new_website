@@ -92,16 +92,13 @@ if (RequestHandler::isGetMethod()) {
 
 
      //get user into the session
-     $userCheckSession = new SessionManager('alg006_admin');
+     $userCheckSession = new SessionManager("alg006_admin");
      if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
           $responseObject->error = 'Please Login';
           response_sender::sendJson($responseObject);
      }
-
-     // $userData = $userCheckSession->getUserData();
-     // $userId = $userData['user_id'];
-     $userId = 1;
-
+     $userData = $userCheckSession->getUserData();
+     $userId = $userData['user_id'];
 
      //data insert Update Delete
      //data insert parameters

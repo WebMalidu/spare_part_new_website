@@ -74,6 +74,8 @@ if (RequestHandler::isPostMethod()) {
           $insertQuery = "INSERT INTO `vehicle_models_has_modification_line` (`vehicle_models_model_id`,`modification_line_mod_id`)
           VALUES ('" . $modelId . "','" . $modelLine . "')";
 
+          $db->query($insertQuery);
+
           $responseObject->status = 'success';
           response_sender::sendJson($responseObject);
      }
@@ -89,7 +91,6 @@ if (RequestHandler::isPostMethod()) {
 
                $responseObject->status = 'success';
                response_sender::sendJson($responseObject);
-
           } catch (mysqli_sql_exception $ex) {
                $responseObject->error = 'Cannot delete this vehicle model line because it use vehicle parts';
                response_sender::sendJson($responseObject);

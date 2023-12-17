@@ -270,6 +270,7 @@ vehicleModelNameSelector.addEventListener('change', async () => {
             //vehicleModelData exists and is not undefined
 
             const vehicleModelData = data.vehicleModelData;
+            
 
 
             if (vehicleModelData.status === 'success') {
@@ -391,7 +392,7 @@ vehicleYearsContainer.addEventListener('change', async () => {
                         });
 
 
-                       
+
 
                     }
 

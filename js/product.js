@@ -687,6 +687,10 @@ async function dataAddingForGarage(modelHasId) {
     if (garageData.status === "success") {
       window.location.reload();
       loadRelatedModelForUser();
+    } else if (garageData.error === "Please Login") {
+      garageModel.hide();
+      openLoginModel();
+      garageModel.show();
     } else {
       console.log(garageData.error);
     }

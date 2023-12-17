@@ -441,13 +441,34 @@ const addVhModelLine = async (e) => {
        const modelSelector = document.getElementById('vhModelSelector').value;
        const vhModelLineSelector = document.getElementById('vhModelLineSelector').value;
 
+
+       if (document.getElementById('vhModelSelector').value === "undefined") {
+              ALG.openToast("Warning", "Select Vehicle Model", ALG.getCurrentTime(), "bi-heart", "Error");
+              e.target.disabled = false;
+              return
+       }
+
+
+       if (document.getElementById('vhModelLineSelector').value === "undefined") {
+              ALG.openToast("Warning", "Select Modification Line", ALG.getCurrentTime(), "bi-heart", "Error");
+              e.target.disabled = false;
+              return
+       }
+
+      
+
        const formData = new FormData();
        formData.append("ad_model_id", modelSelector);
        formData.append("ad_model_line_id", vhModelLineSelector);
 
        const modelLineResponse = await dataSend.dataIUD(formData, 'backend/api/vehicleModelModification.php');
+
        if (modelLineResponse.status === 'success') {
               ALG.openToast("Success", "Vehicle model line added success", ALG.getCurrentTime(), "bi-heart", "Success");
+              // loadModelLine();
+
+              window.location.reload();
+
 
        } else {
               ALG.openToast("Error", modelLineResponse.error, ALG.getCurrentTime(), "bi-heart", "Error");

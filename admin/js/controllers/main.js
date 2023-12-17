@@ -326,7 +326,7 @@ const loadModificationLine = async () => {
   console.log(productModificationLineRes);
 
   productModelLine.innerHTML = "";
-  productModelLine.innerHTML += `<option value="0">Select Modification Line</option>`;
+  productModelLine.innerHTML += `<option value="undefined">Select Modification Line</option>`;
 
   if (productModificationLineRes.status === "success") {
     productModificationLineRes.results.map((res) => {
@@ -458,7 +458,7 @@ const vhModelLoader = async () => {
 
   if (vhModelsResponse.status === 'success') {
 
-    vhModelSelector.innerHTML += `<option value="0">Select Vehicle Model</option>`;
+    vhModelSelector.innerHTML += `<option value="undefined">Select Vehicle Model</option>`;
 
     vhModelsResponse.results.map((res) => {
       const option = document.createElement('option');
@@ -477,7 +477,7 @@ const vhModification = async () => {
   vhModelLineSelector.innerHTML = "";
 
   if (vhModificationResponse.status === 'success') {
-    vhModelLineSelector.innerHTML += `<option value="0">Select Vehicle Modification Line</option>`;
+    vhModelLineSelector.innerHTML += `<option value="undefined">Select Vehicle Modification Line</option>`;
 
     vhModificationResponse.result.map((res) => {
       const option = document.createElement('option');
@@ -567,7 +567,7 @@ const togglePromotionSection = async (promotionSections) => {
     )
     : null;
 
-    promotionSections === "promotionViewSeller"
+  promotionSections === "promotionViewSeller"
     ? ALG.addTableToContainer(
       "promotionViewSellerSection",
       loadPromoSeller,
@@ -778,16 +778,16 @@ async function loadPromotionPartsSeller() {
   // send the data to server
   let request = new XMLHttpRequest();
   request.onreadystatechange = function () {
- 
- 
- 
+
+
+
     if (request.readyState == 4) {
       // perform an action on response
       let response = JSON.parse(request.responseText);
       console.log(response);
 
       let vhOriginRes = response.data;
-      if (response.status == "success" ) { // Check if vhOriginRes.result is an array
+      if (response.status == "success") { // Check if vhOriginRes.result is an array
         vhOriginRes.forEach((res) => { // Use forEach instead of map
           let option = document.createElement("option");
           option.value = res.parts_id;
@@ -801,7 +801,7 @@ async function loadPromotionPartsSeller() {
     }
   };
   request.open("POST", "../backend/api/partsSellerLoad.php", true);
-  request.send(); 
+  request.send();
 }
 
 
@@ -844,6 +844,7 @@ function promoAdd() {
         document.getElementById('promoEndDate').value = '';
         document.getElementById('promoPrecentage').value = '';
         document.getElementById('promotionImage').value = ''; // Clear input type file
+        document.getElementById('productItemImagePreviewContainer').innerHTML = ''; // Clear input type file
 
 
       } else {
