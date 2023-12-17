@@ -294,7 +294,6 @@ const loadGarageData = async (categoryItemId) => {
                <div class="alg-shadow py-2 garage-card">
                     <div class="d-flex flex-column">
                         <div class="d-flex justify-content-end gap-2 px-2">
-                            <span><i class="bi bi-trash3-fill"></i></span>
                         </div>
                         <div class="d-flex justify-content-center"><img src="${element.model_image}"class="alg-category-img" alt="car_img"></div>
                         <div class="d-flex flex-column py-3 px-4 pt-4">
