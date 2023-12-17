@@ -152,6 +152,8 @@ if (RequestHandler::isGetMethod()) {
                     $resRowDetailObject->model_type = $rowData['vehicale'];
                     $resRowDetailObject->model_year = $rowData['year'];
                     $resRowDetailObject->model_generation = $rowData['generation'];
+                    $resRowDetailObject->vehicle_names_id = $rowData['vh_name_id'];
+                    $resRowDetailObject->model_year_id = $rowData['vehicle_year_Id'];
 
                     if (is_array($searchResults)) {
                          foreach ($searchResults as $searchResult) {
@@ -174,7 +176,7 @@ if (RequestHandler::isGetMethod()) {
      }
 }
 
-//vehicle model add , update
+//vehicle model add , update , delete
 if (RequestHandler::isPostMethod()) {
 
      // chekcing is user logging
@@ -215,23 +217,17 @@ if (RequestHandler::isPostMethod()) {
 
           //check already have this model
           $searchData = "SELECT * FROM `vehicle_models` WHERE 
-          `vehicle_type_vehicle_type_id`=? AND `vehicle_year_vehicle_year_Id`=? 
-          AND `generation_generation_id`=? AND `vehicle_names_id`=?";
+          `vehicle_type_vehicle_type_id`='" . $ad_vehicle_type_id . "' AND `vehicle_year_vehicle_year_Id`='" . $ad_vehicle_year_id . "' 
+          AND `generation_generation_id`='" . $ad_generation_id . "' AND `vehicle_names_vh_name_id`='" . $ad_model_name_id . "'";
 
-          $result = $db->execute_query($searchData, 'iiii', array($ad_vehicle_type_id, $ad_vehicle_year_id, $ad_generation_id, $ad_model_name_id));
+          $result = $db->query($searchData);
 
           //get by result
-          if ($result['result']->num_rows > 0) {
+          if ($result->num_rows > 0) {
                $responseObject->error = "this product already added ";
                response_sender::sendJson($responseObject);
           }
 
-          //next  add data our database table
-          //generate vahicle makers Ids
-          $modelId = 'MOD_' . str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
-
-
-          //makers image adding
           if ($_FILES['ad_model_img']['error'] === 0) {
                $allowImageExtension = ['png', 'jpg', 'jpeg', 'svg'];
                $fileExtension = strtolower(pathinfo($_FILES['ad_model_img']['name'], PATHINFO_EXTENSION));
@@ -239,15 +235,20 @@ if (RequestHandler::isPostMethod()) {
 
                if (in_array($fileExtension, $allowImageExtension)) {
 
-                    // new name
-                    $newImageName = $modelId .  "." . $fileExtension;
+                    //next  add data our database table
+                    //generate vahicle makers Ids
+                    $modelId = 'MOD_' . str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
 
-                    //upload images makers image files
+                    // Define the destination directory
+                    $savePath = "../../resources/image/vehicleModelImages/";
+                    $newImageName = $modelId .  ".jpg";
+
+
                     if (move_uploaded_file($_FILES['ad_model_img']['tmp_name'], $savePath . $newImageName)) {
                          // insert data this table
-                         $InsertQuery = "INSERT INTO `vehicle_models` (`model_id`,`vehicle_type_vehicle_type_id`,`vehicle_year_vehicle_year_Id`,`generation_generation_id`,`vehicle_names_id`) VALUES (?,?,?,?,?)";
-                         $db->execute_query($InsertQuery, 'sssss', array($modelId, $ad_vehicle_type_id, $ad_vehicle_year_id, $ad_generation_id, $ad_model_name_id));
-
+                         $InsertQuery = "INSERT INTO `vehicle_models` (`model_id`,`vehicle_type_vehicle_type_id`,`vehicle_year_vehicle_year_Id`,`generation_generation_id`,`vehicle_names_vh_name_id`) 
+                         VALUES ('" . $modelId . "','" . $ad_vehicle_type_id . "','" . $ad_vehicle_year_id . "','" . $ad_generation_id . "','" . $ad_model_name_id . "')";
+                         $db->query($InsertQuery);
 
                          $responseObject->status = 'success';
                          response_sender::sendJson($responseObject);
@@ -360,6 +361,35 @@ if (RequestHandler::isPostMethod()) {
                }
           } else {
                $responseObject->error = 'Image does not exist.';
+               response_sender::sendJson($responseObject);
+          }
+     } elseif (isset($_POST['del_model_id'])) {
+
+          $deleteModelId =  $_POST['del_model_id'];
+
+          //search image
+          $fileSearch = new FileSearch($directory, $deleteModelId, $fileExtensions); // Use model image parameters
+          $imagePath = $fileSearch->search();
+
+          $relatedImage = $imagePath[0];
+
+
+          try {
+
+               if (!$relatedImage) {
+                    $responseObject->error = "image not found";
+                    response_sender::sendJson($responseObject);
+               }
+
+               $deleteQuery = "DELETE FROM `vehicle_models` WHERE `model_id`='" . $deleteModelId . "'";
+               $db->query($deleteQuery);
+
+               //delete image
+               unlink($relatedImage);
+               $responseObject->status = 'success';
+               response_sender::sendJson($responseObject);
+          } catch (mysqli_sql_exception $ex) {
+               $responseObject->error = "Cannot delete this vehicle model still exists in vehicle model line";
                response_sender::sendJson($responseObject);
           }
      }

@@ -29,11 +29,12 @@ function vehicleMakers() {
      vehicleDataFetch().then((data) => {
           const vhm = data.vehicleMakersData;
 
+          console.log(vhm);
           if (vhm.status === 'success') {
                vhm.results.forEach((element) => {
                     const makerOption = document.createElement('option');
-                    makerOption.value = element.maker_id;
-                    makerOption.textContent = element.maker_name;
+                    makerOption.value = element.makers_id;
+                    makerOption.textContent = element.name;
                     makersSelector.appendChild(makerOption);
                });
           } else {
@@ -197,7 +198,7 @@ vehicleYearsContainer.addEventListener('change', async () => {
 
                     const resultModification = vehicleModelModificationData.results;
 
-                    const vhModificationId = resultModification.filter((resModification) => resModification.vh_model_id === relatedModelId[0]).map((resModification2) => resModification2.vh_modification_id);
+                    const vhModificationId = resultModification.filter((resModification) => resModification.vehicle_models_model_id === relatedModelId[0]).map((resModification2) => resModification2.modification_line_mod_id);
 
                     const vehicleModificationModificationData = data.vehicleModificationLineData;
 
@@ -253,7 +254,7 @@ async function addCarGarage() {
                const result = vhModificationData.results;
 
                //filter and get new array
-               const relatedModelHasId = result.filter((res) => res.vh_model_id === vehicleModelId && res.vh_modification_id === modificationId).map((newRes) => newRes.vh_mdu_id);
+               const relatedModelHasId = result.filter((res) => res.vehicle_models_model_id === vehicleModelId && res.modification_line_mod_id === modificationId).map((newRes) => newRes.mdu_id);
 
                //call save function
                dataAddingForGarage(relatedModelHasId[0]);
@@ -297,13 +298,13 @@ const loadGarageData = async () => {
 
           if (garageResult.status === 'success') {
                const result = garageResult.result;
-
+               console.log(result);
                result.map((element) => {
 
                     garage += `<div class="alg-shadow garage-card alg-bg-category-item">
                            <div class="d-flex flex-column">
                                 <div class="d-flex justify-content-end gap-2 px-2">
-                                     <span><i class="bi bi-trash3-fill"></i></span>
+                                     <span><i class="bi bi-trash3-fill" onclick="deleteMyCar('${element.mg_id}');"></i></span>
                             </div>
                       <div class="d-flex justify-content-center"><img src="${element.model_image}" class="alg-category-img" alt="car_img"></div>
                            <div class="d-flex flex-column py-3 px-4 pt-4 categ-itm-sec">
@@ -340,6 +341,39 @@ const loadGarageData = async () => {
      document.getElementById('garage').innerHTML = garage;
      garageModel.hide();
 }
+
+
+const deleteMyCar = async (mg_id) => {
+
+     console.log(mg_id);
+     try {
+          const formData = new FormData();
+          formData.append("del_mg_id", mg_id);
+
+          const garageResponse = await fetch(SERVER_URL + 'backend/api/garageAPI.php', {
+               method: "POST",
+               body: formData
+          });
+
+          if (!garageResponse.ok) {
+               throw new Error(`Error fetching data: ${response.status}`);
+          }
+
+          const data = await garageResponse.json();
+          if (data.status === "success") {
+               const toast = new Toast();
+               toast.toastLoad("success", "Vehicle delete successfully");
+               window.location.reload();
+          } else {
+               const toast = new Toast();
+               toast.toastLoad("error", data.error);
+          }
+
+
+     } catch (error) {
+          console.error('Error fetching data:', error);
+     }
+};
 
 
 

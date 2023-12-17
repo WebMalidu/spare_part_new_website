@@ -46,8 +46,8 @@ $selectQuery = "SELECT *
                FROM `user` ur
                JOIN `user_type` ut ON ur.user_type_user_type_id = ut.user_type_id
                JOIN `user_status` us ON ur.user_status_u_status_id=us.u_status_id
-               WHERE ur.`user_id`!=?";
-$result=$database_driver->execute_query($selectQuery,'i',[-1]);
+               WHERE ur.`admin_admin_id`!=?";
+$result=$database_driver->execute_query($selectQuery,'i',[1]);
 
 // Initialize an array to store all rows and image URLs
 $rows = [];

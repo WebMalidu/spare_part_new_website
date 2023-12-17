@@ -37,10 +37,10 @@ $selectQuery = "SELECT *
                JOIN `category_item` ci ON vp.category_item_category_item_id=ci.category_item_id
                JOIN `parts_status` ps ON vp.parts_status_parts_status_id=ps.parts_status_id
                JOIN `brand` br ON vp.brand_brand_id=br.brand_id
-               WHERE pp.`promotion_id` = ?";
+               WHERE pp.promotion_id ='" . $promotionId . "' ";
 
 // Execute the query to retrieve data
-$searchResult = $database_driver->execute_query($selectQuery, 'i', array($promotionId));
+$searchResult = $database_driver->query($selectQuery);
 
 // Define directory and file extensions for promotion images
 $directory = '../../resources/image/promotionImages';
@@ -51,9 +51,9 @@ $rows = [];
 $imageUrls = [];
 
 // Loop through the query results and retrieve image URLs
-while ($row = $searchResult['result']->fetch_assoc()) {
+while ($row = $searchResult->fetch_assoc()) {
     $rows[] = $row;
-    $fileName = strval($row['promotion_id']);
+    $fileName = strval($row['vehicle_parts_parts_id']);
     $fileSearch = new FileSearch($directory, $fileName, $fileExtensions);
     $results = $fileSearch->search();
 

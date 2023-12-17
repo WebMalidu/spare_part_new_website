@@ -51,36 +51,36 @@
     <div class="mrp-mainbox d-flex  justify-content-center align-items-center">
         <div class="mrp-box alg-bg-light d-flex flex-column align-items-center alg-rounded-small">
             <div class="d-flex justify-content-center pt-4">
-                <span class="alg-text-h2 alg-bold alg-text-dark-blue">Multvendo Registration</span>
+                <span class="alg-text-h2 alg-bold alg-text-dark-blue">Multvendor Registration</span>
             </div>
             <div class="d-flex flex-column pt-5">
                 <span class="alg-text-h3 alg-text-blue">Business Owner Name</span>
                 <div class="mrp-input-box pt-1">
-                    <input class="mrp-input  alg-rounded-small alg-shadow" type="text">
+                    <input class="mrp-input  alg-rounded-small alg-shadow" type="text" id="name">
                 </div>
             </div>
             <div class="d-flex flex-column pt-4">
                 <span class="alg-text-h3 alg-text-blue">Address</span>
                 <div class="mrp-input-box pt-1">
-                    <input class="mrp-input  alg-rounded-small alg-shadow" type="text">
+                    <input class="mrp-input  alg-rounded-small alg-shadow" type="text" id="Adress">
                 </div>
             </div>
             <div class="d-flex flex-column pt-4">
                 <span class="alg-text-h3 alg-text-blue">Business Name</span>
                 <div class="mrp-input-box pt-1">
-                    <input class="mrp-input  alg-rounded-small alg-shadow" type="text">
+                    <input class="mrp-input  alg-rounded-small alg-shadow" type="text" id="bName">
                 </div>
             </div>
             <div class="d-flex flex-column pt-4">
                 <span class="alg-text-h3 alg-text-blue">BR Number</span>
                 <div class="mrp-input-box pt-1">
-                    <input class="mrp-input  alg-rounded-small alg-shadow" type="text">
+                    <input class="mrp-input  alg-rounded-small alg-shadow" type="text" id="br">
                 </div>
             </div>
             <div class="d-flex flex-column pt-4">
                 <span class="alg-text-h3 alg-text-blue">Business Address</span>
                 <div class="mrp-input-box pt-1">
-                    <input class="mrp-input  alg-rounded-small alg-shadow" type="text">
+                    <input class="mrp-input  alg-rounded-small alg-shadow" type="text" id="bAdress">
                 </div>
             </div>
             <div class="pt-4">
@@ -89,13 +89,13 @@
                     <div>
                         <span class="alg-text-h3 alg-text-blue">Business</span>
                         <div class="mrp-input-box pt-1">
-                            <input class="mrp-input-small  alg-rounded-small alg-shadow" type="text">
+                            <input class="mrp-input-small  alg-rounded-small alg-shadow" type="text" id="bContact">
                         </div>
                     </div>
                     <div>
                         <span class="alg-text-h3 alg-text-blue">Private</span>
                         <div class="mrp-input-box pt-1">
-                            <input class="mrp-input-small  alg-rounded-small alg-shadow" type="text">
+                            <input class="mrp-input-small  alg-rounded-small alg-shadow" type="text" id="bPrivate">
                         </div>
                     </div>
                 </div>
@@ -103,11 +103,17 @@
             <div class="d-flex flex-column pt-4">
                 <span class="alg-text-h3 alg-text-blue">Email Address</span>
                 <div class="mrp-input-box pt-1">
-                    <input class="mrp-input  alg-rounded-small alg-shadow" type="email">
+                    <input class="mrp-input  alg-rounded-small alg-shadow" type="email" id="bEmail">
+                </div>
+            </div>
+            <div class="d-flex flex-column pt-4">
+                <span class="alg-text-h3 alg-text-blue">Password</span>
+                <div class="mrp-input-box pt-1">
+                    <input class="mrp-input  alg-rounded-small alg-shadow" type="password" id="bPAssword">
                 </div>
             </div>
             <div class="p-4">
-                <button class="mrp-button alg-rounded-small alg-text-blue alg-text-h3">Register</button>
+                <button class="mrp-button alg-rounded-small alg-text-blue alg-text-h3" onclick="multiVendorRegistation()">Register</button>
             </div>
 
         </div>

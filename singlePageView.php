@@ -132,7 +132,7 @@ if (!isset($_GET["parts_id"], $_GET['vh_category_item_id'], $_GET['vh_model_id']
                     <div class="spv-s1-right-vehicleImg"></div>
                 </div>
                 <div>
-                <button class="spv-s1-right-button alg-rounded-small border-5 alg-text-green spv-s1-right-button2 alg-text-h3" onclick="addCart('<?php echo htmlspecialchars($_GET['parts_id']); ?>')">Add Cart</button>
+                    <button class="spv-s1-right-button alg-rounded-small border-5 alg-text-green spv-s1-right-button2 alg-text-h3" onclick="addCart('<?php echo htmlspecialchars($_GET['parts_id']); ?>')">Add Cart</button>
                     <button class="spv-s1-right-button alg-rounded-small border-5 alg-text-green spv-s1-right-button2 alg-text-h3" onclick="addWatchlist('<?php echo htmlspecialchars($_GET['parts_id']); ?>')">Add Watchlist</button>
                 </div>
             </div>
@@ -170,6 +170,31 @@ if (!isset($_GET["parts_id"], $_GET['vh_category_item_id'], $_GET['vh_model_id']
 
     <!-- toast container -->
     <div id="toastContainer"></div>
+
+    <!-- Category Modal -->
+    <div class="modal fade modal-xl" id="categoryLoad" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+
+
+            <div class="modal-content">
+                <div class="modal-header alg-bg-light-blue">
+                    <span class="modal-title alg-text-h2 alg-text-dark-blue fw-bold mx-3" id="staticBackdropLabel">Category section</span>
+                    <button type="button" class="border-0 alg-bg-light-blue" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-square-fill fs-2"></i></button>
+                </div>
+
+                <div class="modal-body alg-bg-light-blue">
+
+
+                    <div class="p-4">
+                        <div class="col-12 d-flex justify-content-center flex-wrap" id="categoryContaine">
+                            <!-- content goes here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- footer -->
     <?php include("./pages/components/footer.php") ?>
 

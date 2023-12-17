@@ -1,10 +1,10 @@
 <?php
-require_once("SessionManager.php");
+require_once("./backend/model/SessionManager.php");
 
 $loggedUserData = null;
 $access = new SessionManager();
 if ($access->isLoggedIn()) {
-    $loggedUserData = $access->getUserData();
+     $loggedUserData = $access->getUserData();
 }
 
 ?>
@@ -30,21 +30,18 @@ if ($access->isLoggedIn()) {
                               <a class="nav-link alg-button-header-hover" href="index.php">Home</a>
                          </div>
                          <div class="header-link ">
-                              <a class="nav-link alg-button-header-hover" href="./category.php">Category</a>
-                         </div>
-                         <div class="header-link ">
                               <a class="nav-link alg-button-header-hover" href="garage.php">My Garage</a>
                          </div>
                          <div class="header-link ">
-                              <a class="nav-link alg-button-header-hover" href="multvendoRegister.php">Are You Seller</a>
+                              <a class="nav-link alg-button-header-hover" href="multvendoRegister.php">Become a Seller</a>
                          </div>
-                         
-                              
-                         </div>
-                         <div class="header-link fs-5 d-flex justify-content-between gap-4 p-1 ps-4 pe-5 text-white">
-                              <a class="nav-link alg-button-header-hover" href="contactUs.php"><i class="fa-solid fa-address-book text-white"></i></a>
-                              <a href="#cart" class="alg-button-header-hover" onclick="openCartModel();"><i class="bi bi-cart-fill text-white"></i></a>
-                              <a href="#watchlist" class="alg-button-header-hover" onclick="openWatchlistModel()"><i class="bi bi-heart-fill text-white"></i></a>
+
+
+                    </div>
+                    <div class="header-link fs-5 d-flex justify-content-between gap-4 p-1 ps-4 pe-5 text-white">
+                         <a class="nav-link alg-button-header-hover" href="contactUs.php"><i class="fa-solid fa-address-book text-white"></i></a>
+                         <a href="#cart" class="alg-button-header-hover" onclick="openCartModel();"><i class="bi bi-cart-fill text-white"></i></a>
+                         <a href="#watchlist" class="alg-button-header-hover" onclick="openWatchlistModel()"><i class="bi bi-heart-fill text-white"></i></a>
 
 
 
@@ -52,16 +49,16 @@ if ($access->isLoggedIn()) {
 
 
                          <?php
-if (isset($loggedUserData) && isset($loggedUserData["email"])) {
-?>
-    <i class="bi bi-box-arrow-right text-white" onclick="logOut()" style="cursor: pointer;"></i>
-<?php
-} else {
-?>
-    <a href="#login" class="alg-button-header-hover" onclick="openLoginModel();"><i class="bi bi-person-circle text-white"></i></a>
-<?php
-}
-?>
+                         if (isset($loggedUserData) && isset($loggedUserData["email"])) {
+                         ?>
+                              <i class="bi bi-box-arrow-right text-white" onclick="logOut()" style="cursor: pointer;"></i>
+                         <?php
+                         } else {
+                         ?>
+                              <a href="#login" class="alg-button-header-hover" onclick="openLoginModel();"><i class="bi bi-person-circle text-white"></i></a>
+                         <?php
+                         }
+                         ?>
 
 
 
@@ -70,7 +67,7 @@ if (isset($loggedUserData) && isset($loggedUserData["email"])) {
 
 
 
-                         
+
                     </div>
                </div>
           </div>
@@ -166,101 +163,88 @@ if (isset($loggedUserData) && isset($loggedUserData["email"])) {
 
                     <!-- empty cart -->
 
-                    <div class="p-4">
-                         <?php
-                         for ($x = 0; $x < 5; $x++) {
-                         ?>
-                              <div class="col-12 d-flex justify-content-center  align-items-center gap-5 pb-3">
-                                   <div class="col-5 col-lg-2 d-flex flex-column flex-lg-row justify-content-center bg-white ct-div-size alg-shadow rounded-1">
-                                        <img src="resources/image/home/engineImage.png" class="crt_itm_img img-fluid my-auto mx-auto" alt="item_img" />
-                                        <div class="col-12 d-flex flex-row d-lg-none d-block justify-content-around gap-5 pt-3">
-                                             <div><input type="checkbox" /></div>
-                                             <div><i class="bi bi-trash-fill"></i></div>
-                                        </div>
-                                   </div>
+                    <div class="p-4" id="cartContainer">
 
-                                   <div class="row col-6 col-lg-8 col-lg-9 bg-white ct-div-size alg-shadow rounded-1 d-flex justify-content-lg-between align-items-lg-center py-1">
-                                        <div class="col-12 col-lg-3 d-flex flex-column alg-text-h3 gap-1 gap-lg-2">
-                                             <span class="fw-bold lh-1 alg-text-blue">Break Cable<br /><span class="fw-normal text-black">(Brand New)</span></span>
-                                             <span class="text-black-50">Brand : <span class="alg-text-blue"> &nbsp;&nbsp;&nbsp;&nbsp;Honda</span></span>
-                                             <span class="text-black-50">Model : <span class="alg-text-blue"> &nbsp;&nbsp;&nbsp;&nbsp;Civic</span></span>
-                                             <span class="text-black-50">Sold By : <span class="alg-text-blue"> &nbsp;&nbsp;Nimal Perera</span></< /span>
-                                        </div>
-                                        <div class="col-12 col-lg-4 d-flex gap-3 gap-lg-5 alg-text-h3 mt-3">
-                                             <div>
-                                                  <span class="fw-bold">LKR 1800.00</span><br />
-                                                  <span class="alg-bg-dark-blue p-1 rounded-1 text-white alg-text-h3">-20%</span>
-                                             </div>
-                                             <div>
-                                                  <span class="text-decoration-line-through">LKR 2599.00</span>
-                                             </div>
-                                        </div>
-                                        <div class="col-12 col-lg-1 d-flex flex-row d-none d-lg-block flex-lg-column  justify-content-lg-between gap-lg-5">
-                                             <div class="pb-4"><input type="checkbox" /></div>
-                                             <div class="pt-5"><i class="bi bi-trash-fill"></i></div>
-                                        </div>
-                                   </div>
+
+
+                    </div>
+
+                    <div class="cart-shipping-main d-flex flex-column flex-lg-row justify-content-between p-lg-3  col-12 mt-4 gap-3">
+                         <div class="d-flex flex-column col-12  col-lg-8 gap-2 align-items-md-center">
+                              <div class="alg-text-h2 alg-text-blue alg-bold text-center">Shipping Details</div>
+                              <div class="w-100 d-flex d-flex justify-content-center">
+                                   <input class="W-100 cart-shipping-lg-input alg-rounded-small  border-primary" type="text" id="usernameInput" placeholder="username">
+                              </div>
+                              <div class="w-100 d-flex gap-3 justify-content-center">
+                                   <input class="cart-shipping-sm-input alg-rounded-small  border-primary" type="text" placeholder="phone number" id="phoneNumberInput">
+                                   <input class="cart-shipping-sm-input alg-rounded-small  border-primary" type="text" placeholder="postal code" id="postalCodeInput">
+                              </div>
+                              <div class="w-100 d-fle d-flex justify-content-center">
+                                   <input class="cart-shipping-lg-input alg-rounded-small  border-primary" type="text" placeholder="address line 1" id="addressLine1Input">
+                              </div>
+                              <div class="w-100 d-flex d-flex justify-content-center">
+                                   <input class="cart-shipping-lg-input alg-rounded-small  border-primary" type="text" placeholder="address line 2" id="addressLine2Input">
+                              </div>
+                              <div class="w-100  d-flex gap-3 justify-content-center">
+                                   <input class="cart-shipping-sm-input alg-rounded-small  border-primary" type="text" placeholder="city" id="cityInput">
+                                   <select id="districtInput" class="cart-shipping-sm-input alg-rounded-small border-primary">
+                                        <option value="0">District</option>
+                                        <option value="1">Ampara</option>
+                                        <option value="2">Anuradhapura</option>
+                                        <option value="3">Badulla</option>
+                                        <option value="4">Batticaloa</option>
+                                        <option value="5">Colombo</option>
+                                        <option value="6">Galle</option>
+                                        <option value="7">Gampaha</option>
+                                        <option value="8">Hambantota</option>
+                                        <option value="9">Jaffna</option>
+                                        <option value="10">Kalutara</option>
+                                        <option value="11">Kandy</option>
+                                        <option value="12">Kegalle</option>
+                                        <option value="13">Kilinochchi</option>
+                                        <option value="14">Kurunegala</option>
+                                        <option value="15">Mannar</option>
+                                        <option value="16">Matale</option>
+                                        <option value="17">Matara</option>
+                                        <option value="18">Monaragala</option>
+                                        <option value="19">Mullaitivu</option>
+                                        <option value="20">Nuwara Eliya</option>
+                                        <option value="21">Polonnaruwa</option>
+                                        <option value="22">Puttalam</option>
+                                        <option value="23">Ratnapura</option>
+                                        <option value="24">Trincomalee</option>
+                                        <option value="25">Vavuniya</option>
+
+                                   </select>
+                              </div>
+                              <div class="w-100 d-flex d-flex justify-content-center">
+                                   <select id="provinceInput" class="cart-shipping-sm-input alg-rounded-small border-primary">
+                                        <option value="0">Provience</option>
+                                        <option value="1">Central Province</option>
+                                        <option value="2">Eastern Province</option>
+                                        <option value="3">North Central Province</option>
+                                        <option value="4">Northern Province</option>
+                                        <option value="5">North Western Province</option>
+                                        <option value="6">Sabaragamuwa Province</option>
+                                        <option value="7">Southern Province</option>
+                                        <option value="8">Uva Province</option>
+                                        <option value="9">Western Province</option>
+                                   </select>
 
                               </div>
-                         <?php
-                         }
-                         ?>
+                              <div class="d-flex justify-content-center gap-2">
+                                   <input class="cart-shipping-button alg-rounded-small alg-text-light alg-text-h3 alg-bg-blue alg-button-search-hover p-2 border-0" type="submit" value="Edit" onclick="shippingDetails()">
+                                   <input class="cart-shipping-button alg-rounded-small cart-shipping-button-save alg-text-h3 cart-shipping-button" type="submit" value="Save" onclick="shippingDetails()">
+                              </div>
+                         </div>
+                         <div class="cart-ordering-main d-flex flex-column col-12  col-lg-3 text-center bg-white alg-text-h3 pt-1 pb-3 rounded-1 alg-shadow gap-3" id="ordercontaiber">
 
-                         <div class="cart-shipping-main d-flex flex-column flex-lg-row justify-content-between p-lg-3  col-12 mt-4 gap-3">
-                              <div class="d-flex flex-column col-12  col-lg-8 gap-2 align-items-md-center">
-                                   <div class="alg-text-h2 alg-text-blue alg-bold text-center">Shipping Details</div>
-                                   <div class="w-100 d-flex d-flex justify-content-center">
-                                        <input class="W-100 cart-shipping-lg-input alg-rounded-small  border-primary" type="text" value="username">
-                                   </div>
-                                   <div class="w-100 d-flex gap-3 justify-content-center">
-                                        <input class="cart-shipping-sm-input alg-rounded-small  border-primary"  type="text" value="phone number">
-                                        <input class="cart-shipping-sm-input alg-rounded-small  border-primary"  type="text" value="postal code">
-                                   </div>
-                                   <div class="w-100 d-fle d-flex justify-content-center">
-                                        <input class="cart-shipping-lg-input alg-rounded-small  border-primary" type="text" value="address line 1">
-                                   </div>
-                                   <div class="w-100 d-flex d-flex justify-content-center">
-                                        <input class="cart-shipping-lg-input alg-rounded-small  border-primary" type="text" value="address line 2">
-                                   </div>
-                                   <div class="w-100  d-flex gap-3 justify-content-center">
-                                        <input class="cart-shipping-sm-input alg-rounded-small  border-primary"  type="text" value="city">
-                                        <input  class="cart-shipping-sm-input alg-rounded-small  border-primary" type="text" value="district">
-                                   </div>
-                                   <div class="w-100 d-flex d-flex justify-content-center">
-                                        <input class="cart-shipping-lg-input alg-rounded-small  border-primary" type="text" value="province">
-                                   </div>
-                                   <div class="d-flex justify-content-center gap-2">
-                                        <input class="cart-shipping-button alg-rounded-small alg-text-light alg-text-h3 alg-bg-blue alg-button-search-hover p-2 border-0" type="submit" value="Edit">
-                                        <input class="cart-shipping-button alg-rounded-small cart-shipping-button-save alg-text-h3 cart-shipping-button" type="submit" value="Save">
-                                   </div>
-                              </div>
-                              <div class="cart-ordering-main d-flex flex-column col-12  col-lg-3 text-center bg-white alg-text-h3 pt-1 pb-3 rounded-1 alg-shadow gap-3">
-                                   <span class="alg-text-h2 alg-text-blue fw-bold">Order Summery</span>
-                                   <div class="d-flex justify-content-between mx-3 pb-1 pt-1">
-                                        <span>Sub Total(5)</span>
-                                        <span class="fw-bold">LKR 65000.00</span>
-                                   </div>
-                                   <div class="d-flex justify-content-between mx-3">
-                                        <span class="">Discount</span>
-                                        <span class="fw-bold">LKR 0.00</span>
-                                   </div>
-                                   <div class="d-flex justify-content-between border-bottom border-2 pb-1 mx-3">
-                                        <span>Shipping Price</span>
-                                        <span class="fw-bold">LKR 360.00</span>
-                                   </div>
-                                   <div class="d-flex justify-content-between mx-3">
-                                        <span class="fw-bold">Total</span>
-                                        <span class="fw-bold">LKR 65360.00</span>
-                                   </div>
-                                   <div class="d-grid mx-4 mt-5">
-                                        <button class="alg-bg-blue  alg-text-h3 alg-button-hover border-0 rounded-1 text-white p-1 fw-bolder">Proceed To Checkout</button>
-                                   </div>
-                              </div>
                          </div>
                     </div>
                </div>
           </div>
      </div>
+</div>
 </div>
 
 
@@ -290,7 +274,7 @@ if (isset($loggedUserData) && isset($loggedUserData["email"])) {
                     <!-- empty cart -->
 
                     <div class="p-4" id="WatchListContainer">
-                        
+
 
                     </div>
                </div>
@@ -343,11 +327,13 @@ if (isset($loggedUserData) && isset($loggedUserData["email"])) {
                                              <!-- sign Up section -->
                                              <div class="col-8 d-flex flex-column gap-3 d-none py-4 py-md-0" id="signUpBox">
                                                   <h4 class="alg-text-dark-blue fw-bold">Sign Up</h4>
-                                                  <input type="email" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter email" / id="SignUpemail"> 
-                                                  <input type="text" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter Full Name" / id="signUpname">
+                                                  <input type="email" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter email" / id="SignUpemail">
+                                                  <input type="text" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter First Name" / id="signUpname">
+                                                  <input type="text" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter Last Name" / id="signUplastName">
+
                                                   <input type="password" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Enter password" id="signUppassword">
                                                   <input type="password" class="alg-input px-2 alg-bg-light-blue p-1 alg-text-h3" placeholder="Confirm password" id="signUpCpassword">
-                                                  <button class="button rounded-2 alg-text-h3" onclick="signUp()" >Register</button>
+                                                  <button class="button rounded-2 alg-text-h3" onclick="signUp()">Register</button>
                                                   <div class="text-center"><span class="alg-cursor fw-semibold alg-text-dark-blue alg-text-h3" onclick="changeView();">Sign In with &nbsp;<span class="fw-bold"> ></span></span></div>
                                              </div>
                                         </div>
@@ -400,7 +386,7 @@ if (isset($loggedUserData) && isset($loggedUserData["email"])) {
                                    <span class="alg-text-h2 fw-bold">Password Reset</span>
                                    <p class="alg-text-h3 text-black-50">We sent a code to abc@gmail.com</p>
 
-                                   <div class="text-start">                                
+                                   <div class="text-start">
                                         <span class="alg-text-h3 fw-semibold">Verification code</span>
                                         <span class="alg-text-h3 fw-semibold" id="verificationSendingTimeRunner">30</span>
                                         <input type="text" id="verification_code" class="ALG-model-input alg-text-h3 form-control rounded-3" placeholder="code" />

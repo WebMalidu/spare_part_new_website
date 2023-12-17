@@ -2,9 +2,13 @@
 // access validator
 require_once(__DIR__ . "/../backend/model/SessionManager.php");
 
+
 $sessionManager = new SessionManager("alg006_admin");
 if (!$sessionManager->isLoggedIn()) {
        header("Location: index.php");
+}
+else{
+      $userData=$sessionManager->getUserData();
 }
 ?>
 <!DOCTYPE html>
@@ -61,10 +65,19 @@ if (!$sessionManager->isLoggedIn()) {
               <div class="alg-sm-position-ablsolute col-8 h-100 col-md-4 col-lg-3 col-xl-2 p-3 d-none d-lg-block" id="navigationSection">
                      <div class="rounded-3 alg-bg-darker px-3 py-4 h-100 alg-shadow navigation-sidebar">
                             <button data-algMainNavigationPanel="homePanel" data-algMainNavigationPanelTitle="Home Management" class="alg-btn-pill rounded-4 my-2 w-100 main-navigation-panel-btn">HOME</button>
-                            <button data-algMainNavigationPanel="orderPanel" data-algMainNavigationPanelTitle="Order Management" class="alg-btn-pill rounded-4 my-2 w-100 main-navigation-panel-btn">ORDERS</button>
+                            <?php
+                            if($userData['user_type_user_type_id']==2){
+
+                            ?>
+                            <button data-algMainNavigationPanel="userPannel" data-algMainNavigationPanelTitle="user Management" class="alg-btn-pill rounded-4 my-2 w-100 main-navigation-panel-btn">SELLERS</button>
+                            <?php 
+                            }
+                            ?>
                             <button data-algMainNavigationPanel="vehiclePanel" data-algMainNavigationPanelTitle="Vehicle Management" class="alg-btn-pill rounded-4 my-2 w-100 main-navigation-panel-btn">VEHICLES</button>
                             <button data-algMainNavigationPanel="productPanel" data-algMainNavigationPanelTitle="Product Management" class="alg-btn-pill rounded-4 my-2 w-100 main-navigation-panel-btn">PRODUCTS</button>
                             <button data-algMainNavigationPanel="promotionPanel" data-algMainNavigationPanelTitle="Promotion Management" class="alg-btn-pill rounded-4 my-2 w-100 main-navigation-panel-btn">PROMOTIONS</button>
+                            <button data-algMainNavigationPanel="orderPanel" data-algMainNavigationPanelTitle="Order Management" class="alg-btn-pill rounded-4 my-2 w-100 main-navigation-panel-btn">ORDERS</button>
+
                      </div>
               </div>
               <div class=" col-12 col-md-8  col-lg-9 col-xl-10 p-3" id="contentSection">

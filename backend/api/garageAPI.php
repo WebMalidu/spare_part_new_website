@@ -17,25 +17,22 @@ header("Content-Type: application/json; charset=UTF-8");
 $responseObject = new stdClass();
 $responseObject->status = 'failed';
 
+// chekcing is user logging
+$userCheckSession = new SessionManager();
+if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
+     $responseObject->error = 'Please Login';
+     response_sender::sendJson($responseObject);
+}
+
+//get user
+$userDataArray = $userCheckSession->getUserData();
+$userId = $userDataArray['user_id'];
 
 // get database
 $db = new database_driver();
 
 //data update delete
 if (RequestHandler::isPostMethod()) {
-
-     // chekcing is user logging
-     // $userCheckSession = new SessionManager();
-     // if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
-     //      $responseObject->error = 'Please Login';
-     //      response_sender::sendJson($responseObject);
-     // }
-
-     // //get user
-     // $userDataArray = $userCheckSession->getUserData();
-     // $userId = $userDataArray['user_id'];
-
-     $userId = 1;
 
      // data adding
      if (isset($_POST['modelHasId'])) {
@@ -61,37 +58,35 @@ if (RequestHandler::isPostMethod()) {
 
 
           //add data for database
-          $searchQuery = "SELECT * FROM `my_garaj` WHERE `user_user_id`=? AND `vehicle_models_has_modification_line_mdu_id`=?";
-          $result = $db->execute_query($searchQuery, 'ii', array($userId, $modelHasId));
+          $searchQuery = "SELECT * FROM `my_garaj` WHERE `user_user_id`='" . $userId . "' AND `vehicle_models_has_modification_line_mdu_id`='" . $modelHasId . "'";
+          $result = $db->query($searchQuery);
 
           //check num rows
-          if ($result['result']->num_rows > 0) {
+          if ($result->num_rows > 0) {
                $responseObject->error = "this vehicle you are already added";
                response_sender::sendJson($responseObject);
           }
 
           //insert data
-          $insertQuery = "INSERT INTO `my_garaj` (`user_user_id`,`vehicle_models_has_modification_line_mdu_id`) VALUES (?,?)";
-          $db->execute_query($insertQuery, 'ii', array($userId, $modelHasId));
+          $insertQuery = "INSERT INTO `my_garaj` (`user_user_id`,`vehicle_models_has_modification_line_mdu_id`) VALUES ('" . $userId . "','" . $modelHasId . "')";
+          $db->query($insertQuery);
+          $responseObject->status = "success";
+          response_sender::sendJson($responseObject);
+     }
+
+     //delete data
+     if (isset($_POST['del_mg_id'])) {
+
+          $mgId = $_POST['del_mg_id'];
+          $deleteData = "DELETE FROM `my_garaj` WHERE `mg_id`='" . $mgId . "' AND `user_user_id`='" . $userId . "'";
+          $db->query($deleteData);
+
           $responseObject->status = "success";
           response_sender::sendJson($responseObject);
      }
 }
 
 if (RequestHandler::isGetMethod()) {
-
-     // chekcing is user logging
-     // $userCheckSession = new SessionManager();
-     // if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
-     //      $responseObject->error = 'Please Login';
-     //      response_sender::sendJson($responseObject);
-     // }
-
-     // //get user
-     // $userDataArray = $userCheckSession->getUserData();
-     // $userId = $userDataArray['user_id'];
-
-     $userId = 1;
 
      //get current user login id and load user related garage data
      $searchQuery = "SELECT * FROM `my_garaj` 

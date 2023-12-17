@@ -2,6 +2,7 @@
 <section class="alg-bg-darker alg-rounded-small my-2 d-flex h-100">
        <div class="p-2 col-3 flex-grow-1">
               <div class="px-2 algbg alg-rounded-small">
+                     <button onclick="toggleProductSection('catalogView')" class="alg-btn-pill my-2 w-100"><span class="d-none d-lg-block">CATALOG</span><i class="bi bi-box d-block d-lg-none"></i></button>
                      <button onclick="toggleProductSection('productView')" class="alg-btn-pill my-2 w-100"><span class="d-none d-lg-block">VIEW</span><i class="bi bi-box d-block d-lg-none"></i></button>
                      <button onclick="toggleProductSection('productAdd')" class="alg-btn-pill my-2 w-100"><span class="d-none d-lg-block">ADD</span><i class="bi bi-box d-block d-lg-none"></i></button>
               </div>
@@ -10,8 +11,29 @@
               <div class="p-2 h-100 d-block alg-bg-light alg-rounded-small overflow-auto flex-grow-1">
                      👈 Please Select a section...
               </div>
-              <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small overflow-auto flex-grow-1" id="productViewSection">
+              <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small overflow-auto flex-grow-1" id="catalogViewSection">
+                     <div class="d-flex flex-column p-2 alg-bg-dark alg-rounded-small">
+                            <div class="d-flex flex-row gap-2 pt-2">
+                                   <select class="form-select" id="categorySelector">
+                                          <option value="undefined">Select Category</option>
+                                   </select>
 
+                                   <input type="text" class="form-control" placeholder="Enter new catalog name" id="categoryItemName" />
+                            </div>
+                            <div class="d-flex flex-column gap-1">
+                                   <label class="form-label text-white" for="catalogImage">Catalog Image</label>
+                                   <input class="alg-rounded-mid form-control w-100" for="catalogImage" placeholder="Select a catalog image" type="file" accept="image" onchange="categoryItemImageChange(event);" id="categoryItemImageInput" />
+                                   <div class="my-2 p-1 rounded-1 product-items d-flex justify-content-center" id="categoryItemImagePreviewContainer"></div>
+                            </div>
+                            <button class="my-4 w-100 alg-btn-pill" onclick="addCatalog(event);">Add Catalog</button>
+                     </div>
+
+                     <div class="p-2 h-100  alg-bg-light alg-rounded-small overflow-auto flex-grow-1" id="productCatalogTable">
+                            <!-- table goes here -->
+                     </div>
+              </div>
+              <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small overflow-auto flex-grow-1" id="productViewSection">
+                     <!-- table goes here -->
               </div>
               <div class="p-2  h-100 d-none alg-bg-light alg-rounded-small overflow-auto flex-grow-1" id="productAddSection">
                      <div class="w-100">

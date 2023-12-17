@@ -42,14 +42,15 @@ $selectQuery = "SELECT *
                JOIN `category_item` ci ON vp.category_item_category_item_id=ci.category_item_id
                JOIN `parts_status` ps ON vp.parts_status_parts_status_id=ps.parts_status_id
                JOIN `brand` br ON vp.brand_brand_id=br.brand_id
-               JOIN `vehicle_models` vm ON vp.vehicle_models_model_id=vm.model_id
-               WHERE ct.`user_user_id` = ?";
-$result=$database_driver->execute_query($selectQuery,'i',array($userData['user_id']));
+               LEFT JOIN `product_promotion` pp ON vp.parts_id = pp.vehicle_parts_parts_id
+
+               WHERE ct.user_user_id = '" . $userData['user_id'] . "'";
+$result=$database_driver->query($selectQuery);
 
 $rows=[];
-while ($row = $result['result']->fetch_assoc()) {
-    $rows=$row;
+while ($row = $result->fetch_assoc()) {
+    array_push($rows, $row);
 }
-$responseObject->status="sucess";
+$responseObject->status="success";
 $responseObject->data=$rows;
 response_sender::sendJson($responseObject);

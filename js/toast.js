@@ -5,7 +5,7 @@ class Toast {
         this.message = message;
     }
 
-    static toastLoad(type, message) {
+    toastLoad(type, message) {
         let header;
 
         if (type == "success") {
@@ -26,7 +26,7 @@ class Toast {
            <div class="${this.bg} p-1 px-2 rounded-top alg-text-p "><span>${header}</span></div>
            <div class="bg-ino p-2 px-4 rounded-bottom alg-text-p">${message}</div>
        </div>
-    </div>`
+       </div>`
 
         setInterval(() => {
             toastContainer.innerHTML = '';

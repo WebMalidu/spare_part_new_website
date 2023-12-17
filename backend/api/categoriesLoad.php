@@ -100,8 +100,8 @@ if (RequestHandler::isGetMethod()) {
 
                     $resRowDetailObject = new stdClass();
 
-                    $resRowDetailObject->category_type = $rowData['category'];
                     $resRowDetailObject->category_id = $categoryId; // Use categoryName
+                    $resRowDetailObject->category_type = $rowData['category'];
 
                     if (is_array($searchResults)) {
                          foreach ($searchResults as $searchResult) {

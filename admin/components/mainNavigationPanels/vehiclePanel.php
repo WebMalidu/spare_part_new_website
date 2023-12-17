@@ -12,17 +12,97 @@
         <div class="p-2 h-100 d-block alg-bg-light alg-rounded-small overflow-auto flex-grow-1">
             👈 Please Select a section...
         </div>
-        <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small overflow-auto flex-grow-1" id="makersViewSection">
+        <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small" id="makersViewSection">
+            <div class="w-100 d-flex flex-column gap-2 alg-text-white">
+                <div class="w-100 alg-rounded-mid alg-bg-dark p-2 d-flex gap-3">
+                    <input class="alg-rounded-mid form-control w-75" placeholder="add a new Makers" type="text" id="addMakersInput"><button class="p-0 justify-content-center align-items-center w-25 alg-btn-pill" onclick="addMakers(event)"><span class="d-none d-md-block">Add</span><i class="bi bi-plus d-block d-md-none"></i></button>
+                </div>
+                <div class="w-100 overflow-auto alg-bg-light p-2 alg-rounded-mid" id="makersTable">
+                    Loading....
+                </div>
+            </div>
+        </div>
+        <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small" id="namesViewSection">
+            <div class="w-100 d-flex flex-column gap-2 alg-text-white">
+                <div class="alg-bg-dark d-flex flex-column flex-lg-row p-3 p-lg-3 gap-3 gap-lg-4  alg-rounded-mid justify-content-between align-content-center">
+                    <div class="col-12 col-lg-3">
+                        <select class="form-select" id="vhMakersSelector">
+                            <option>select maker</option>
+                            <!-- makers goes here -->
+                        </select>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <input class="alg-rounded-mid form-control" placeholder="add a new vehicle Name" type="text" id="addNamesInput">
+                    </div>
+                    <div class="col-12 col-lg-3">
+                        <button class="alg-btn-pill" onclick="addNames(event)"><span class="d-none d-md-block">Add</span><i class="bi bi-plus d-block d-md-none"></i></button>
+                    </div>
+
+                </div>
+                <div class="w-100 overflow-auto alg-bg-light p-2 alg-rounded-mid" id="namesTable">
+                    Loading....
+                </div>
+            </div>
 
         </div>
-        <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small overflow-auto flex-grow-1" id="namesViewSection">
+        <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small" id="modelsViewSection">
+            <div class="d-flex flex-column alg-bg-dark">
+                <div class="d-flex flex-column flex-lg-row gap-2 p-2">
+                    <select class="form-select" id="vhNamesSelector">
+                        <!-- option goes here -->
+                    </select>
+
+                    <select class="form-select" id="vhTypeSelector">
+                        <!-- option -->
+                    </select>
+                </div>
+
+                <div class="d-flex flex-column flex-lg-row gap-2 p-2">
+                    <select class="form-select" id="vhYearSelector">
+                        <!-- option -->
+                    </select>
+
+                    <select class="form-select" id="vhGenerationSelector">
+                        <!-- option -->
+                    </select>
+                </div>
+
+                <div class="d-flex flex-column p-2">
+                    <label class="form-label text-white" for="addProductImageInput">Add model image</label>
+                    <input alt="Vehicle image not upload" type="file" id="vehicleImagesInput" accept="image/*" class="form-control" onchange="vhModelImagePreview(event);" />
+                    <div class="my-2 p-1 rounded-1 product-items d-flex justify-content-center align-content-center" id="modeImagePreviewContainer"></div>
+                </div>
+                <div class="w-100 p-1">
+                    <button onclick="addModel(event)" class="my-4 w-100 alg-btn-pill">Add Model</button>
+                </div>
+            </div>
+
+            <div class="w-100 overflow-auto alg-bg-light p-2 alg-rounded-mid" id="modelTable">
+                Loading....
+            </div>
+        </div>
+        <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small overflow-auto  gap-2 flex-grow-1" id="modelLinesViewSection">
+
+            <div class="d-flex flex-column alg-bg-dark alg-rounded-small p-2 pt-2">
+                <div class="d-flex justify-content-between gap-2 p-2">
+                    <select class="form-select" id="vhModelSelector">
+                        <!-- option -->
+                    </select>
+
+                    <select class="form-select" id="vhModelLineSelector">
+                        <!-- option -->
+                    </select>
+
+                </div>
+
+                <button class="my-4 w-100 alg-btn-pill" onclick="addVhModelLine(event);">Add Model Line</button>
+            </div>
+
+            <div class="w-100 overflow-auto alg-bg-light p-2 alg-rounded-mid" id="modelLinesTableContainer">
+                Loading....
+            </div>
 
         </div>
-        <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small overflow-auto flex-grow-1" id="modelsViewSection">
-
-        </div>
-        <div class="p-2 h-100 d-none alg-bg-light alg-rounded-small overflow-auto flex-grow-1" id="modelLinesViewSection">
-
-        </div>
+    </div>
     </div>
 </section>

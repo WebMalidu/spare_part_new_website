@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hi</h1>
+
+    
+</body>
+<script>
+    const title = "some_title";
+const start = "2023-01-01";
+const end = "2023-12-31";
+const percentage = 10; // or any other numeric value
+
+const requestDataObject = {
+    parts_id: title, 
+    start_date: start,
+    end_date: end,
+    discount: percentage
+};
+// store data in a form
+let form = new FormData();
+form.append("cartData", JSON.stringify(requestDataObject));
+
+// send the data to server
+let request = new XMLHttpRequest();
+request.onreadystatechange = function () {
+if (request.readyState == 4) {
+ // preform an action on response
+ let response = JSON.parse(request.responseText);
+ if (response.status == "success") {
+    alert("successfully added item to watchlist");
+ } else {
+   console.log(response.error);
+ }
+ console.log(request.responseText);
+}
+};
+request.open("POST", "promationAdding.php", true);
+request.send(form);
+</script>
+</html>

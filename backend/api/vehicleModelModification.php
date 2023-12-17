@@ -52,3 +52,48 @@ if (RequestHandler::isGetMethod()) {
           response_sender::sendJson($responseObject);
      }
 }
+
+if (RequestHandler::isPostMethod()) {
+     //add data 
+     if (isset($_POST['ad_model_id'], $_POST['ad_model_line_id'])) {
+
+          $modelId = $_POST['ad_model_id'];
+          $modelLine = $_POST['ad_model_line_id'];
+
+          //search this data already have
+          $searchQuery = "SELECT * FROM `vehicle_models_has_modification_line` WHERE 
+          `vehicle_models_model_id`='" . $modelId . "' AND `modification_line_mod_id`='" . $modelLine . "'";
+          $result = $db->query($searchQuery);
+
+          if ($result->num_rows > 0) {
+               $responseObject->error = 'This model line already exists';
+               response_sender::sendJson($responseObject);
+          }
+
+          //add data 
+          $insertQuery = "INSERT INTO `vehicle_models_has_modification_line` (`vehicle_models_model_id`,`modification_line_mod_id`)
+          VALUES ('" . $modelId . "','" . $modelLine . "')";
+
+          $db->query($insertQuery);
+
+          $responseObject->status = 'success';
+          response_sender::sendJson($responseObject);
+     }
+
+     //delete data
+     if (isset($_POST['del_model_line_id'])) {
+
+          $modelLineId = $_POST['del_model_line_id'];
+
+          try {
+               $deleteQuery = "DELETE FROM `vehicle_models_has_modification_line` WHERE `mdu_id` = '" . $modelLineId . "'";
+               $db->query($deleteQuery);
+
+               $responseObject->status = 'success';
+               response_sender::sendJson($responseObject);
+          } catch (mysqli_sql_exception $ex) {
+               $responseObject->error = 'Cannot delete this vehicle model line because it use vehicle parts';
+               response_sender::sendJson($responseObject);
+          }
+     }
+}
