@@ -40,10 +40,10 @@ $database_driver=new database_driver();
 
 $selectQuery = "SELECT *
                FROM `user`              
-               WHERE `user_id` = ?";
-$resultMain=$database_driver->execute_query($selectQuery,'i',array($userData['user_id']));
+               WHERE user_id = '" . $userData['user_id'] . "'";
+$resultMain=$database_driver->query($selectQuery);
 
-if (!$resultMain['result']->num_rows > 0) {
+if (!$resultMain->num_rows > 0) {
     $responseObject->error="Please Complete Your User data";
     response_sender::sendJson($responseObject);
 
@@ -52,21 +52,21 @@ $checkOutData=json_decode($_POST['checkOutData']);
 $pay=$checkOutData->total;
 
 
-$rowMain = $resultMain['result']->fetch_assoc();
+$rowMain = $resultMain->fetch_assoc();
 
 $selectQuery = "SELECT *
                FROM `shipping_details`              
-               WHERE `user_user_id` = ?";
-$resultCore=$database_driver->execute_query($selectQuery,'i',array($userData['user_id']));
+               WHERE user_user_id = '" . $userData['user_id'] . "'";
+$resultCore=$database_driver->query($selectQuery);
 
-if (!$resultCore['result']->num_rows > 0) {
+if (!$resultCore->num_rows > 0) {
     $responseObject->error="Please Complete Shipping Details";
     response_sender::sendJson($responseObject);
 
 }
 
 
-$rowCore = $resultCore['result']->fetch_assoc();
+$rowCore = $resultCore->fetch_assoc();
 
 $firstname = $rowMain['full_name'];
 $lastname = $rowMain['last_name'];
