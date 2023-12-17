@@ -65,11 +65,11 @@
                             <div class=" row pb-md-3 pb-lg-0  p-0 gap-2 gap-md-0 gap-lg-0 pt-3 pt-md-0 pt-lg-0 pb-5">
                                 <div class="hr-s1-button col-12 col-md-6 col-lg-6 d-grid hr-bd-btn pb-2 pb-md-0">
 
-                                    <button class="main-btn-1 alg-bg-blue rounded-1 alg-text-h3 alg-button-hover fw-bold"> <a href="http://localhost:9001/garage.php" class="text-decoration-none text-white">ADD CAR</a></button>
+                                    <button class="main-btn-1 alg-bg-blue rounded-1 alg-text-h3 alg-button-hover fw-bold"> <a href="https://batta.lk/garage.php" class="text-decoration-none text-white">ADD CAR</a></button>
 
                                 </div>
                                 <div class="hr-s1-button col-12 col-md-6  col-lg-6  d-grid hr-bd-btn">
-                                    <button class="main-btn-2 rounded-1 alg-text-h3 text-white"><a href="http://localhost:9001/term&condition.php" class="text-decoration-none text-white">Lear More</a></button>
+                                    <button class="main-btn-2 rounded-1 alg-text-h3 text-white"><a href="https://batta.lk/term&condition.php" class="text-decoration-none text-white">Lear More</a></button>
                                 </div>
                             </div>
                         </div>
