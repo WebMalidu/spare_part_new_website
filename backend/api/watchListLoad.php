@@ -33,23 +33,23 @@ $userData = $userCheckSession->getUserData();
 
 
 
-$database_driver=new database_driver();
+$database_driver = new database_driver();
 
 $selectQuery = "SELECT *
-               FROM `watchlist` wl
-               JOIN `vehicle_parts` vp ON wl.vehicle_parts_parts_id = vp.parts_id
-               JOIN `parts_origin` po ON vp.parts_origin_origin_id=po.origin_id
-               JOIN `category_item` ci ON vp.category_item_category_item_id=ci.category_item_id
-               JOIN `parts_status` ps ON vp.parts_status_parts_status_id=ps.parts_status_id
-               JOIN `brand` br ON vp.brand_brand_id=br.brand_id
-               JOIN `user` ur ON vp.user_user_id=ur.user_id
-               WHERE wl.`user_user_id` = ?";
-$result=$database_driver->execute_query($selectQuery,'i',array($userData['user_id']));
+               FROM watchlist wl
+               JOIN vehicle_parts vp ON wl.vehicle_parts_parts_id = vp.parts_id
+               JOIN parts_origin po ON vp.parts_origin_origin_id=po.origin_id
+               JOIN category_item ci ON vp.category_item_category_item_id=ci.category_item_id
+               JOIN parts_status ps ON vp.parts_status_parts_status_id=ps.parts_status_id
+               JOIN brand br ON vp.brand_brand_id=br.brand_id
+               JOIN user ur ON vp.user_user_id=ur.user_id
+               WHERE wl.user_user_id = '" . $userData['user_id'] . "'";
+$result = $database_driver->query($selectQuery);
 
-$rows=[];
-while ($row = $result['result']->fetch_assoc()) {
-    $rows[]=$row;
+$rows = [];
+while ($row = $result->fetch_assoc()) {
+    array_push($rows, $row);
 }
-$responseObject->status="success";
-$responseObject->data=$rows;
+$responseObject->status = "success";
+$responseObject->data = $rows;
 response_sender::sendJson($responseObject);

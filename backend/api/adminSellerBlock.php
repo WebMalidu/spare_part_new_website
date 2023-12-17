@@ -35,9 +35,9 @@ $directory = '../../resources/image/userImages/';
 // File extensions to search for (you can specify multiple extensions in an array)
 $fileExtensions = ['png', 'jpeg', 'jpg', 'svg'];
 
-$updateQuery = "UPDATE `user` SET `user_type_user_type_id` = ? WHERE `user_id` = ?";
+$updateQuery = "UPDATE `user` SET `user_type_user_type_id` = 5 WHERE user_id = '" . $userId . "'";
 $parms = [5, $userId];
-$result = $database_driver->execute_query($updateQuery, 'ii', $parms);
+$result = $database_driver->query($updateQuery);
 
 // Initialize an array to store all rows and image URLs
 $rows = [];

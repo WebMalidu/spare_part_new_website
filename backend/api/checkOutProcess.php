@@ -29,8 +29,8 @@ if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
 $userData = $userCheckSession->getUserData();
 
 $checkOutData = json_decode($_POST['checkOutData']);
-$total=$checkOutData->total;
-$shipping=$checkOutData->shipping;
+$total = $checkOutData->total;
+$shipping = $checkOutData->shipping;
 
 
 // Generate a random letter (A-Z)
@@ -47,17 +47,19 @@ $orderId = "orderId_" . $randomLetter . $randomNumber;
 
 
 
-$database_driver=new database_driver();
+$database_driver = new database_driver();
 
-$selectQuery="SELECT * FROM `shipping_details` WHERE `user_user_id`=?" ;
-$result=$database_driver->execute_query($selectQuery,'i',array($userData['user_id']));
+$selectQuery = "SELECT * FROM `shipping_details` WHERE `user_user_id`=?";
+$result = $database_driver->execute_query($selectQuery, 'i', array($userData['user_id']));
 
 if (!$result['result']->num_rows > 0) {
-    $responseObject->error="Please Fill Shipping Details";
+    $responseObject->error = "Please Fill Shipping Details";
     response_sender::sendJson($responseObject);
 }
-$insertQuery="INSERT INTO `invoice`(`pay_total_amout`,`shipping_price`,`order_id`,`invoice_status_invoice_status_id`,`user_user_id`,`delivery_date`) VALUES (?,?,?,?,?,?)";
-$result=$database_driver->execute_query($insertQuery,'sssiis',array($total,$shipping,$orderId,2,$userData['user_id'],'Not Set'));
+$insertQuery = "INSERT INTO `invoice`(`pay_total_amout`, `shipping_price`, `order_id`, `invoice_status_invoice_status_id`, `user_user_id`, `delivery_date`) VALUES ('$total', '$shipping', '$orderId', '2', '{$userData['user_id']}', 'Not Set')";
+
+$result = $database_driver->query($insertQuery);
+
 
 $selectQuery = "SELECT * FROM `invoice` ORDER BY invoice_id DESC LIMIT 1";
 $resulInvoice = $database_driver->query($selectQuery);
@@ -71,23 +73,23 @@ $selectQuery = "SELECT *
                JOIN `parts_status` ps ON vp.parts_status_parts_status_id=ps.parts_status_id
                JOIN `brand` br ON vp.brand_brand_id=br.brand_id
                LEFT JOIN `product_promotion` pp ON vp.parts_id = pp.vehicle_parts_parts_id
-               WHERE ct.`user_user_id` = ?";
+               WHERE ct.user_user_id = '" . $userData['user_id'] . "'";
 
-$result = $database_driver->execute_query($selectQuery, 'i', array($userData['user_id']));
+$result = $database_driver->query($selectQuery);
 
 // Check if the query returned any rows
-if ($result['result']->num_rows > 0) {
+if ($result->num_rows > 0) {
     $rows = [];
 
     // Fetch all rows and store them in the $rows array
-    while ($row = $result['result']->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
         $rows[] = $row;
 
-        // Insert each row into the `invoice_item` table
-        $insertQuery = "INSERT INTO `invoice_item`(`qty`, `total_item_price`, `vh_parts_name`, `vh_parts_id`, `invoice_invoice_id`) VALUES (?,?,?,?,?)";
-        $insertResult = $database_driver->execute_query($insertQuery, 'iissi', array(1, $row['price'], $row['title'], $row['parts_id'], $rowInvoice['invoice_id']));
+        // Assuming $row, $row['price'], $row['title'], $row['parts_id'], $rowInvoice, and $rowInvoice['invoice_id'] contain the respective values needed for insertion.
 
-        
+        $insertQuery = "INSERT INTO `invoice_item`(`qty`, `total_item_price`, `vh_parts_name`, `vh_parts_id`, `invoice_invoice_id`) VALUES (1, '{$row['price']}', '{$row['title']}', '{$row['parts_id']}', '{$rowInvoice['invoice_id']}')";
+
+        $insertResult = $database_driver->query($insertQuery);
     }
 
     // If everything goes well, set the success status and send response

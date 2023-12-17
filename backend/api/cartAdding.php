@@ -37,15 +37,13 @@ $partId=$cartData->parts_id;
 
 $database_driver=new database_driver();
 
-$insertQuery="INSERT INTO `cart`(`qty`,`user_user_id`,`vehicle_parts_parts_id`) VALUES (?,?,?)";
-$parms=array(1,$userData['user_id'],$partId);
-$result=$database_driver->execute_query($insertQuery,'iis',$parms);
+// Assuming $userData['user_id'] and $partId contain the respective values needed for insertion.
+
+$insertQuery = "INSERT INTO `cart`(`qty`,`user_user_id`,`vehicle_parts_parts_id`) VALUES (1, '{$userData['user_id']}', '{$partId}')";
+
+$result = $database_driver->query($insertQuery);
 
 
-if (!$result['stmt']->affected_rows > 0) {
-    $responseObject->error = "Data adding failed. " . $database->connection->error;
-    response_sender::sendJson($responseObject);
-}
 
 
 $responseObject->status="success";

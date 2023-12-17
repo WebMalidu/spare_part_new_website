@@ -45,15 +45,15 @@ $selectQuery = "SELECT *
                JOIN `user_type` ut ON ur.user_type_user_type_id = ut.user_type_id
                JOIN `user_status` us ON ur.user_status_u_status_id=us.u_status_id
                JOIN `admin` ad ON ur.admin_admin_id=ad.admin_id
-               WHERE ur.`user_type_user_type_id`=?";
-$result=$database_driver->execute_query($selectQuery,'i',[4]);
+               WHERE ur.`user_type_user_type_id`=4";
+$result=$database_driver->query($selectQuery);
 
 // Initialize an array to store all rows and image URLs
 $rows = [];
 $imageUrls = [];
 
 // Fetch all rows from the result and store them in the 'rows' array
-while ($row = $result['result']->fetch_assoc()) {
+while ($row = $result->fetch_assoc()) {
     $rows[] = $row;
 
     $fileName = strval($row['user_id']);

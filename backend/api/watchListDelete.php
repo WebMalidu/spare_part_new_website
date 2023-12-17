@@ -37,13 +37,9 @@ $w_id=$watchListData->watchlistId;
 
 $database_driver=new database_driver();
 
-$deleteQuery="DELETE  FROM `watchlist` WHERE `w_id`=?";
-$result=$database_driver->execute_query($deleteQuery,'i',array($w_id));
+$deleteQuery="DELETE  FROM `watchlist` WHERE w_id='" . $w_id . "'";
+$result=$database_driver->query($deleteQuery);
 
-if (!$result['stmt']->affected_rows > 0) {
-    $responseObject->error = "Data delet failed. " . $database->connection->error;
-    response_sender::sendJson($responseObject);
-}
 
 
 $responseObject->status="success";

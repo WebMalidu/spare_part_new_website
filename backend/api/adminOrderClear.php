@@ -29,9 +29,9 @@ $database_driver=new database_driver();
 
 
 
-$updateQuery = "UPDATE `invoice` SET `invoice_status_invoice_status_id` = ? WHERE `invoice_id` = ?";
+$updateQuery = "UPDATE `invoice` SET `invoice_status_invoice_status_id` = 3 WHERE invoice_id = '" . $invoiceId . "'";
 $parms = [3, $invoiceId];
-$result = $database_driver->execute_query($updateQuery, 'ii', $parms);
+$result = $database_driver->query($updateQuery);
 
 // Initialize an array to store all rows and image URLs
 $rows = [];
@@ -41,8 +41,7 @@ $imageUrls = [];
 
 // Set the 'status' property of the response object to the 'rows' array
 $responseObject->status = "success";
-$responseObject->data = $rows;
-$responseObject->imageUrls = $imageUrls;
+
 
 // Send the JSON response using the 'response_sender' class
 response_sender::sendJson($responseObject);

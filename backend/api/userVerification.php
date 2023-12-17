@@ -27,12 +27,12 @@ $sqlDateFormat = date('Y-m-d');
 $db = new database_driver();
 
 // Check if the email already exists in the database
-$searchQuery = "SELECT email FROM `user` WHERE email = ?";
-$queryResult = $db->execute_query($searchQuery, 's', array($email));
+$searchQuery = "SELECT email FROM `user` WHERE email = '" . $email . "'";
+$queryResult = $db->query($searchQuery);
 
 // Extract the statement and the result from the queryResult array
-$stmt = $queryResult['stmt'];
-$result = $queryResult['result'];
+//$stmt = $queryResult['stmt'];
+$result = $queryResult;
 
 // Fetch the row from the result
 if ($result->num_rows > 0) {
@@ -48,19 +48,22 @@ $hash = $passwordEncryptor['hash'];
 $salt = $passwordEncryptor['salt'];
 
 
-$insertQuery = "INSERT INTO `user`(`user_type_user_type_id`,`first_name`,`last_name`,`email`,`password_hash`,`password_salt`,`register_date`,`user_status_u_status_id`,`admin_admin_id`) VALUES (?,?,?,?,?,?,?,?,?) ";
-$parms = array(1, $first_name,$last_name, $email, $hash, $salt, $sqlDateFormat, 1, 1);
-$result1 = $db->execute_query($insertQuery, 'issssssii', $parms);
+// Assuming $first_name, $last_name, $email, $hash, $salt, $sqlDateFormat contain the respective values needed for insertion.
+
+$insertQuery = "INSERT INTO `user`(`user_type_user_type_id`,`full_name`,`last_name`,`email`,`password_hash`,`password_salt`,`register_date`,`user_status_u_status_id`,`admin_admin_id`) VALUES (1, '{$first_name}', '{$last_name}', '{$email}', '{$hash}', '{$salt}', '{$sqlDateFormat}', 1, 1)";
+
+$result1 = $db->query($insertQuery);
 
 
 
 
-$selectQuery = "SELECT * FROM `user` WHERE email = ?";
-$result2 = $db->execute_query($selectQuery, 's', [$email]);
+
+$selectQuery = "SELECT * FROM `user` WHERE email = '" . $email . "'";
+$result2 = $db->query($selectQuery);
 
 
 // Fetch the row from the result
-$row = $result2['result']->fetch_assoc();
+$row = $result2->fetch_assoc();
 
 
 //create a session

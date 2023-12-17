@@ -42,11 +42,11 @@ $selectQuery = "SELECT *
                JOIN `category_item` ci ON vp.category_item_category_item_id=ci.category_item_id
                JOIN `parts_status` ps ON vp.parts_status_parts_status_id=ps.parts_status_id
                JOIN `brand` br ON vp.brand_brand_id=br.brand_id
-               WHERE pp.`user_user_id` = ?";
+               WHERE pp.user_user_id = '" . $userData['user_id'] . "'";
 
 
 // Execute the SQL query and bind user ID as a parameter
-$searchResult = $database_driver->execute_query($selectQuery, 'i', array($userData['user_id']));
+$searchResult = $database_driver->query($selectQuery);
 
 
 
@@ -71,8 +71,8 @@ $rows = [];
 $imageUrls = [];
 
 // Fetch all rows from the result and store them in the 'rows' array
-while ($row = $searchResult['result']->fetch_assoc()) {
-    $rows[] = $row;
+while ($row = $searchResult->fetch_assoc()) {
+    array_push($rows, $row);
 
     $fileName = strval($row['promotion_id']);
     // Create an instance of the FileSearch class
