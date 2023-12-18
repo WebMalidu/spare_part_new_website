@@ -72,7 +72,7 @@ class Loader {
        }
        //load vehicle category 
        async LoadVehicleCategory() {
-              const vehicleCategoryResponse = await this.dataSender.dataLoad("backend/api/categoriesLoad.php");
+              const vehicleCategoryResponse = await this.dataSender.dataLoad("api/categoriesLoad.php");
               return vehicleCategoryResponse;
        }
 
