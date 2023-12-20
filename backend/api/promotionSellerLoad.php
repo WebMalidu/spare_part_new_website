@@ -24,10 +24,7 @@ if (!RequestHandler::isPostMethod()) {
 
 // Check if the user is logged in
 $userCheckSession = new SessionManager();
-if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
-     $responseObject->error = 'Please Login';
-     response_sender::sendJson($responseObject);
-}
+
 
 // Get user data
 $userData = $userCheckSession->getUserData();
