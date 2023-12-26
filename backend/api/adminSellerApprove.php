@@ -4,6 +4,13 @@ require_once("../../backend/model/response_sender.php");
 require_once("../../backend/model/fileSearch.php");
 require_once("../../backend/model/RequestHandler.php");
 require_once("../../backend/model/SessionManager.php");
+require_once("../model/mail/MailSender.php");
+require_once("../model/mail/Exception.php");
+require_once("../model/mail/OAuth.php");
+require_once("../model/mail/PHPMailer.php");
+require_once("../model/mail/POP3.php");
+require_once("../model/mail/SMTP.php");
+
 // Create an object to store the response data
 $responseObject = new stdClass();
 $responseObject->status = 'failed';
@@ -46,9 +53,23 @@ $imageUrls = [];
 
 
 // Set the 'status' property of the response object to the 'rows' array
-$responseObject->status = "success";
-$responseObject->data = $rows;
-$responseObject->imageUrls = $imageUrls;
+$login_link =  $_SERVER['HTTP_HOST'] . "/admin/index.php";
+$body = '<p>This is your Login Link Please use your email and password to login </p> <br> http://' . $login_link;
+
+$userData = $userCheckSession->getUserData();
+
+
+// kaviska 
+$mailSender = new MailSender($userData['email']);
+$mailSender->mailInitiate("Sign UP Link - batta.lk", "Click on the following link to verify", $body);
+$mailStatus =  $mailSender->sendMail();
+
+
+if ($mailStatus == "success") {
+    $responseObject->status = "success";
+} else {
+    $responseObject->error = $mailStatus;
+}
 
 // Send the JSON response using the 'response_sender' class
 response_sender::sendJson($responseObject);
