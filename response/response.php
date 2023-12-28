@@ -14,22 +14,29 @@ $status = $input['status'];
 if ($status == 1) {
    // Your existing code here...
    // Create an object to manage user sessions
-   $userCheckSession = new SessionManager();
+ // Create an object to manage user sessions
+$userCheckSession = new SessionManager();
+
+// Check if the user is logged in and user data is available
+if (!$userCheckSession->isLoggedIn() || !$userCheckSession->getUserData()) {
+  echo"please login";
+}
 
 
 
-   // Get user data
-   $userData = $userCheckSession->getUserData();
+$userData = $userCheckSession->getUserData();
 
    $database_driver = new database_driver();
+   
 
-   $selectQuery = "SELECT * FROM `invoice` ORDER BY invoice_id DESC LIMIT 1";
+   $selectQuery = "SELECT * FROM `invoice` WHERE user_user_id = '" . $userData['user_id'] . "' ORDER BY invoice_id DESC LIMIT 1";
+
    $resulInvoice = $database_driver->query($selectQuery);
    $rowInvoice = $resulInvoice->fetch_assoc();
 
 
 
-  $updateQuery = "UPDATE `invoice` SET `invoice_status_invoice_status_id` = 1 WHERE `user_user_id` = {$userData['user_id']} && `invoice_id` = {$rowInvoice['invoice_id']}";
+  $updateQuery = "UPDATE `invoice` SET `invoice_status_invoice_status_id` = 1 WHERE  `invoice_id` = {$rowInvoice['invoice_id']}";
 
 $result = $database_driver->query($updateQuery);
 
@@ -77,7 +84,7 @@ $result = $database_driver->query($updateQuery);
 
 <body>
    <div class="message <?php echo $messageClass; ?>">
-      <p>Transaction ID: <?php echo $transactionId; ?></p>
+      <p>Transaction ID: <?php echo $transactionId ?></p>
       <p><?php echo $message; ?></p>
    </div>
 </body>

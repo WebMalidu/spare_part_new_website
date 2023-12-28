@@ -610,6 +610,14 @@ const toggleOrderSection = async (orderSections) => {
     )
     : null;
 
+    orderSections === "orderViewSeller"
+    ? ALG.addTableToContainer(
+      "orderViewSellerSection",
+      orderLoadSeller,
+      [300, 300, 150, 150, 300, 300, 300, 150, 150, 150, 150, 150]
+    )
+    : null;
+
 };
 
 
@@ -1188,6 +1196,7 @@ const orderLoad = () => {
         if (response.status === "success") {
           console.log(response.data)
           if (Array.isArray(response.data)) {
+            console.log(response.data)
             response.data.forEach((res) => {
               const editButton = `<button class="fw-bolder btn alg-btn-pill" onclick="clearOrder(${res.invoice_id})">Approve</button>`;
               orderList.push({
@@ -1228,6 +1237,62 @@ const orderLoad = () => {
 };
 
 
+const orderLoadSeller = () => {
+  return new Promise((resolve, reject) => {
+    const orderList = [];
+
+    console.log("order loaded");
+
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+      if (request.readyState === 4) {
+        let response = JSON.parse(request.responseText);
+        console.log(response)
+        if (response.status === "success") {
+          console.log(response.data)
+          if (Array.isArray(response.data)) {
+            console.log(response.data)
+            response.data.forEach((res) => {
+              const editButton = `<button class="fw-bolder btn alg-btn-pill" onclick="clearOrder(${res.invoice_id})">Approve</button>`;
+              orderList.push({
+                "Part Name": res.vh_parts_name,
+                "Seller Name": res.full_name,
+                "Price": res.price,
+                "Order Id": res.order_id,
+                "Total Price For User Order": res.pay_total_amout,
+                "Adress Line 1": res.address_line_1,
+                "Adress Line 2": res.address_line_2,
+                "Mobile": res.mobile,
+                "USer Name": res.user_name,
+                "Postal Code": res.postal_code,
+                "City": res.city,
+
+
+
+                Edit: editButton,
+              });
+            });
+
+            resolve(orderList); // Resolve the Promise with promoList
+          } else {
+            ALG.openToast("error", "Invalid data format", ALG.getCurrentTime(), "bi-heart", "Failed");
+            console.error("Invalid data format. Expected an array in 'data' property:", response);
+            reject(new Error("Invalid data format"));
+          }
+        } else {
+          ALG.openToast("error", "Promotion load failed", ALG.getCurrentTime(), "bi-heart", "Failed");
+          reject(new Error("Promotion load failed"));
+        }
+      }
+    };
+
+    request.open("POST", "../backend/api/adminSellerOrderLoad.php", true);
+    request.send();
+  });
+};
+
+
+
 function clearOrder(id) {
   const requestDataObject = {
     invoiceId: id,
@@ -1254,6 +1319,7 @@ function clearOrder(id) {
           orderLoad,
           [300, 300, 150, 150, 300, 300, 300, 150, 150, 150, 150, 150]
         )
+        location.reload()
 
       } else {
         ALG.openToast("error", "User Approved Failed", ALG.getCurrentTime(), "bi-heart", "Failed");

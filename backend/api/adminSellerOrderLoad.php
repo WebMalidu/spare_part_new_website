@@ -26,49 +26,34 @@ $userData = $userCheckSession->getUserData();
 
 $database_driver=new database_driver();
 
-// Directory to search in
-$directory = '../../resources/image/userImages/';
 
-// Name of the file you're looking for
-
-// File extensions to search for (you can specify multiple extensions in an array)
-$fileExtensions = ['png', 'jpeg', 'jpg', 'svg'];
 
 
 $selectQuery = "SELECT *
-               FROM `user` ur
-               JOIN `user_type` ut ON ur.user_type_user_type_id = ut.user_type_id
-               JOIN `user_status` us ON ur.user_status_u_status_id=us.u_status_id
-               JOIN `seller_details` ad ON ur.user_id=ad.user_user_id
-               WHERE ur.`user_type_user_type_id`=3";
+               FROM `invoice` ie
+               JOIN `invoice_item` it ON ie.invoice_id = it.invoice_invoice_id
+               JOIN `vehicle_parts` vp ON it.vh_parts_id=vp.parts_id
+               JOIN `user` ur ON vp.user_user_id=ur.user_id
+               JOIN `shipping_details` sd ON ie.user_user_id=sd.user_user_id
+               
+               WHERE ie.`invoice_status_invoice_status_id`=1 && vp.user_user_id='" . $userData['user_id'] . "'";
 $result=$database_driver->query($selectQuery);
 
 // Initialize an array to store all rows and image URLs
 $rows = [];
-$imageUrls = [];
 
 // Fetch all rows from the result and store them in the 'rows' array
 while ($row = $result->fetch_assoc()) {
     $rows[] = $row;
 
-    $fileName = strval($row['user_id']);
-    // Create an instance of the FileSearch class
-    $fileSearch = new FileSearch($directory, $fileName, $fileExtensions);
+  
 
-    // Perform the search
-    $results = $fileSearch->search();
-
-    if (is_array($results)) {
-        foreach ($results as $file) {
-            $imageUrls[] = $file; // Append the image URL to the $imageUrls array
-        }
-    }
+  
 }
 
 // Set the 'status' property of the response object to the 'rows' array
 $responseObject->status = "success";
 $responseObject->data = $rows;
-$responseObject->imageUrls = $imageUrls;
 
 // Send the JSON response using the 'response_sender' class
 response_sender::sendJson($responseObject);
