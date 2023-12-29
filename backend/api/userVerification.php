@@ -16,7 +16,7 @@ if (!isset($_GET['email'])) {
 $encrpt_password = $_GET['password'];
 $encrpt_email = $_GET['email'];
 $first_name = $_GET['first_name'];
-$last_name=$_GET['last_name'];
+$last_name = $_GET['last_name'];
 $password = base64_decode($encrpt_password);
 $email = base64_decode($encrpt_email);
 $first_name = base64_decode($first_name);
@@ -50,7 +50,7 @@ $salt = $passwordEncryptor['salt'];
 
 // Assuming $first_name, $last_name, $email, $hash, $salt, $sqlDateFormat contain the respective values needed for insertion.
 
-$insertQuery = "INSERT INTO `user`(`user_type_user_type_id`,`full_name`,`last_name`,`email`,`password_hash`,`password_salt`,`register_date`,`user_status_u_status_id`) VALUES (1, '{$first_name}', '{$last_name}', '{$email}', '{$hash}', '{$salt}', '{$sqlDateFormat}', 1)";
+$insertQuery = "INSERT INTO `user`(`user_type_user_type_id`,`full_name`,`last_name`,`email`,`password_hash`,`password_salt`,`register_date`,`user_status_u_status_id`) VALUES ('1', '" . $first_name . "', '" . $last_name . "', '" . $email . "', '" . $hash . "', '" . $salt . "', '" . $sqlDateFormat . "', '1')";
 
 $result1 = $db->query($insertQuery);
 

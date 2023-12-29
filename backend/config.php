@@ -1,5 +1,5 @@
 <?php
 
-define("DATABASE", "alg006");
-define("PASSWORD", "KaviskaDilshan12#$");
+define("DATABASE", "alg006_battalk");
+define("PASSWORD", "#Apeamma2001");
 define("USERNAME", "root");
