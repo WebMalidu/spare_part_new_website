@@ -285,7 +285,15 @@ async function dataAddingForGarage(modelHasId) {
           });
           garageData = await garageResponse.json();
           //then get now response manege
-          garageData.status === 'success' ? window.location.reload() : console.log(garageData.error);
+
+          if (garageData.status === 'success') {
+               window.location.reload();
+          } else if (garageData.error === "Please Login") {
+               garageModel.hide();
+               openLoginModel();
+          } else {
+               console.log(garageData.error);
+          }
 
      } catch (error) {
           console.log(error);
