@@ -79,7 +79,7 @@ async function addProduct(event) {
        const formData = new FormData();
        formData.append("insertData", sendData);
 
-       const addProductResponse = await dataSend.dataIUD(formData, 'backend/api/productManupulateAPI.php');
+       const addProductResponse = await dataSend.dataIUD(formData, 'api/productManupulateAPI.php');
        console.log(addProductResponse);
 
        if (addProductResponse.status === "success") {
@@ -115,7 +115,7 @@ async function addModel(event) {
        formData.append('ad_generation_id', vhGenerationSelector);
        formData.append('ad_model_img', vehicleModelImage);
 
-       const vehicleModelResponse = await dataSend.dataIUD(formData, 'backend/api/vehicleModelAPI.php');
+       const vehicleModelResponse = await dataSend.dataIUD(formData, 'api/vehicleModelAPI.php');
 
        if (vehicleModelResponse.status === 'success') {
               ALG.openToast("Success", "Vehicle model adding success", ALG.getCurrentTime(), "bi-heart", "Success");
@@ -141,7 +141,7 @@ const removeModel = async (model_id) => {
        const formData = new FormData();
        formData.append("del_model_id", model_id);
 
-       const modelResponse = await dataSend.dataIUD(formData, 'backend/api/vehicleModelAPI.php');
+       const modelResponse = await dataSend.dataIUD(formData, 'api/vehicleModelAPI.php');
 
        if (modelResponse.status === 'success') {
 
@@ -247,7 +247,7 @@ async function addCatalog(e) {
        formData.append('category_item_name', categoryItemName);
        formData.append('category_item_image', categoryItemImageInput);
 
-       const categoryItemResponse = await dataSend.dataIUD(formData, 'backend/api/categoryItemAdding.php');
+       const categoryItemResponse = await dataSend.dataIUD(formData, 'api/categoryItemAdding.php');
 
        if (categoryItemResponse.status === 'success') {
               ALG.openToast("Success", "Vehicle category item adding success", ALG.getCurrentTime(), "bi-heart", "Success");
@@ -300,7 +300,7 @@ const removeCategoryItem = async (category_item_id) => {
        const formData = new FormData();
        formData.append("category_item_id", category_item_id);
 
-       const categoryItemRes = await dataSend.dataIUD(formData, 'backend/api/categoryItemDelete.php');
+       const categoryItemRes = await dataSend.dataIUD(formData, 'api/categoryItemDelete.php');
 
        if (categoryItemRes.status === 'success') {
               ALG.openToast("Success", "Product catalog delete success", ALG.getCurrentTime(), "bi-heart", "Success");
@@ -367,7 +367,7 @@ async function addCategory(e) {
        formData.append('category', categoryName);
        formData.append('category_image', categoryImageInput);
 
-       const categoryResponse = await dataSend.dataIUD(formData, 'backend/api/categoriesAdding.php');
+       const categoryResponse = await dataSend.dataIUD(formData, 'api/categoriesAdding.php');
 
        if (categoryResponse.status === 'success') {
               ALG.openToast("Success", "Vehicle category  adding success", ALG.getCurrentTime(), "bi-heart", "Success");
@@ -391,7 +391,7 @@ const removeCategory = async (category_id) => {
        const formData = new FormData();
        formData.append("category_id", category_id);
 
-       const categoryRes = await dataSend.dataIUD(formData, 'backend/api/categoryDelete.php');
+       const categoryRes = await dataSend.dataIUD(formData, 'api/categoryDelete.php');
 
        if (categoryRes.status === 'success') {
               ALG.openToast("Success", "Product category delete success", ALG.getCurrentTime(), "bi-heart", "Success");
@@ -419,7 +419,7 @@ const removeProduct = async (parts_id) => {
        const formData = new FormData();
        formData.append("del_parts_id", parts_id);
 
-       const productRemoveResponse = await dataSend.dataIUD(formData, 'backend/api/productManupulateAPI.php');
+       const productRemoveResponse = await dataSend.dataIUD(formData, 'api/productManupulateAPI.php');
 
        if (productRemoveResponse.status === 'success') {
               ALG.openToast("Success", "Product delete success", ALG.getCurrentTime(), "bi-heart", "Success");
@@ -447,7 +447,7 @@ const addMakers = async (event) => {
        const formData = new FormData();
        formData.append("ad_makers_name", vehicleMaker);
 
-       const dataResponse = await dataSend.dataIUD(formData, "backend/api/vehicleMakersAPI.php");
+       const dataResponse = await dataSend.dataIUD(formData, "api/vehicleMakersAPI.php");
        if (dataResponse.status === 'success') {
               ALG.openToast("Success", "Maker adding success", ALG.getCurrentTime(), "bi-heart", "Success");
               setTimeout(() => {
@@ -470,7 +470,7 @@ const removeMakers = async (makers_id) => {
        const formData = new FormData();
        formData.append('del_maker_id', makers_id);
 
-       const responseMakers = await dataSend.dataIUD(formData, 'backend/api/vehicleMakersAPI.php');
+       const responseMakers = await dataSend.dataIUD(formData, 'api/vehicleMakersAPI.php');
        if (responseMakers.status === 'success') {
               ALG.openToast("Success", "Maker remove success", ALG.getCurrentTime(), "bi-heart", "Success");
               setTimeout(() => {
@@ -493,7 +493,7 @@ const addNames = async (e) => {
        formData.append('ad_vhName', vhName);
        formData.append('ad_vh_maker_id', vhMakerId);
 
-       const responseNames = await dataSend.dataIUD(formData, 'backend/api/vehicleNames.php');
+       const responseNames = await dataSend.dataIUD(formData, 'api/vehicleNames.php');
        if (responseNames.status === 'success') {
               ALG.openToast("Success", "vehicle names adding success", ALG.getCurrentTime(), "bi-heart", "Success");
 
@@ -517,7 +517,7 @@ const removeNames = async (name_id) => {
        const formData = new FormData();
        formData.append('del_name_id', name_id);
 
-       const responseNames = await dataSend.dataIUD(formData, 'backend/api/vehicleNames.php');
+       const responseNames = await dataSend.dataIUD(formData, 'api/vehicleNames.php');
        if (responseNames.status === 'success') {
               ALG.openToast("Success", "Vehicle name remove success", ALG.getCurrentTime(), "bi-heart", "Success");
 
@@ -554,7 +554,7 @@ const addVhModelLine = async (e) => {
        formData.append("ad_model_id", modelSelector);
        formData.append("ad_model_line_id", vhModelLineSelector);
 
-       const modelLineResponse = await dataSend.dataIUD(formData, 'backend/api/vehicleModelModification.php');
+       const modelLineResponse = await dataSend.dataIUD(formData, 'api/vehicleModelModification.php');
 
        if (modelLineResponse.status === 'success') {
               ALG.openToast("Success", "Vehicle model line added success", ALG.getCurrentTime(), "bi-heart", "Success");
@@ -581,7 +581,7 @@ const removeModificationLine = async (mdu_id) => {
        const formData = new FormData();
        formData.append("del_model_line_id", mdu_id);
 
-       const modelLineResponse = await dataSend.dataIUD(formData, 'backend/api/vehicleModelModification.php');
+       const modelLineResponse = await dataSend.dataIUD(formData, 'api/vehicleModelModification.php');
        console.log(modelLineResponse);
        if (modelLineResponse.status === 'success') {
               ALG.openToast("Success", "Vehicle model line delete success", ALG.getCurrentTime(), "bi-heart", "Success");
