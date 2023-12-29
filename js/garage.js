@@ -105,8 +105,10 @@ makersSelector.addEventListener('change', () => {
 vehicleModelNameSelector.addEventListener('change', async () => {
 
      const vehicleNameId = vehicleModelNameSelector.value;
+     console.log(vehicleNameId);
 
      const data = await vehicleDataFetch();
+     console.log(data);
 
      vehicleYearsContainer.innerHTML = "";
      modificationContainer.innerHTML = "";
@@ -115,6 +117,7 @@ vehicleModelNameSelector.addEventListener('change', async () => {
           //vehicleModelData exists and is not undefined
 
           const vehicleModelData = data.vehicleModelData;
+          console.log(vehicleModelData);
 
           if (vehicleModelData.status === 'success') {
 
@@ -126,6 +129,7 @@ vehicleModelNameSelector.addEventListener('change', async () => {
 
                //get a variable
                const result = vehicleModelData.results;
+               console.log(result);
 
                // filtering and mapping 
                const yearId = result.filter((res) => res.vehicle_names_id === vehicleNameId).map((rs2) => rs2.model_year_id);
@@ -150,7 +154,7 @@ vehicleModelNameSelector.addEventListener('change', async () => {
                     });
                }
           } else {
-               console.log(vhModel.error);
+               console.log(vehicleModelData.error);
           }
      } else {
           //vehicleModelData does not exist or is undefined
