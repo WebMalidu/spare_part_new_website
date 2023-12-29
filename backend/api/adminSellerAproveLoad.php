@@ -39,7 +39,7 @@ $selectQuery = "SELECT *
                FROM `user` ur
                JOIN `user_type` ut ON ur.user_type_user_type_id = ut.user_type_id
                JOIN `user_status` us ON ur.user_status_u_status_id=us.u_status_id
-               JOIN `admin` ad ON ur.admin_admin_id=ad.admin_id
+               JOIN `seller_details` ad ON ur.user_id=ad.user_user_id
                WHERE ur.`user_type_user_type_id`=4";
 $result=$database_driver->query($selectQuery);
 

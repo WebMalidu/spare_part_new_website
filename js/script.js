@@ -702,12 +702,77 @@ function shippingDetails() {
         alert("successfully data added");
       } else {
         console.log(response.error);
-        alert("data adding Failes please check input ");
+        alert(response.error);
       }
       console.log(request.responseText);
     }
   };
   request.open("POST", "../backend/api/shippingDetailsAdd.php", true);
+  request.send(form);
+}
+function shippingDetailsUpdate() {
+  var username = document.getElementById("usernameInput").value;
+  var phoneNumber = document.getElementById("phoneNumberInput").value;
+  var postalCode = document.getElementById("postalCodeInput").value;
+  var addressLine1 = document.getElementById("addressLine1Input").value;
+  var addressLine2 = document.getElementById("addressLine2Input").value;
+  var city = document.getElementById("cityInput").value;
+  var district = document.getElementById("districtInput").value;
+  var province = document.getElementById("provinceInput").value;
+
+ 
+  if (
+    username.trim() === '' ||
+    phoneNumber.trim() === '' ||
+    postalCode.trim() === '' ||
+    addressLine1.trim() === '' ||
+    city.trim() === '' ||
+    district === '0' ||  // Assuming '0' is an invalid selection
+    province === '0'     // Assuming '0' is an invalid selection
+  ){
+    alert('Please fill inputs');
+    return;
+  }
+  if(!validatePhoneNumber(phoneNumber)){
+    alert('please enter validate phone number')
+    return
+  }
+  phoneNumber='+94' + phoneNumber.substring(1);
+  console.log(district, province, city);
+
+  const requestDataObject = {
+    username: username,
+    phoneNumber: phoneNumber,
+    postalCode: postalCode,
+    addressLine1: addressLine1,
+    addressLine2: addressLine2,
+    city: city,
+    district: district,
+    province: province,
+  };
+  console.log("deleted");
+  console.log(requestDataObject);
+
+  // store data in a form
+  let form = new FormData();
+  form.append("shippingData", JSON.stringify(requestDataObject));
+
+  // send the data to server
+  let request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState == 4) {
+      // preform an action on response
+      let response = JSON.parse(request.responseText);
+      if (response.status == "success") {
+        alert("successfully data added");
+      } else {
+        console.log(response.error);
+        alert(response.error);
+      }
+      console.log(request.responseText);
+    }
+  };
+  request.open("POST", "../backend/api/shippingDetailsUpdate.php", true);
   request.send(form);
 }
 function validatePhoneNumber(phoneNumber) {
@@ -754,6 +819,10 @@ function loadShippingDetails() {
   request.open("POST", "../backend/api/shippingDetailsLod.php", true);
   request.send();
 }
+
+
+
+
 
 function checkOut() {
   let total = document.getElementById("total").textContent;

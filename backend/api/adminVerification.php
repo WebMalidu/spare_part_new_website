@@ -36,30 +36,11 @@ $result = $queryResult;
 // Fetch the row from the result
 if ($result->num_rows > 0) {
     // The email already exists in the database, show error
-?>
-    <h1 style="text-align: center; color: red;">Email already exists in the database if You Register As a user You have to use Another Email</h1>
-<?php
-    exit;
+ // The email already exists in the database, show error
+ echo "<h1 style='text-align: center; color: red;'>Email already exists in the database. If you register as a user, you have to use another email</h1>";
+ exit; // Ensure to exit after showing the error message
 }
 // Assuming $address, $private_contact, $business_contact, $business_address, $br_number, $business_name contain the respective values needed for insertion.
-
-$insertQuery = "INSERT INTO `admin`(`adresss`,`private_contact`,`busineess_conatact`,`buisness_address`,`br_number`,`buisness_name`) VALUES ('$address','$private_contact','$business_contact','$business_address','$br_number','$business_name')";
-
-$result1 = $db->query($insertQuery);
-
-
-
-
-
-$selectQuery = "SELECT * FROM `admin` ORDER BY admin_id DESC LIMIT 1";
-$result = $db->query($selectQuery);
-
-$row = $result->fetch_assoc();
-
-
-
-
-
 
 
 $passwordEncryptor = StrongPasswordEncryptor::encryptPassword(trim($password));
@@ -69,9 +50,35 @@ $salt = $passwordEncryptor['salt'];
 
 // Assuming $name, $email, $hash, $salt, $sqlDateFormat, $row, and $row['admin_id'] contain the respective values needed for insertion.
 
-$insertQuery = "INSERT INTO `user`(`user_type_user_type_id`,`full_name`,`email`,`password_hash`,`password_salt`,`register_date`,`user_status_u_status_id`,`admin_admin_id`) VALUES (4, '{$name}', '{$email}', '{$hash}', '{$salt}', '{$sqlDateFormat}', 1, {$row['admin_id']})";
+$insertQuery = "INSERT INTO `user`(`user_type_user_type_id`, `full_name`,`last_name`, `email`, `password_hash`, `password_salt`, `register_date`, `user_status_u_status_id`) VALUES (4, '{$name}' ,'{$name}', '{$email}', '{$hash}', '{$salt}', '{$sqlDateFormat}', 1)";
 
 $result1 = $db->query($insertQuery);
+
+$selectQuery = "SELECT * FROM `user` ORDER BY user_id DESC LIMIT 1";
+$result = $db->query($selectQuery);
+
+$row = $result->fetch_assoc();
+
+
+
+
+
+$insertQuery = "INSERT INTO `seller_details`(`adresss`,`private_contact`,`busineess_conatact`,`buisness_address`,`br_number`,`buisness_name`,`user_user_id`) VALUES ('$address','$private_contact','$business_contact','$business_address','$br_number','$business_name','" . $row['user_id'] . "')";
+
+$result1 = $db->query($insertQuery);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

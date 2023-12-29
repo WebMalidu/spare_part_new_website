@@ -59,13 +59,22 @@ $queryResult = $database_driver->query($searchQuery);
 $result = $queryResult;
 
 // Fetch the row from the result
-if ($result->num_rows > 0) {
+if ($result->num_rows < 0) {
     // The email already exists in the database, show error
-$responseObject->error="Already added data if you wnat to update this data please click updatae button";
+$responseObject->error="Data not added yet Please Click save button to add";
 response_sender::sendJson($responseObject);
 }
 
-$insertQuery = "INSERT INTO `shipping_details`(`address_line_1`,`address_line_2`,`mobile`,`postal_code`,`user_name`,`user_user_id`,`district_district_id`,`city`,`province_province_id`) VALUES ('$addressLine1','$addressLine2','$phoneNumber','$postalCode','$username',{$userData['user_id']},'$district','$city',$province)";
+$insertQuery = "UPDATE `shipping_details` SET 
+`address_line_1` = '$addressLine1',
+`address_line_2` = '$addressLine2',
+`mobile` = '$phoneNumber',
+`postal_code` = '$postalCode',
+`user_name` = '$username',
+`district_district_id` = '$district',
+`city` = '$city',
+`province_province_id` = '$province'
+WHERE user_user_id = '" . $userData['user_id'] . "'";
 
 $result = $database_driver->query($insertQuery);
 

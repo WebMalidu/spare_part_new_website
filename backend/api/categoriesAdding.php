@@ -43,7 +43,7 @@ $category_type = $_POST['category'];
 //data validation sending object
 $dataToValidate = [
      'string_or_null' => [
-          (object)['datakey' => 'category', 'value' => $category_type],  
+          (object)['datakey' => 'category', 'value' => $category_type],
      ],
 ];
 
@@ -51,19 +51,19 @@ $dataToValidate = [
 $validator = new data_validator($dataToValidate);
 $errors = $validator->validate();
 foreach ($errors as $key => $value) {
-    if ($value) {
-        $responseObject->error = "Invalid Input for : " . $key;
-        response_sender::sendJson($responseObject);
-    }
+     if ($value) {
+          $responseObject->error = "Invalid Input for : " . $key;
+          response_sender::sendJson($responseObject);
+     }
 }
 
 //database object
 $db = new database_driver();
-$searchQuery = "SELECT * FROM `category` WHERE `category`=?";
-$resultSet = $db->execute_query($searchQuery, 's', array($category_type));
+$searchQuery = "SELECT * FROM `category` WHERE `category`='" . $category_type . "'";
+$resultSet = $db->query($searchQuery);
 
 //this category already have
-if ($resultSet['result']->num_rows > 0) {
+if ($resultSet->num_rows > 0) {
      $responseObject->error = 'This category already have';
      response_sender::sendJson($responseObject);
 }
@@ -86,8 +86,8 @@ if ($_FILES['category_image']['error'] === 0) {
 
           if (move_uploaded_file($_FILES['category_image']['tmp_name'], $savePath . $newImageName)) {
                // data insert
-               $insertCategory = "INSERT INTO `category` (`category_id`,`category`) VALUES (?,?)";
-               $db->execute_query($insertCategory, 'ss', array($categoryId, $category_type));
+               $insertCategory = "INSERT INTO `category` (`category_id`,`category`) VALUES ('" . $categoryId . "','" . $category_type . "')";
+               $db->query($insertCategory);
 
                $responseObject->status = 'success';
                response_sender::sendJson($responseObject);

@@ -10,9 +10,7 @@
 </head>
 
 <body>
-       <button onclick="user();">
-              SEND
-       </button>
+       
 </body>
 
 </html>

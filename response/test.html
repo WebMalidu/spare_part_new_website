@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirect with POST Request</title>
+</head>
+<body>
+  <script>
+    // Function to redirect with POST request
+    function redirectWithPost(url, data) {
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = url;
+
+      // Create hidden input fields for each key-value pair in the data object
+      for (const key in data) {
+        if (data.hasOwnProperty(key)) {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = key;
+          input.value = data[key];
+          form.appendChild(input);
+        }
+      }
+
+      // Append the form to the body and submit it
+      document.body.appendChild(form);
+      form.submit();
+    }
+
+    // Usage: Call the redirectWithPost function with your desired URL and data
+    const postData = {
+      transaction_id: 'E2D51187B9A137DB7E867',
+      pl_ref_no: '',
+      status: 1,
+      status_message: 'SUCCESS'
+    };
+
+    redirectWithPost('http://localhost:9001/response/response.php', postData);
+  </script>
+</body>
+</html>

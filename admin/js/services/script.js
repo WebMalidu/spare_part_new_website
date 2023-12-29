@@ -314,6 +314,97 @@ const removeCategoryItem = async (category_item_id) => {
 };
 
 
+//category image preview
+function categoryImageChange(event) {
+
+       const imgPreview = document.getElementById('categoryImagePreviewContainer');
+       imgPreview.innerHTML = "";
+
+       const files = event.target.files;
+
+       for (const key in files) {
+
+              if (Object.hasOwnProperty.call(files, key)) {
+                     let read = new FileReader();
+
+                     read.onload = (e) => {
+                            let img = document.createElement('img');
+                            const dataURL = e.target.result;
+                            img.classList.add('preview-thumb', 'w-50', 'h-50', 'rounded', 'p-3');
+                            img.src = dataURL;
+                            imgPreview.appendChild(img);
+                     }
+
+                     read.readAsDataURL(files[key]);
+              }
+
+
+       }
+
+}
+
+//category Adding
+async function addCategory(e) {
+
+       e.target.disabled = true;
+
+       const categoryName = document.getElementById('categoryName').value;
+       const categoryImageInput = document.getElementById('categoryImageInput').files[0];
+
+       if (document.getElementById('categoryName').value === "") {
+              ALG.openToast("Warning", "Please enter the category name", ALG.getCurrentTime(), "bi-heart", "Error");
+              e.target.disabled = false;
+              return
+       }
+
+       if (categoryImageInput === undefined || categoryImageInput === null) {
+              ALG.openToast("Warning", "Please enter the category image", ALG.getCurrentTime(), "bi-heart", "Error");
+              e.target.disabled = false;
+              return
+       }
+
+       const formData = new FormData();
+       formData.append('category', categoryName);
+       formData.append('category_image', categoryImageInput);
+
+       const categoryResponse = await dataSend.dataIUD(formData, 'backend/api/categoriesAdding.php');
+
+       if (categoryResponse.status === 'success') {
+              ALG.openToast("Success", "Vehicle category  adding success", ALG.getCurrentTime(), "bi-heart", "Success");
+              // clearCatalogInput();
+              setTimeout(() => {
+                     window.location.reload();
+              }, 1000);
+       } else {
+              ALG.openToast("Error", categoryResponse.error, ALG.getCurrentTime(), "bi-heart", "Error");
+       }
+
+       e.target.disabled = false;
+}
+
+//category delete
+async function openVhCategoryDeleteModel(category_id) {
+       ALG.openModel("Product Category Remove Model", "Do you want to delete this product catalog ?", `<button  class="alg-btn-pill" data-bs-dismiss="modal" aria-label="Close" onclick="removeCategory('${category_id}')">Yes</button>`);
+}
+
+const removeCategory = async (category_id) => {
+       const formData = new FormData();
+       formData.append("category_id", category_id);
+
+       const categoryRes = await dataSend.dataIUD(formData, 'backend/api/categoryDelete.php');
+
+       if (categoryRes.status === 'success') {
+              ALG.openToast("Success", "Product category delete success", ALG.getCurrentTime(), "bi-heart", "Success");
+              setTimeout(() => {
+                     window.location.reload();
+              }, 1000);
+       } else {
+              ALG.openToast("Error", categoryRes.error, ALG.getCurrentTime(), "bi-heart", "Error");
+       }
+
+};
+
+
 
 //delete product
 async function openVhPartDeleteModel(parts_id) {
@@ -457,7 +548,7 @@ const addVhModelLine = async (e) => {
               return
        }
 
-      
+
 
        const formData = new FormData();
        formData.append("ad_model_id", modelSelector);

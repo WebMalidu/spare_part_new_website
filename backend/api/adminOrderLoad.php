@@ -18,7 +18,6 @@ if (!RequestHandler::isPostMethod()) {
 $userCheckSession = new SessionManager();
 
 
-
 // Get user data
 $userData = $userCheckSession->getUserData();
 
