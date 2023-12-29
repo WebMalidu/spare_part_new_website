@@ -39,9 +39,6 @@ $result = $database_driver->query($query);
 // Fetch the row from the result
 $row = $result->fetch_assoc();
 
-if ($result->num_rows > 0) {
-} else {
-
 if ($result->num_rows < 1) {
     // no row data
     $responseObject->error = "You are not admin please Sign Up";
