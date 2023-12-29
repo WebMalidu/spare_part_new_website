@@ -509,6 +509,33 @@ const loadCategory = async () => {
   }
 };
 
+//load vehicle category for table
+const loadCategoryTable = async () => {
+  const categoryRes = await dataLoader.LoadVehicleCategory();
+  const categoryArr = [];
+
+  if (categoryRes.status === 'success') {
+    categoryRes.results.map((res) => {
+      const editButton = `<button class="fw-bolder btn alg-btn-pill" onclick="openVhCategoryEditModel('${res.category_id}')">Edit</button>`;
+      const deleteButton = `<button class="fw-bolder btn alg-btn-pill ms-2" onclick="openVhCategoryDeleteModel('${res.category_id}')">Remove</button>`;
+      const img = `<img src="${res.category_image}" class="alg-list-cell-image"  />`;
+
+      categoryArr.push({
+
+        "Category Id": res.category_id,
+        "Category Name": res.category_type,
+        "image": img,
+        "Edit": [editButton, deleteButton],
+
+      });
+
+    });
+
+    return categoryArr;
+  }
+
+};
+
 //load vehicle category items (catalogs)
 const loadCategoryItems = async () => {
   const categoryItemRes = await dataLoader.LoadVehicleCategoryItem();
@@ -610,7 +637,7 @@ const toggleOrderSection = async (orderSections) => {
     )
     : null;
 
-    orderSections === "orderViewSeller"
+  orderSections === "orderViewSeller"
     ? ALG.addTableToContainer(
       "orderViewSellerSection",
       orderLoadSeller,
@@ -733,6 +760,10 @@ const toggleProductSection = async (productSection) => {
   if (productSection === "catalogView") {
     loadCategory();
     ALG.addTableToContainer("productCatalogTable", loadCategoryItems, [200, 230, 230, 230, 220]);
+  }
+
+  if (productSection === "categoryView") {
+    ALG.addTableToContainer("productCategoryTable", loadCategoryTable, [200, 230, 230, 230, 220]);
   }
 
 
