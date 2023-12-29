@@ -32,21 +32,17 @@ $password = $_POST["password"];
 
 //gather data from database
 $database_driver = new database_driver();
-$query = "SELECT * FROM `user` WHERE email =  '" . $email . "'";
+$query = "SELECT * FROM `user` WHERE `email` =  '" . $email . "'";
 $result = $database_driver->query($query);
-
-
-// Fetch the row from the result
-$row = $result->fetch_assoc();
 
 if ($result->num_rows < 1) {
     // no row data
     $responseObject->error = "You are not admin please Sign Up";
     response_sender::sendJson($responseObject);
 }
+
 // Fetch the row from the result
 $row = $result->fetch_assoc();
-
 
 // Extract the data values
 $userEmail = $row['email'];
